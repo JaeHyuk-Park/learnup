@@ -40,10 +40,22 @@ $(function()
     $(".link-box .box-0-1").children().hover(function () { 
         var hover_in = "#"+$(this).closest('div').attr('id');
 
-
-        $(this).css("scale","calc(1.1)")
-        $(this).css("transition","all ease 1s")
-        $(this).css("transform","translate(0px, -20px)")
+		    $(".box-0-1").hover(function () { 
+				
+			        $(this).css("scale","calc(1.1)")
+			        $(this).css("transition","all ease 1s")
+			        $(this).css("transform","translate(0px, -20px)")
+		           
+		            
+		        }, function() {
+		            $(this).css("scale","calc(1)","z-index","1")
+		            $(this).css("transform","translate(0px, 0px)")
+		            $(this).css("transition","all ease 1s")
+		 
+		        }
+		  
+		    );
+       
 
         $(this).children(".control_next").show(function () {
             var hover_in = "#"+$(this).closest('div').attr('id');
@@ -62,9 +74,7 @@ $(function()
 
             
         }, function() {
-            $(this).css("scale","calc(1)","z-index","1")
-            $(this).css("transform","translate(0px, 0px)")
-            $(this).css("transition","all ease 1s")
+          
             $(this).children(".control_next").hide();
             $(this).children(".control_prev").hide();
            
@@ -73,6 +83,10 @@ $(function()
     );
  
 });
+
+
+
+ 
 
 ///제어
 

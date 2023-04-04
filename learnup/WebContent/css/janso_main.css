@@ -2,7 +2,7 @@ html {
     line-height: normal;
     margin-left: 0;
     margin-right: 0;
-    background-color: #e5e8e9;
+  
 }
 body {
     margin : 0;
@@ -17,7 +17,7 @@ main
 /*광고1  중간몸통 이미지라인*/
 .image-section
 {
-    background-color: #e5e8e9;
+  
     height:400px;
 }
 
@@ -260,7 +260,7 @@ text-align: center;
 }
 .box-0-1 img{
     border-radius: 5px;
-    border-style: solid;
+    border-style: none;
     border-width: 0.5px;
 }
 

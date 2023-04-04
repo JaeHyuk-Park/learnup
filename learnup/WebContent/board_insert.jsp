@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>구매자게시판</title>
+	<title>공지사항</title>
 	<link rel="stylesheet" type="text/css" href="css/board_deatil.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -29,18 +29,19 @@ $(document).ready(function() {
         }
     });
 });
+
 </script>
 <body>
  <body>
    	 <%@include file ="./header.jsp" %>
    	<h1 style="text-align:center; margin-bottom: 5px; margin-top: 30px;" class="con">구매Q/A 문의 작성</h1>
-  
-	<form action="board_insert2.jsp" method="get">
+	<form action="board_insert2.jsp " method="post" enctype="multipart/form-data">
+	
     <div id="check_box">
 		<div class="mini_box1""><strong>게시글 공개/비공개</strong></div>
         <div class="mini_box">
-	         <input type="radio" name="check_yn" id="email_yn1" alt="이메일 공개" value="1" checked=""><label for="email_yn1">공개</label>
-	         <input type="radio" name="check_yn" id="email_yn2" alt="이메일 비공개" value="0"><label for="email_yn2">비공개</label>       
+	         <input type="radio" name="email_yn1" id="email_yn1" alt="이메일 공개" value="1" checked=""><label for="email_yn1">공개</label>
+	         <input type="radio" name="email_yn1" id="email_yn2" alt="이메일 비공개" value="0"><label for="email_yn2">비공개</label>       
     	</div>    
     </div>  
                   
@@ -63,11 +64,20 @@ $(document).ready(function() {
 	             </tr>
 	       </tbody>
 	       </table>
-	</section>
+	</section>    
+	<div class="ass">
+	 	<input type="file" name="file1" id = "file1" style="border:none; multiple">
+	 </div>
 	<div class="ass">
         <input type="button" id="moc" value="목록" style="" onclick="location.href= 'board_select.jsp?id=1'" >
-        <input type="submit" id="submi" value="문의 작성" style=""> 
+        <input type="submit" id="submi" value="문의 작성" style="" "> 
     </div>
+    </form>
+    
+    	
+
+ 
+ 
     <%@include file ="./footer.jsp" %>
 </body>
 </html>

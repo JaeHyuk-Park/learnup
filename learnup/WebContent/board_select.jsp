@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>구매자게시판리스트</title>
+	<title>구매자게시판</title>
 	<link rel="stylesheet" type="text/css" href="css/board_select.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="js/notice.js"></script>
@@ -33,6 +33,8 @@
      	{
      		list  = co.boardselect(); //기본전체출력
      		i=list.size();
+     		
+     		
      	}
      	else
      	{
@@ -40,9 +42,9 @@
        	 	 i=list.size();
      	}
      %>
-     	<jsp:include page ="./board_baraction.jsp"/><br><br>
-		<h2 style="font-size: 30px; margin-bottom: 20px; margin-top: 30px;">구매자 Q/A 게시판</h2>
+		<h2 style="text-align: center; font-size: 30px; margin-bottom: 20px; margin-top: 30px;">구매자 Q/A 게시판</h2>
 		
+		 <jsp:include page ="./board_baraction.jsp"/>	 
            <div id ="box" style="flex-basis: 675px; height: 60px; float: right;  ">
                
                 <div  action="board_select" class="search_form"style="float :left;">
@@ -50,7 +52,7 @@
 					<input class="searchTerm" placeholder="검색하세여"  name = "searchs" /><input class="searchButton" type="submit" />
 				  </form>
                 </div>     
-           </div><br>
+           </div>
            
 		<table cellspacing="0" border="1" summary="게시판의 글제목 리스트" class="tbl_type" id="myTable">
 		<caption>게시판 리스트</caption>
@@ -67,8 +69,38 @@
 		<th scope="col">작성날짜</th> 
 		</tr>
 		</thead>	
-		<%if(email != null){ %>
+		
+		<%if(email != null ){ %>
 			<% 	for(Janso_Boards vo : list) { %>
+			<%if(email.equals("admin")){ %>
+			
+			
+				<tbody style ="height:40px">
+		<tr>
+		<td class="frm"></td>
+		<td class="num"><%= i%></td>
+		<td class="title">
+
+	
+			<a href="board_detail.jsp?id=<%=vo.getBoard_id()%>">
+				<%
+                	out.println(vo.getTitle()); 
+				 %>
+		 	</a>	
+
+		</td>
+		<td>
+		
+			<% out.println(vo.getEmail()); %>
+		
+		</td>
+		<td class="date">
+			<% out.println(vo.getDate().substring(0, 11) ); %>
+		</td>
+		</tr>
+		</tbody>
+			<%i--; %>
+			<%}else {%>
 			<tbody style ="height:40px">
 			<tr>
 			<td class="frm"></td>
@@ -120,7 +152,10 @@
 		</tr>
 		</tbody>
 		<%i--; %>
-	    <% } %>   
+	    <% } %>
+	    
+	   <% } %> 
+	       
 	    <% }else{ %>
 	    <% 	for(Janso_Boards vo : list) { %>
 		<tbody style ="height:40px">
@@ -162,8 +197,6 @@
 		<%i--; %>
 	    <% } %>
 	     <% } %>
-	    
-  
 		</table>
 <!-- //UI Object -->            
 </section>

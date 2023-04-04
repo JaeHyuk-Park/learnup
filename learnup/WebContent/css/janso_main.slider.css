@@ -3,9 +3,8 @@
     position: relative;
     overflow: hidden;
     border-radius: 4px;
-    border-style: solid;
     border-width: 0.5px;
-    font-size: 10px;
+    
   }
   
   .slider ul {
@@ -22,16 +21,22 @@
     float: left;
     margin: 0;
     padding: 0;
-    width: 280px;
+    width: 290px;
     height: 150px;
     background: #ccc;
     z-index: 1;
   }
+  
+   .slider img
+   {
+   	  border-style:none;
+   }
 
   .box-0-2 {
     font-size: 10px;
     border-bottom: 0.1px #607D8B;
     border-bottom-style:solid;
+    width: 290px;
   }
 
   .slider
@@ -88,45 +93,18 @@
   
 
   /* 찜하기 */
-  a{
-    text-decoration:none; color:inherit; cursor: pointer;
-  }
-   .right_area .icon{
-      position: absolute;
-      left: 240px;
-      right: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: calc(80vw * (45 / 1920));
-      height: calc(80vw * (45 / 1920));
-  
-      border-radius: 50%;
-      border: solid 2px #eaeaea;
-      
-      /* background-color: #fff; */
-      z-index: 50;
-  }
-  
-  .icon.heart img{
-      width: calc(80vw * (24 / 1920));
-      height: calc(80vw * (24 / 1920));
-      border: none;
-  }
-  
-  .icon.heart.fas{
-    color:red;
-    
-  }
-  .heart{
-      transform-origin: center;
-  }
-  .heart.active img{
-      animation: animateHeart .3s linear forwards;
-  }
-  
-  @keyframes animateHeart{
-      0%{transform:scale(.2);}
-      40%{transform:scale(1.2);}
-      100%{transform:scale(1);}
-    }
+ .icon{
+	position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+
+}
+.icon.heart img{
+    width: 40px;
+    height: 40px; 
+    position: relative;
+    left: 241px;
+    top: 5px;
+}

@@ -3,7 +3,15 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
+<%@ page import= "java.io.File"%>
 <%@page import="java.util.*" %>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.io.FileInputStream"%>
+<%@page import="java.awt.Image"%>
+<%@page import="javax.imageio.ImageIO"%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +43,9 @@
 	<%  
 		Janso_Boards vo = co.boardselect2(board_id);
 	%>
-	<%if(email != null){ %>>
+	
+	
+	<%if(email != null){ %>
 	    <%if(email.equals(vo.getEmail())){%>
 		<script>
 	        $(function()
@@ -83,11 +93,26 @@
 							if(idx > 0) {
 							   strValue = sb.replace(1, idx, "***") + "";        
 							  }
+							
+							//email.equals(vo.getEmail())
 						%>
+						
+						
 						<%
 							if(email != null)
 							{
-								out.println(vo.getEmail());
+								if(email.equals(vo.getEmail()))
+								{
+									out.println(vo.getEmail());
+								}
+								else if(email.equals("admin")){
+									out.println(vo.getEmail());
+								}
+								else
+								{
+									out.println(strValue);
+								}
+								
 							}
 							else
 							{
@@ -107,6 +132,59 @@
                         </div>
                     </td>
 	            </tr>
+	            <%if(vo.getFileName() != null) { %>
+	               <tr class="article-body">
+                    <td colspan="5">
+                   	첨부파일:  <% 
+								try
+								{
+									String directory = application.getRealPath("/upload");
+									String files[] = new File(directory).list();
+									
+								
+									String directorys = this.getServletContext().getRealPath("/upload");
+									FileInputStream in;
+									File sourceimage; 
+									
+									for(int i = 0; i < files.length; i++)
+									{
+										
+										
+										if(vo.getFileName().equals(files[i]))
+										{
+											in = new FileInputStream(files[i]); //이미지 파일 불러오기
+										
+										out.write("<a href=\"" + request.getContextPath() + "/downloadAction?file="+
+										URLEncoder.encode(files[i],"UTF-8") +"\" + style = 'text-decoration-line: underline ; color: blue'   >" + files[i] + "</a><br>");
+								%>		
+										<%
+											String img = directorys +'\\'+files[i];
+											String imgs = img.replace('\\', '/');
+									
+											sourceimage = new File("\" "+imgs+"\" ");
+											
+											out.println(sourceimage);
+											
+									
+										%>
+										<img src="<%out.println(sourceimage); %>" alt="" width="50px"; height="50px">
+
+								<% 		
+								
+						
+										}
+							
+										
+										
+									}
+								}catch(Exception e)
+								{
+									
+								}							
+								%>
+                    </td>
+	            </tr>
+	            <%} %>
             </tbody>
         </table>
 
@@ -121,7 +199,43 @@
             <input type="button" id="up" value="수정" style="" onclick="location.href= 'board_update.jsp?id=<%=vo.getBoard_id()%>'"  >
         </div>
     </div>
-    	</jsp:useBean>
+    
+
+    	
+<% 
+if(email != null)
+{
+	if(email.equals("admin")){ %>
+  <div style="height: 50px"></div>
+   <h1 style="text-align:center; margin-bottom: 5px; margin-top: 30px;" class="con"> 관리자</h1>
+  <section class="article-detail table-common con row"> 	
+        <table class="cell" border="1">
+            <colgroup>
+                <col width="100px">
+            </colgroup>
+            <tbody>
+           <form action="board_sendmail.jsp" method="get">
+             <!-- //의미없는 파일 -->
+            <input type=hidden name=mails value= "<%=vo.getEmail()%>" required>
+             	<th>제목 <span style="color: red;">*</span> </th>
+                <tr class="article-title">
+                    <td colspan="3"><input type=text name=title style="width: 100%; height: 32px; border: 2px solid #8041D9; " size=50  required></td>
+                </tr>
+                 <th>게시글 <span style="color: red;  ">*</span> <div id="test_cnt" style="float:right;">(0 / 100)</div></th>
+                <tr class="article-body">
+                    <td colspan="4"><textarea id="write" name="write" style="width: 100%; height: 500px; border: 2px solid #8041D9; resize : none; font-size: 1.0em;" required></textarea> </td>
+                    
+	             </tr>
+	       </tbody>
+	       </table>
+	     <div class="ass">
+        <input type="submit" id="submi" value="문의 작성" style=""> 
+    	</div>
+    	</form>
+	</section>  	    
+   <% }} %>
+  </jsp:useBean>  	
+    	
     
 <%@include file ="./footer.jsp" %>
 </body>
