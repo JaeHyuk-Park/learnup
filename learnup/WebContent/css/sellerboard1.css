@@ -1,0 +1,141 @@
+*{font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*모든 텍스트타입에 폰트사이즈*/
+input[type="text"]{
+	font-size: 8pt;
+}
+
+/*섹션 영역*/
+.section_sec{
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+section{
+	width: 1000px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.typo{
+	width:100%;
+	height:100%;
+	margin-top: 60px;
+	margin-bottom:300px;
+}
+
+.category{
+	width: 105px;
+	height: 40px;
+	font-size: 15pt;
+	margin-top : 80px;
+	font-weight : bold;
+	border-bottom:solid 4px #3F0099;
+}
+
+textarea {
+    resize: none;
+    width: calc(100% - (2rem + 2px));
+    padding: 1rem 1rem;
+    height: 350px;
+    border: 1px solid rgb(139, 133, 133);
+}
+
+body {
+    margin: 0;
+    line-height: 1rem;
+    color: #000000;
+    letter-spacing: 0.1px;
+    word-break: keep-all;
+  }
+
+
+input, select, textarea {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.co_title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'KoPubWorldBatang';
+  }
+
+.typo form[name='typoform'] {
+    padding: min(5%, 60px);
+}
+
+.typo select[name=write_category] {
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+.typo input[name='title'] {
+    padding: 1rem 10px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: calc(100% - 20px);
+    font-size:13pt;
+}
+.typo textarea[name='title_content'] {
+    margin-bottom: 10px;
+}
+
+.typo .filewraper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+form[name='typoform'] input[type=file] {
+  display: none;
+}
+
+form[name='typoform'] .filewraper label {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #f9f9f9;
+  background-color: linen;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 2.5;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all .3s;
+}
+/*紐⑸줉�쑝濡� 踰꾪듉 �쁺�뿭*/
+.typo_submit input[name="listbtn"] {
+  	width:100px;
+	height:35px;
+	border-radius:5px;
+	border:solid 1px #8041D9;
+	background-color:#8041D9;
+	color:white;
+	margin-top:30px;
+	margin-right:10px;
+	float:right;
+}
+.typo_submit input[name="listbtn"]:hover {
+    background-color: #3F0099;
+}
+
+/*�벑濡앺븯湲� 踰꾪듉 �쁺�뿭*/
+.typo_submit input[name="content_regist"] {
+  	width:100px;
+	height:35px;
+	border-radius:5px;
+	border:solid 1px #8041D9;
+	background-color:#8041D9;
+	color:white;
+	margin-top:30px;
+	float:right;
+}
+.typo_submit input[name="content_regist"]:hover {
+    background-color: #3F0099;
+}

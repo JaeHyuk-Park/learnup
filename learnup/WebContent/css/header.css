@@ -1,0 +1,114 @@
+*{font-family: 'Noto Sans KR', sans-serif;}
+
+/*�뿤�뜑 �쁺�뿭*/
+header{
+	width: 1280px;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*理쒖긽�떒 寃��깋李� �쁺�뿭*/
+#search input[type="text"]:focus {
+    width: 300px;
+    height: 30px;
+    background-position: 320px;
+}
+#search input[type="text"]{
+	background: url(../image/search.png) no-repeat 200px center;
+	background-size: 25px 25px ;
+	border: solid 1px #BDBDBD;
+  	font: bold 12px;
+  	color: black;
+  	font-weight: bold;
+  	width: 180px;
+  	height: 30px;
+  	padding: 6px 15px 6px 45px;
+  	border-radius: 20px;
+  	text-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+  	box-shadow: 0 0px 0px rgba(0, 0, 0, 0) inset;
+  	transition: all 0.7s ease 0s;
+}
+
+/*諛곕꼫 �븞 寃��깋李� �쁺�뿭*/
+#search2 input{
+	color:white;
+	font-size: 13pt;
+	padding-left: 10px;
+	outline: none;
+}
+#search2 input::placeholder {
+  color: white;
+}
+
+/*�뿤�뜑 硫붾돱 �쁺�뿭*/
+.top_menu{
+	height:40px;
+	float: left;
+	margin-left:50px;
+	margin-top: 25px;
+}
+#tm1{
+	height: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+#tm2{
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+#tm3{
+	height: 32px;
+	text-align: center;
+	font-weight: bold;
+}
+#tm4{
+	height: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.top_menu div:after {/*after 媛��긽�슂�냼*/
+   display:block;/*a�슂�냼瑜� 釉붾줉 �슂�냼�씪怨� �꽑�뼵*/
+   height: 8px;							/*移댄뀒怨좊━ 硫붾돱 諛묒쨪�쓽 �겕湲곕�� �룞�씪�븯寃� 二쇨린 �쐞�빐 width �꽕�젙*/
+              	/*�샊�떆 a�슂�냼 �겕湲곕쭔�겮 �깮湲곌만 諛붾��떎硫� width �궘�젣*/
+   content: '';/*comtent�븞�� 諛묒쨪 �뵒�옄�씤�쓣 �쐞�빐 鍮꾩썙�몢�꽭�슂.*/
+   border-bottom: solid 3px purple;
+   
+   transform: scaleX(0);/*�겕湲곕�� 0�쑝濡� 以뚯쑝濡쒖뜥 �룊�긽�떆�뿏 諛묒쨪 �뾾�쓬*/
+   transition: 0.5s; /*蹂��삎 諛⑹떇*/
+}
+.top_menu div:hover:after {
+  transform: scaleX(1);
+}
+
+#tm5{
+	width: 70px;
+	height: 25px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	font-weight: bold;
+}
+#tm6{
+	width: 70px;
+	height: 25px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	font-weight: bold;
+}
+#tm7{
+	width: 80px;
+	height: 25px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	font-weight: bold;
+}
+a{
+	color: black;
+	text-decoration: none;
+}

@@ -1,0 +1,380 @@
+Create database learnup;
+
+use learnup;
+
+CREATE TABLE `information` (
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `nickname` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `birthday` date NOT NULL,
+  `address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `job` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `access1` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `access2` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `profile_image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `introduce` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `cash` (
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `state` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
+  `cash` int(11) NOT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  KEY `3154ad` (`email`),
+  CONSTRAINT `3154ad` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `infodelete` (
+  `delete_reason` int(11) NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  KEY `email` (`email`),
+  CONSTRAINT `email` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `withdraw` (
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `bank` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `account` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `deposit_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `withdraw_money` int(11) NOT NULL,
+  KEY `a143ad` (`email`),
+  CONSTRAINT `a143ad` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `sellerboard` (
+  `board_num` int(11) NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `note` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+  `sellerboard_file` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `sellerboard_re_ref` int(11) NOT NULL,
+  `sellerboard_re_lev` int(11) NOT NULL,
+  `sellerboard_re_seq` int(11) NOT NULL,
+  `sellerboard_readcount` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`board_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `seller_create` (
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_number` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  KEY `afafzxvc` (`email`),
+  CONSTRAINT `afafzxvc` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `room_product_registration` (
+  `room_number` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `room_title` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `room_categories` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `room_area` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `facility_categories` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `room_address` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `min_reservationtime` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `max_reservationtime` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `max_personnel` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `open_time` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `close_time` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `holiday` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `room_price` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `personnel_price` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `room_introduction` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `room_precautions` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `room_refundpolicy` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `main_img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sub_img1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sub_img2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sub_img3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sub_img4` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sub_img5` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`room_number`),
+  KEY `em` (`email`),
+  CONSTRAINT `em` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+CREATE TABLE `room_review` (
+  `room_number` int(11) NOT NULL,
+  `nickname` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `review_write` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `review_Evaluation` double NOT NULL,
+  `review_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `review_re_ref` int(11) NOT NULL,
+  `review_re_lev` int(11) NOT NULL,
+  `review_re_seq` int(11) NOT NULL,
+  KEY `rnasd_idx` (`room_number`),
+  CONSTRAINT `rnasd` FOREIGN KEY (`room_number`) REFERENCES `room_product_registration` (`room_number`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `room_love` (
+  `room_number` int(11) NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  KEY `fdsaffq_idx` (`room_number`),
+  KEY `eacsdzcad` (`email`),
+  CONSTRAINT `eacsdzcad` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fdsaffq` FOREIGN KEY (`room_number`) REFERENCES `room_product_registration` (`room_number`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `room_business_registration` (
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `business_license` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `business_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `business_phonenumber` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`business_license`),
+  KEY `ma` (`email`),
+  CONSTRAINT `ma` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+CREATE TABLE `product` (
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `product_num` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `category` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `keyword` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descript` text COLLATE utf8_unicode_ci,
+  `service_text` text COLLATE utf8_unicode_ci,
+  `recruit` text COLLATE utf8_unicode_ci,
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `product_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `image_1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_5` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_6` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_7` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_8` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_9` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`product_num`),
+  KEY `asdsad` (`email`),
+  CONSTRAINT `asdsad` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `prod_qna` (
+  `product_num` int(11) NOT NULL,
+  `qna_num` int(11) DEFAULT NULL,
+  `qna_title` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `qna_answer` text COLLATE utf8_unicode_ci,
+  KEY `prod_idx` (`product_num`),
+  CONSTRAINT `prod` FOREIGN KEY (`product_num`) REFERENCES `product` (`product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `order` (
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `product_num` int(11) NOT NULL,
+  `order_num` int(11) NOT NULL AUTO_INCREMENT,
+  `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `order_money` int(11) NOT NULL,
+  `buy_way` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`order_num`),
+  KEY `aqzxc_idx` (`product_num`),
+  KEY `asdasqf` (`email`),
+  CONSTRAINT `aqzxc` FOREIGN KEY (`product_num`) REFERENCES `product` (`product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `asdasqf` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `option` (
+  `product_num` int(11) NOT NULL,
+  `op_num` int(11) DEFAULT NULL,
+  `op_title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `op_addnum` int(11) DEFAULT NULL,
+  `op_date` int(11) DEFAULT NULL,
+  `op_price` int(11) DEFAULT NULL,
+  KEY `pn_idx` (`product_num`),
+  CONSTRAINT `prn` FOREIGN KEY (`product_num`) REFERENCES `product` (`product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+CREATE TABLE `offseller` (
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `offseller_insta` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `offseller_blog` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `offseller_youtube` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `offseller_history` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `offseller_image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`email`),
+  CONSTRAINT `asdzxc` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+CREATE TABLE `offline_product` (
+  `off_product_num` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `offlineclass_category` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `entry` int(11) NOT NULL,
+  `offclass_count` int(11) NOT NULL,
+  `offclass_title` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `cover_image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `offseller_notice` text COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_exp1` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_exp2` text COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_exp3` text COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_exp3_image1` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_notice` text COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_exp4` text COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_exp4_image1` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_tag` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_url` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `offclass_message` text COLLATE utf8_unicode_ci NOT NULL,
+  `offclass_price` int(11) NOT NULL,
+  `offclass_time` int(11) NOT NULL,
+  PRIMARY KEY (`off_product_num`),
+  KEY `asdllfacz` (`email`),
+  CONSTRAINT `asdllfacz` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `off_like` (
+  `off_product_num` int(11) NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  KEY `asfasfsafzczxc_idx` (`off_product_num`),
+  KEY `tsagvxzqqfc` (`email`),
+  CONSTRAINT `asfasfsafzczxc` FOREIGN KEY (`off_product_num`) REFERENCES `offline_product` (`off_product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `tsagvxzqqfc` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `notice` (
+  `noticenum` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `nickname` varchar(16) NOT NULL,
+  `text` text NOT NULL,
+  `createdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `file` varchar(100) DEFAULT NULL,
+  `notice_readcount` int(11) DEFAULT NULL,
+  PRIMARY KEY (`noticenum`)
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `mypage_buy` (
+  `room_number` int(11) NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `my_date` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `my_time` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `my_person` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `my_sell` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  KEY `rn_idx` (`room_number`),
+  KEY `easdzxc` (`email`),
+  CONSTRAINT `easdzxc` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `rn` FOREIGN KEY (`room_number`) REFERENCES `room_product_registration` (`room_number`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+CREATE TABLE `like` (
+  `product_num` int(11) NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  KEY `DADzxc` (`email`),
+  KEY `asdsa_idx` (`product_num`),
+  CONSTRAINT `DADzxc` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `asdsa` FOREIGN KEY (`product_num`) REFERENCES `product` (`product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+CREATE TABLE `boards` (
+  `board_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `writes` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `open_check` int(11) NOT NULL,
+  PRIMARY KEY (`board_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `class_schedule` (
+  `schedule_num` int(11) NOT NULL AUTO_INCREMENT,
+  `off_product_num` int(11) NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `class2_date` date NOT NULL,
+  `class2_time` time NOT NULL,
+  `area1` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `area2` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`schedule_num`),
+  KEY `pfddarr_idx` (`off_product_num`),
+  KEY `eemmasd` (`email`),
+  CONSTRAINT `eemmasd` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `pfddarr` FOREIGN KEY (`off_product_num`) REFERENCES `offline_product` (`off_product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `buy_history` (
+  `order_no` int(11) NOT NULL AUTO_INCREMENT,
+  `schedule_num` int(11) NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `buy_qty` int(11) NOT NULL,
+  `buy_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `buy_way` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `product_amount` int(11) NOT NULL,
+  PRIMARY KEY (`order_no`),
+  KEY `fffasd_idx` (`schedule_num`),
+  KEY `eeefzdfa` (`email`),
+  CONSTRAINT `eeefzdfa` FOREIGN KEY (`email`) REFERENCES `information` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fffasd` FOREIGN KEY (`schedule_num`) REFERENCES `class_schedule` (`schedule_num`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `review` (
+  `reviewnum` int(11) NOT NULL AUTO_INCREMENT,
+  `off_product_num` int(11) NOT NULL,
+  `nickname` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `off_rating1` double NOT NULL,
+  `off_rating2` double NOT NULL,
+  `off_rating3` double NOT NULL,
+  `off_rating4` double NOT NULL,
+  `off_rating5` double NOT NULL,
+  `review_file` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `review_text` text COLLATE utf8_unicode_ci NOT NULL,
+  `review_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `review_re_ref` int(11) NOT NULL,
+  `review_re_lev` int(11) NOT NULL,
+  `review_re_seq` int(11) NOT NULL,
+  PRIMARY KEY (`reviewnum`),
+  KEY `fffasd_idx` (`off_product_num`),
+  CONSTRAINT `aaasdzxvar` FOREIGN KEY (`off_product_num`) REFERENCES `offline_product` (`off_product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `talent_review` (
+  `product_num` int(11) NOT NULL,
+  `nickname` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `review_write` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `review_evaluation` double NOT NULL,
+  `review_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `review_re_ref` int(11) NOT NULL,
+  `reivew_re_lev` int(11) NOT NULL,
+  `review_re_seq` int(11) NOT NULL,
+  KEY `szcv_idx` (`product_num`),
+  CONSTRAINT `szcv` FOREIGN KEY (`product_num`) REFERENCES `product` (`product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+CREATE TABLE `vers_info` (
+  `product_num` int(11) NOT NULL,
+  `vers_num` int(11) NOT NULL,
+  `vers_title` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `vers_descript` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `vers_price` int(11) NOT NULL,
+  `vers_date` int(11) NOT NULL,
+  `recruit_num` int(11) NOT NULL,
+  KEY `pn_idx` (`product_num`),
+  CONSTRAINT `pn` FOREIGN KEY (`product_num`) REFERENCES `product` (`product_num`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+

@@ -1,0 +1,57 @@
+*{font-family: 'Noto Sans KR', sans-serif;}
+div#dd{
+	margin-top: 50px;
+	width: 500px;
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	line-height: 300px;
+}
+div button{
+	background-color: white;
+	border: 0;
+}
+section{
+	width: 450px;
+	height: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	padding : 40px 0px;
+	text-align : center;
+	border : 3px solid black;
+}
+section div{
+	text-align : left;
+	padding-left : 70px;
+}
+section input{
+	background: url(../image/checkbox.jpg) no-repeat 10px center;
+    background-size: 20px 20px;
+	border-width: medium;
+	border-style: solid;
+	width: 310px;
+	height: 45px;
+	text-align: left;
+	font-size: 15px;
+	background-color: white;
+	padding-left : 50px;
+	cursor : pointer;
+}
+form div.bu{
+	margin-top : -15px;
+}
+button#le{
+	margin-left: 0px;
+}
+button:hover{background-color: white;}
+section button:active{box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+img#whs{
+	width:180px;
+	height:60px;
+}

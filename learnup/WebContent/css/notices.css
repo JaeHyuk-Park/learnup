@@ -1,0 +1,81 @@
+body{
+	margin : 0;
+	font-family: 'Noto Sans KR', sans-serif;
+	overflow-x : hidden;
+}
+div#d01{
+    width: 1280px;
+    margin: 40px auto 20px;
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  a:hover {color: #6199ff;}
+
+  /* �뜝�럥占쎈���삕占쎈턄占쎈눀�뜝占� �뜝�럡�돰�뜝�럡留� (繞벿살탳占쎈뭵�뜝�럥由�嶺뚯쉻�삕 �뜝�럥瑜ュ뜝�럩踰�) */
+  table {
+    width: 100%;
+    margin: 20px auto 20px;
+    border-collapse: collapse;
+  }
+  thead{
+  	height:40px;
+  }
+  th {
+    background: #8041D9;
+    color: #fff;
+    font-size:20px;
+    padding : 10px 20px;
+    border: 1px solid #EAEAEA;
+  }
+  td {
+  	border: 1px solid #EAEAEA;
+    padding: 5px 20px;
+  }
+  tr:nth-of-type(odd) { 
+    background: #EAEAEA; 
+  }
+
+  /* 占쎈쉸�맩�뱿�뜝�럩踰� �뜝�럡�꼸占쎈쑏�뜝占� */
+  .no {width: 15%;}
+  .title {/* �뜝�럡�룎占쎌넂筌뤾쒀�삕�뤆�룊�삕 �뜝�럩�겱�뜝�럥吏쀥뜝�럩紐드슖�댙�삕 嶺뚮씮�돵占쎈폏嶺뚯쉶理롳옙鍮띶뜝�럥堉�. */}
+  .writer {width: 20%;}
+  .date {width: 15%;}
+
+  /* 占쎈쉸�맩�뱿�뜝�럩踰� �뜝�럩�젧�뜝�럩議� */
+  tr td:nth-child(1){text-align:center;}
+  tr td:nth-child(2){text-align:left;}
+  tr td:nth-child(3){text-align:center;}
+  tr td:nth-child(4){text-align:center;}
+
+  /* �뜝�럥�쓡�뜝�럩逾좂춯�쉻�삕 �뵓怨뚯뫓占쎈괏 */
+  .page-box {
+    width: 80%;
+    margin: 30px auto;
+    height: 30px;
+    text-align: center;
+  }
+  .page-box a.btn {
+    display:inline-block;
+    padding: 3px 5px;
+    font-size: 15px;
+    border: 1px solid #dbdbdb;
+    color: #333;
+  }
+  .page-box a.btn.on {
+    background-color: #dbdbdb;
+  }
+  form{
+    text-align: right;
+  }
+  input{
+    border: 1px solid #A566FF;
+    padding : 8px 20px;
+    background: #8041D9;
+    color: #fff;
+    cursor: pointer;
+    font-size:15px;
+    font-weight : bold;
+  }
+  input:hover{ background-color:#A566FF;	}

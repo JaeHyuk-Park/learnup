@@ -1,0 +1,116 @@
+*{font-family: 'Noto Sans KR', sans-serif;}
+
+
+/*섹션 영역*/
+.section_sec{
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+section{
+	width: 1000px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.category{
+	width: 105px;
+	height: 40px;
+	font-size: 15pt;
+	margin-top : 80px;
+	font-weight : bold;
+	border-bottom:solid 4px #3F0099;
+}
+.boardtable{
+	width:100%;
+	margin-top:50px;
+	border-collapse: collapse;
+}
+.firstline{
+	width:100%;
+	height:30px;
+	border-bottom:solid 1px #D5D5D5;
+}
+
+.boardnum{
+	width:40px;
+	height:20px;
+	font-size:9pt;
+}
+.empty{
+	width:430px;
+	height:20px;
+}
+.email{
+	width:50px;
+	height:20px;
+	font-size:9pt;
+	text-align:center;
+}
+.date{
+	width:50px;
+	height:20px;
+	font-size:9pt;
+	text-align:center;
+}
+
+.titlesec{
+	height:50px;
+	font-size:15pt;
+}
+.note{
+	font-size:10pt;
+}
+.notesec{
+	font-size: 10pt;
+	padding-top :10px;
+}
+
+.btnsec{
+	width:100%;
+	height:40px;
+	text-align:left;
+	padding-top:100px;
+	border-top:solid 2px #D5D5D5;
+	margin-bottom:200px;
+}
+
+.listbtn{
+	width:85px;
+	height:35px;
+	border-radius:5px;
+	border:solid 1px #8041D9;
+	background-color:#8041D9;
+	color:white;
+}
+.listbtn:hover{
+	background-color: #3F0099;
+}
+
+.updatebtn{
+	width:85px;
+	height:35px;
+	border-radius:5px;
+	border:solid 1px #8041D9;
+	background-color:#8041D9;
+	color:white;
+}
+.updatebtn:hover{
+	background-color: #3F0099;
+}
+
+.deletebtn{
+	width:85px;
+	height:35px;
+	border-radius:5px;
+	border:solid 1px #8041D9;
+	background-color:#8041D9;
+	color:white;
+	margin-left:732px;
+}
+.deletebtn:hover{
+	background-color: #3F0099;
+}
+
+

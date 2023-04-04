@@ -1,0 +1,115 @@
+*{font-family: 'Noto Sans KR', sans-serif;}
+
+/*섹션 영역*/
+.section_sec{
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+section{
+	width: 1280px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.category{
+	width: 105px;
+	height: 40px;
+	font-size: 15pt;
+	margin-top : 80px;
+	font-weight : bold;
+	border-bottom:solid 4px #3F0099;
+}
+
+.boardsearch{
+	float:right;
+}
+.boardsearch input[type="text"]{
+	width:300px;
+	height:30px;
+	border:solid 1px black;
+	border-radius:10px;
+	margin-right:2px;
+}
+.boardsearch input[type="submit"]{
+	width:50px;
+	height:34px;
+	color:white;
+	background-color:#3F0099;
+	border:solid 1px #3F0099;
+	border-radius:10px;
+}
+
+
+/* 링크 색상 (중요하지 않음) */
+.boardlist{
+  text-decoration: none;
+  color: #333;
+}
+.boardlist:hover {color: #6199ff;}
+
+/* 테이블 색상 (중요하지 않음) */
+table {
+  width: 1280px;
+  margin: 40px auto 10px;
+  border-collapse: collapse;
+}
+th {
+  background: #3F0099;
+  color: #fff;
+  height:30px;
+}
+td, th {
+  border: 1px solid #dbdbdb;
+  padding: 5px 20px;
+  font-size:12px;
+}
+tr:nth-of-type(odd) { 
+	background: #eee; 
+}
+
+/* 컬럼의 너비 */
+.boardnum {width: 10%;}
+.title {/* 나머지가 자동으로 맞춰집니다. */}
+.email {width: 10%;}
+.date {width: 15%;}
+
+/* 컬럼의 정렬 */
+tr td:nth-child(1){text-align:center;}
+tr td:nth-child(2){text-align:left;}
+tr td:nth-child(3){text-align:center;}
+tr td:nth-child(4){text-align:center;}
+
+/* 페이징 버튼 */
+.page-box {
+  width: 80%;
+  margin: 150px auto;
+  height: 30px;
+  text-align: center;
+}
+.page-box a.btn {
+  display:inline-block;
+  padding: 3px 5px;
+  font-size: 15px;
+  color: #333;
+}
+.page-box a.btn.on {
+  background-color: #dbdbdb;
+}
+
+.writebtn{
+	width:80px;
+	height:35px;
+	border-radius:5px;
+	background-color:#8041D9;
+	color:white;
+	float:right;
+	border:solid 1px #8041D9;
+	margin-top:20px;
+}
+
+.writebtn:hover{
+	background-color:#3F0099;
+}
+
