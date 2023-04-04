@@ -132,59 +132,6 @@
                         </div>
                     </td>
 	            </tr>
-	            <%if(vo.getFileName() != null) { %>
-	               <tr class="article-body">
-                    <td colspan="5">
-                   	첨부파일:  <% 
-								try
-								{
-									String directory = application.getRealPath("/upload");
-									String files[] = new File(directory).list();
-									
-								
-									String directorys = this.getServletContext().getRealPath("/upload");
-									FileInputStream in;
-									File sourceimage; 
-									
-									for(int i = 0; i < files.length; i++)
-									{
-										
-										
-										if(vo.getFileName().equals(files[i]))
-										{
-											in = new FileInputStream(files[i]); //이미지 파일 불러오기
-										
-										out.write("<a href=\"" + request.getContextPath() + "/downloadAction?file="+
-										URLEncoder.encode(files[i],"UTF-8") +"\" + style = 'text-decoration-line: underline ; color: blue'   >" + files[i] + "</a><br>");
-								%>		
-										<%
-											String img = directorys +'\\'+files[i];
-											String imgs = img.replace('\\', '/');
-									
-											sourceimage = new File("\" "+imgs+"\" ");
-											
-											out.println(sourceimage);
-											
-									
-										%>
-										<img src="<%out.println(sourceimage); %>" alt="" width="50px"; height="50px">
-
-								<% 		
-								
-						
-										}
-							
-										
-										
-									}
-								}catch(Exception e)
-								{
-									
-								}							
-								%>
-                    </td>
-	            </tr>
-	            <%} %>
             </tbody>
         </table>
 
