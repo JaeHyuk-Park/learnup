@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.TalentAction;
 
 @WebServlet("*.learnup.com")
-public class BoardFrontControllerd extends javax.servlet.http.HttpServlet 
+public class BoardFrontControll extends javax.servlet.http.HttpServlet 
 {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {

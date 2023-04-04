@@ -101,7 +101,7 @@
 			</div>
 			<div style="text-align: right;">
 				<button class="custom-btn btn-15"
-					onclick="location.href='talentindexpage.html' "
+					onclick="location.href='talentindexpage.jsp' "
 					style="background-color: #D1B2FF; border-radius: 5px; position: relative; top: 30px; right: 60px; font-size: 15px; font-weight: bold; padding: 5px 10px;">전체보기</button>
 			</div>
 		</div>
@@ -233,7 +233,7 @@
 			</div>
 			<div style="text-align: right;">
 				<button class="custom-btn btn-15"
-					onclick="location.href='talentindexpage.html' "
+					onclick="location.href='off_mainpage.jsp' "
 					style="background-color: #D1B2FF; border-radius: 5px; position: relative; top: 30px; right: 60px; font-size: 15px; font-weight: bold; padding: 5px 10px;">전체보기</button>
 			</div>
 		</div>
@@ -377,7 +377,7 @@
 			</div>
 			<div style="text-align: right;">
 				<button class="custom-btn btn-15"
-					onclick="location.href='talentindexpage.html' "
+					onclick="location.href='janso_main.jsp' "
 					style="background-color: #D1B2FF; border-radius: 5px; position: relative; top: 30px; right: 60px; font-size: 15px; font-weight: bold; padding: 5px 10px;">전체보기</button>
 			</div>
 		</div>
