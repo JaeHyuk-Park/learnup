@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import dto.Janso_Boards;
+import vo.Janso_Boards;
 
 
 

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import dto.NoticedataType;
+import vo.NoticedataType;
 
 public class Noticedata {
 	Connection conn = null;

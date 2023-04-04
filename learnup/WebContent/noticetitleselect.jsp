@@ -1,5 +1,5 @@
 <%@page import="dao.Noticedata"%>
-<%@page import="dto.NoticedataType"%>
+<%@page import="vo.NoticedataType"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <% request.setCharacterEncoding("utf-8"); %>

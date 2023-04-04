@@ -1,4 +1,4 @@
-package dto;
+package vo;
 
 public class Janso_Boards {
 	private int board_id ;

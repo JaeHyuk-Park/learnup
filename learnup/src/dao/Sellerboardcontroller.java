@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import dto.Sellerboardob;
+import vo.Sellerboardob;
 
 public class Sellerboardcontroller {
 	Connection conn = null;

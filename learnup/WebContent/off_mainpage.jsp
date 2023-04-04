@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="dao.*" %>
-<%@ page import ="dto.*" %>
+<%@ page import ="vo.*" %>
 <%@ page import ="java.util.ArrayList" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 

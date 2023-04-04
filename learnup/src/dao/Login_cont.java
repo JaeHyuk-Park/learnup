@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import dto.Login_chk;
+import vo.Login_chk;
 
 
 public class Login_cont {

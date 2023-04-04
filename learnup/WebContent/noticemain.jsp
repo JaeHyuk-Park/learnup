@@ -1,4 +1,4 @@
-<%@page import="dto.NoticedataType"%>
+<%@page import="vo.NoticedataType"%>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <%@page import="java.util.*" %>

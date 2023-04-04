@@ -1,7 +1,7 @@
 <%@page import="java.util.Enumeration"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
-<%@page import="dto.NoticedataType"%>
+<%@page import="vo.NoticedataType"%>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>

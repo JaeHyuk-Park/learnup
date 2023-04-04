@@ -1,4 +1,4 @@
-package dto;
+package vo;
 
 public class Login_chk {
 
