@@ -32,7 +32,7 @@
 	
 	<div class="section_sec">
 		<section>
-			<div class="category">판매자 Q&A</div>
+			<div class="category">판매자 Q&A</div> 
 		    <div class="typo">
 		        <div class="wraper">
 			        <form  action="sellerboardinsert.jsp" method="post">

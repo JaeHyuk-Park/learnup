@@ -9,7 +9,7 @@ var phrases = [
 var currentPhrase = 0;
 var timeOut;
 var txtLen = phrases[currentPhrase].length;
-var char = 0;
+var char = 0; 
 $('.main-search').attr('placeholder', '');
 
 function typeIt() {

@@ -29,7 +29,7 @@ section{
 .boardsearch input[type="text"]{
 	width:350px;
 	height:35px;
-	border:solid 3px #3F0099;
+	border:solid 3px #3F0099; 
 	border-radius:10px;
 	margin-right:2px;
 	padding-left:10px;

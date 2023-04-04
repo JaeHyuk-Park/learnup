@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:useBean id="sellerboard" class="dao.Sellerboardcontroller">
+	<jsp:useBean id="sellerboard" class="dao.Sellerboardcontroller"> 
 		<%
 			String email = (String) session.getAttribute("Email");
 			String title = request.getParameter("title");

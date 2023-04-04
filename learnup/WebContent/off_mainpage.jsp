@@ -23,7 +23,7 @@
 		<link href="css/slick-theme.css" rel="stylesheet" type="text/css">
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script src="js/off_mainpage_js.js"></script>
+		<script src="js/off_mainpage_js.js"></script> 
 		<script src="js/slick.js"></script>
 		<script>
 			$.noConflict();
