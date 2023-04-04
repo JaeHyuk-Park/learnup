@@ -46,7 +46,7 @@
 		String fileRealName = multi.getFilesystemName("file1");
 		
 		
-		in.board_insert(email_section,title,write,email_yn1,fileName,fileRealName);
+		in.board_insert(email_section,title,write,email_yn1);
 		
 		
 		

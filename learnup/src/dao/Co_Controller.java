@@ -51,7 +51,7 @@ public class Co_Controller {
 			conn();
 			System.out.println("mysql connection success");
 			String s = String.format("insert into boards(title,writes,email,open_check)values('%s','%s','%s','%s')",titles,writes,emails,check);
-			stmt = conn.createStatement();	
+			stmt = conn.createStatement();
 			stmt.executeUpdate(s);  
 		
  		}
