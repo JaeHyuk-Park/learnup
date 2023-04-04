@@ -24,18 +24,20 @@ section{
 
 .boardsearch{
 	float:right;
+	margin-bottom:10px;
 }
 .boardsearch input[type="text"]{
-	width:300px;
-	height:30px;
-	border:solid 1px black;
+	width:350px;
+	height:35px;
+	border:solid 3px #3F0099;
 	border-radius:10px;
 	margin-right:2px;
+	padding-left:10px;
 }
 .boardsearch input[type="submit"]{
-	width:50px;
-	height:34px;
-	color:white;
+	width:60px;
+	height:43px;
+	color:#FFFFFF;
 	background-color:#3F0099;
 	border:solid 1px #3F0099;
 	border-radius:10px;
@@ -58,12 +60,15 @@ table {
 th {
   background: #3F0099;
   color: #fff;
-  height:30px;
+  height:35px;
+  font-size:12pt;
 }
 td, th {
   border: 1px solid #dbdbdb;
-  padding: 5px 20px;
-  font-size:12px;
+  padding: 5px 10px;
+}
+td{
+	font-size:10pt;
 }
 tr:nth-of-type(odd) { 
 	background: #eee; 
@@ -99,14 +104,15 @@ tr td:nth-child(4){text-align:center;}
 }
 
 .writebtn{
-	width:80px;
-	height:35px;
+	width:85px;
+	height:40px;
 	border-radius:5px;
 	background-color:#8041D9;
 	color:white;
 	float:right;
 	border:solid 1px #8041D9;
 	margin-top:20px;
+	font-size:12pt;
 }
 
 .writebtn:hover{

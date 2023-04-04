@@ -8,11 +8,10 @@ a{
 section{
 	width: 1280px;
 	height: 2300px;
-	margin-left: auto;
+	margin-left: auto; 
 	margin-right: auto;
 }
-
-/*배너 좌측 검색창 영역*/
+/*諛곕꼫 醫뚯륫 寃��깋李� �쁺�뿭*/
 .banner_sec1{
 	width:565px;
 	height:380px;
@@ -28,6 +27,7 @@ section{
 	font-size: 32px;
 	font-weight: 400px;
 }
+
 
 
 
@@ -92,14 +92,13 @@ section{
 	height:65px;
 	float:left;
 	margin-top:30px;
-	margin-left:20px;
+	margin-left:10px;
 	font-size: 20pt;
 }
 .title{
 	width: 890px;
-	height: 65px;
 	float: left;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .button{
@@ -138,15 +137,7 @@ section{
 	position: relative;
 }
 
-.slides{
-	width:100%;
-	height:320px;
-	float:left;
-	margin-top:10px;
-	position:absolute;
-	transition:left 0.5s ease-in-out;
-	overflow:hidden;
-}
+
 
 .product{
 	width: 240px;
@@ -210,11 +201,9 @@ section{
 }
 .area{
 	font-size: 10pt;
-	width: 50px;
-	height: 20px;
 	font-weight: bold;
-	border: solid 3px purple;
 	margin-top: 5px;
+	color:#3F0099;
 }
 .lesson{
 	width: 230px;

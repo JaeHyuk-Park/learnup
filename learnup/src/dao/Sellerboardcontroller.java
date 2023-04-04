@@ -29,7 +29,7 @@ public class Sellerboardcontroller {
 	void conn() {
 						
    		try {
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1324");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1111");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,7 +61,7 @@ public class Sellerboardcontroller {
 			
 		try{
 	   		//Class.forName("com.mysql.jdbc.Driver");     셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
-	   		//conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/yu","root","1324");  셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
+	   		//conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/yu","root","1111");  셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
 			conn();   // 위 생성된 메소드를 이렇게 사용하면 간편하다
 	   		if(conn==null)
 	   			throw new Exception("데이터베이스에 연결할 수 없습니다");
@@ -154,7 +154,7 @@ public class Sellerboardcontroller {
 		
 		try{
 	   		Class.forName("com.mysql.jdbc.Driver"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
-	   		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1324"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
+	   		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1111"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
 			//conn();
 	   		if(conn==null)
 	   			throw new Exception("데이터베이스에 연결할 수 없습니다");
@@ -175,7 +175,7 @@ public class Sellerboardcontroller {
 	
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1324"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1111"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
 			//conn();
 			if(conn==null)
 				throw new Exception("데이터베이스에 연결할 수 없습니다");
@@ -194,7 +194,7 @@ public class Sellerboardcontroller {
 		
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1324"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1111"); //셀렉트, 딜리트 메소드에 공통적으로 사용되기때문에 위에 새로 메소드를 생성한다
 			//conn();
 			if(conn==null)
 	   			throw new Exception("데이터베이스에 연결할 수 없습니다");

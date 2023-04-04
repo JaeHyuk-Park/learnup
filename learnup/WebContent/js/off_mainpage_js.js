@@ -1,3 +1,58 @@
+/*placeholder 애니메이션*/
+var phrases = [
+  "배우고싶은 강의를 검색해주세요.",
+  "보컬 트레이닝",
+  "필라테스",
+  "요리교실",
+  "메이크업"
+];
+var currentPhrase = 0;
+var timeOut;
+var txtLen = phrases[currentPhrase].length;
+var char = 0;
+$('.main-search').attr('placeholder', '');
+
+function typeIt() {
+    var humanize = Math.round(Math.random() * (200 - 30)) + 30;
+    timeOut = setTimeout(function () {
+        char++;
+        var type = phrases[currentPhrase].substring(0, char);
+        var placeholder = type + '|';
+        $('.main-search').attr('placeholder', placeholder);
+
+        if (char == txtLen) {
+            setTimeout(function() {
+                clearInterval(interval);
+                interval = setInterval(erase, 50);
+            }, 1000);
+        } else {
+            typeIt();
+        }
+    }, humanize);
+}
+
+var interval;
+function erase() {
+    var placeholder = $('.main-search').attr('placeholder');
+    var len = placeholder.length;
+
+    if (len > 1) {
+        var newPlaceholder = placeholder.substring(0, len - 2) + '|';
+        $('.main-search').attr('placeholder', newPlaceholder);
+    } else {
+        clearInterval(interval);
+        currentPhrase++;
+        if (currentPhrase >= phrases.length) {
+            currentPhrase = 0;
+        }
+        txtLen = phrases[currentPhrase].length;
+        char = 0;
+        setTimeout(typeIt, 1000);
+    }
+}
+typeIt();
+
+/*배너 슬라이드*/
 $(function(){
 	$(".banner_sec2").slick({
 		slide:'div',

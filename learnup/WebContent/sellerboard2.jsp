@@ -44,7 +44,7 @@
 			%>
 			<br><jsp:include page ="./board_baraction.jsp"/><br>
 			<%
-			out.println("<br><h2 style='font-size:30px;'>판매자 Q&A</h2>");
+			out.println("<br><h2 style='font-size:29px;'>판매자 Q&A</h2>");
 			%>
 			
 			<div class='boardsearch'><input type='submit' value='검색'></div><%

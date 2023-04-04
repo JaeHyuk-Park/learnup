@@ -49,7 +49,7 @@
 						<div class="banner_sec1">
 								<h1>강의마켓 NO.1 런업에서<br>원하는 강의를 찾아보세요.</h1>
 								<div method="get" action="/search" id="search2">
-									<input type="text" size="20" placeholder="검색해주세요">
+									<input type="text" size="20" placeholder="검색해주세요" class="main-search input-lg">
 								</div>
 								<ul>
 									<a href="#self"><li>#피트니스</li></a>
@@ -114,6 +114,7 @@
 									</span>
 								</div>
 							</a>
+							
 							<a href="#self">
 								<div class="product_detail">
 									<div class="area">강남구</div>
@@ -241,111 +242,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="product">
-							<a href="#self">
-								<div class="product_image imgList">
-									<span style="position : absolute;" class="imgC">
-										<img src="image/lesson13.jpg" style="width: 240px; height:160px; border-radius: 10px;">
-									</span>
-									<span style="position : absolute; margin-left: 200px;">
-										<a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;">
-											<img src="image/heart1.png" alt="찜하기">
-										</a>
-									</span>
-								</div>
-							</a>
-							<a href="#self">
-								<div class="product_detail">
-									<div class="area">강남구</div>
-									<div class="lesson">그린컴퓨터아카데미 풀스텍(java, database, css, javascript)</div>
-									<div class="seller">판매자명</div>
-									<div class="price">
-										<div>10,000원</div>
-									</div>
-									<div class="jjre">
-										<div class="jjim">
-											<img src="image/heart2.png" style="width:15px; height: 15px; float: left;">
-											<div style="width:30px; height: 15px; font-weight:bold; font-size:9pt; float:left; margin-left: 5px;line-height:15px;">1,000+</div>
-										</div>
-										<div class="review">
-											<div style="width:25px; height: 15px; float:left; font-weight:bold;">리뷰</div>
-											<div style="width:30px; height: 15px; font-weight:bold; font-size:9pt; float:left; line-height:15px;">1,000+
-											</div>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="product">
-							<a href="#self">
-								<div class="product_image imgList">
-									<span style="position : absolute;" class="imgC">
-										<img src="image/lesson2.jpg" style="width: 240px; height:160px; border-radius: 10px;">
-									</span>
-									<span style="position : absolute; margin-left: 200px;">
-										<a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;">
-											<img src="image/heart1.png" alt="찜하기">
-										</a>
-									</span>
-								</div>
-							</a>
-							<a href="#self">
-								<div class="product_detail">
-									<div class="area">강남구</div>
-									<div class="lesson">그린컴퓨터아카데미 풀스텍(java, database, css, javascript)</div>
-									<div class="seller">판매자명</div>
-									<div class="price">
-										<div>10,000원</div>
-									</div>
-									<div class="jjre">
-										<div class="jjim">
-											<img src="image/heart2.png" style="width:15px; height: 15px; float: left;">
-											<div style="width:30px; height: 15px; font-weight:bold; font-size:9pt; float:left; margin-left: 5px;line-height:15px;">1,000+</div>
-										</div>
-										<div class="review">
-											<div style="width:25px; height: 15px; float:left; font-weight:bold;">리뷰</div>
-											<div style="width:30px; height: 15px; font-weight:bold; font-size:9pt; float:left; line-height:15px;">1,000+
-											</div>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="product">
-							<a href="#self">
-								<div class="product_image imgList">
-									<span style="position : absolute;" class="imgC">
-										<img src="image/lesson3.jpg" style="width: 240px; height:160px; border-radius: 10px;">
-									</span>
-									<span style="position : absolute; margin-left: 200px;">
-										<a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;">
-											<img src="image/heart1.png" alt="찜하기">
-										</a>
-									</span>
-								</div>
-							</a>
-							<a href="#self">
-								<div class="product_detail">
-									<div class="area">강남구</div>
-									<div class="lesson">그린컴퓨터아카데미 풀스텍(java, database, css, javascript)</div>
-									<div class="seller">판매자명</div>
-									<div class="price">
-										<div>10,000원</div>
-									</div>
-									<div class="jjre">
-										<div class="jjim">
-											<img src="image/heart2.png" style="width:15px; height: 15px; float: left;">
-											<div style="width:30px; height: 15px; font-weight:bold; font-size:9pt; float:left; margin-left: 5px;line-height:15px;">1,000+</div>
-										</div>
-										<div class="review">
-											<div style="width:25px; height: 15px; float:left; font-weight:bold;">리뷰</div>
-											<div style="width:30px; height: 15px; font-weight:bold; font-size:9pt; float:left; line-height:15px;">1,000+
-											</div>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
+						
 					</div>
 					</div>
 					<div class="title_sec">

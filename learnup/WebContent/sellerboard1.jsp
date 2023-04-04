@@ -38,11 +38,14 @@
 			        <form  action="sellerboardinsert.jsp" method="post">
 			            <input type="text" name="title" placeholder="제목을 입력하세요" id="boardtitle">
 			            <textarea name="note" onkeyup="Check()" placeholder="내용을 입력하세요" id="boardnote"></textarea>
-			  
+			  			<div>
+			            	<input type="file" name="fileName1" id = "fileName1" style="border:none;">
+			            </div>
 			            <div class="typo_submit">
 			                <input type="submit" value="등록하기" name="content_regist" id="registbtn">
 			                <input type="button" value="목록으로" name="listbtn" onclick="location.href='sellerboard2.jsp'">
 			            </div>
+			          
 			        </form>
 			    </div>
 		    </div>	

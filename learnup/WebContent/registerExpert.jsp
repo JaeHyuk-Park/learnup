@@ -21,7 +21,7 @@
 		<br>
 		<div>재능 및 강의를 판매하고 싶다면</div><br>
 		<form>
-			<div class="bu"><a href="expertRegister.jsp"><input type="button" value="전문가로 등록"></a></div><br>
+			<div class="bu"><a href="#self"><input type="button" value="전문가로 등록"></a></div><br>
 			<div>장소를 판매하고 싶다면</div><br>
 			<div class="bu"><a href="#self"><input type="button" value="장소대여자로 등록"></a></div>
 		</form>
