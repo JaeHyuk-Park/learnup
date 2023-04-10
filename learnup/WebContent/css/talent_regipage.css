@@ -109,6 +109,7 @@ section{
 }
 .secwrap{
 	width: 1280px;
+	margin-top:30px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -138,7 +139,7 @@ section{
 .rightsec{
 	width:75%;
 	height:100%;
-	float: left;
+	display: inline-block;
 }
 /*�슦痢� 硫붾돱 留⑥쐞 �뀓�뒪�듃*/
 .toptext{
@@ -151,8 +152,10 @@ section{
     font-size:14px;
 }
 .rightsec span.wid{
-	width:8%;
-	display:inline-flex;
+	width: 8%;
+    height: 30px;
+    line-height: 30px;
+    display: inline-flex;
 }
 .rightsec span.wid2{
 	width:20%;
@@ -177,6 +180,84 @@ section{
 	display:inline-flex;
 	padding : 10px;
 }
+.rightsec span.wid4{
+	width: 15%;
+    display: inline-flex;
+    padding: 15px 10px;
+}
+.rightsec span.wid5{
+	width: 15%;
+    display: inline-flex;
+    padding: 15px 10px;
+    background-color: #fafafc;
+    height: 40px;
+}
+.rightsec span.version123{
+	width: 24.9%;
+    display: inline-flex;
+    padding: 0px 10px;
+    font-size: 16px;
+    height:30px;
+}
+span.versionlimittitle{
+	position: relative;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #9a9ba7;
+}
+div.ImageUploadbox{
+	width: 240px;
+    height: 180px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #e4e5ed;
+    background: #fff;
+    border-radius: 4px;
+    text-align: center;
+    order: 1;
+    position: relative;
+}
+div.ImageUploadbox img{
+	width:88px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.ImageUploadbox:hover .deleteBtn{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  background: url(../image/deletebutton.png) no-repeat center;
+  background-size: 24px 24px;
+  border: 1px solid #e4e5ed;
+  cursor: pointer;
+  display: flex;
+  background-color: white;
+}
+span.versionlimitdescript{
+	position: relative;
+    margin-top: 200px;
+    font-size: 14px;
+    color: #9a9ba7;
+}
+span.version123 input{
+	padding : 0px;
+	width:auto;
+	height:30px;
+}
+span.version123 textarea{
+    padding: 0px;
+    width: 185px;
+    border: none;
+    outline: none;
+    height:auto;
+    font-size:13px;
+    min-height: 200px;
+    overflow-y: hidden;
+}
 .optionbox input, select{
 	background-color: #fafafc;
 }
@@ -198,11 +279,45 @@ input.keywordlists{
 }
 .rightsec #addbu1{
 	width: 7%;
-	cursor : pointer;
+    cursor: pointer;
+    border: 1px solid #e4e5ed;
+    border-radius: 4px;
+    color: #303441;
+    background-color: #fff;
+    font-weight: 700;
 }
 .rightsec div.limit{
-	color : #9a9ba7;
-	display:inline-flex;
+	color: #9a9ba7;
+    display: inline-flex;
+    font-size: 14px;
+}
+span#price{
+	width: 10%;
+    display: inline-flex;
+    padding: 10px 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+div#standard{
+	width: 99%;
+    padding: 5px;
+    font-size: 20px;
+    border-bottom: 1px solid;
+	margin-top: 10px;
+}
+div#version{
+	width: 99%;
+    padding: 5px;
+    font-size: 20px;
+    border-bottom: 1px solid;
+	margin-top: 10px;
+}
+div#version{
+	width: 99%;
+    padding: 5px;
+    font-size: 20px;
+    border-bottom: 1px solid;
+	margin-top: 10px;
 }
 .oplist{
 	font-weight: bold;
@@ -213,7 +328,7 @@ input.keywordlists{
     border: solid 1px #f2f3f7;
     padding: 10px 20px;
 }
-.option{	
+.option, .question{	
 	font-weight: bold;
 	color : #303441;
     margin-top: 15px;
@@ -231,6 +346,30 @@ input.keywordlists{
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+}
+#answer{
+	min-height: 150px;
+	width:calc(100% - 15%);
+	font-size:13px;
+	padding:1px 5px;
+	background-color: #fafafc;
+}
+.question input{
+	width: 100%;
+    background-color: white;
+    text-align: left;
+    min-height: 52px;
+    padding: 10px 20px;
+    height: auto;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.rightsec span.wid10{
+	width: 10%;
+    height: 30px;
+    line-height: 30px;
+    display: inline-flex;
 }
 .oplist select{
 	width: 30%;
@@ -258,14 +397,13 @@ input.keywordlists{
     font-size:12px;
 }
 .oplist textarea{
-	width: calc(100% - 20px);
+	width: 100%;
     border: none;
     outline: none;
     min-height: 300px;
     font-size:16px;
     margin:10px 0px;
     resize : none;
-    overflow-y: hidden;
     height:auto;
 }
 .oplist .calcultext{
@@ -730,4 +868,55 @@ a{
 
 .inqbtn:hover{
 	background-color: #EAEAEA;
+}
+
+.wrapper { position: relative; margin-top:50px;}
+#switch {
+  position: relative;
+  width: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding:0px;
+}
+.switch_label {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 54px;
+  height: 24px;
+  background: #fff;
+  border: 2px solid #daa;
+  border-radius: 20px;
+  transition: 0.2s;
+  margin-left: 650px;
+}
+.switch_label:hover {
+  background: #efefef;
+}
+.onf_btn {
+  position: relative;
+  left: 5px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  background: #daa;
+  transition: 0.2s;
+}
+/* checking style */
+#switch:checked+.switch_label {
+  background: #c44;
+  border: 2px solid #c44;
+}
+
+#switch:checked+.switch_label:hover {
+  background: #e55;
+}
+
+/* move */
+#switch:checked+.switch_label .onf_btn {
+  left: 33px;
+  background: #fff;
+  box-shadow: 1px 2px 3px #00000020;
 }
