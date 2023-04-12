@@ -97,7 +97,7 @@ $(document).ready(function() {
 	  });
 	
   	$('.option').click(function() {
-	  var $newOption = $('<div class="oplist opop"><span class="wid">맞춤옵션</span><input type="checkbox" style="width:auto; height:auto;" checked><div class="optionbox"><div><span class="wid3">제목</span><input type="text" placeholder="제목을 입력해주세요." required></div><div><span class="wid3">설명</span><input type="text" placeholder="설명을 입력해주세요." required></div><div><span class="wid3">추가금액</span><input type="text" placeholder="최소 1,000" style="width:80px;" required>원 추가시</div><div><span class="wid3">추가 작업일</span><select style="width:10%; background-color: #fafafc;"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select>일 추가</div></div></div>');
+	  var $newOption = $('<div class="oplist opop"><span class="wid">맞춤옵션</span><input type="checkbox" name="option" class="op_checkbox" style="width: auto; height: auto;" checked><div class="optionbox"><div><span class="wid3">제목</span><input type="text" placeholder="제목을 입력해주세요." name="op_title[]" maxlength="50"></div><div><span class="wid3">설명</span><input type="text" placeholder="설명을 입력해주세요." name="op_descript[]" maxlength="100"></div><div><span class="wid3">추가금액</span><input type="text" placeholder="최소 1,000" style="width:80px;" name="op_price[]">원 추가시</div><div><span class="wid3">추가 작업일</span><select style="width:10%; background-color: #fafafc;" name="op_date[]"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select>일 추가</div></div></div>');
 
 	  $newOption.insertBefore('.option');
 
@@ -112,7 +112,7 @@ $(document).ready(function() {
 	});
   	
   	$('.question input[type="button"]').click(function() {
-  	  var $newQuestion = $('<div class="oplist opop"><span class="wid10">자주 묻는 질문</span><input type="checkbox" style="width:auto; height:auto;" checked><div class="optionbox"><div><span class="wid3">질문</span><input type="text" placeholder="자주묻는 질문을 입력해주세요." required></div><div><span class="wid3" style="position: relative; top: -145px;">답변</span><textarea id="answer" placeholder="답변을 입력해주세요." required></textarea></div></div></div>');
+  	  var $newQuestion = $('<div class="oplist opop"><span class="wid10">자주 묻는 질문</span><input type="checkbox" name="qna_list" style="width: auto; height: auto;" checked><div class="optionbox"><div><span class="wid3">질문</span><input type="text" placeholder="자주묻는 질문을 입력해주세요." name="qna_title[]"></div><div><span class="wid3" style="position: relative; top: -145px;">답변</span><textarea id="answer" placeholder="답변을 입력해주세요." name="qna_answer[]"></textarea></div></div></div>');
 
   	  $newQuestion.insertBefore('.question');
 
@@ -136,24 +136,87 @@ $(document).ready(function() {
   	  }
   	});
   	  	
-	  $('.imageUpload').change(function() {
-	    var file = $(this)[0].files[0];
-	    var reader = new FileReader();
-	    reader.onload = function(e) {
-	      $('.preview').attr('src', e.target.result);
-	      $('.preview').css('width', '240px');
-	      $('.preview').css('height', '180px');
-	      $('.deleteBtn').show();
-	    }
-	    reader.readAsDataURL(file);
-	  });
+  	$('.ImageUploadbox .imageUpload').on('change', function() {
+  	    var file = $(this)[0].files[0];
+  	    var reader = new FileReader();
+  	    var $preview = $(this).siblings('.preview');
+  	    var $deleteBtn = $(this).closest('.ImageUploadbox').find('.deleteBtn');
+  	    reader.onload = function(e) {
+  	    	$preview.attr('src', e.target.result);
+  	        $preview.css({'width': '100%', 'height': '100%'});
+  	        $('#imagetext').html('');
+			$deleteBtn.show();
+  	    }
+  	    reader.readAsDataURL(file);
+  	    var mainCount = $('.ImageUploadbox').length;
+  	    $('#main').html(mainCount);
+        
+  	});
+  	
+  	$('.ImageUploadbox .deleteBtn').click(function() {
+		  // 클릭한 버튼과 연결된 이미지와 input 요소 찾기
+		  var $parent = $(this).parent();
+		  var $preview = $parent.find('.preview');
+		  var $imageUpload = $parent.find('.imageUpload');
+		  var mainCount = $('.ImageUploadbox').length;
 
-	  $('.deleteBtn').click(function() {
-	    $('.preview').attr('src', 'image/imageupload.png');
-	    $('.imageUpload').val('');
-	    $(this).hide();
-	    $('.preview').css('width', '88px');
-	    $('.preview').css('height', '66px');
-	  });
+		  // 이미지 초기화 및 input 요소 값 제거
+		  $preview.attr('src', 'image/imageupload.png');
+		  $imageUpload.val('');
+
+		  // 버튼 숨기기
+		  $(this).hide();
+		  $('#imagetext').html('652 x 488px <br> (4:3 비율)');
+
+		  // 이미지 크기 원래대로 복원
+		  $preview.css({
+		    width: '88px',
+		    height: '66px'
+		  });
+		  
+		  if($preview.attr('src', 'image/imageupload.png')){
+			  $('#main').html(mainCount-1);
+		  }
+		  
+		});
+
 });
 
+$(document).on('change', '.ImageUploadboxdetail .imageUpload', function() {
+	  var $currentBox = $(this).closest('.ImageUploadboxdetail');
+	  var file = $(this)[0].files[0];
+	  var reader = new FileReader();
+	  var $preview = $(this).siblings('.preview');
+	  var $deleteBtn = $(this).closest('.ImageUploadboxdetail').find('.deleteBtn');
+	  var $newbox = $('<div class="ImageUploadboxdetail"><label><input type="file" class="imageUpload" name="image[]" accept="image/*" style="display:none"><img class="preview" src="image/imageupload.png" alt="이미지 미리보기"></label><button class="deleteBtn" style="display:none"></button></div>');
+	  reader.onload = function(e) {
+	    $preview.attr('src', e.target.result);
+	    $preview.css({'width': '100%', 'height': '100%'});
+	    $currentBox.hover(function() {
+            $deleteBtn.show();
+        }, function() {
+            $deleteBtn.hide();
+        });
+	    $currentBox.find('.imageUpload').prop('disabled', true); // 이미지가 등록된 박스의 input 비활성화
+	  }
+	  reader.readAsDataURL(file);
+
+	  // 이미지 박스의 마지막에 새로운 이미지 박스 추가
+	  var detailCount = $('.ImageUploadboxdetail').length;
+	  if(detailCount < 9) {
+	    $(this).closest('.ImageUploadboxdetail').after($newbox);
+	  }
+
+	  // 상세이미지등록 개수 표시
+	  $('#detail').html(detailCount);
+	});
+
+
+$(document).on('click', '.ImageUploadboxdetail .deleteBtn', function() {
+	  // 클릭한 버튼과 연결된 이미지와 input 요소 찾기
+	  $(this).closest('.ImageUploadboxdetail').remove();
+	  
+	  // Recalculate detailCount
+	  var detailCount = $('.ImageUploadboxdetail').length;
+	  $('#detail').html(detailCount-1);
+	});

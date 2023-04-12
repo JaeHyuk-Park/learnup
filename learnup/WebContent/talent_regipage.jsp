@@ -27,7 +27,8 @@
 
 <body style="margin : 0; overflow-x: hidden;">
 <jsp:include page="header.jsp"/>
-	<form name="member" action="memberSuc.jsp" method="post">
+	<form name="member" action="TalentInsert.learnup.com" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="email" value="<%= (String)session.getAttribute("Email")%>">
 	<div class="section_sec">
 		<section>
 			<div class="secwrap">
@@ -101,30 +102,30 @@
 							</div>
 							<div>
 								<span class="wid5">제목</span>
-								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" required ><br>
+								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" ><br>
 									<span class="versionlimittitle" id="versiontitle1">0</span>
 									<span class="versionlimittitle">/20</span>
 								</span>
-								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" required >
+								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" >
 									<span class="versionlimittitle" id="versiontitle2">0</span>
 									<span class="versionlimittitle">/20</span>
 								</span>
-								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" required >
+								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" >
 									<span class="versionlimittitle" id="versiontitle3">0</span>
 									<span class="versionlimittitle">/20</span>
 								</span>
 							</div>
 							<div>
 								<span class="wid5" style="height:200px;">설명</span>
-								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" required></textarea>
+								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
 									<span class="versionlimitdescript" id="versiondescript1">0</span>
 									<span class="versionlimitdescript">/60</span>
 								</span>
-								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" required></textarea>
+								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
 									<span class="versionlimitdescript" id="versiondescript2">0</span>
 									<span class="versionlimitdescript">/60</span>
 								</span>
-								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" required></textarea>
+								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
 									<span class="versionlimitdescript" id="versiondescript3">0</span>
 									<span class="versionlimitdescript">/60</span>
 								</span>
@@ -132,13 +133,13 @@
 							<div>
 								<span class="wid5">금액(VAT 포함)</span>
 								<span class="version123" style="font-size: 13px; line-height: 30px;">
-									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" required>원
+									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
 								</span>
 								<span class="version123" style="font-size: 13px; line-height: 30px;">
-									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" required>원
+									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
 								</span>
 								<span class="version123" style="font-size: 13px; line-height: 30px;">
-									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" required>원
+									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
 								</span>
 							</div>
 							<div>
@@ -198,11 +199,11 @@
 					
 					<div class="oplist opop" style="display:none;"><span class="wid">맞춤옵션</span>
 						<div class="optionbox">
-							<div><span class="wid3">제목</span><input type="text" placeholder="제목을 입력해주세요." required></div>
-							<div><span class="wid3">설명</span><input type="text" placeholder="설명을 입력해주세요." required></div>
-							<div><span class="wid3">추가금액</span><input type="text" placeholder="최소 1,000" style="width:80px;" required>원 추가시</div>
+							<div><span class="wid3">제목</span><input type="text" placeholder="제목을 입력해주세요." name="op_title[]" maxlength="50"></div>
+							<div><span class="wid3">설명</span><input type="text" placeholder="설명을 입력해주세요." name="op_descript[]" maxlength="100"></div>
+							<div><span class="wid3">추가금액</span><input type="text" placeholder="최소 1,000" style="width:80px;" name="op_price[]">원 추가시</div>
 							<div><span class="wid3">추가 작업일</span>
-							<select style="width:10%; background-color: #fafafc;">
+							<select style="width:10%; background-color: #fafafc;" name="op_date[]">
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -221,16 +222,16 @@
 					<div class="option"><input type="button" value="+ 맞춤옵션 추가"></div>
 					
 					
-					<div class="oplist"><span class="wid2" id="service">서비스 설명</span><textarea placeholder="판매하는 서비스의 설명을 적어주세요." name="descript"></textarea><div class="calcultext">글자수 : &nbsp;<span id="descript">0</span></div></div>
+					<div class="oplist"><span class="wid2" id="service">서비스 설명</span><textarea placeholder="판매하는 서비스의 설명을 적어주세요." name="service_descript"></textarea><div class="calcultext">글자수 : &nbsp;<span id="descript">0</span></div></div>
 					<div class="oplist"><span class="wid2">서비스 제공절차</span><textarea placeholder="판매하는 서비스의 서비스 제공절차를 적어주세요." name="service_text"></textarea><div class="calcultext">글자수 : &nbsp;<span id="service_text">0</span></div></div>
 					<div class="oplist"><span class="wid2">수정 및 재진행 안내</span><textarea placeholder="판매하는 서비스의 수정 및 재진행 관련 내용을 적어주세요." name="recruit"></textarea><div class="calcultext">글자수 : &nbsp;<span id="recruit">0</span></div></div>
 					
 					<div class="oplist opop" style="display:none;"><span class="wid10">자주 묻는 질문</span>
 						<div class="optionbox">
-							<div><span class="wid3">질문</span><input type="text" placeholder="자주묻는 질문을 입력해주세요." required></div>
+							<div><span class="wid3">질문</span><input type="text" placeholder="자주묻는 질문을 입력해주세요." name="qna_title[]"></div>
 							<div>
 								<span class="wid3" style="position: relative; top: -145px;">답변</span>
-								<textarea id="answer" placeholder="답변을 입력해주세요." required></textarea>
+								<textarea id="answer" placeholder="답변을 입력해주세요." name="qna_answer[]"></textarea>
 							</div>
 						</div>
 					</div>
@@ -238,16 +239,20 @@
 					<div class="question"><input type="button" value="+ 자주 묻는 질문 추가"></div>
 					<br>				
 					
-					<div>메인이미지등록(필수)&nbsp;&nbsp;<span class="textadd" id="main">0</span>/1</div><br>
+					<div>메인이미지등록(필수)&nbsp;&nbsp;<span class="textadd" id="main">0</span>/1</div>
 					<div class="ImageUploadbox">
-						<img src="image/imageupload.png">
-						<div>652 x 488px <br> (4:3 비율)</div>
+						<label>
+						    <input type="file" class="imageUpload" name="image" accept="image/*" style="display:none">
+						    <img class="preview" src="image/imageupload.png" alt="이미지 미리보기">
+					 	</label>
+					 	<div id="imagetext">652 x 488px <br> (4:3 비율)</div>
+					 	<button class="deleteBtn" style="display:none"></button>
 					</div><br><br>
 					
-					<div>상세이미지등록(선택)&nbsp;&nbsp;<span class="textadd" id="detail">0</span>/9</div><br>
-					<div class="ImageUploadbox">
+					<div>상세이미지등록(선택)&nbsp;&nbsp;<span class="textadd" id="detail">0</span>/9</div>
+					<div class="ImageUploadboxdetail">
 					  <label>
-					    <input type="file" class="imageUpload" accept="image/*" style="display:none">
+					    <input type="file" class="imageUpload" name="image[]" accept="image/*" style="display:none">
 					    <img class="preview" src="image/imageupload.png" alt="이미지 미리보기">
 					  </label>
 					  <button class="deleteBtn" style="display:none"></button>
@@ -265,6 +270,12 @@
 			</div>	
 		</section>
 	</div>
+	<footer class="footsection">
+		<section class="handlebuttonsection">
+			<input type="button" class="lastbutton" value = "메인으로">
+			<input type="submit" class="lastbutton" value = "제출하기" style="margin-left:15px;">
+		</section>
+	</footer>
 	</form>
 </body>
 </html>

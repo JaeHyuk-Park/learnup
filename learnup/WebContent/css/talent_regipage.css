@@ -99,7 +99,7 @@ a{
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom:50px;
+	margin-bottom:150px;
 }
 section{
 	width: 100%;
@@ -218,13 +218,39 @@ div.ImageUploadbox{
     text-align: center;
     order: 1;
     position: relative;
+    margin-top: 20px;
 }
 div.ImageUploadbox img{
 	width:88px;
 	vertical-align: middle;
 	cursor: pointer;
 }
-.ImageUploadbox:hover .deleteBtn{
+.ImageUploadbox label, .ImageUploadboxdetail label{
+	cursor: pointer;
+}
+
+div.ImageUploadboxdetail{
+	width: 240px;
+    height: 180px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #e4e5ed;
+    background: #fff;
+    border-radius: 4px;
+    text-align: center;
+    order: 1;
+    position: relative;
+    margin-top:20px;
+    margin-right:20px;
+}
+div.ImageUploadboxdetail img{
+	width:88px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.deleteBtn{
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -886,7 +912,7 @@ a{
   width: 54px;
   height: 24px;
   background: #fff;
-  border: 2px solid #daa;
+  border: 2px solid #D1B2FF;
   border-radius: 20px;
   transition: 0.2s;
   margin-left: 650px;
@@ -901,17 +927,17 @@ a{
   width: 15px;
   height: 15px;
   border-radius: 20px;
-  background: #daa;
+  background: #D1B2FF;
   transition: 0.2s;
 }
 /* checking style */
 #switch:checked+.switch_label {
-  background: #c44;
-  border: 2px solid #c44;
+  background: #D1B2FF;
+  border: 2px solid #D1B2FF;
 }
 
 #switch:checked+.switch_label:hover {
-  background: #e55;
+  background: #D1B2FF;
 }
 
 /* move */
@@ -919,4 +945,35 @@ a{
   left: 33px;
   background: #fff;
   box-shadow: 1px 2px 3px #00000020;
+}
+
+footer.footsection{
+	width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding:10px 0;
+    border-top: 1px solid #e4e5ed;
+    background-color: #fff;
+}
+.handlebuttonsection{
+	width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+}
+.lastbutton{
+	border: 1px solid #e4e5ed;
+    border-radius: 4px;
+    padding: 8px 14px;
+    color: #303441;
+    font-size:14px;
+    background-color: #fff;
+    font-weight: bold;
+    cursor : pointer;
+}
+.lastbutton:hover{
+	background-color : rgb(213, 213, 213);	
 }
