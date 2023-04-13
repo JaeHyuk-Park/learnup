@@ -27,14 +27,21 @@ public class TalentInsertAction implements TalentAction {
 		TalentQnaDataType qna = null;
 		TalentVersionDataType version = null;
 	
-		String realFolder="";
-		String saveFolder="/TalentUpload";
 		ArrayList<String> list = new ArrayList<String>();
 		ArrayList<String> title = new ArrayList<String>();
 		ArrayList<String> descript = new ArrayList<String>();
 		ArrayList<Integer> price = new ArrayList<Integer>();
 		ArrayList<Integer> date = new ArrayList<Integer>();
 		ArrayList<Integer> num = new ArrayList<Integer>();
+		ArrayList<String> op_title = new ArrayList<String>();
+		ArrayList<String> op_descript = new ArrayList<String>();
+		ArrayList<Integer> op_date = new ArrayList<Integer>();
+		ArrayList<Integer> op_price = new ArrayList<Integer>();
+		ArrayList<String> qna_title = new ArrayList<String>();
+		ArrayList<String> qna_answer = new ArrayList<String>();
+		
+		String realFolder="";
+		String saveFolder="/TalentUpload";
 		int fileSize=5*1024*1024;
 		ServletContext context = request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);   		
@@ -84,15 +91,25 @@ public class TalentInsertAction implements TalentAction {
 			System.out.println("스탠다드 버전으로 저장됨.");
 		}
 		if(multi.getParameterValues("op_title[]") != null) {
-			op_title[] 있으면 넣음. null 가능 // 옵션 테이블
-			op_descript[]
-			op_price[]
-			op_date[]
+			String op_title1[] = multi.getParameterValues("op_title[]");
+			String op_descript1[] = multi.getParameterValues("op_descript[]");
+			String op_price1[] = multi.getParameterValues("op_price[]");
+			String op_date1[] = multi.getParameterValues("op_date[]");
+			for(int i=0; i<op_title1.length; i++) {
+				op_title.add(op_title1[i]);
+				op_descript.add(op_descript1[i]);
+				op_price.add(Integer.parseInt(op_price1[i]));
+				op_date.add(Integer.parseInt(op_date1[i]));
+			}
+			option.setOp_title(op_title);
+			option.setOp_descript(op_descript);
+			option.setOp_price(op_price);
+			option.setOp_date(op_date);
 		}else {
 			System.out.println("옵션 정보 없음.");
 		}
 		if(multi.getParameter("service_descript") != null) {
-			talent.setService_descript(multi.getParameter("service_descript"));;
+			talent.setService_descript(multi.getParameter("service_descript"));
 		}if(multi.getParameter("service_text") != null) {
 			talent.setService_text(multi.getParameter("service_text"));
 		}if(multi.getParameter("recruit") != null) {
@@ -100,19 +117,21 @@ public class TalentInsertAction implements TalentAction {
 		}
 		
 		if(multi.getParameterValues("qna_title[]") != null) {
-			qna_title[] 있으면 넣음. null 가능 qna_answer[]이랑 묶음 // qna테이블
-			qna_answer[]
+			String qna_titles[] = multi.getParameterValues("qna_title[]");
+			String qna_answers[] = multi.getParameterValues("qna_answer[]");
+			for(int i=0; i<qna_titles.length; i++) {
+				qna_title.add(qna_titles[i]);
+				qna_answer.add(qna_answers[i]);
+			}
+			qna.setQna_title(qna_title);
+			qna.setQna_answer(qna_answer);
 		}else {
 			System.out.println("qna 없음.");
 		}
+		String image = multi.getFilesystemName("image");
+		String images[] = multi.getFilesystemName("image[]");
 		
-		image
-		image[] 있으면 넣음. null 가능
-		파일 저장하는거 까먹음. 한 번 확인해봐야됨.
 		
-		boardBean.setBOARD_PASS(multi.getParameter("BOARD_PASS"));
-		boardBean.setBOARD_SUBJECT(multi.getParameter("BOARD_SUBJECT"));
-		boardBean.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT"));
 		boardBean.setBOARD_FILE(
 		multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		BoardWriteProService boardWriteProService = new BoardWriteProService();

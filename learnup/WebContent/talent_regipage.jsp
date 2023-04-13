@@ -252,20 +252,12 @@
 					<div>상세이미지등록(선택)&nbsp;&nbsp;<span class="textadd" id="detail">0</span>/9</div>
 					<div class="ImageUploadboxdetail">
 					  <label>
-					    <input type="file" class="imageUpload" name="image[]" accept="image/*" style="display:none">
+					    <input type="file" class="imageUpload" name="image1" accept="image/*" style="display:none">
 					    <img class="preview" src="image/imageupload.png" alt="이미지 미리보기">
 					  </label>
 					  <button class="deleteBtn" style="display:none"></button>
 					</div>
 					<br>
-
-					
-
-					
-					
-
-
-
 				</div>
 			</div>	
 		</section>

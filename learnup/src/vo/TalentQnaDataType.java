@@ -1,8 +1,11 @@
 package vo;
 
+import java.util.ArrayList;
+
 public class TalentQnaDataType {
 	int product_num, qna_num;
-	String qna_title, qna_answer;
+	ArrayList<String> qna_title;
+	ArrayList<String> qna_answer;
 	
 	public int getProduct_num() {
 		return product_num;
@@ -16,17 +19,17 @@ public class TalentQnaDataType {
 	public void setQna_num(int qna_num) {
 		this.qna_num = qna_num;
 	}
-	public String getQna_title() {
+	public ArrayList<String> getQna_title() {
 		return qna_title;
 	}
-	public void setQna_title(String qna_title) {
-		this.qna_title = qna_title;
+	public void setQna_title(ArrayList<String> qna_title2) {
+		this.qna_title = qna_title2;
 	}
-	public String getQna_answer() {
+	public ArrayList<String> getQna_answer() {
 		return qna_answer;
 	}
-	public void setQna_answer(String qna_answer) {
-		this.qna_answer = qna_answer;
+	public void setQna_answer(ArrayList<String> qna_answer2) {
+		this.qna_answer = qna_answer2;
 	}
 	
 }
