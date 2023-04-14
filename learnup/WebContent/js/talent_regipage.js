@@ -181,17 +181,17 @@ $(document).ready(function() {
 		});
 
 });
-var a = 1;
+//var a = 1;
 $(document).on('change', '.ImageUploadboxdetail .imageUpload', function() {
-	
-		a++;
-	
+//	
+//		a++;
+//	
 	  var $currentBox = $(this).closest('.ImageUploadboxdetail');
 	  var file = $(this)[0].files[0];
 	  var reader = new FileReader();
 	  var $preview = $(this).siblings('.preview');
 	  var $deleteBtn = $(this).closest('.ImageUploadboxdetail').find('.deleteBtn');
-	  var $newbox = $('<div class="ImageUploadboxdetail"><label><input type="file" class="imageUpload" name="image'+a+'" accept="image/*" style="display:none"><img class="preview" src="image/imageupload.png" alt="이미지 미리보기"></label><button class="deleteBtn" style="display:none"></button></div>');
+//	  var $newbox = $('<div class="ImageUploadboxdetail"><label><input type="file" class="imageUpload" name="image'+a+'" accept="image/*" style="display:none"><img class="preview" src="image/imageupload.png" alt="이미지 미리보기"></label><button class="deleteBtn" style="display:none"></button></div>');
 	  reader.onload = function(e) {
 	    $preview.attr('src', e.target.result);
 	    $preview.css({'width': '100%', 'height': '100%'});
@@ -206,20 +206,20 @@ $(document).on('change', '.ImageUploadboxdetail .imageUpload', function() {
 
 	  // 이미지 박스의 마지막에 새로운 이미지 박스 추가
 	  var detailCount = $('.ImageUploadboxdetail').length;
-	  if(detailCount < 9) {
-	    $(this).closest('.ImageUploadboxdetail').after($newbox);
-	  }
-
-	  // 상세이미지등록 개수 표시
+//	  if(detailCount < 9) {
+//	    $(this).closest('.ImageUploadboxdetail').after($newbox);
+//	  }
+//
+//	  // 상세이미지등록 개수 표시
 	  $('#detail').html(detailCount);
 	});
-
-
-$(document).on('click', '.ImageUploadboxdetail .deleteBtn', function() {
-	// 클릭한 버튼과 연결된 이미지와 input 요소 찾기
-	  $(this).closest('.ImageUploadboxdetail').remove();
-	  
-	  // Recalculate detailCount
-	  var detailCount = $('.ImageUploadboxdetail').length;
-	  $('#detail').html(detailCount-1);
-	});
+//
+//
+//$(document).on('click', '.ImageUploadboxdetail .deleteBtn', function() {
+//	// 클릭한 버튼과 연결된 이미지와 input 요소 찾기
+//	  $(this).closest('.ImageUploadboxdetail').remove();
+//	  
+//	  // Recalculate detailCount
+//	  var detailCount = $('.ImageUploadboxdetail').length;
+//	  $('#detail').html(detailCount-1);
+//	});

@@ -147,11 +147,20 @@ public class TalentInsertAction implements TalentAction {
 			System.out.println("qna ¾øÀ½.");
 		}
 		
+		System.out.println(multi.getFileNames().nextElement());
+		System.out.println(multi.getFileNames().nextElement());
+		System.out.println(multi.getFileNames().nextElement());
+		
+		
 		List<String> fileList = new ArrayList<>();
 		Enumeration files = multi.getFileNames();
-
+		
+		int a = 0;
 		while(files.hasMoreElements()) {
-		    String filename = (String) files.nextElement();
+			a++;
+			String filename = (String) files.nextElement();
+		    System.out.println(filename);
+		    System.out.println(a);
 		    fileList.add(multi.getOriginalFileName(filename));
 		}
 

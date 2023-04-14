@@ -239,7 +239,10 @@
 					<div class="question"><input type="button" value="+ 자주 묻는 질문 추가"></div>
 					<br>				
 					
-					<div>메인이미지등록(필수)&nbsp;&nbsp;<span class="textadd" id="main">0</span>/1</div>
+					<input type="file" name="image">
+					<input type="file" name="image1">
+					
+					<!-- div>메인이미지등록(필수)&nbsp;&nbsp;<span class="textadd" id="main">0</span>/1</div>
 					<div class="ImageUploadbox">
 						<label>
 						    <input type="file" class="imageUpload" name="image" accept="image/*" style="display:none">
@@ -256,7 +259,7 @@
 					    <img class="preview" src="image/imageupload.png" alt="이미지 미리보기">
 					  </label>
 					  <button class="deleteBtn" style="display:none"></button>
-					</div>
+					</div  -->
 					<br>
 				</div>
 			</div>	
