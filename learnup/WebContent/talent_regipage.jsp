@@ -37,7 +37,7 @@
 						<a href="#title"><li>1. 기본정보</li></a>
 						<a href="#price"><li>2. 가격설정</li></a>
 						<a href="#service"><li>3. 서비스설명</li></a>
-						<a href="#self"><li>4. 이미지</li></a>
+						<a href="#main"><li>4. 이미지</li></a>
 					</ul>
 				</div>
 				<div class="rightsec">
@@ -102,30 +102,30 @@
 							</div>
 							<div>
 								<span class="wid5">제목</span>
-								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" ><br>
+								<span class="version123"><input type="text" name="vers_titles[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" ><br>
 									<span class="versionlimittitle" id="versiontitle1">0</span>
 									<span class="versionlimittitle">/20</span>
 								</span>
-								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" >
+								<span class="version123"><input type="text" name="vers_titles[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" >
 									<span class="versionlimittitle" id="versiontitle2">0</span>
 									<span class="versionlimittitle">/20</span>
 								</span>
-								<span class="version123"><input type="text" name="vers_title[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" >
+								<span class="version123"><input type="text" name="vers_titles[]" placeholder="제목을 입력해주세요." style="background-color:white;" maxlength="20" >
 									<span class="versionlimittitle" id="versiontitle3">0</span>
 									<span class="versionlimittitle">/20</span>
 								</span>
 							</div>
 							<div>
 								<span class="wid5" style="height:200px;">설명</span>
-								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
+								<span class="version123" style="height:auto;"><textarea name="vers_descripts[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
 									<span class="versionlimitdescript" id="versiondescript1">0</span>
 									<span class="versionlimitdescript">/60</span>
 								</span>
-								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
+								<span class="version123" style="height:auto;"><textarea name="vers_descripts[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
 									<span class="versionlimitdescript" id="versiondescript2">0</span>
 									<span class="versionlimitdescript">/60</span>
 								</span>
-								<span class="version123" style="height:auto;"><textarea name="vers_descript[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
+								<span class="version123" style="height:auto;"><textarea name="vers_descripts[]" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" ></textarea>
 									<span class="versionlimitdescript" id="versiondescript3">0</span>
 									<span class="versionlimitdescript">/60</span>
 								</span>
@@ -133,33 +133,33 @@
 							<div>
 								<span class="wid5">금액(VAT 포함)</span>
 								<span class="version123" style="font-size: 13px; line-height: 30px;">
-									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
+									<input type="text" name="vers_prices[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
 								</span>
 								<span class="version123" style="font-size: 13px; line-height: 30px;">
-									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
+									<input type="text" name="vers_prices[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
 								</span>
 								<span class="version123" style="font-size: 13px; line-height: 30px;">
-									<input type="text" name="vers_price[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
+									<input type="text" name="vers_prices[]" maxlength="9" placeholder="입력해주세요." style="width:100%; background-color:white;" >원
 								</span>
 							</div>
 							<div>
 								<span class="wid5">작업 기간</span>
 								<span class="version123">
-								<select style="width:100%;" name="vers_date[]">
+								<select style="width:100%;" name="vers_dates[]">
 								<%for(int standday=1; standday<=30; standday++){
 									%><option value="<%=standday%>"><%=standday %>일</option>
 								<%}%>
 								</select>
 								</span>
 								<span class="version123">
-								<select style="width:100%;" name="vers_date[]">
+								<select style="width:100%;" name="vers_dates[]">
 								<%for(int standday=1; standday<=30; standday++){
 									%><option value="<%=standday%>"><%=standday %>일</option>
 								<%}%>
 								</select>
 								</span>
 								<span class="version123">
-								<select style="width:100%;" name="vers_date[]">
+								<select style="width:100%;" name="vers_dates[]">
 								<%for(int standday=1; standday<=30; standday++){
 									%><option value="<%=standday%>"><%=standday %>일</option>
 								<%}%>
@@ -169,7 +169,7 @@
 							<div>
 								<span class="wid5">수정 횟수</span>
 								<span class="version123">
-								<select style="width:100%;" name="recruit_num[]">
+								<select style="width:100%;" name="recruit_nums[]">
 								<%for(int standrevi=1; standrevi<=15; standrevi++){
 									%><option value="<%=standrevi%>"><%=standrevi %>회</option>
 								<%}%>
@@ -177,7 +177,7 @@
 								</select>
 								</span>
 								<span class="version123">
-								<select style="width:100%;" name="recruit_num[]">
+								<select style="width:100%;" name="recruit_nums[]">
 								<%for(int standrevi=1; standrevi<=15; standrevi++){
 									%><option value="<%=standrevi%>"><%=standrevi %>회</option>
 								<%}%>
@@ -185,7 +185,7 @@
 								</select>
 								</span>
 								<span class="version123">
-								<select style="width:100%;" name="recruit_num[]">
+								<select style="width:100%;" name="recruit_nums[]">
 								<%for(int standrevi=1; standrevi<=15; standrevi++){
 									%><option value="<%=standrevi%>"><%=standrevi %>회</option>
 								<%}%>

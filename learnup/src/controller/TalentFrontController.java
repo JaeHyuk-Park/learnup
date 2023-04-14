@@ -10,7 +10,7 @@ import action.TalentAction;
 import action.TalentInsertAction;
 import vo.ActionForward;
 
-@WebServlet("*.learnup.com")
+@WebServlet("*.com")
 public class TalentFrontController extends javax.servlet.http.HttpServlet 
 {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) 

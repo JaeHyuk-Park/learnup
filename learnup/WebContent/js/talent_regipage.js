@@ -33,7 +33,7 @@ $(document).ready(function() {
     $("#title").text(textLength);
   });
   
-  $("textarea[name=descript]").on("keyup", function() {
+  $("textarea[name=service_descript]").on("keyup", function() {
     var textLength = $(this).val().length;
     $("#descript").text(textLength);
   });
@@ -181,17 +181,10 @@ $(document).ready(function() {
 		});
 
 });
-
 var a = 1;
-
 $(document).on('change', '.ImageUploadboxdetail .imageUpload', function() {
 	
 		a++;
-		console.log(a);
-		
-		if(a++ == a){
-			a++;
-		}
 	
 	  var $currentBox = $(this).closest('.ImageUploadboxdetail');
 	  var file = $(this)[0].files[0];
@@ -223,8 +216,6 @@ $(document).on('change', '.ImageUploadboxdetail .imageUpload', function() {
 
 
 $(document).on('click', '.ImageUploadboxdetail .deleteBtn', function() {
-	a--;  
-	console.log(a);
 	// 클릭한 버튼과 연결된 이미지와 input 요소 찾기
 	  $(this).closest('.ImageUploadboxdetail').remove();
 	  
