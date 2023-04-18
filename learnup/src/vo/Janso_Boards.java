@@ -7,6 +7,9 @@ public class Janso_Boards {
 	private String email ;
 	private String date ;
 	private int open_check ;
+	private String fileName;
+	private String fileRealName;
+
 	
 	public int getOpen_check() {
 		return open_check;
@@ -44,6 +47,20 @@ public class Janso_Boards {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getFileRealName() {
+		return fileRealName;
+	}
+	public void setFileRealName(String fileRealName) {
+		this.fileRealName = fileRealName;
+	}
+	
 
+	
 	
 }
