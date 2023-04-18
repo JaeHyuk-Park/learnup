@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import javax.sql.DataSource;
 
 import vo.TalentDataType;
-import vo.TalentImageDataType;
+import vo.TalentOptionDataType;
+import vo.TalentQnaDataType;
+import vo.TalentVersionDataType;
 
 public class TalentDAO {
 
@@ -236,7 +238,7 @@ public class TalentDAO {
 			System.out.println("talent insert 완료 되었습니다.");
 
 		}catch(Exception ex){
-			System.out.println(ex+"talent insert 첫번째 오류입니다.");
+			System.out.println(ex+"talent insert 오류입니다.");
 		}finally{
 			close(rs);
 			close(pstmt);
@@ -245,7 +247,111 @@ public class TalentDAO {
 		return insertCount;
 
 	}
+	
+	public void insertVersion(int insertCount, TalentVersionDataType version) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="";
+		
+		try{
+			sql="insert into learnup.vers_info(product_num, vers_num, vers_title, vers_descript, vers_price, vers_date, recruit_num";
+			sql+="values(?, ?, ?, ?, ?, ?)";
+			if(version.getTitle() != null) {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, insertCount);
+				pstmt.setInt(2, insertCount);
+				pstmt.setString(3, version.getTitle());
+				pstmt.setString(4, version.getDescript());
+				pstmt.setInt(5, version.getPrice());
+				pstmt.setInt(6, version.getDate());
+				pstmt.setInt(7, version.getNum());
+				
+				pstmt.executeUpdate();
+				
+				System.out.println("talent version 1개 insert 완료 되었습니다.");
+			}else {
+				for(int i = 0 ; i<version.getVers_title().size(); i++) {
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, insertCount);
+					pstmt.setInt(2, insertCount+i);
+					pstmt.setString(3, version.getVers_title().get(i));
+					pstmt.setString(4, version.getVers_descript().get(i));
+					pstmt.setInt(5, version.getVers_price().get(i));
+					pstmt.setInt(6, version.getVers_date().get(i));
+					pstmt.setInt(7, version.getRecruit_num().get(i));
+					
+					pstmt.executeUpdate();
+				}
+				System.out.println("talent version 3개 insert 완료 되었습니다.");
+			}
 
+		}catch(Exception ex){
+			System.out.println(ex+"talent version insert 오류입니다.");
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		
+	}
+	
+	public void insertoption(int insertCount2, TalentOptionDataType option){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="";
+		
+		try{
+			sql="insert into learnup.option(product_num, op_num, op_title, op_descript, op_date, op_price";
+			sql+="values(?, ?, ?, ?, ?, ?)";
+			for(int i = 0 ; i<option.getOp_title().size(); i++) {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, insertCount2);
+				pstmt.setInt(2, insertCount2+i);
+				pstmt.setString(3, option.getOp_title().get(i));
+				pstmt.setString(4, option.getOp_descript().get(i));
+				pstmt.setInt(5, option.getOp_date().get(i));
+				pstmt.setInt(6, option.getOp_price().get(i));
+				
+				pstmt.executeUpdate();
+			}
+			System.out.println("talent option insert 완료 되었습니다.");
+
+		}catch(Exception ex){
+			System.out.println(ex+"talent option insert 오류입니다.");
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+	}
+
+	public void insertqna(int insertCount, TalentQnaDataType qna){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="";
+		
+		try{
+			sql="insert into learnup.prod_qna(product_num, qna_num, qna_title, qna_answer";
+			sql+="values(?, ?, ?, ?)";
+			
+			for(int i = 0 ; i<qna.getQna_title().size(); i++) {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, insertCount);
+				pstmt.setInt(2, insertCount+i);
+				pstmt.setString(3, qna.getQna_title().get(i));
+				pstmt.setString(4, qna.getQna_answer().get(i));
+				
+				pstmt.executeUpdate();
+			}
+			System.out.println("talent qna insert 완료 되었습니다.");
+
+		}catch(Exception ex){
+			System.out.println(ex+"talent qna insert 오류입니다.");
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+	}
 //	public int insertReplyArticle(BoardBean article){
 //
 //		PreparedStatement pstmt = null;
@@ -300,6 +406,8 @@ public class TalentDAO {
 //		return insertCount;
 //
 //	}
+
+	
 
 //	public int updateArticle(BoardBean article){
 //

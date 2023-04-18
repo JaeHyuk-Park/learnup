@@ -19,6 +19,14 @@ public class TalentInsertService {
 		TalentDAO talentDAO = TalentDAO.getInstance();
 		talentDAO.setConnection(con);
 		int insertCount = talentDAO.insertArticle(talent);
+		talentDAO.insertVersion(insertCount, version);
+		if(option.getOp_title().get(0) != "") {
+			talentDAO.insertoption(insertCount, option);
+		}if(qna.getQna_title().get(0) != "") {
+			talentDAO.insertqna(insertCount, qna);
+		}
+		
+		
 		
 		if(insertCount > 0){
 			commit(con);

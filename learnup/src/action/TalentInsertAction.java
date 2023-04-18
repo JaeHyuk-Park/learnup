@@ -76,13 +76,22 @@ public class TalentInsertAction implements TalentAction {
 		}else {
 			System.out.println("keyword 작성 안했더라쥬~");
 		}
-		String vers_title[] = multi.getParameterValues("vers_titles[]");
-		if(!vers_title[0].isEmpty()) {
+		
+		if(multi.getParameter("vers_title") != null) {
+			version.setTitle(multi.getParameter("vers_title"));
+			version.setDescript(multi.getParameter("vers_descript"));
+			version.setPrice(Integer.parseInt(multi.getParameter("vers_price")));
+			version.setDate(Integer.parseInt(multi.getParameter("vers_date")));
+			version.setNum(Integer.parseInt(multi.getParameter("recruit_num")));
+			System.out.println("스탠다드 버전으로 저장됨.");
+		}else {
+			String vers_title[] = multi.getParameterValues("vers_titles[]");
 			String vers_descript[] = multi.getParameterValues("vers_descripts[]");
 			String vers_price[] = multi.getParameterValues("vers_prices[]");
 			String vers_date[] = multi.getParameterValues("vers_dates[]");
 			String recruit_num[] = multi.getParameterValues("recruit_nums[]");
 			for(int i=0; i<vers_title.length; i++) {
+				System.out.println(Integer.parseInt(vers_price[i]));
 				title.add(vers_title[i]);
 				descript.add(vers_descript[i]);
 				price.add(Integer.parseInt(vers_price[i]));
@@ -95,20 +104,15 @@ public class TalentInsertAction implements TalentAction {
 			version.setVers_date(date);
 			version.setRecruit_num(num);
 			System.out.println("버전 3개로 저장됨.");
-		}else {
-			version.setTitle(multi.getParameter("vers_title"));
-			version.setDescript(multi.getParameter("vers_descript"));
-			version.setPrice(Integer.parseInt(multi.getParameter("vers_price")));
-			version.setDate(Integer.parseInt(multi.getParameter("vers_date")));
-			version.setNum(Integer.parseInt(multi.getParameter("recruit_num")));
-			System.out.println("스탠다드 버전으로 저장됨.");
 		}
-		String op_title1[] = multi.getParameterValues("op_title[]");
-		if(!op_title1[0].isEmpty()) {
+		
+		if(multi.getParameterValues("op_title[]") != null && multi.getParameterValues("op_title[]").length>1) {
+			String op_title1[] = multi.getParameterValues("op_title[]");
 			String op_descript1[] = multi.getParameterValues("op_descript[]");
 			String op_price1[] = multi.getParameterValues("op_price[]");
 			String op_date1[] = multi.getParameterValues("op_date[]");
 			for(int i=0; i<op_title1.length; i++) {
+				System.out.println(op_price1[i]);
 				op_title.add(op_title1[i]);
 				op_descript.add(op_descript1[i]);
 				op_price.add(Integer.parseInt(op_price1[i]));
@@ -133,8 +137,8 @@ public class TalentInsertAction implements TalentAction {
 			System.out.println("리크릿");
 		}
 		
-		String qna_titles[] = multi.getParameterValues("qna_title[]");
-		if(!qna_titles[0].isEmpty()) {
+		if(multi.getParameterValues("qna_title[]") != null) {
+			String qna_titles[] = multi.getParameterValues("qna_title[]");
 			String qna_answers[] = multi.getParameterValues("qna_answer[]");
 			for(int i=0; i<qna_titles.length; i++) {
 				qna_title.add(qna_titles[i]);
