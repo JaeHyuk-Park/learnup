@@ -21,7 +21,7 @@ public class Co_Controller {
 	{
 		try
 		{
-		  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup?useUnicode=true&characterEncoding=utf8","root","1324");
+		  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup?useUnicode=true&characterEncoding=utf8","root","1111");
 		}catch (Exception s) {
 			// TODO: handle exception
 		}
