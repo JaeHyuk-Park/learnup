@@ -19,4 +19,5 @@ public class ActionForward {
 	public void setPath(String string){
 		path=string;
 	}
+
 }

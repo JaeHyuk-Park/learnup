@@ -28,7 +28,7 @@
     
     try {
         Class.forName("com.mysql.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup?serverTimezone=UTC", "root", "1324");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup?serverTimezone=UTC", "root", "1111");
         if (conn == null) {
             throw new Exception("데이터베이스에 연결할 수 없습니다.");
         }

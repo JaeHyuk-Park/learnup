@@ -1,0 +1,378 @@
+*{ margin:0; padding:0;
+font-family: 'Noto Sans KR', sans-serif;}
+
+html {
+    line-height: normal;
+    margin-left: 0;
+    margin-right: 0;
+}
+body {
+    display: block;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+a{
+	color: black;
+	text-decoration: none;
+}
+
+
+/*섹션 영역*/
+.section_sec{
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+section{
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.secwrap{
+	width: 1280px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+/*좌측 메뉴 영역*/
+.leftsec{
+	width:25%;
+	height : 100%;
+	float: left;
+}
+/*좌측 메뉴 리스트*/
+.leftsec ul{
+	padding-top: 100px;
+}
+.leftsec ul li{
+	list-style: none;
+	font-size:15pt;
+	padding-top:10px;
+}
+.leftsec ul li:hover{
+	font-weight:bold;
+}
+
+
+/*우측 메뉴 영역*/
+.rightsec{
+	width:75%;
+	height:100%;
+	margin-bottom: 150px;
+	display: inline-block;
+}
+/*우측 메뉴 맨위 텍스트*/
+.toptext{
+	width: 100%;
+	margin-top: 100px;
+	font-size: 20pt;
+	font-weight:bold;
+}
+
+/*우측 메뉴 프로필 사진 영역*/
+.profile{
+	width: 100%;
+	height: 100%;
+	margin-top:70px;
+	font-size:15pt;
+}
+.profile_wrap{
+	width: 600px;
+	display: flex;
+    align-items: center;
+    position: relative;
+    margin-top:15px;
+}
+.profile_img{
+	position: relative;
+    width: 76px;
+    height: 76px;
+    margin-right: 30px;
+    overflow: hidden;
+}
+.profile_img::after{
+	content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: url(../image/imageplus.png) no-repeat 50%/cover;
+}
+.profile_img img{
+	display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profile_example{
+	display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+.profile_example li{
+	list-style: none;
+	display: inline-block;
+    vertical-align: middle;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+.profile_notice{
+	padding-left: 17px;
+    margin-top: 7px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #797d84;
+    background: url(../image/caution2.png) no-repeat left center/12px 12px;
+}
+
+/*우측 판매자 소개 영역*/
+.sellerintro{
+	width: 100%;
+	height: 100%;
+	margin-top:70px;
+	font-size:15pt;
+}
+.sellerintro_text{
+	width: 600px;
+	height: 250px;
+	margin-top:15px;
+    font-size: 10pt;
+    border:solid 1px #BDBDBD;
+    border-radius: 5px;
+}
+.sellerintro_text textarea{
+	width: 580px;
+	height: 200px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	padding: 10px;
+}
+.sellerintro_text div{
+	width: 600px;
+	height: 30px;
+	margin-right: 5px;
+	color:#747474;
+	text-align: right;
+}
+
+/*우측 메뉴 이력(권장사항) 영역*/
+.career{
+	width: 100%;
+	height: 100%;
+	margin-top:70px;
+	font-size:15pt;
+}
+.career_wrap{
+	width:600px;
+	height: 100%;
+}
+.career input[type="text"]{
+	width:520px;
+	height: 30px;
+	margin-top: 10px;
+	border:none;
+	outline: none;
+	color:#747474;
+	padding-left:10px;
+}
+.career span{
+	position: absolute;
+	font-size:12pt;
+	margin-left: 15px;
+    margin-top: 12px;
+    color:#747474;
+}
+.careerinput_area{
+	width:600px;
+	height: 50px;
+	margin-top: 15px;
+	border: solid 1px #BDBDBD;
+	border-radius: 5px;
+	position: relative;
+}
+.careerimg_area{
+	width: 115px;
+    height: 76px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+.careerimg{
+	position: relative;
+    width: 115px;
+    height: 76px;
+    border-radius: 6px;
+    background: #fafafa;
+    margin-right: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.careerimg img{
+	position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.career_btn{
+	width: 600px;
+	height: 48px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 48px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #111;
+    background-color: #f6f6f6;
+    cursor: pointer;
+    border: none;
+    vertical-align: top;
+}
+.career_btn:hover{
+	background-color: #EAEAEA;
+}
+
+/*우측 메뉴 영상등록 영역*/
+.mediarink{
+	width: 100%;
+	margin-top:70px;
+	font-size:15pt;
+}
+.mediarinktext_wrap{
+	width:600px;
+	height: 50px;
+	margin-top: 15px;
+	border: solid 1px #BDBDBD;
+	border-radius: 5px;
+	position: relative;
+}
+.mediarink input[type="text"]{
+	width:530px;
+	height: 30px;
+	margin-top: 10px;
+	border:none;
+	outline: none;
+	color:#747474;
+	padding-left:52px;
+}
+.sns_instagram::before{
+	background: url(../image/instagram.png) no-repeat center/100% 100%;
+}
+.sns_blog::before{
+	background: url(../image/blog.png) no-repeat center/100% 100%;
+}
+.sns_youtube::before{
+	background: url(../image/youtube.png) no-repeat center/100% 100%;
+}
+.mediarinktext_wrap[class*=sns]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+/*우측 메뉴 등록버튼 영역*/
+
+.regibtn{
+	width: 90px;
+    height: 40px;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #3F0099;
+    float: right;
+    background-color: #D1B2FF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 80px;
+}
+.regibtn:hover{
+	background-color: #A566FF;
+}
+
+
+/*공통*/
+input[type=file]{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+input[type=hidden] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.btn_del{
+	position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+    background: url(../image/delete.png) no-repeat 50%/cover;
+    border: none;
+    cursor: pointer;
+    vertical-align: top;
+}
+.dn{
+	display: none;
+}
+.blind{
+	position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    -webkit-clip-path: polygon(0 0, 0 0, 0 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*이미지 영역*/
+img{
+	width: 100%;
+	height: 100%;
+}
+.imgwrap{
+	width: 1280px;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: skyblue;	
+}
+.imgsec1{
+	width: 700px;
+	height: 500px;
+	margin-left:0;
+	background-color: #E8D9FF;
+}
+.imgsec2{
+	width: 570px;
+	height: 500px;
+	margin-right:0;
+	background-color: #E8D9FF;
+}
