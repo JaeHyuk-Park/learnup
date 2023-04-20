@@ -23,10 +23,10 @@ public class TalentFrontController extends javax.servlet.http.HttpServlet
 		ActionForward forward=null; // 데이터베이스 게터세터 클래스
 		TalentAction action=null;
 
-		if(command.equals("/TalentWrite.learnup.com")){
+		if(command.equals("/TalentWrite.learn")){
 			forward=new ActionForward(); // 데이터베이스 게터세터 클래스
 			forward.setPath("/talent_regipage.jsp");
-		}else if(command.equals("/TalentInsert.learnup.com")){
+		}else if(command.equals("/TalentInsert.learn")){
 			action  = new TalentInsertAction();
 			try {
 				forward=action.execute(request, response );

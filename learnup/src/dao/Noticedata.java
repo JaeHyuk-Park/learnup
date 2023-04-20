@@ -16,7 +16,7 @@ public class Noticedata {
 	public void connect(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup", "root", "1111");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup", "root", "1324");
 		}catch(Exception e) {
 			System.out.println(e+"오류입니다.");
 		}

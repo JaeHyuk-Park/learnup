@@ -1,29 +1,48 @@
 $(document).ready(function() {
-  $("#addbu1").click(function() {
-    var keyword = $("input[name=keyword]").val().trim();
-    if (keyword == "") {
-      alert("키워드를 입력하세요.");
-      return false;
-    }
-    if ($("input[class=keywordlists]").length >= 5) {
-      alert("키워드는 최대 5개까지 입력 가능합니다.");
-      return false;
-    }
-    var $input = $("<input>").attr({
-      type: "button",
-      name: "keyword[]",
-      class: "keywordlists",
-      value: keyword
-    });
-    $("#keywordlist").append($input);
-    $(".limit span#key").text($("#keywordlist input").length);
-    $("input[name=keyword]").val("").focus();
-  });
-  
-  $(document).on("click", "#keywordlist input[type=button]", function() {
-    $(this).remove(); // 버튼 요소 제거
-    $(".limit span").text($("#keywordlist input[type=button]").length); // 현재 항목 개수 표시
-  });
+	var keywordCount = $("#keywordlist input[type=button]").length; // 현재 버튼의 개수로 초기값 설정
+	$("#addbu1").click(function() {
+	  var keyword = $("input[name=keyword]").val().trim();
+	  if (keyword == "") {
+	    alert("키워드를 입력하세요.");
+	    return false;
+	  }
+	  if (keywordCount >= 5) {
+	    alert("키워드는 최대 5개까지 입력 가능합니다.");
+	    return false;
+	  }
+	  var $input = $("<input>").attr({
+	    type: "button",
+	    name: "keyword" + (++keywordCount),
+	    class: "keywordlists",
+	    value: keyword
+	  });
+	  var $key = $("<input>").attr({
+	    type:"hidden",
+	    name:"keyword"+keywordCount,
+	    value:keyword
+	  });
+	  $("#keywordlist").append($input);
+	  $("#keywordlist").append($key);
+	  $(".limit span#key").text($("#keywordlist input[type=button]").length); // 수정된 부분
+	  $("input[name=keyword]").val("").focus();
+	});
+
+	$(document).on("click", "#keywordlist input[type=button]", function() {
+	  var keywordVal = $(this).val(); // 삭제할 키워드 값
+	  var keywordNum = $(this).attr('name').substr(7); // 삭제할 키워드 번호 추출
+	  $(this).remove(); // 버튼 요소 제거
+	  // 해당 키워드 값과 동일한 name 속성을 가진 input hidden 요소 제거
+	  $("input[type=hidden][name^=keyword][value='" + keywordVal + "']").remove(); 
+	  // 삭제된 키워드 번호 이후의 키워드 번호 재설정
+	  $("input[class=keywordlists]").each(function(index) {
+	    var keywordNum = index + 1;
+	    $(this).attr('name', 'keyword' + keywordNum);
+	    $("input[type=hidden][name^=keyword][value='" + $(this).val() + "']").attr('name', 'keyword' + keywordNum);
+	  });
+	  keywordCount--; // 키워드 번호 감소
+	  $(".limit span#key").text($("#keywordlist input[type=button]").length); // 수정된 부분
+	});
+
   
   $("input[name=servicetitle]").on("keyup", function() {
     var textLength = $(this).val().length;
@@ -136,90 +155,79 @@ $(document).ready(function() {
   	  }
   	});
   	  	
-  	$('.ImageUploadbox .imageUpload').on('change', function() {
-  	    var file = $(this)[0].files[0];
-  	    var reader = new FileReader();
-  	    var $preview = $(this).siblings('.preview');
-  	    var $deleteBtn = $(this).closest('.ImageUploadbox').find('.deleteBtn');
-  	    reader.onload = function(e) {
-  	    	$preview.attr('src', e.target.result);
-  	        $preview.css({'width': '100%', 'height': '100%'});
-  	        $('#imagetext').html('');
-			$deleteBtn.show();
-  	    }
-  	    reader.readAsDataURL(file);
-  	    var mainCount = $('.ImageUploadbox').length;
-  	    $('#main').html(mainCount);
-        
+  	$('input[name=image]').on('change', function() {
+  	  var file = $(this)[0].files[0];
+  	  var reader = new FileReader();
+  	  var $deleteBtn = $(this).closest('.ImageUploadbox').find('.deleteBtn');
+  	  
+  	  reader.onload = function(e) {
+  	    $('.ImageUploadbox').css({
+  	      'background': 'url(' + e.target.result + ')',
+  	      'background-size': '100% 100%'
+  	    });
+
+  	    $deleteBtn.show();
+  	    
+  	    $('.ImageUploadbox .deleteBtn').click(function(){
+  	      $('.ImageUploadbox').css({
+  	        'background': 'url(image/imageupload.png) no-repeat center',
+  	        'background-size': '100px 75px'
+  	      });
+
+  	      // input 요소 값 제거
+  	      $('input[name=image]').val('');
+
+  	      // 버튼 숨기기
+  	      $(this).hide();
+
+  	      var mainCount = $('input[name=image]').val() ? 1 : 0;
+  	      $('#main').html(mainCount);
+  	    });
+  	  }
+  	  
+  	  reader.readAsDataURL(file);
+
+  	  var mainCount = $('input[name=image]').val() ? 1 : 0;
+  	  $('#main').html(mainCount);
   	});
   	
-  	$('.ImageUploadbox .deleteBtn').click(function() {
-		  // 클릭한 버튼과 연결된 이미지와 input 요소 찾기
-		  var $parent = $(this).parent();
-		  var $preview = $parent.find('.preview');
-		  var $imageUpload = $parent.find('.imageUpload');
-		  var mainCount = $('.ImageUploadbox').length;
+  	$('input[name=image1], input[name=image2], input[name=image3], input[name=image4], input[name=image5], input[name=image6], input[name=image7], input[name=image8], input[name=image9]').on('change', function() {
+  	  var $currentBox = $(this).closest('.ImageUploadboxdetail');
+  	  var file = $(this)[0].files[0];
+  	  var reader = new FileReader();
+  	  var $deleteBtn = $(this).closest('.ImageUploadboxdetail').find('.deleteBtn');
 
-		  // 이미지 초기화 및 input 요소 값 제거
-		  $preview.attr('src', 'image/imageupload.png');
-		  $imageUpload.val('');
+  	  reader.onload = function(e) {
+  	    $currentBox.css({
+  	      'background': 'url(' + e.target.result + ')',
+  	      'background-size': '100% 100%'
+  	    });
+  	    $deleteBtn.show();
 
-		  // 버튼 숨기기
-		  $(this).hide();
-		  $('#imagetext').html('652 x 488px <br> (4:3 비율)');
+  	    $deleteBtn.click(function(){
+  	      $currentBox.css({
+  	        'background': 'url(image/imageupload.png) no-repeat center',
+  	        'background-size': '100px 75px'
+  	      });
 
-		  // 이미지 크기 원래대로 복원
-		  $preview.css({
-		    width: '88px',
-		    height: '66px'
-		  });
-		  
-		  if($preview.attr('src', 'image/imageupload.png')){
-			  $('#main').html(mainCount-1);
-		  }
-		  
-		});
+  	      // input 요소 값 제거
+  	      $(this).closest('.ImageUploadboxdetail').find('input[type=file]').val('');
+
+  	      // 버튼 숨기기
+  	      $(this).hide();
+
+  	      var mainCount = $('input[name=image1], input[name=image2], input[name=image3], input[name=image4], input[name=image5], input[name=image6], input[name=image7], input[name=image8], input[name=image9]').filter(function() {
+  	        return this.value != "";
+  	      }).length;
+  	      $('#detail').html(mainCount);
+  	    });
+  	  }
+  	  reader.readAsDataURL(file);
+
+  	  var mainCount = $('input[name=image1], input[name=image2], input[name=image3], input[name=image4], input[name=image5], input[name=image6], input[name=image7], input[name=image8], input[name=image9]').filter(function() {
+  	    return this.value != "";
+  	  }).length;
+  	  $('#detail').html(mainCount);
+  	});
 
 });
-//var a = 1;
-$(document).on('change', '.ImageUploadboxdetail .imageUpload', function() {
-//	
-//		a++;
-//	
-	  var $currentBox = $(this).closest('.ImageUploadboxdetail');
-	  var file = $(this)[0].files[0];
-	  var reader = new FileReader();
-	  var $preview = $(this).siblings('.preview');
-	  var $deleteBtn = $(this).closest('.ImageUploadboxdetail').find('.deleteBtn');
-//	  var $newbox = $('<div class="ImageUploadboxdetail"><label><input type="file" class="imageUpload" name="image'+a+'" accept="image/*" style="display:none"><img class="preview" src="image/imageupload.png" alt="이미지 미리보기"></label><button class="deleteBtn" style="display:none"></button></div>');
-	  reader.onload = function(e) {
-	    $preview.attr('src', e.target.result);
-	    $preview.css({'width': '100%', 'height': '100%'});
-	    $currentBox.hover(function() {
-            $deleteBtn.show();
-        }, function() {
-            $deleteBtn.hide();
-        });
-	    $currentBox.find('.imageUpload').prop('disabled', true); // 이미지가 등록된 박스의 input 비활성화
-	  }
-	  reader.readAsDataURL(file);
-
-	  // 이미지 박스의 마지막에 새로운 이미지 박스 추가
-	  var detailCount = $('.ImageUploadboxdetail').length;
-//	  if(detailCount < 9) {
-//	    $(this).closest('.ImageUploadboxdetail').after($newbox);
-//	  }
-//
-//	  // 상세이미지등록 개수 표시
-	  $('#detail').html(detailCount);
-	});
-//
-//
-//$(document).on('click', '.ImageUploadboxdetail .deleteBtn', function() {
-//	// 클릭한 버튼과 연결된 이미지와 input 요소 찾기
-//	  $(this).closest('.ImageUploadboxdetail').remove();
-//	  
-//	  // Recalculate detailCount
-//	  var detailCount = $('.ImageUploadboxdetail').length;
-//	  $('#detail').html(detailCount-1);
-//	});
