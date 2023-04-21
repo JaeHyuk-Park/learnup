@@ -1,9 +1,6 @@
 package action;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -26,13 +23,13 @@ public class TalentInsertAction implements TalentAction {
 		TalentDataType talent = null;
 		TalentVersionDataType version = null;
 	
-		ArrayList<String> list = new ArrayList<String>();
+		String keyword[] = new String[5];
 		
 		String realFolder="";
 		String saveFolder="/TalentUpload";
 		int fileSize=5*1024*1024;
 		ServletContext context = request.getServletContext();
-		realFolder=context.getRealPath(saveFolder);   		
+		realFolder=context.getRealPath(saveFolder);
 		MultipartRequest multi=new MultipartRequest(request,realFolder,fileSize,
 				"UTF-8",
 				new DefaultFileRenamePolicy());
@@ -44,13 +41,21 @@ public class TalentInsertAction implements TalentAction {
 		System.out.println("이메일 : " + multi.getParameter("email"));
 		talent.setTitle(multi.getParameter("servicetitle"));
 		talent.setCategory(multi.getParameter("category"));
-		if(multi.getParameterValues("keyword[]") != null) {
-			String keyword[] = multi.getParameterValues("keyword[]");
-			for(String key : keyword) {
-				list.add(key);
-			}
-			talent.setKeyword(list);
+		if(multi.getParameter("keyword1") != null) {
+			keyword[0] = multi.getParameter("keyword1");
 			System.out.println(keyword[0]);
+		}if(multi.getParameter("keyword2") != null){
+			keyword[1] = multi.getParameter("keyword2");
+			System.out.println(keyword[1]);
+		}if(multi.getParameter("keyword3") != null){
+			keyword[2] = multi.getParameter("keyword3");
+			System.out.println(keyword[2]);
+		}if(multi.getParameter("keyword4") != null){
+			keyword[3] = multi.getParameter("keyword4");
+			System.out.println(keyword[3]);
+		}if(multi.getParameter("keyword5") != null){
+			keyword[4] = multi.getParameter("keyword5");
+			System.out.println(keyword[4]);
 		}else {
 			System.out.println("keyword 작성 안했더라쥬~");
 		}
@@ -130,7 +135,7 @@ public class TalentInsertAction implements TalentAction {
 //		}
 		
 		TalentInsertService talentinsert = new TalentInsertService();
-		boolean isInsertSuccess = talentinsert.registArticle(talent, version);
+		boolean isInsertSuccess = talentinsert.registArticle(talent, version, keyword);
 		System.out.println(isInsertSuccess);
 		if(!isInsertSuccess){
 			response.setContentType("text/html;charset=UTF-8");

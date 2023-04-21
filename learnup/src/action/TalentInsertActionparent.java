@@ -1,6 +1,5 @@
 package action;
 
-import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -10,19 +9,14 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
-
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import svc.TalentInsertServiceparent;
 import vo.ActionForward;
 import vo.TalentDataType;
-import vo.TalentImageDataType;
 import vo.TalentOptionDataType;
 import vo.TalentQnaDataType;
-import vo.TalentVersionDataType;
 import vo.TalentVersionDataTypeparent;
 
 public class TalentInsertActionparent implements TalentAction {
@@ -34,7 +28,6 @@ public class TalentInsertActionparent implements TalentAction {
 		TalentOptionDataType option = null;
 		TalentQnaDataType qna = null;
 		TalentVersionDataTypeparent version = null;
-		TalentImageDataType image = null;
 	
 		ArrayList<String> list = new ArrayList<String>();
 		ArrayList<String> title = new ArrayList<String>();
@@ -61,7 +54,6 @@ public class TalentInsertActionparent implements TalentAction {
 		option = new TalentOptionDataType();
 		qna = new TalentQnaDataType();
 		version = new TalentVersionDataTypeparent();
-		image = new TalentImageDataType();
 		
 		talent.setEmail(multi.getParameter("email"));
 		System.out.println("¿Ã∏ﬁ¿œ : " + multi.getParameter("email"));

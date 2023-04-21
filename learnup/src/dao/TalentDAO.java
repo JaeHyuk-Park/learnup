@@ -4,6 +4,7 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import javax.sql.DataSource;
 
 import vo.TalentDataType;
@@ -30,7 +31,7 @@ public class TalentDAO {
 		this.con = con;
 	}
 
-	public int insertArticle(TalentDataType talent){
+	public int insertArticle(TalentDataType talent, String[] keyword){
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int num =0;
@@ -57,10 +58,8 @@ public class TalentDAO {
 			pstmt.setInt(2, num);
 			pstmt.setString(3, talent.getTitle());
 			pstmt.setString(4, talent.getCategory());
-			if (talent.getKeyword() != null) {
-				pstmt.setString(5, String.join(", ", talent.getKeyword()));
-			} else {
-			    pstmt.setNull(5, java.sql.Types.VARCHAR);
+			if (keyword != null) {
+				pstmt.setString(5, String.join(", ", keyword));
 			}
 			if (talent.getService_descript() != null) {
 				pstmt.setString(6, talent.getService_descript());

@@ -116,9 +116,10 @@ section{
 
 /*醫뚯륫 硫붾돱 �쁺�뿭*/
 .leftsec{
-	width:25%;
-	height : 100%;
-	float: left;
+	width: 10%;
+    height: 100%;
+    float: left;
+    position: fixed;
 }
 /*醫뚯륫 硫붾돱 由ъ뒪�듃*/
 .leftsec ul{
@@ -137,6 +138,7 @@ section{
 
 /*�슦痢� 硫붾돱 �쁺�뿭*/
 .rightsec{
+	margin-left:320px;
 	width:75%;
 	height:100%;
 	display: inline-block;

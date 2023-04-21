@@ -35,7 +35,7 @@
 				<div class="leftsec">
 					<ul>
 						<a href="#title"><li>1. 기본정보</li></a>
-						<a href="#price"><li>2. 가격설정</li></a>
+						<a href="#standard"><li>2. 가격설정</li></a>
 						<a href="#service"><li>3. 서비스설명</li></a>
 						<a href="#main"><li>4. 이미지</li></a>
 					</ul>
@@ -92,53 +92,53 @@
 					<div>메인이미지등록(필수)&nbsp;&nbsp;<span class="textadd" id="main">0</span>/1</div>
 					<div class="ImageUploadbox">
 					<input type="file" name="image">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div><br><br>
 					
 					<div>상세이미지등록(선택)&nbsp;&nbsp;<span class="textadd" id="detail">0</span>/9</div>
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image1">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image2">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image3">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image4">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image5">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image6">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image7">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image8">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
 					<div class="ImageUploadboxdetail">
 					<input type="file" name="image9">
-					<input type="button" class="deleteBtn" style="display:none">
+					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					<!-- div class="ImageUploadbox">
 						<label>

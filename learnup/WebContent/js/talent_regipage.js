@@ -150,7 +150,7 @@ $(document).ready(function() {
   	  var target = $(this.hash);
   	  if (target.length) {
   	    $('html, body').animate({
-  	      scrollTop: target.offset().top - 150 // 200px 더 높은 곳으로 이동
+  	      scrollTop: target.offset().top - 250 // 200px 더 높은 곳으로 이동
   	    }, 500); // 1초 동안 애니메이션 실행
   	  }
   	});

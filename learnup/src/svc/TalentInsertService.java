@@ -9,13 +9,13 @@ import vo.TalentVersionDataType;
 import static db.JdbcUtil.*;
 public class TalentInsertService {
 
-	public boolean registArticle(TalentDataType talent, TalentVersionDataType version) throws Exception{
+	public boolean registArticle(TalentDataType talent, TalentVersionDataType version, String[] keyword) throws Exception{
 		
 		boolean isWriteSuccess = false;
 		Connection con = getConnection();
 		TalentDAO talentDAO = TalentDAO.getInstance();
 		talentDAO.setConnection(con);
-		int insertCount = talentDAO.insertArticle(talent);
+		int insertCount = talentDAO.insertArticle(talent, keyword);
 		talentDAO.insertVersion(insertCount, version);
 		
 		if(insertCount > 0){
