@@ -1,0 +1,550 @@
+/*공통*/
+body{
+	margin : 0;
+	font-family: 'Noto Sans KR', sans-serif;
+	overflow-x : hidden;
+}
+img{
+	width:100%;
+	height:100%;
+}
+.jansoimg{
+	width:700px;
+	height:450px;	
+}
+
+.sectiontitle
+{
+	  width: 1280px;
+	  margin: 0 auto;
+}
+
+.section_main
+{
+    width: 1280px;
+    height:auto;
+    display:flex;
+    flex-direction:row;
+    margin: 0 auto;
+    padding:0 50px;
+}
+
+.main_left
+{
+    float:left ;
+    width: 700px;
+    border-style: none;
+    margin-bottom:150px;
+    
+}
+.sub_name
+{
+    padding-top: 70px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 15pt;
+}
+
+
+h1{
+	margin-top:100px;
+	margin-bottom:10px;
+}
+/*�삤�넗�뒳�씪�씠�뱶 遺�遺�*/
+.img_box
+{
+	position: relative;
+    align-items:center;
+    text-align: center;
+    
+    height: 500px;
+}
+.slider   {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border-width: 0.5px;
+    
+  }
+  
+.slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  list-style: none;
+}
+  
+.slider ul li {
+   position: relative;
+   display: block;
+   float: left;
+   margin: 0;
+   padding: 0;
+   width: 700px;
+   height: 450px;
+   z-index: 1;
+}
+
+.slider
+{
+  z-index: 2;
+
+} 
+
+.slider ul li image
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+  /* 怨듯넻踰꾪듉 */
+  a.control_prev, a.control_next {
+    position: absolute;
+    top: 40%;
+    z-index: 999;
+    display: block;
+    padding: 4% 3%;
+    background: #D5D5D5;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+  a.control_prev:hover, a.control_next:hover {
+    opacity: 0.9;
+  }
+  
+  a.control_prev {
+    border-radius: 0 5px 5px 0;
+  }
+  
+  a.control_next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+  }
+
+  a.control_prev:focus {
+    border-radius: 0 2px 2px 0;
+    outline: none;
+  }
+
+  a.control_next:focus {
+    right: 0;
+    border-radius: 2px 0 0 2px;
+    outline: none;
+  }
+/*�삤�넗�뒳�씪�씠�뱶*/
+
+
+ /*평점*/
+.star_junsu{
+   
+    text-align: center;
+    border-style: none;
+}
+.star_junsu_title{
+	font-size:13pt;
+	font-weight:bold;
+}
+
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  position :relative;
+  border: none;
+  left : -260px;
+  text-align: center;
+  margin-top:10px;
+}
+
+.rating > input {
+  display: none;
+}
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.75em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+  cursor:pointer;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label {
+  color: #ffd700;
+} /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label {
+  color: #ffed85;
+}
+
+/*蹂꾩젏*/
+
+/*좌측 카테고리 영역*/
+.move_left{
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  position: sticky;
+  top: 150px;
+}
+
+.move_wrap
+{
+	margin-top:90px;
+    position: sticky;  
+    display: flex;
+    background-color: white;
+ }
+
+.move_wrap ul {
+    position : relative;
+    margin: 0;
+    padding : 0;
+    background-color: white;
+    border-bottom:solid 2px #3F0099; 
+} 
+ 
+.move_wrap ul li{
+    float: left;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    list-style: none;
+    text-align: center;
+    /*border-left: solid 1.7px #D5D5D5;
+    border-top: solid 1.7px #D5D5D5;
+  	border-radius: 10px 10px 0px 0px;*/
+    font-weight:bold;
+}
+.la:hover{
+	background-color:#D1B2FF;
+}
+.lb:hover{
+	background-color:#D1B2FF;
+}
+.lc:hover{
+	background-color:#D1B2FF;
+}
+.ld:hover{
+	background-color:#D1B2FF;
+}
+.le:hover{
+	background-color:#D1B2FF;
+}
+.lf:hover{
+	background-color:#D1B2FF;
+}
+#mv_bot{
+	position : relative;
+	top : 44px;
+	margin-top : 5px;
+	width : 571px;
+	height: 1px;
+}
+
+
+/*좌측 공간소개 영역*/
+.intro1{
+	margin-top:70px;
+}
+.intro_boxs_0{
+    border-style: none;
+    height: auto;
+}
+
+
+
+/*怨듦컙�냼媛�*/
+.p_box{
+  height: 400px;
+  border-radius:5px;
+  /*background-color:#EAEAEA;
+  border: 1px solid #BDBDBD;*/
+}
+
+.p_box_refund{
+  height: 580px;
+  border-radius:5px;
+  /*background-color:#EAEAEA;
+  border: 1px solid #BDBDBD;*/
+}
+
+
+/*우측 세부옵션 영역*/
+.main_right{
+    display: inline;
+    width: 40%;
+    border-style: none; 
+}
+
+.sevu{
+	text-align:left;
+	font-weight:700;
+	padding-bottom: 5px;
+	border-bottom: solid 2px #D5D5D5;
+}
+
+.intro_boxs_right{
+	margin-top:20px;
+	height: auto;
+}
+.intro_boxs_0 ul{
+	padding-left:0;	
+}
+.intro_boxs_0 li{
+	list-style:none;
+	margin-top:10px;
+}
+
+.tit{
+	color:#747474;
+	font-size:10pt;
+}
+.data{
+	padding-left:20px;
+	font-size:12pt;
+	font-weight:bold;
+}
+
+
+/*우측 세부영역 인원추가*/
+.addperson{
+	margin-top:30px;
+	height:120px;
+}
+.addperson_title{
+	display:block;
+	font-size:12pt;
+	font-weight:bold;
+}
+.addperson_note{
+	display:block;
+	font-size:10pt;
+}
+
+.addperson_text_wrap{
+	margin-top:15px;
+}
+.plusbtn{
+	display:inline-block;
+	width:45px;
+	height:49px;
+	line-height:45px;
+	border:none;
+	border-radius:5px 0 0 5px;
+	text-align:center;
+	font-size:20pt;
+	font-weight:bold;
+	float:left;
+	cursor:pointer;
+	background-color:#D5D5D5;
+}
+.minusbtn{
+	display:inline-block;
+	width:45px;
+	height:49px;
+	line-height:45px;
+	border:none;
+	border-radius:0 5px 5px 0;
+	text-align:center;
+	font-size:20pt;
+	font-weight:bold;
+	float:left;
+	cursor:pointer;
+	background-color:#D5D5D5;
+}
+.addperson_text{
+	width:400px;
+	height:45px;
+	border:solid 1px #D5D5D5;
+	float:left;
+	text-align:center;
+	font-size:15pt;
+	font-weight:bold;
+	outline:none;
+}
+
+
+/*오른쪽 상세옵션 금액 영역*/
+.totalprice{
+	margin-top:20px;
+	text-align:center;
+}
+
+
+.righth3{
+	margin-top:30px;
+	margin-bottom:0px;
+	text-align:center;
+}
+.red {
+	color: red;
+}
+.righth3_de{
+	font-size: 13px; 
+	font-weight:bold; 
+	display:block;
+	text-align:center;
+	color:#8C8C8C;
+}
+
+.paybtn{
+	width:500px;
+	height:45px;
+	margin-top:20px;
+	background-color:#D1B2FF;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	font-size:13pt;
+	font-weight:bold;
+}
+.paybtn:hover{
+	background-color:#A566FF;
+}
+
+
+/*예약 제목*/
+.reserv{
+	font-size:13pt;
+	font-weight:bold;
+	margin-top:50px;
+	margin-bottom:15px;
+	text-align:center;
+}
+
+/*예약 달력기능 영역*/
+.calendar_container {
+    display: flex;
+    justify-content:space-evenly;
+    width: 500px;
+    background-color: white;
+    box-shadow: 1px 1px 25px rgb(0, 0, 0 / 17%);
+    border: 1px solid #D5D5D5;
+    border-radius: 50px;
+    margin-bottom:50px;
+}
+
+.hide {
+    display:none;
+}
+
+.calendar_container > button {
+    margin-top: 6%;
+    font-weight: bold;
+    height:10%;
+}
+
+.left_button {
+    margin-left:17%;
+    border: transparent;
+    cursor:pointer;
+}
+
+.right_button {
+    margin-right:17%;
+    border: transparent;
+    cursor:pointer;
+}
+
+.calendar {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+
+.calendar_days > button  {
+    width: 48px;
+    height: 47px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: transparent;
+    cursor:pointer;
+}
+.calendar_days{
+	width: 48px;
+    height: 47px;
+    
+}
+
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.day {
+    text-align: center;
+    font-size:12px;
+    font-weight: bold;
+    color:rgb(189, 189, 189);
+}
+
+
+.day_hover {
+    border: 1px solid black !important;
+}
+
+.day_selected {
+    background-color: black !important;
+    color: #ffff;
+}
+
+.gray {
+    background-color: rgb(241, 241, 241) !important;
+}
+
+
+/*
+
+	.section_review
+	{
+	    width: 1280px;
+	    height:auto;
+	    display:flex;
+	    flex-direction:row;
+	    margin: 0 auto;
+	    padding:0 50px;
+	  
+	}
+	
+	.review_box
+	{
+		 border-style: solid;
+		 width: 100%;
+	}
+	
+*/
