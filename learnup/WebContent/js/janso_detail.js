@@ -244,7 +244,7 @@ class Calendar {
 	    });
 	}
 	
-	
+	 
 	
 	handleEvents() {
 	    this.drawCalendar();

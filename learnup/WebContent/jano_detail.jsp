@@ -37,7 +37,7 @@
             <div class="img_box">
             	<div id="slider" class="slider" >
                     <a class="control_next">></a>
-                    <a class="control_prev"><</a>
+                    <a class="control_prev"><</a> 
                     <ul>	
                    		<li class="slideli"><img src="image/lesson9.jpg" class="jansoimg"></li>
 	                    <li class="slideli"><img src="image/lesson7.jpg" class="jansoimg"></li>
