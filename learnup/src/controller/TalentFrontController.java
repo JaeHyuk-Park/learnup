@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import action.TalentAction;
 import action.TalentInsertAction;
+import action.TalentListAction;
 import vo.ActionForward;
 
 @WebServlet("*.learn")
@@ -28,6 +29,13 @@ public class TalentFrontController extends javax.servlet.http.HttpServlet
 			forward.setPath("/talent_regipage.jsp");
 		}else if(command.equals("/TalentInsert.learn")){
 			action  = new TalentInsertAction();
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/TalentList.learn")) {
+			action = new TalentListAction();
 			try {
 				forward=action.execute(request, response );
 			} catch (Exception e) {

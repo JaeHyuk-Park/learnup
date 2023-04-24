@@ -109,13 +109,11 @@ header div#head2 li{
 }
 div#lo2{
 	width: 1280px;
-	height: 3000px;
 	margin-left: auto;
 	margin-right: auto;
 }
 section#s1{
 	width: 200px;
-	height: 2600px;
 	float: left;
 }
 section#s1 ul{
@@ -140,16 +138,17 @@ section#s1 li:hover{
 }
 section#s2{
 	width: 1060px;
-	height: 2450px;
 	margin-left: 220px;
 	margin-right: auto;
 }
 section#s3{
 	width: 1060px;
-    height: 150px;
     margin-left: 220px;
     margin-right: auto;
     text-align: center;
+    display: inline-block;
+    margin-bottom: 100px;
+    margin-top: 50px;
 }
 section#s3 a{
 	padding: 10px;

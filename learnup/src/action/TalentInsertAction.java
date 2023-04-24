@@ -40,7 +40,7 @@ public class TalentInsertAction implements TalentAction {
 		talent.setEmail(multi.getParameter("email"));
 		System.out.println("¿Ã∏ﬁ¿œ : " + multi.getParameter("email"));
 		talent.setTitle(multi.getParameter("servicetitle"));
-		talent.setCategory(multi.getParameter("category"));
+		talent.setCategory(Integer.parseInt(multi.getParameter("category")));
 		if(multi.getParameter("keyword1") != null) {
 			keyword[0] = multi.getParameter("keyword1");
 			System.out.println(keyword[0]);

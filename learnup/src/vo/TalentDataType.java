@@ -3,11 +3,29 @@ package vo;
 import java.util.ArrayList;
 
 public class TalentDataType {
-	String email, title, category, service_descript, service_text, recruit, product_date;
+	String email, title, service_descript, service_text, recruit, product_date, nickname;
+	int product_num, price, category;
 	ArrayList<String> keyword;
-	int product_num;
 	String image, image_1, image_2, image_3, image_4, image_5, image_6, image_7, image_8, image_9;
 	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public int getProduct_num() {
+		return product_num;
+	}
+	public void setProduct_num(int product_num) {
+		this.product_num = product_num;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -20,10 +38,10 @@ public class TalentDataType {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getCategory() {
+	public int getCategory() {
 		return category;
 	}
-	public void setCategory(String category) {
+	public void setCategory(int category) {
 		this.category = category;
 	}
 	public ArrayList<String> getKeyword() {

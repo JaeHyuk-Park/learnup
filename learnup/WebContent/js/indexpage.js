@@ -29,7 +29,7 @@ $(function(){
 				var a = $(this).closest('span').attr('id');
 				console.log(a);
 
-				$(this).css("scale", "calc(1.1)")
+				$(this).css("scale", "calc(1.05)")
 				$(this).css("transition", "all ease 1s")
 				$(this).css("transform", "translate(0px, -3px)")
 

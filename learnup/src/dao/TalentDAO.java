@@ -4,6 +4,7 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
@@ -57,7 +58,7 @@ public class TalentDAO {
 			pstmt.setString(1, talent.getEmail());
 			pstmt.setInt(2, num);
 			pstmt.setString(3, talent.getTitle());
-			pstmt.setString(4, talent.getCategory());
+			pstmt.setInt(4, talent.getCategory());
 			if (keyword != null) {
 				pstmt.setString(5, String.join(", ", keyword));
 			}
@@ -177,5 +178,68 @@ public class TalentDAO {
 			close(pstmt);
 		}
 		
+	}
+
+	public int selectListCount() {
+		// TODO Auto-generated method stub
+		int listCount= 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try{
+			pstmt=con.prepareStatement("select count(*) from learnup.product");
+			rs = pstmt.executeQuery();
+
+			if(rs.next()){
+				listCount=rs.getInt(1);
+			}
+		}catch(Exception ex){
+
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+		return listCount;
+	}
+
+	public ArrayList<TalentDataType> selectArticleList(int page, int limit) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String board_list_sql="select*from learnup.product pr, learnup.information info, learnup.vers_info ve where pr.email = info.email and pr.product_num = ve.product_num order by pr.product_num asc limit ?,24;";
+		ArrayList<TalentDataType> articleList = new ArrayList<TalentDataType>();
+		TalentDataType talent = null;
+		int startrow=(page-1)*24; 
+
+		try{
+			System.out.println(startrow);
+			pstmt = con.prepareStatement(board_list_sql);
+			pstmt.setInt(1, startrow);
+			rs = pstmt.executeQuery();
+
+			while(rs.next()){
+				talent = new TalentDataType();
+				talent.setTitle(rs.getString("title"));
+				talent.setCategory(rs.getInt("category"));
+				talent.setImage(rs.getString("image"));
+				talent.setNickname(rs.getString("nickname"));
+				talent.setPrice(rs.getInt("vers_price"));
+				articleList.add(talent);
+				System.out.println(rs.getString("title"));
+				System.out.println(rs.getInt("category"));
+				System.out.println(rs.getString("image"));
+				System.out.println(rs.getString("nickname"));
+				System.out.println(rs.getInt("vers_price"));
+			}
+
+		}catch(Exception ex){
+			System.out.println(ex+"오류입니다.");
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
 	}
 }

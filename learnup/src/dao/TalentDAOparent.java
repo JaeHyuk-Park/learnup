@@ -156,7 +156,7 @@ public class TalentDAOparent {
 			pstmt.setString(1, talent.getEmail());
 			pstmt.setInt(2, num);
 			pstmt.setString(3, talent.getTitle());
-			pstmt.setString(4, talent.getCategory());
+			pstmt.setInt(4, talent.getCategory());
 			if (talent.getKeyword() != null) {
 				pstmt.setString(5, String.join(", ", talent.getKeyword()));
 			} else {

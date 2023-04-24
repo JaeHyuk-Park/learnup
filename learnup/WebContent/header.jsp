@@ -53,7 +53,7 @@
 			</nav>
 		</div>
 		<div style="width: 590px; height:40px; float:left; margin-top: 20px;">
-			<a href="talentindexpage.jsp"><nav class="top_menu" style="margin-left:0px;"><div id="tm1">재능 판매</div></nav></a>
+			<a href="TalentList.learn"><nav class="top_menu" style="margin-left:0px;"><div id="tm1">재능 판매</div></nav></a>
 			<a href="off_mainpage.jsp"><nav class="top_menu"><div id="tm3">오프라인 강의</div></nav></a>
 			<a href="./janso_main.jsp"><nav class="top_menu" ><div id="tm4">장소 대여</div></nav></a>
 		</div>
@@ -68,7 +68,7 @@
 			</nav>
 		</div>
 		<div style="width: 590px; height:40px; float:left; margin-top: 20px;">
-			<a href="talentindexpage.jsp"><nav class="top_menu" style="margin-left:0px;" ><div id="tm1">재능 판매</div></nav></a>
+			<a href="TalentList.learn"><nav class="top_menu" style="margin-left:0px;" ><div id="tm1">재능 판매</div></nav></a>
 			<a href="off_mainpage.jsp"><nav class="top_menu"><div id="tm3">오프라인 강의</div></nav></a>
 			<a href="./janso_main.jsp"><nav class="top_menu" ><div id="tm4">장소 대여</div></nav></a>
 		</div>
