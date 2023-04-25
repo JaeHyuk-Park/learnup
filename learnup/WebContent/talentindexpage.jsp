@@ -113,8 +113,44 @@
 					</div>
 				</section>
 				<section id="s3">
-					<a><</a> <a><b>1</b></a> <a>2</a> <a style="padding-right: 20px;">3</a>
-					··· <a style="padding-left: 20px;">51</a> <a>></a>
+					<%
+						if (nowPage <= 1) {
+					%>
+						<a><</a>
+					<%
+						} else {
+					%>
+					<a href="TalentList.learn?page=<%=nowPage-1%>"><</a>
+					<%} %>
+
+					<%
+						for (int a = startPage; a <= endPage; a++) {
+							if (a == nowPage) {
+					%>
+					<a><%=a%></a>
+					<%
+							} else {
+					%>
+						<a href="TalentList.learn?page=<%=a%>"><%=a%>
+						</a>
+					<%
+							}
+					%>
+					<%
+							}
+					%>
+
+					<%
+							if (nowPage >= maxPage) {
+					%>
+						<a>></a>
+					<%
+							} else {
+					%>
+						<a href="TalentList.learn?page=<%=nowPage + 1%>">></a>
+					<%
+							}
+					%>
 				</section>
 			</div>
 			<div id="foottt">
