@@ -1,13 +1,41 @@
 package vo;
 
-import java.util.ArrayList;
-
 public class TalentDataType {
-	String email, title, service_descript, service_text, recruit, product_date, nickname;
-	int product_num, price, category;
-	ArrayList<String> keyword;
+	String email, title, service_descript, service_text, recruit, product_date, nickname, vers_title, vers_descript, keyword;
+	int product_num, price, category, vers_num, vers_date, recruit_num;
 	String image, image_1, image_2, image_3, image_4, image_5, image_6, image_7, image_8, image_9;
 	
+	
+	public String getVers_title() {
+		return vers_title;
+	}
+	public void setVers_title(String vers_title) {
+		this.vers_title = vers_title;
+	}
+	public String getVers_descript() {
+		return vers_descript;
+	}
+	public void setVers_descript(String vers_descript) {
+		this.vers_descript = vers_descript;
+	}
+	public int getVers_num() {
+		return vers_num;
+	}
+	public void setVers_num(int vers_num) {
+		this.vers_num = vers_num;
+	}
+	public int getVers_date() {
+		return vers_date;
+	}
+	public void setVers_date(int vers_date) {
+		this.vers_date = vers_date;
+	}
+	public int getRecruit_num() {
+		return recruit_num;
+	}
+	public void setRecruit_num(int recruit_num) {
+		this.recruit_num = recruit_num;
+	}
 	public int getPrice() {
 		return price;
 	}
@@ -44,11 +72,11 @@ public class TalentDataType {
 	public void setCategory(int category) {
 		this.category = category;
 	}
-	public ArrayList<String> getKeyword() {
+	public String getKeyword() {
 		return keyword;
 	}
-	public void setKeyword(ArrayList<String> list) {
-		this.keyword = list;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 	public String getService_descript() {
 		return service_descript;

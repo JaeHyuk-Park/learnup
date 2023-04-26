@@ -42,15 +42,7 @@ public class TalentFrontController extends javax.servlet.http.HttpServlet
 				e.printStackTrace();
 			}
 		}
-//		else if(command.equals("/boardList.learnup.com")){
-//			action = new BoardListAction();
-//			try{
-//				forward=action.execute(request, response);
-//			}catch(Exception e){
-//				e.printStackTrace();
-//			}
-//		}
-		
+
 		if(forward != null){
 			
 			if(forward.isRedirect()){

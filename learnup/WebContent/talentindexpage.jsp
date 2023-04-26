@@ -91,7 +91,7 @@
 						<article>
 							<div>
 								<img src="TalentUpload/<%=articleList.get(i).getImage()%>"
-									id="talent-<%out.print(i+1);%>" class="cl">
+									id="talent-<%out.print(i+1);%>" class="cl" onclick="location.href='<%= articleList.get(i).getProduct_num()%>'">
 								<div class="right_area">
 									<a href="javascript:;" class="icon heart"> <img
 										src="image/heart1.png" alt="찜하기">

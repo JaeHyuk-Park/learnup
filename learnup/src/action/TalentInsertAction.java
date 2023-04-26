@@ -56,8 +56,6 @@ public class TalentInsertAction implements TalentAction {
 		}if(multi.getParameter("keyword5") != null){
 			keyword[4] = multi.getParameter("keyword5");
 			System.out.println(keyword[4]);
-		}else {
-			System.out.println("keyword 작성 안했더라쥬~");
 		}
 		
 		version.setTitle(multi.getParameter("vers_title"));
@@ -148,7 +146,7 @@ public class TalentInsertAction implements TalentAction {
 		else{
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("talentindexpage.jsp");
+			forward.setPath("TalentList.learn");
 		}
 
 		return forward;

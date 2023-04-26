@@ -4,6 +4,7 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.sql.DataSource;
@@ -204,7 +205,6 @@ public class TalentDAO {
 	}
 
 	public ArrayList<TalentDataType> selectArticleList(int page, int limit) {
-		// TODO Auto-generated method stub
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String board_list_sql="select*from learnup.product pr, learnup.information info, learnup.vers_info ve where pr.email = info.email and pr.product_num = ve.product_num order by pr.product_num asc limit ?,24;";
@@ -220,6 +220,7 @@ public class TalentDAO {
 
 			while(rs.next()){
 				talent = new TalentDataType();
+				talent.setProduct_num(rs.getInt("product_num"));
 				talent.setTitle(rs.getString("title"));
 				talent.setCategory(rs.getInt("category"));
 				talent.setImage(rs.getString("image"));
@@ -241,5 +242,74 @@ public class TalentDAO {
 		}
 
 		return articleList;
+	}
+
+//	public int updateReadCount(int product_num) {
+//		PreparedStatement pstmt = null;
+//		int updateCount = 0;
+//		String sql="update board set BOARD_READCOUNT = "+
+//				"BOARD_READCOUNT+1 where BOARD_NUM = "+product_num;
+//
+//		try{
+//			pstmt=con.prepareStatement(sql);
+//			updateCount = pstmt.executeUpdate();
+//		}catch(SQLException ex){
+//			System.out.println(ex+"오류입니다.");
+//		}
+//		finally{
+//			close(pstmt);
+//
+//		}
+//
+//		return updateCount;
+//	}
+
+	public TalentDataType selectArticle(int product_num) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		TalentDataType talentDataType = null;
+
+		try{
+			pstmt = con.prepareStatement(
+					"select*from learnup.product pr, learnup.vers_info ve where pr.product_num = ve.product_num and pr.product_num = ?;");
+			pstmt.setInt(1, product_num);
+			rs= pstmt.executeQuery();
+			
+
+			if(rs.next()){
+				talentDataType = new TalentDataType();
+				talentDataType.setEmail(rs.getString("email"));
+				talentDataType.setProduct_num(rs.getInt("product_num"));
+				talentDataType.setTitle(rs.getString("title"));
+				talentDataType.setCategory(rs.getInt("category"));
+				talentDataType.setKeyword(rs.getString("keyword"));
+				talentDataType.setService_descript(rs.getString("service_descript"));
+				talentDataType.setService_text(rs.getString("service_text"));
+				talentDataType.setRecruit(rs.getString("recruit"));
+				talentDataType.setImage(rs.getString("image"));
+				talentDataType.setProduct_date(rs.getString("product_date"));
+				talentDataType.setImage_1(rs.getString("image1"));
+				talentDataType.setImage_2(rs.getString("image2"));
+				talentDataType.setImage_3(rs.getString("image3"));
+				talentDataType.setImage_4(rs.getString("image4"));
+				talentDataType.setImage_5(rs.getString("image5"));
+				talentDataType.setImage_6(rs.getString("image6"));
+				talentDataType.setImage_7(rs.getString("image7"));
+				talentDataType.setImage_8(rs.getString("image8"));
+				talentDataType.setImage_9(rs.getString("image9"));
+				talentDataType.setVers_num(rs.getInt("vers_num"));
+				talentDataType.setVers_title(rs.getString("vers_title"));
+				talentDataType.setVers_descript(rs.getString("vers_descript"));
+				talentDataType.setPrice(rs.getInt("vers_price"));
+				talentDataType.setVers_date(rs.getInt("vers_date"));
+				talentDataType.setRecruit_num(rs.getInt("recruit_num"));
+			}
+		}catch(Exception ex){
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+		return talentDataType;
 	}
 }
