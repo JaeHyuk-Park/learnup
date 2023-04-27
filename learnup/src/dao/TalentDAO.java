@@ -204,10 +204,10 @@ public class TalentDAO {
 		return listCount;
 	}
 
-	public ArrayList<TalentDataType> selectArticleList(int page, int limit) {
+	public ArrayList<TalentDataType> selectArticleList(int category, int page, int limit) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String board_list_sql="select*from learnup.product pr, learnup.information info, learnup.vers_info ve where pr.email = info.email and pr.product_num = ve.product_num order by pr.product_num asc limit ?,24;";
+		String board_list_sql="select*from learnup.product pr, learnup.information info, learnup.vers_info ve where pr.email = info.email and pr.product_num = ve.product_num and pr.category = ? order by pr.product_num asc limit ?,24;";
 		ArrayList<TalentDataType> articleList = new ArrayList<TalentDataType>();
 		TalentDataType talent = null;
 		int startrow=(page-1)*24; 
@@ -215,7 +215,8 @@ public class TalentDAO {
 		try{
 			System.out.println(startrow);
 			pstmt = con.prepareStatement(board_list_sql);
-			pstmt.setInt(1, startrow);
+			pstmt.setInt(1, category);
+			pstmt.setInt(2, startrow);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
@@ -282,29 +283,56 @@ public class TalentDAO {
 				talentDataType.setProduct_num(rs.getInt("product_num"));
 				talentDataType.setTitle(rs.getString("title"));
 				talentDataType.setCategory(rs.getInt("category"));
-				talentDataType.setKeyword(rs.getString("keyword"));
-				talentDataType.setService_descript(rs.getString("service_descript"));
-				talentDataType.setService_text(rs.getString("service_text"));
-				talentDataType.setRecruit(rs.getString("recruit"));
+				if(rs.getString("keyword") != null) {
+					talentDataType.setKeyword(rs.getString("keyword"));
+				}
+				if(rs.getString("service_descript") != null) {
+					talentDataType.setService_descript(rs.getString("service_descript"));
+				}if(rs.getString("service_text") != null) {
+					talentDataType.setService_text(rs.getString("service_text"));
+				}if(rs.getString("recruit") != null) {
+					talentDataType.setRecruit(rs.getString("recruit"));
+				}
 				talentDataType.setImage(rs.getString("image"));
 				talentDataType.setProduct_date(rs.getString("product_date"));
-				talentDataType.setImage_1(rs.getString("image1"));
-				talentDataType.setImage_2(rs.getString("image2"));
-				talentDataType.setImage_3(rs.getString("image3"));
-				talentDataType.setImage_4(rs.getString("image4"));
-				talentDataType.setImage_5(rs.getString("image5"));
-				talentDataType.setImage_6(rs.getString("image6"));
-				talentDataType.setImage_7(rs.getString("image7"));
-				talentDataType.setImage_8(rs.getString("image8"));
-				talentDataType.setImage_9(rs.getString("image9"));
+//				if(rs.getString("image_1") != null) {
+//					talentDataType.setImage_1(rs.getString("image_1"));
+//				}if(rs.getString("image_2") != null) {
+//					talentDataType.setImage_2(rs.getString("image_2"));
+//				}if(rs.getString("image_3") != null) {
+//					talentDataType.setImage_3(rs.getString("image_3"));
+//				}if(rs.getString("image_4") != null) {
+//					talentDataType.setImage_4(rs.getString("image_4"));
+//				}if(rs.getString("image_5") != null) {
+//					talentDataType.setImage_5(rs.getString("image_5"));
+//				}if(rs.getString("image_6") != null) {
+//					talentDataType.setImage_6(rs.getString("image_6"));
+//				}if(rs.getString("image_7") != null) {
+//					talentDataType.setImage_7(rs.getString("image_7"));
+//				}if(rs.getString("image_8") != null) {
+//					talentDataType.setImage_8(rs.getString("image_8"));
+//				}if(rs.getString("image_9") != null) {
+//					talentDataType.setImage_9(rs.getString("image_9"));
+//				}
+				talentDataType.setImage_1(rs.getString("image_1"));
+				talentDataType.setImage_2(rs.getString("image_2"));
+				talentDataType.setImage_3(rs.getString("image_3"));
+				talentDataType.setImage_4(rs.getString("image_4"));
+				talentDataType.setImage_5(rs.getString("image_5"));
+				talentDataType.setImage_6(rs.getString("image_6"));
+				talentDataType.setImage_7(rs.getString("image_7"));
+				talentDataType.setImage_8(rs.getString("image_8"));
+				talentDataType.setImage_9(rs.getString("image_9"));
 				talentDataType.setVers_num(rs.getInt("vers_num"));
 				talentDataType.setVers_title(rs.getString("vers_title"));
 				talentDataType.setVers_descript(rs.getString("vers_descript"));
 				talentDataType.setPrice(rs.getInt("vers_price"));
 				talentDataType.setVers_date(rs.getInt("vers_date"));
 				talentDataType.setRecruit_num(rs.getInt("recruit_num"));
+				System.out.println("¼¿·º¿Ï·áµÊ.");
 			}
 		}catch(Exception ex){
+			System.out.println(ex+"¿À·ùÀÔ´Ï´Ù.");
 		}finally{
 			close(rs);
 			close(pstmt);

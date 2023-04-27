@@ -11,13 +11,13 @@ import vo.TalentDataType;
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
 	   	
 		int product_num=Integer.parseInt(request.getParameter("product_num"));
-		String page = request.getParameter("page");
 		TalentDetailService talentDetailService = new TalentDetailService();
 		TalentDataType article = talentDetailService.getArticle(product_num);
 		ActionForward forward = new ActionForward();
-		request.setAttribute("page", page);
+		System.out.println("惑前锅龋 = " + product_num);
 	   	request.setAttribute("article", article);
-   		forward.setPath("/qna_board_view.jsp");
+	   	System.out.println("惑前 力格 " + article.getTitle());
+   		forward.setPath("/talent_detailview.jsp");
    		return forward;
 
 	 }

@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.io.Console"%>
 <%@page import="vo.TalentPageInfo"%>
 <%@page import="vo.TalentDataType"%>
@@ -16,6 +17,8 @@
 	int maxPage = pageInfo.getMaxPage();
 	int startPage = pageInfo.getStartPage();
 	int endPage = pageInfo.getEndPage();
+	DecimalFormat df;
+	df = new DecimalFormat("###,###");
 %>
 <!DOCTYPE html>
 <html>
@@ -69,21 +72,47 @@
 					<nav>
 						<ul>
 
-							<li style="font-weight: bold;">디자인</li>
-							<li>IT·프로그래밍</li>
-							<li>영상·사진·음향</li>
-							<li>마케팅</li>
-							<li>번역·통역</li>
-							<li>문서·글쓰기</li>
-							<li>경영자문·운영지원</li>
-							<li>주문제작</li>
-							<li>세무·법무·노무</li>
+							<li style="font-weight: bold;"><a href="TalentList.learn?category=1">디자인</a></li>
+							<li><a href="TalentList.learn?category=2">IT·프로그래밍</a></li>
+							<li><a href="TalentList.learn?category=3">영상·사진·음향</a></li>
+							<li><a href="TalentList.learn?category=4">마케팅</a></li>
+							<li><a href="TalentList.learn?category=5">번역·통역</a></li>
+							<li><a href="TalentList.learn?category=6">문서·글쓰기</a></li>
+							<li><a href="TalentList.learn?category=7">경영자문·운영지원</a></li>
+							<li><a href="TalentList.learn?category=8">주문제작</a></li>
+							<li><a href="TalentList.learn?category=9">세무·법무·노무</a></li>
 						</ul>
 					</nav>
 				</section>
 				<section id="s2">
-					<div id="space">홈 > 비즈니스 > 디자인</div>
-					<div id="space1">x개의 서비스</div>
+					<div id="space">
+						홈 > 비즈니스 >
+						<%
+						String category = request.getParameter("category");
+
+						if (category.equals("1")) {
+							out.print("디자인");
+						} else if (category.equals("2")) {
+							out.print("IT·프로그래밍");
+						} else if (category.equals("3")) {
+							out.print("영상·사진·음향");
+						} else if (category.equals("4")) {
+							out.print("마케팅");
+						} else if (category.equals("5")) {
+							out.print("번역·통역");
+						} else if (category.equals("6")) {
+							out.print("문서·글쓰기");
+						} else if (category.equals("7")) {
+							out.print("경영자문·운영지원");
+						} else if (category.equals("8")) {
+							out.print("주문제작");
+						} else if (category.equals("9")) {
+							out.print("세무·법무·노무");
+						}
+					%>
+					</div>
+
+					<div id="space1"><%= articleList.size()%>개의 서비스</div>
 					<div id="space2">
 						<%
 							for (int i = 0; i < articleList.size(); i++) {
@@ -91,7 +120,7 @@
 						<article>
 							<div>
 								<img src="TalentUpload/<%=articleList.get(i).getImage()%>"
-									id="talent-<%out.print(i+1);%>" class="cl" onclick="location.href='<%= articleList.get(i).getProduct_num()%>'">
+									id="talent-<%out.print(i+1);%>" class="cl" onclick="location.href='TalentDetail.learn?product_num=<%= articleList.get(i).getProduct_num()%>'">
 								<div class="right_area">
 									<a href="javascript:;" class="icon heart"> <img
 										src="image/heart1.png" alt="찜하기">
@@ -99,8 +128,8 @@
 								</div>
 							</div>
 							<div class="nick"><%= articleList.get(i).getNickname()%></div>
-							<div class="title"><%= articleList.get(i).getTitle()%></div>
-							<div class="money"><%= articleList.get(i).getPrice()%></div>
+							<div class="title" onclick="location.href='TalentDetail.learn?product_num=<%= articleList.get(i).getProduct_num()%>'"><%= articleList.get(i).getTitle()%></div>
+							<div class="money"><%= df.format(articleList.get(i).getPrice())%>원</div>
 							<div class="review">
 								<span class="star">★</span>4.9<span class="bordleft"></span><span>154개의
 									평가</span>
@@ -159,7 +188,28 @@
 						<h3>인기 서비스</h3>
 						<h4>
 							<div>
-								<span>디자인</span>의
+								<span>
+									<%
+										if (category.equals("1")) {
+											out.print("디자인");
+										} else if (category.equals("2")) {
+											out.print("IT·프로그래밍");
+										} else if (category.equals("3")) {
+											out.print("영상·사진·음향");
+										} else if (category.equals("4")) {
+											out.print("마케팅");
+										} else if (category.equals("5")) {
+											out.print("번역·통역");
+										} else if (category.equals("6")) {
+											out.print("문서·글쓰기");
+										} else if (category.equals("7")) {
+											out.print("경영자문·운영지원");
+										} else if (category.equals("8")) {
+											out.print("주문제작");
+										} else if (category.equals("9")) {
+											out.print("세무·법무·노무");
+										}
+									%>의</span>
 							</div>
 							인기 서비스들을 만나보세요!
 						</h4>
@@ -242,7 +292,28 @@
 						<h3>새로 등록된 서비스</h3>
 						<h4>
 							<div>
-								<span>디자인</span>의
+								<span>
+									<%
+										if (category.equals("1")) {
+											out.print("디자인");
+										} else if (category.equals("2")) {
+											out.print("IT·프로그래밍");
+										} else if (category.equals("3")) {
+											out.print("영상·사진·음향");
+										} else if (category.equals("4")) {
+											out.print("마케팅");
+										} else if (category.equals("5")) {
+											out.print("번역·통역");
+										} else if (category.equals("6")) {
+											out.print("문서·글쓰기");
+										} else if (category.equals("7")) {
+											out.print("경영자문·운영지원");
+										} else if (category.equals("8")) {
+											out.print("주문제작");
+										} else if (category.equals("9")) {
+											out.print("세무·법무·노무");
+										}
+									%>의</span>
 							</div>
 							신규 서비스들을 만나보세요!
 						</h4>

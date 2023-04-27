@@ -20,14 +20,14 @@ public class TalentListService {
 
 	}
 
-	public ArrayList<TalentDataType> getArticleList(int page, int limit) throws Exception {
+	public ArrayList<TalentDataType> getArticleList(int category,int page, int limit) throws Exception {
 
 		System.out.println("서비스 페이지 : "+page);
 		ArrayList<TalentDataType> articleList = null;
 		Connection con = getConnection();
 		TalentDAO talentDAO = TalentDAO.getInstance();
 		talentDAO.setConnection(con);
-		articleList = talentDAO.selectArticleList(page, limit);
+		articleList = talentDAO.selectArticleList(category, page, limit);
 		close(con);
 		return articleList;
 
