@@ -13,6 +13,7 @@ section.fullsect {
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
+	position:relative;
 }
 
 div.leftsect {
@@ -31,7 +32,7 @@ div#keyword {
 	display: -ms-flexbox;
 	display: flex;
 	margin-bottom: 16px;
-	font-size: 14px;
+	font-size: 16px;
 	color: #555969;
 }
 
@@ -83,7 +84,7 @@ div.gofirst {
 	display: flex;
 	-webkit-box-align: center;
 	align-items: center;
-	font-size: 14px;
+	font-size: 16px;
 	cursor: pointer;
 	height: 60px;
 	padding: 0 4px;
@@ -104,7 +105,7 @@ div.goelse {
 	-webkit-box-align: center;
 	align-items: center;
 	color: #555969;
-	font-size: 14px;
+	font-size: 16px;
 	background-color: #fafafc;
 	cursor: pointer;
 	height: 60px;
@@ -136,7 +137,7 @@ div.servicearea img{
 
 div.service_text {
 	color: #303441;
-	line-height: 1.5;
+	line-height: 2;
 	margin-top: 20px;
 	text-align: justify;
 	font-size: 16px;
@@ -198,4 +199,208 @@ button.scroll{
     background-color: transparent;
     border-color: rgb(48, 52, 65);
     color: rgb(48, 52, 65);
+}
+div.serviceversion{
+	margin: 32px 0px;
+    border-top: 1px solid rgb(48, 52, 65);
+    border-bottom: 1px solid rgb(48, 52, 65);
+}div.serviceversion>.versionarea{
+	padding: 24px 24px 0px;
+    margin-bottom: 24px; 
+}
+div.price{
+	color: rgb(48, 52, 65);
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+    margin-top:50px;
+}
+span.priceserv{
+	font-size: 12px;
+    color: rgb(114, 117, 133);
+    font-weight: 400;
+}
+div.titleindex{
+	color: #303441;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px auto;
+}
+div.descriptindex{
+	color: #303441;
+    font-size: 16px;
+    margin: 20px auto;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+div.versmenu{
+	color: #303441;
+    font-size: 16px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    height: 24px;
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    margin-top: 4px;
+}
+div.buybuttonbox{
+    display: flex;
+    width: 200px;
+    margin-left: 530px;
+}
+input.buybutton{
+	outline: none;
+    border-width: 1px;
+    border-style: solid;
+    box-sizing: border-box;
+    border-radius: 4px;
+    line-height: 1;
+    transition: background-color 0.3s ease 0s, border-color 0.3s ease 0s;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 100%;
+    height: 52px;
+    font-size: 16px;
+    padding: 0px 24px;
+    min-width: 80px;
+    background-color: #D1B2FF;
+    border-color: #D1B2FF;
+    font-weight: bold;
+}
+input.buybutton:hover{
+	background-color: rgb(128, 65, 217);
+	color:white;
+}
+aside#vers{
+	position:fixed;
+	margin-left:792px;
+	width:488px;
+}
+aside>section#love{
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    margin: 0 0 8px;
+}
+#love>.lovebuttonbox{
+	outline: none;
+    border-width: 1px;
+    border-style: solid;
+    box-sizing: border-box;
+    border-radius: 4px;
+    line-height: 1;
+    font-weight: 500;
+    -webkit-transition: background-color 0.3s,border-color 0.3s;
+    transition: background-color 0.3s,border-color 0.3s;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    max-width: 100%;
+    height: 32px;
+    font-size: 13px;
+    padding: 0 12px;
+    min-width: 64px;
+    background-color: #fff;
+    border-color: #e4e5ed;
+    color: #303441;
+    border: 0;
+}
+#love>.lovebuttonbox:hover{
+	background-color:#EAEAEA;
+}
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon.heart img{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-top: 3px;
+    margin-left: -5px;
+}
+.version_title{
+	margin-bottom:20px;
+}
+.version_titlearea{
+	font-weight: 500;
+    margin: 0 0 8px;
+    color: #303441;
+    font-size: 20px;
+    word-break: keep-all;
+    line-height: 1.5;
+}
+.versionbox{
+	-webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    border: 1px solid #e4e5ed;
+    margin-bottom: 20px;
+}
+div.versionbox2{
+    padding: 24px 24px 0 24px;
+    margin-bottom: 24px;
+}
+div.versionbuybutton{
+	padding: 20px 24px;
 }
