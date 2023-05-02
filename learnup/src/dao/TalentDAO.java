@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import vo.TalentBuyDataType;
 import vo.TalentDataType;
 import vo.TalentVersionDataType;
 
@@ -339,5 +340,34 @@ public class TalentDAO {
 		}
 
 		return talentDataType;
+	}
+
+	public int buyinsertArticle(TalentBuyDataType buy) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="";
+		int insertCount=0;
+
+		try{
+			sql="insert into learnup.order(email, product_num, order_money, buy_way) values(?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			System.out.println("데이터베이스 이메일 : " + buy.getEmail());
+			pstmt.setString(1, buy.getEmail());
+			pstmt.setInt(2, buy.getProduct_num());
+			pstmt.setInt(3, buy.getOrder_money());
+			pstmt.setString(4, buy.getBuy_way());
+
+			insertCount=pstmt.executeUpdate();
+			
+			System.out.println("talent buy 완료 되었습니다.");
+
+		}catch(Exception ex){
+			System.out.println(ex+"talent buy 오류입니다.");
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+		return insertCount;
 	}
 }

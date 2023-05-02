@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import action.TalentAction;
+import action.TalentBuyInsertAction;
 import action.TalentDetailAction;
 import action.TalentInsertAction;
 import action.TalentListAction;
@@ -31,21 +32,28 @@ public class TalentFrontController extends javax.servlet.http.HttpServlet
 		}else if(command.equals("/TalentInsert.learn")){
 			action  = new TalentInsertAction();
 			try {
-				forward=action.execute(request, response );
+				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/TalentList.learn")) {
 			action = new TalentListAction();
 			try {
-				forward=action.execute(request, response );
+				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/TalentDetail.learn")) {
 			action = new TalentDetailAction();
 			try {
-				forward=action.execute(request, response );
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/TalentBuy.learn")) {
+			action = new TalentBuyInsertAction();
+			try {
+				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

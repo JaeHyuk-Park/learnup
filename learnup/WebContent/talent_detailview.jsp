@@ -7,6 +7,8 @@
 	response.setCharacterEncoding("utf-8");
 	TalentDataType talent = (TalentDataType)request.getAttribute("article");
 	DecimalFormat df = new DecimalFormat();
+	String email = (String)session.getAttribute("Email");
+	System.out.print(email);
 %>
 <!DOCTYPE html>
 <html>
@@ -127,7 +129,7 @@
 						</div>
 					</div>
 					<div class="buybuttonbox">
-						<input type="button" class="buybutton" value="구매">
+						<input type="button" class="buybutton" value="구매" onclick="location.href='TalentBuy.learn?email=<%= (String)session.getAttribute("Email")%>&num=<%= talent.getProduct_num()%>&price=<%= talent.getPrice()%>'">
 					</div>
 				</section>
 
@@ -223,7 +225,7 @@
 						</div>
 					</div>
 					<div class="versionbuybutton">
-						<input type="button" class="buybutton" value="구매하기">
+						<input type="button" class="buybutton" value="구매하기" onclick="location.href='TalentBuy.learn?email=<%= (String)session.getAttribute("Email")%>&num=<%= talent.getProduct_num()%>&price=<%= talent.getPrice()%>'">
 					</div>
 				</section>
 			</aside>

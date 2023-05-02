@@ -12,7 +12,7 @@
 <body>
 		<%
 			session.invalidate();
-			response.sendRedirect("noticemain.jsp");
+			response.sendRedirect(request.getHeader("Referer"));
 		%>
 </body>
 </html>

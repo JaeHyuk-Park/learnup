@@ -2,6 +2,10 @@
 <%@ page import="java.sql.*"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% Cookie[] cookies = request.getCookies(); %>  
+<%
+	String prevPage = request.getHeader("Referer");
+	System.out.print(" 리퀘스트 겟헤더 : " + prevPage);
+%>
 
 <html>
 <head>
@@ -313,6 +317,7 @@ body {
 				<%}else{ %>
 					<tr><td><input type="text" id="id" class="txt_input" name="Email" placeholder="아이디"></td></tr>
 				<%} %>
+				<input type="hidden" name="urldirect" value="<%= request.getHeader("Referer")%>">
 				<tr><td><input type="password" id="passwd" class="txt_input" name="Password" placeholder="비밀번호" ></td></tr>
 				<tr><td><input type="checkbox" name=checkbox id="check1"  >email 저장</td></tr>
 				

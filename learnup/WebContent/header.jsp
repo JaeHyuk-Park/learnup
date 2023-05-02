@@ -29,6 +29,7 @@
     	 String email = null;
     	 email = (String)session.getAttribute("Email");
     	 String nickname = (String)session.getAttribute("Nickname");
+    	 
        %>
 <body>
 <div style="width:100%;  margin-right: auto; margin-left: auto ; border-bottom: solid 1px black; position: sticky; top: 0px;left: 0; right: 0;  z-index: 999; background-color: white;">

@@ -1,5 +1,8 @@
 <%@page import="vo.Login_chk"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	System.out.print(request.getParameter("urldirect"));
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +31,7 @@
 	{
 		session.setAttribute("Email",chk.getEmail());
 		session.setAttribute("Nickname",chk.getNickname());
-		response.sendRedirect("board_select.jsp");
+		response.sendRedirect(request.getParameter("urldirect"));
 	}
 	else
 	{
