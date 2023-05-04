@@ -5,6 +5,7 @@ encoding//WebContent/css/index.css=UTF-8
 encoding//WebContent/css/jspindexpage.css=UTF-8
 encoding//WebContent/css/notices.css=UTF-8
 <<<<<<< HEAD
+<<<<<<< HEAD
 encoding//WebContent/css/talent_regipage.css=UTF-8
 =======
 encoding//WebContent/css/off_class_regipage.css=UTF-8
@@ -13,3 +14,5 @@ encoding//WebContent/css/off_mainpage_style.css=UTF-8
 encoding//src/dao/Co_Controller.java=UTF-8
 encoding//src/dao/Login_cont.java=UTF-8
 encoding//src/dao/Off_DAO.java=UTF-8
+=======
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git

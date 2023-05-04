@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package action;
 
 import javax.servlet.http.*;
@@ -7,3 +8,14 @@ public interface jansoAction {
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception;
 	
 }
+=======
+package action;
+
+import javax.servlet.http.*;
+import vo.ActionForward;;
+
+public interface jansoAction {
+	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception;
+	
+}
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git

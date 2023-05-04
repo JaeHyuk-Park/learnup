@@ -76,7 +76,7 @@ body {
 	list-style: none;
 	float: left;
 	border-radius: 20px;
-	background-color:#353535;
+	background-color:#5C1DB5;
 	text-align: center;
 	margin-right: 10px;
 	margin-top: 5px;
@@ -85,8 +85,7 @@ body {
 }
 .banner_sec2 img{
 	width: 565px;
-	height: 405px;
-
+	height: 380px;
 }
 
 

@@ -31,6 +31,7 @@ public class OffClassRegiAction implements OffAction {
 		
 		ServletContext context = request.getServletContext();
 		String directory = context.getRealPath("/offclassup"); 
+<<<<<<< HEAD
 		File dir = new File(directory);  //upload �뤃�뜑媛� �뾾�뒗 寃쎌슦 �뤃�뜑瑜� 留뚮뱾�뼱�씪
 		if (!dir.exists()) dir.mkdirs();
 		
@@ -103,6 +104,76 @@ public class OffClassRegiAction implements OffAction {
 		
 		offclassregipageob.setOffclass_message(multi.getParameter("mg"));
 		offclassregipageob.setOffclass_price(Integer.parseInt(multi.getParameter("pp").replace(",", "")));
+=======
+		File dir = new File(directory);  //upload 폴더가 없는 경우 폴더를 만들어라
+		if (!dir.exists()) dir.mkdirs();
+		
+		int fileSize=10*1024*1024;
+		
+		realFolder=context.getRealPath(saveFolder);   		
+		MultipartRequest multi=new MultipartRequest(request,realFolder,fileSize,
+				"UTF-8",
+				new DefaultFileRenamePolicy());
+		
+		
+		String category = multi.getParameter("category1")+multi.getParameter("category2");
+		
+		int counts = 0;
+		int countday = Integer.parseInt(multi.getParameter("count_type"));
+		if(countday == 1)
+		{
+			counts = 1;
+		}
+		else if(countday == 0)
+		{
+			counts = Integer.parseInt(multi.getParameter("count_num"));
+		}
+		
+		List<String> list = new ArrayList<String>();
+		String[] tags = multi.getParameterValues("classTags[]");
+		for( int i = 0; i < tags.length; i++ )
+		{
+			list.add(tags[i]);
+		}
+		
+		String addCommaString = StringUtils.join(list, ",");
+				
+		offclassregipageob = new OffClassRegipageob();
+		
+		offclassregipageob.setEmail(multi.getParameter("email"));
+		
+		
+		offclassregipageob.setOfflineclass_category(category);
+		
+		offclassregipageob.setEntry( Integer.parseInt( multi.getParameter("class_type")));  //
+		
+		System.out.println(Integer.parseInt( multi.getParameter("class_type")));
+		
+		offclassregipageob.setOffclass_count(counts);
+		System.out.println(counts);
+		
+		offclassregipageob.setOffclass_title(multi.getParameter("classTitle"));
+		
+		offclassregipageob.setCover_image(multi.getFilesystemName("coverimage0"));
+		
+		offclassregipageob.setOffseller_notice(multi.getParameter("notice"));
+		offclassregipageob.setOffclass_exp1(multi.getParameter("exp1"));
+		offclassregipageob.setOffclass_exp2(multi.getParameter("exp2"));
+		offclassregipageob.setOffclass_exp3(multi.getParameter("exp3"));
+		offclassregipageob.setOffclass_exp3_image1(multi.getFilesystemName("classintroimg"));
+		
+		offclassregipageob.setOffclass_notice(multi.getParameter("notice2"));
+		
+		offclassregipageob.setOffclass_exp4(multi.getParameter("exp4"));
+		offclassregipageob.setOffclass_exp4_image1(multi.getFilesystemName("exp4file"));
+		
+		offclassregipageob.setOffclass_tag(addCommaString);
+		
+		offclassregipageob.setOffclass_url(multi.getParameter("video0"));
+		
+		offclassregipageob.setOffclass_message(multi.getParameter("mg"));
+		offclassregipageob.setOffclass_price(Integer.parseInt(multi.getParameter("pp")));
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
 		offclassregipageob.setOffclass_time(Integer.parseInt(multi.getParameter("ppin")));
 		
 		

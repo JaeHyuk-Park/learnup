@@ -2,63 +2,76 @@
 $(document).ready(function(){
 
 	$('input[name=email]').on('keyup', function() {
-	    const $this = $(this);
-	    const emailValue = $this.val();
-	    const emailLength = emailValue.length;
+	  	const emailValue = $(this).val();
+	  	const emailLength = $(this).val().length;
 
-	    // 이메일 주소의 유효성 검사를 위한 정규식
-	    const emailRegex = /^[a-z0-9]+@[^\s@]+\.[^\s@]+$/;
+	  	// 이메일 주소의 유효성 검사를 위한 정규식
+	  	const emailRegex = /^[a-z0-9]+@[^\s@]+\.[^\s@]+$/;
 
-	    $.ajax({
-	        url: "joindataemail.jsp?email="+emailValue,
-	        type: "POST",
-	        dataType: "html",
-	        success: function(emailcheck) {
-	            if (emailLength < 10) {
-	                $('#emailMsg').html('필수 정보입니다.');
-	                $this.css('border', '2px solid red');
-	            } else if (!emailRegex.test(emailValue)) {
-	                // 유효한 이메일 주소 형식인 경우
-	                $('#emailMsg').html('올바른 이메일 형식이 아닙니다.');
-	                $this.css('border', '2px solid red');
-	            } else if (emailcheck.trim() == emailValue.trim()) {
-	                $('#emailMsg').html('중복되는 아이디입니다.');
-	                $this.css('border', '2px solid red');
-	            } else {
-	                $this.css('border', '2px solid #8041D9');
-	                $('#emailMsg').html('');
-	            }
-	        }
-	    });
+	  	if(emailLength < 10){
+	  		$('#emailMsg').html('필수 정보입니다.');	
+	  		$(this).css('border', '2px solid red');
+	  	} 
+	  	else if (emailRegex.test(emailValue)) {
+		    // 유효한 이메일 주소 형식인 경우
+		    $(this).css('border', '2px solid #8041D9');
+		    
+		     $.ajax({
+                url : "join_emailcheck.jsp?email="+emailValue
+                ,dataType : "html"
+                ,type: "get"
+                ,success: function(data){
+                    
+                   if(emailValue.trim() == data.trim()){
+                       $("#emailMsg").html('사용할 수 없는 이메일입니다.');
+                       $("#emailMsg").css('color','red');
+                   } 
+                   else{
+                      $("#emailMsg").html('');
+                   } 
+  
+                } 
+            });
+		    
+		} else {
+		    // 유효하지 않은 이메일 주소 형식인 경우
+		    $('#emailMsg').html('올바른 이메일 형식이 아닙니다.');
+		    $(this).css('border', '2px solid red');
+		}
 	});
 
 	$('input[name=nickname]').keyup(function(){
-	    const $this = $(this);
-	    const nicknameValue = $this.val();
+	    const nicknameValue = $('input[name=nickname]').val();
 	    const nicknameRegex = /^[a-zA-Z0-9가-힣]+$/;
 
-	    $.ajax({
-	        url: "joindatanickname.jsp",
-	        type: "POST",
-	        data: {
-	  	      nickname: encodeURIComponent(nicknameValue)
-		    },
-	        success: function(nicknamecheck){
-	            if (nicknameValue.length < 3) {
-	                $('#nicknameMsg').html('필수 정보입니다.');
-	                $this.css('border', '2px solid red');
-	            } else if (!nicknameRegex.test(nicknameValue)) {
-	                $('#nicknameMsg').html('닉네임은 특수문자 및 공백 사용이 불가능합니다.');
-	                $this.css('border', '2px solid red');
-	            } else if (nicknamecheck.trim() === nicknameValue) {
-	                $('#nicknameMsg').html('중복되는 닉네임입니다.');
-	                $this.css('border', '2px solid red');
-	            } else {
-	                $('#nicknameMsg').html('');
-	                $this.css('border', '2px solid #8041D9');
-	            }
-	        }
-	    });
+	    if (nicknameValue.length < 3) {
+	        $('#nicknameMsg').html('필수 정보입니다.');
+	        $(this).css('border', '2px solid red');
+	    } else if (!nicknameRegex.test(nicknameValue)) {
+	        $('#nicknameMsg').html('닉네임은 특수문자 및 공백 사용이 불가능합니다.');
+	        $(this).css('border', '2px solid red');
+	     
+	    } else {
+	        $(this).css('border', '2px solid #8041D9');
+	        
+	                $.ajax({
+                url : "join_nicknamecheck.jsp?nickname="+nicknameValue
+                ,dataType : "html"
+                ,type: "get"
+                ,success: function(data){
+                    
+                   if(nicknameValue.trim() == data.trim()){
+                       $("#nicknameMsg").html('사용할 수 없는 닉네임입니다.');
+                       $("#nicknameMsg").css('color','red');
+                   } 
+                   else{
+                       $("#nicknameMsg").html('');
+                     
+                   } 
+  
+                } 
+            });
+	    }
 	});
 
 	$('input[name=password]').keyup(function(){
@@ -169,20 +182,18 @@ $(document).ready(function(){
 	  }
 	});
 
-	$('input[name="access"], input[name="access1"], input[name="access2"]').click(function() {
-	    if ($(this).prop('id') === 'accessAll') {
-	        $('input[name="access"], input[name="access1"], input[name="access2"]').prop('checked', $(this).prop('checked'));
-	    } else {
-	        var allChecked = true;
-	        $('input[name="access"], input[name="access1"], input[name="access2"]:not(#accessAll)').each(function() {
-	            if (!$(this).prop('checked')) {
-	                allChecked = false;
-	            }
-	        });
-	        $('#accessAll').prop('checked', allChecked);
-	    }
-
-
+    $('input[name="access"]').click(function() {
+        if ($(this).prop('id') === 'accessAll') {
+     		$('input[name="access"]').prop('checked', $(this).prop('checked'));
+        } else {
+        	var allChecked = true;
+            $('input[name="access"]:not(#accessAll)').each(function() {
+              if (!$(this).prop('checked')) {
+                allChecked = false;
+              }
+            });
+            $('#accessAll').prop('checked', allChecked);
+        }
 
 	$("input[name='access']").change(function() {
 	  if($("input[name='access'][value='만 14세	이상입니다.']").is(':checked') 

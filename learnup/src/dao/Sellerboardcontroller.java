@@ -14,7 +14,7 @@ public class Sellerboardcontroller {
 	Statement stmt = null;
 	ResultSet rs = null;
 	
-	//////////////////////////////////////// µå¶óÀÌ¹ö ¿¬°áÀ» À§ÇÑ »ý¼ºÀÚ  (»ý¼ºÀÚ´Â ¾Æ·¡ »ç¿ëÇÏ´Â°÷¿¡¼­ È£ÃâÀÌ ÇÊ¿ä¾ø°í °´Ã¼¸¸ ¸¸µé¸é ¾Ë¾Æ¼­ ½ÇÇàµÈ´Ù)
+	//////////////////////////////////////// ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  (ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½)
 	public Sellerboardcontroller(){
 		
 		try {
@@ -25,18 +25,22 @@ public class Sellerboardcontroller {
 		}
 	}
 	
-	//////////////////////////////////////// Ä¿³Ø¼ÇÀ» À§ÇÑ ¸Þ¼­µå
+	//////////////////////////////////////// Ä¿ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	void conn() {
 						
    		try {
+<<<<<<< HEAD
 			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1324");
+=======
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","tjdngur123");
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	//////////////////////////////////////// ´Ý±âÀ§ÇÑ ¸Þ¼­µå
+	//////////////////////////////////////// ï¿½Ý±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	void disconn() {
 		
 		try {
@@ -53,24 +57,24 @@ public class Sellerboardcontroller {
 		}
 	}
 
-	//////////////////////////////////////// ¸ðµç ¼¿·ºÆ®
+	//////////////////////////////////////// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	public ArrayList<Sellerboardob> sellerselect(){      
 		
 			
 		ArrayList<Sellerboardob> sellerlist = new ArrayList<Sellerboardob>();
 			
 		try{
-	   		//Class.forName("com.mysql.jdbc.Driver");     ¼¿·ºÆ®, µô¸®Æ® ¸Þ¼Òµå¿¡ °øÅëÀûÀ¸·Î »ç¿ëµÇ±â¶§¹®¿¡ À§¿¡ »õ·Î ¸Þ¼Òµå¸¦ »ý¼ºÇÑ´Ù
-	   		//conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/yu","root","1111");  ¼¿·ºÆ®, µô¸®Æ® ¸Þ¼Òµå¿¡ °øÅëÀûÀ¸·Î »ç¿ëµÇ±â¶§¹®¿¡ À§¿¡ »õ·Î ¸Þ¼Òµå¸¦ »ý¼ºÇÑ´Ù
-			conn();   // À§ »ý¼ºµÈ ¸Þ¼Òµå¸¦ ÀÌ·¸°Ô »ç¿ëÇÏ¸é °£ÆíÇÏ´Ù
+	   		//Class.forName("com.mysql.jdbc.Driver");     ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+	   		//conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/yu","root","1324");  ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+			conn();   // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
 	   		if(conn==null)
-	   			throw new Exception("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÒ ¼ö ¾ø½À´Ï´Ù");
+	   			throw new Exception("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 	   		stmt = conn.createStatement();
 	   		rs = stmt.executeQuery("select * from sellerboard;");
 	   		
 	   		while(rs.next())
 	   		{
-	   			Sellerboardob seller = new Sellerboardob();          // °´Ã¼¸¦ while¹® ¾È¿¡ ³Ö¾îÁà¾ß ¹Ýº¹¹®ÀÌµ¹¸é¼­ °è¼Ó °´Ã¼¿¡ µé¾î°¡°ÔµÈ´Ù.
+	   			Sellerboardob seller = new Sellerboardob();          // ï¿½ï¿½Ã¼ï¿½ï¿½ whileï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½é¼­ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ÔµÈ´ï¿½.
 	   			
 	   			seller.setBoardnum(rs.getInt("boardnum"));
 	   			seller.setEmail(rs.getString("email"));
@@ -81,22 +85,22 @@ public class Sellerboardcontroller {
 	   			sellerlist.add(seller);
 	   		}
 	    }catch(Exception e){
-	    	System.out.print("°á°ú°¡ ¾ø½À´Ï´Ù");
+	    	System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 	   	}finally{
 	   		disconn();
 	   	}
-		return sellerlist;   // °´Ã¼¾È¿¡ ¼ÂÆÃÇØ¼­ ¸®ÅÏ
+		return sellerlist;   // ï¿½ï¿½Ã¼ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
-	//////////////////////////////////////// °Ô½ÃÆÇ »ó¼¼ÆäÀÌÁö ¼¿·ºÆ®
+	//////////////////////////////////////// ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	public Sellerboardob selectone(String boardnum) {
 		
 		Sellerboardob sellerone = new Sellerboardob();
 		
 		try{
-	   		conn();   // À§ »ý¼ºµÈ ¸Þ¼Òµå¸¦ ÀÌ·¸°Ô »ç¿ëÇÏ¸é °£ÆíÇÏ´Ù
+	   		conn();   // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
 	   		if(conn==null)
-	   			throw new Exception("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÒ ¼ö ¾ø½À´Ï´Ù");
+	   			throw new Exception("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 	   		stmt = conn.createStatement();
 	   		rs = stmt.executeQuery("select * from sellerboard where boardnum='"+boardnum+"';");
 	   		
@@ -108,23 +112,23 @@ public class Sellerboardcontroller {
 	   			sellerone.setDate(rs.getString("date"));
 	   		}
 		}catch(Exception e){
-	    	System.out.print("°á°ú°¡ ¾ø½À´Ï´Ù");
+	    	System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 	   	}finally{
 	   		disconn();
 	   	}
 		return sellerone;
 	}
 	
-	//////////////////////////////////////// °Ô½ÃÆÇ¸ñ·Ï °Ë»ö ¼¿·ºÆ®
+	//////////////////////////////////////// ï¿½Ô½ï¿½ï¿½Ç¸ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	public ArrayList<Sellerboardob> searchselect(String titlesearch) {
 	
 		ArrayList<Sellerboardob> sellersearchlist = new ArrayList<Sellerboardob>();
 		
 		
 		try{
-			conn();   // À§ »ý¼ºµÈ ¸Þ¼Òµå¸¦ ÀÌ·¸°Ô »ç¿ëÇÏ¸é °£ÆíÇÏ´Ù
+			conn();   // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
 		if(conn==null)
-			throw new Exception("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÒ ¼ö ¾ø½À´Ï´Ù");
+			throw new Exception("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("select * from sellerboard where title like '%"+titlesearch+"%';");
 		
@@ -142,22 +146,27 @@ public class Sellerboardcontroller {
 			
 		}
 		}catch(Exception e){
-			System.out.print("°á°ú°¡ ¾ø½À´Ï´Ù");
+			System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 		}finally{
 			disconn();
 		}
 		return sellersearchlist;
 	}
 	
-	//////////////////////////////////////// °Ô½ÃÆÇ ±Û »èÁ¦
+	//////////////////////////////////////// ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void sellerdelete(String num){ 
 		
 		try{
+<<<<<<< HEAD
 	   		Class.forName("com.mysql.jdbc.Driver"); //¼¿·ºÆ®, µô¸®Æ® ¸Þ¼Òµå¿¡ °øÅëÀûÀ¸·Î »ç¿ëµÇ±â¶§¹®¿¡ À§¿¡ »õ·Î ¸Þ¼Òµå¸¦ »ý¼ºÇÑ´Ù
 	   		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1324"); //¼¿·ºÆ®, µô¸®Æ® ¸Þ¼Òµå¿¡ °øÅëÀûÀ¸·Î »ç¿ëµÇ±â¶§¹®¿¡ À§¿¡ »õ·Î ¸Þ¼Òµå¸¦ »ý¼ºÇÑ´Ù
+=======
+	   		Class.forName("com.mysql.jdbc.Driver"); //ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+	   		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","tjdngur123"); //ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
 			//conn();
 	   		if(conn==null)
-	   			throw new Exception("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÒ ¼ö ¾ø½À´Ï´Ù");
+	   			throw new Exception("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 	   		stmt = conn.createStatement();
 	   		String dele = "delete from sellerboard where boardnum='"+num+"';";
 	   		stmt.executeUpdate(dele);
@@ -169,40 +178,50 @@ public class Sellerboardcontroller {
 	   	}	
 	}
 	
-	//////////////////////////////////////// ÀÎ¼­Æ® ¸Þ¼­µå
+	//////////////////////////////////////// ï¿½Î¼ï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½
 	public void sellerinsert(String email, String title, String note){ 
 		
 	
 		try{
+<<<<<<< HEAD
 			Class.forName("com.mysql.jdbc.Driver"); //¼¿·ºÆ®, µô¸®Æ® ¸Þ¼Òµå¿¡ °øÅëÀûÀ¸·Î »ç¿ëµÇ±â¶§¹®¿¡ À§¿¡ »õ·Î ¸Þ¼Òµå¸¦ »ý¼ºÇÑ´Ù
 			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1324"); //¼¿·ºÆ®, µô¸®Æ® ¸Þ¼Òµå¿¡ °øÅëÀûÀ¸·Î »ç¿ëµÇ±â¶§¹®¿¡ À§¿¡ »õ·Î ¸Þ¼Òµå¸¦ »ý¼ºÇÑ´Ù
+=======
+			Class.forName("com.mysql.jdbc.Driver"); //ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","tjdngur123"); //ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
 			//conn();
 			if(conn==null)
-				throw new Exception("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÒ ¼ö ¾ø½À´Ï´Ù");
+				throw new Exception("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 			stmt = conn.createStatement();
 			String insert = String.format("insert into sellerboard(email, title, note) values('%s', '%s', '%s')", email, title, note);
 			stmt.executeUpdate(insert);
 		
 		}catch(Exception e){
-			System.out.println(e+"¿À·ùÀÔ´Ï´Ù.");
+			System.out.println(e+"ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		}finally{
 			disconn();
 		}	
 	}
-	//////////////////////////////////////// ¾÷µ¥ÀÌÆ® ¸Þ¼­µå
+	//////////////////////////////////////// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½
 	public void sellerupdate(String boardnum, String title, String note) {
 		
 		try{
+<<<<<<< HEAD
 			Class.forName("com.mysql.jdbc.Driver"); //¼¿·ºÆ®, µô¸®Æ® ¸Þ¼Òµå¿¡ °øÅëÀûÀ¸·Î »ç¿ëµÇ±â¶§¹®¿¡ À§¿¡ »õ·Î ¸Þ¼Òµå¸¦ »ý¼ºÇÑ´Ù
 			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","1324"); //¼¿·ºÆ®, µô¸®Æ® ¸Þ¼Òµå¿¡ °øÅëÀûÀ¸·Î »ç¿ëµÇ±â¶§¹®¿¡ À§¿¡ »õ·Î ¸Þ¼Òµå¸¦ »ý¼ºÇÑ´Ù
+=======
+			Class.forName("com.mysql.jdbc.Driver"); //ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup","root","tjdngur123"); //ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
 			//conn();
 			if(conn==null)
-	   			throw new Exception("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÒ ¼ö ¾ø½À´Ï´Ù");
+	   			throw new Exception("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 	   		stmt = conn.createStatement();
 	   		String renote = String.format("update sellerboard set note='%s', title='%s' where boardnum=%s;", note, title, boardnum);
 	   		int rowNum = stmt.executeUpdate(renote);
 	   		if(rowNum<1)
-	   			throw new Exception("µ¥ÀÌÅÍ¸¦ DB¿¡ ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù.");
+	   			throw new Exception("ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ DBï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		}catch(Exception e){
 			
 	   	}finally{

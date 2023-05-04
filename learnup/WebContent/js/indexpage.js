@@ -6,8 +6,27 @@ $(function() {
 
 	console.clear();
 
+<<<<<<< HEAD
 	for (let i = 1; i <= 32; i++) {
+=======
+	        if($likeBtn.hasClass('acti')){          
+	        	$(this).find('img').attr({
+	              'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+	               alt:'찜하기 완료'
+	            });
+	          
+	          
+	        }else{
+	            $(this).find('i').removeClass('fas').addClass('far');
+	           $(this).find('img').attr({
+	              'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+	              alt:"찜하기"
+	           	})
+	        }
+	    });
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
 
+<<<<<<< HEAD
 		$("#talent-" + i).mouseover(function() {
 
 			var a = $(this).closest('span').attr('id');
@@ -31,6 +50,9 @@ $(function() {
 	$('.slider-1 > .page-btns > div').click(function() {
 		var $this = $(this);
 		var index = $this.index();
+=======
+        console.clear();
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
 
 		$this.addClass('active');
 		$this.siblings('.active').removeClass('active');

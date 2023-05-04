@@ -15,12 +15,25 @@
 	<script src="js/notice.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
 </head>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $('#write').on('keyup', function() {
+        $('#test_cnt').html("("+$(this).val().length+" / 100)");
+ 
+        if($(this).val().length > 100) {
+            $(this).val($(this).val().substring(0, 100));
+            $('#test_cnt').html("(100 / 100)");
+        }
+    });
+});
+</script>
 <body>
   <%@include file ="./header.jsp" %>
    <%
-       email = (String)session.getAttribute("Email");
+      
    	   String board_id = request.getParameter("id"); 
-	   String writes = request.getParameter("id"); 
+
     %>
 	<jsp:useBean id ="co" class ="dao.Co_Controller">
 	<%  
@@ -33,6 +46,7 @@
                 <col width="100px">
             </colgroup>
             <tbody>
+         <form action="board_update2.jsp">
          <div id="check_box">
 		<div class="mini_box1""><strong>게시글 공개/비공개</strong></div>
         <div class="mini_box">
@@ -41,17 +55,17 @@
     	</div>    
     </div>  
                 
-            <form action="board_update2.jsp">
+           
              <!-- //의미없는 파일 -->
    <input type="hidden" name=num size="8" value=<% out.println(board_id); %> >
      			<th>제목 <span style="color: red;">*</span> </th>
                 <tr class="article-title">
                 
-                    <td colspan="3"><input type=board_id name=title size=50 style="width: 100%; height: 32px; border: 2px solid #8041D9;" value="<% out.println(vo.getTitle()); %>"></td>
+                    <td colspan="3"><input type=board_id name=title size=50 style="width: 100%; height: 32px; border: 2px solid #8041D9; font-size: 1.0em;" value="<% out.println(vo.getTitle()); %>"></td>
                 </tr>
-                <th>게시글 <span style="color: red;">*</span> </th>
+                <th>게시글 <span style="color: red;  ">*</span> <div id="test_cnt" style="float:right;">(0 / 100)</div></th>
                 <tr class="article-body">
-                    <td colspan="4"><textarea  name="write" style="width: 100%; height: 500px; border: 2px solid #8041D9; font-size: 1.0em; resize : none;"><% out.println(vo.getWrites()); %></textarea> </td>
+                    <td colspan="4"><textarea id="write"  name="write" style="width: 100%; height: 500px; border: 2px solid #8041D9; font-size: 1.0em; resize : none;"><% out.println(vo.getWrites()); %></textarea> </td>
 	             </tr>
 	       </tbody>
 	       </table>

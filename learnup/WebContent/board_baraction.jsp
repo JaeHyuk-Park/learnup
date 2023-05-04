@@ -273,7 +273,7 @@ $(function () {
 	<div class="bar-menu" id="barMenu1">
 		<ul class="menu-body">
 		<li><a href="./noticemain.jsp?id=0" >공지사항</a></li>
-		<li><a href="./board_select.jsp?id=1">구매자Q/A</a></li>
+		<li><a href="./board_select.jsp?id=1&pages=1">구매자Q/A</a></li>
 		<li><a href="./sellerboard2.jsp?id=2">판매자Q/A</a></li>
 		</ul>
 		<div class="bar"> </div>

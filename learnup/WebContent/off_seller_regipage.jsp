@@ -28,6 +28,7 @@
 		
 		<title></title>
 	</head>
+<<<<<<< HEAD
 	<style type="text/css">
 	</style>
 	<body style="margin : 0; overflow-x: hidden;">
@@ -42,6 +43,24 @@
 					<ul>
 						<a href="off_seller_regipage.jsp"><li>판매자소개</li></a>
 						<a href="off_class_regipage.jsp"><li>클래스소개</li></a>
+=======
+	 <%  String email_section = (String)session.getAttribute("Email");%>
+	<style type="text/css">
+	</style>
+	<body style="margin : 0; overflow-x: hidden;">
+		<form name="main" action="off_seller_regipage.off" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="email" value="<%=email_section%>">
+		
+			<jsp:include page = "header.jsp"/>
+			
+		<div class="section_sec">
+		<section>
+			<div class="secwrap">
+				<div class="leftsec">
+					<ul>
+						<a href="offsellerregi.off"><li>판매자소개</li></a>
+						<a href="offclassregi.off"><li>클래스소개</li></a>
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
 					</ul>
 				</div>
 				<div class="rightsec">

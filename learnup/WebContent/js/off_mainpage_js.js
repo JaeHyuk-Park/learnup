@@ -1,58 +1,93 @@
-/*placeholder 애니메이션*/
-var phrases = [
-  "배우고싶은 강의를 검색해주세요.",
-  "보컬 트레이닝",
-  "필라테스",
-  "요리교실",
-  "메이크업"
-];
-var currentPhrase = 0;
-var timeOut;
-var txtLen = phrases[currentPhrase].length;
-var char = 0; 
-$('.main-search').attr('placeholder', '');
 
-function typeIt() {
-    var humanize = Math.round(Math.random() * (200 - 30)) + 30;
-    timeOut = setTimeout(function () {
-        char++;
-        var type = phrases[currentPhrase].substring(0, char);
-        var placeholder = type + '|';
-        $('.main-search').attr('placeholder', placeholder);
+$(function()
+{        
+    var slideCount = $('.slider ul li').length;
+    var slideWidth = $('.slider ul li').width();
+    var slideHeight = $('.slider ul li').height();
+    var sliderUlWidth = slideCount * slideWidth;
+    
+    $('.slider').css({ width: slideWidth, height: slideHeight });
+    
+    $('.slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+    
+    $('.slider ul li:last-child').prependTo('slider ul');
 
-        if (char == txtLen) {
-            setTimeout(function() {
-                clearInterval(interval);
-                interval = setInterval(erase, 50);
-            }, 1000);
-        } else {
-            typeIt();
+    function moveLeft(a) {
+        var slideWidth1 = $(a+' ul li').width();
+        $(a +' ul').stop().animate({
+            left: + slideWidth1
+        }, 500, function () {
+            $(a + ' ul li:last-child').prependTo(a+' ul');
+            $(a + ' ul').css('left', '');
+        });
+    };
+
+    function moveRight(a) {
+        var slideWidth1 = $(a+' ul li').width();
+        $(a +' ul').stop().animate({
+            left: - slideWidth1
+        }, 500, function () {
+            $(a + ' ul li:first-child').appendTo(a+' ul');
+            $(a + ' ul').css('left','');
+        });
+    };
+
+    //버튼 보이기 안보이기
+    //$(".control_next").hide();
+    //$(".control_prev").hide();
+
+    //호버기능
+    $(".product_image imgList").children().hover(function () { 
+        var hover_in = "#"+$(this).closest('div').attr('id');
+
+		    $(".box-0-1").hover(function () { 
+				
+			        $(this).css("scale","calc(1.1)")
+			        $(this).css("transition","all ease 1s")
+			        $(this).css("transform","translate(0px, -20px)")
+		           
+		            
+		        }, function() {
+		            $(this).css("scale","calc(1)","z-index","1")
+		            $(this).css("transform","translate(0px, 0px)")
+		            $(this).css("transition","all ease 1s")
+		 
+		        }
+		  
+		    );
+       
+
+        $(this).children(".control_next").show(function () {
+            var hover_in = "#"+$(this).closest('div').attr('id');
+            $(hover_in).children(".control_next").stop().click(function () {
+                moveRight(hover_in);
+            });
+        });
+
+        $(this).children(".control_prev").show(function()
+        {
+            var hover_in = "#"+$(this).closest('div').attr('id');
+            $(hover_in).children(".control_prev").stop().click(function () {
+                moveLeft(hover_in);
+            });
+        });  
+
+            
+        }, function() {
+          
+            $(this).children(".control_next").hide();
+            $(this).children(".control_prev").hide();
+           
         }
-    }, humanize);
-}
+  
+    );
+ 
+});
 
-var interval;
-function erase() {
-    var placeholder = $('.main-search').attr('placeholder');
-    var len = placeholder.length;
 
-    if (len > 1) {
-        var newPlaceholder = placeholder.substring(0, len - 2) + '|';
-        $('.main-search').attr('placeholder', newPlaceholder);
-    } else {
-        clearInterval(interval);
-        currentPhrase++;
-        if (currentPhrase >= phrases.length) {
-            currentPhrase = 0;
-        }
-        txtLen = phrases[currentPhrase].length;
-        char = 0;
-        setTimeout(typeIt, 1000);
-    }
-}
-typeIt();
 
-/*배너 슬라이드*/
+
+
 $(function(){
 	$(".banner_sec2").slick({
 		slide:'div',
@@ -91,6 +126,7 @@ $(function(){
     })
 });
 
+<<<<<<< HEAD
 $(function(){
 //  이미지 클릭시 해당 이미지 모달
     $(".imgC").click(function(){
@@ -199,3 +235,5 @@ $(function(){
 
 
 
+=======
+>>>>>>> branch 'woo' of https://github.com/JaeHyuk-Park/learnup.git
