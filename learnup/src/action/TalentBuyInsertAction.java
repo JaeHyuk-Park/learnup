@@ -15,7 +15,6 @@ public class TalentBuyInsertAction implements TalentAction {
 	
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 
-		
 		ActionForward forward=null;
 		TalentBuyDataType buy = new TalentBuyDataType();
 		
@@ -36,11 +35,11 @@ public class TalentBuyInsertAction implements TalentAction {
 			out.println("history.back();");
 			out.println("</script>");
 		}
-		if(!isInsertSuccess){
+		else if(!isInsertSuccess){
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('fail')");
+			out.println("alert('로그인 후 구매 가능합니다.')");
 			out.println("history.back();");
 			out.println("</script>");
 		}

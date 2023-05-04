@@ -122,8 +122,13 @@
 								<img src="TalentUpload/<%=articleList.get(i).getImage()%>"
 									id="talent-<%out.print(i+1);%>" class="cl" onclick="location.href='TalentDetail.learn?product_num=<%= articleList.get(i).getProduct_num()%>'">
 								<div class="right_area">
-									<a href="javascript:;" class="icon heart"> <img
-										src="image/heart1.png" alt="찜하기">
+									<a href="javascript:;" class="icon heart" onclick="location.href='TalentLikeIn.learn?email=<%= (String)session.getAttribute("Email")%>&product_num=<%= articleList.get(i).getProduct_num()%>'">
+									<img src="image/heart1.png" alt="찜하기">
+									</a>
+								</div>
+								<div class="right_area" style="display: none">
+									<a href="javascript:;" class="icon heart" onclick="location.href='TalentLikeDel.learn?email=<%= (String)session.getAttribute("Email")%>&product_num=<%= articleList.get(i).getProduct_num()%>'">
+									<img src="image/heart2.png" alt="찜하기 완료">
 									</a>
 								</div>
 							</div>

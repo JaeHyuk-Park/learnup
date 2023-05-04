@@ -10,6 +10,8 @@ import action.TalentAction;
 import action.TalentBuyInsertAction;
 import action.TalentDetailAction;
 import action.TalentInsertAction;
+import action.TalentLikeDeleteAction;
+import action.TalentLikeInsertAction;
 import action.TalentListAction;
 import vo.ActionForward;
 
@@ -57,6 +59,20 @@ public class TalentFrontController extends javax.servlet.http.HttpServlet
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/TalentLikeIn.learn")) {
+			action = new TalentLikeInsertAction();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/TalentLikeDel.learn")) {
+			action = new TalentLikeDeleteAction();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		if(forward != null){
@@ -64,8 +80,7 @@ public class TalentFrontController extends javax.servlet.http.HttpServlet
 			if(forward.isRedirect()){
 				response.sendRedirect(forward.getPath());
 			}else{
-				RequestDispatcher dispatcher=
-						request.getRequestDispatcher(forward.getPath());
+				RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
 			

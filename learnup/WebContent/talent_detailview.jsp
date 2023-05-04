@@ -54,14 +54,23 @@
 				<div id="review"></div>
 				<div id="goahead">
 					<div id="going">
-						<div class="gofirst">서비스 설명</div>
-						<div class="goelse">가격 정보</div>
-						<div class="goelse">수정·재진행</div>
-						<div class="goelse">취소·환불</div>
-						<div class="goelse">서비스 평가</div>
+						<%	
+							if(talent.getService_descript() != null){%>
+								<div class="gofirst" onclick="location.href='#service'">서비스 설명</div>
+								<div class="goelse" onclick="location.href='#money'">가격 정보</div>
+							<%}else{%>
+								<div class="gofirst" onclick="location.href='#money'">가격 정보</div>
+							<%}
+						%>
+						<% 
+							if(talent.getRecruit() != null){%>
+								<div class="goelse" onclick="location.href='#recruit'">수정·재진행</div>		
+							<%}%>
+						<div class="goelse" onclick="location.href='#delete'">취소·환불</div>
+						<div class="goelse" onclick="location.href='#reviewer'">서비스 평가</div>
 					</div>
 				</div>
-				<section class="maintext_start">
+				<section class="maintext_start" id="service">
 					<div class="text">서비스 설명</div>
 					<div class="servicearea">
 						<div class="service_text"><%=talent.getService_descript()%></div>
@@ -80,6 +89,9 @@
 						<div class="service_text"><%= talent.getService_text()%></div>
 					</div>
 				</section>
+				<%
+					if(talent.getImage_1() != null){
+				%>
 				<section class="maintext_start">
 					<div class="servicearea">
 						<%if (talent.getImage_1() != null) {
@@ -111,7 +123,8 @@
 						} %>
 					</div>
 				</section>
-				<section class="maintext_start">
+				<%}%>
+				<section class="maintext_start" id="money">
 					<div class="text">가격 정보</div>
 					<div class="serviceversion">
 						<div class="versionarea">
@@ -134,13 +147,16 @@
 				</section>
 
 
-				<section class="maintext_start">
+				<%
+					if(talent.getRecruit() != null){%>
+				<section class="maintext_start" id="recruit">
 					<div class="text">수정 및 재진행</div>
 					<div class="servicearea">
 						<div class="service_text"><%= talent.getRecruit()%></div>
 					</div>
 				</section>
-				<section class="maintext_start">
+				<%	} %>
+				<section class="maintext_start" id="delete">
 					<div class="text">취소 및 환불규정</div>
 					<div class="servicearea">
 						<div class="service_text">
@@ -163,7 +179,7 @@
 					</div>
 				</section>
 
-				<section class="maintext_start">
+				<section class="maintext_start" id="reviewer">
 					<div class="text">서비스 평가</div>
 				</section>
 				

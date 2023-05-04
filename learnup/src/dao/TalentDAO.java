@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 
 import vo.TalentBuyDataType;
 import vo.TalentDataType;
+import vo.TalentLikeDataType;
 import vo.TalentVersionDataType;
 
 public class TalentDAO {
@@ -368,6 +369,57 @@ public class TalentDAO {
 			close(pstmt);
 		}
 
+		return insertCount;
+	}
+
+	public int insertLike(TalentLikeDataType like) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="";
+		int insertCount=0;
+		
+		try{
+			sql="insert into learnup.like(email, product_num) values(?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, like.getEmail());
+			pstmt.setInt(2, like.getProduct_num());
+
+			insertCount=pstmt.executeUpdate();
+			
+			System.out.println("talent 찜 완료 되었습니다.");
+		}catch(Exception ex){
+			System.out.println(ex+"talent 찜 오류입니다.");
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		
+		return insertCount;
+	}
+
+	public int deleteLike(TalentLikeDataType like) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="";
+		int insertCount=0;
+		
+		try{
+			sql="delete from learnup.like where email = ? and product_num = ?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, like.getEmail());
+			pstmt.setInt(2, like.getProduct_num());
+
+			insertCount=pstmt.executeUpdate();
+			System.out.println("talent 찜 완료 되었습니다.");
+			
+		}catch(Exception ex){
+			System.out.println(ex+"talent 찜 오류입니다.");
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		
 		return insertCount;
 	}
 }

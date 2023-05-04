@@ -1,23 +1,8 @@
 $(function() {
-	var $likeBtn = $('.icon.heart');
-
-	$likeBtn.click(function() {
-		$likeBtn.toggleClass('acti');
-
-		if ($likeBtn.hasClass('acti')) {
-			$(this).find('img').attr({
-				'src' : 'image/heart2.png',
-				alt : '찜하기 완료'
-			});
-
-		} else {
-			$(this).find('i').removeClass('fas').addClass('far');
-			$(this).find('img').attr({
-				'src' : 'image/heart1.png',
-				alt : "찜하기"
-			})
-		}
-	});
+	$('.icon.heart').click(function() {
+	    $(this).toggleClass('acti');
+	    $(this).find('.right_area').toggle();
+	  });
 
 	console.clear();
 
