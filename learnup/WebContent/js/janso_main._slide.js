@@ -96,7 +96,7 @@ $(function()
 //제어1
     $(function() {
 
-      var sl = ['#slider','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
+      var sl = ['#slider0','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
 
 
         function moveRight1(a) {
@@ -134,7 +134,7 @@ $(function()
     //제어2
     $(function() {
 
-      var sl = ['#slider','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
+      var sl = ['#slider0','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
 
 
         function moveRight1(a) {
@@ -171,7 +171,7 @@ $(function()
     //제어3
     $(function() {
 
-      var sl = ['#slider','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
+      var sl = ['#slider0','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
 
 
         function moveRight1(a) {
@@ -207,7 +207,7 @@ $(function()
     //제어3
     $(function() {
 
-      var sl = ['#slider','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
+      var sl = ['#slider0','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
 
 
         function moveRight1(a) {
@@ -243,7 +243,7 @@ $(function()
     //제어4
     $(function() {
 
-      var sl = ['#slider','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
+      var sl = ['#slider0','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
 
 
         function moveRight1(a) {
@@ -280,7 +280,7 @@ $(function()
     //제어5
     $(function() {
 
-      var sl = ['#slider','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
+      var sl = ['#slider0','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
 
 
         function moveRight1(a) {
@@ -316,7 +316,7 @@ $(function()
       //제어6
       $(function() {
 
-        var sl = ['#slider','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
+        var sl = ['#slider0','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
   
   
           function moveRight1(a) {
@@ -352,7 +352,7 @@ $(function()
         //제어7
         $(function() {
 
-        var sl = ['#slider','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
+        var sl = ['#slider0','#slider1','#slider2','#slider3','#slider4','#slider5','#slider6','#slider7'];
   
   
           function moveRight1(a) {

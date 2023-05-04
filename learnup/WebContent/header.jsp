@@ -55,13 +55,13 @@
 		<div style="width: 590px; height:40px; float:left; margin-top: 20px;">
 			<a href="talentindexpage.jsp"><nav class="top_menu" style="margin-left:0px;"><div id="tm1">재능 판매</div></nav></a>
 			<a href="off_mainpage.jsp"><nav class="top_menu"><div id="tm3">오프라인 강의</div></nav></a>
-			<a href="./janso_main.jsp"><nav class="top_menu" ><div id="tm4">장소 대여</div></nav></a>
+			<a href="jangso.learnup.com"><nav class="top_menu" ><div id="tm4">장소 대여</div></nav></a>
 		</div>
 			
 			<%}else{ %>
-			<a href="#self"><nav style="width:110px; height:40px; float: right; margin-top:10px; text-align:center; background-color: #D1B2FF; border-radius:5px; line-height:40px;"><div id="tm5">마이런업</div></nav></a>
+			<a href="janso_regipage.learnup.com"><nav style="width:110px; height:40px; float: right; margin-top:10px; text-align:center; background-color: #D1B2FF; border-radius:5px; line-height:40px;"><div id="tm5">마이런업</div></nav></a>
 			<a href="logout.jsp"><nav style="width:110px; height:40px; float: right; margin-top:10px; margin-right: 10px; text-align: center; line-height: 40px;"><div id="tm6">로그아웃</div></nav></a>
-			<a href="registerExpert.jsp"><nav style="width:110px; height:40px; float: right; margin-top:10px; margin-right: 10px; text-align: center; line-height: 40px;"><div id="tm7">전문가등록</div></nav></a>
+			<a href="offsellerregi.off"><nav style="width:110px; height:40px; float: right; margin-top:10px; margin-right: 10px; text-align: center; line-height: 40px;"><div id="tm7">전문가등록</div></nav></a>
 						
 			<nav method="get" action="/search" id="search" style="margin-top:10px; float:right; margin-right:40px;" >
 				<input type="text" size="40" placeholder="검색어를 입력해주세요." / style="font-size:10pt;">
@@ -70,7 +70,7 @@
 		<div style="width: 590px; height:40px; float:left; margin-top: 20px;">
 			<a href="talentindexpage.jsp"><nav class="top_menu" style="margin-left:0px;" ><div id="tm1">재능 판매</div></nav></a>
 			<a href="off_mainpage.jsp"><nav class="top_menu"><div id="tm3">오프라인 강의</div></nav></a>
-			<a href="./janso_main.jsp"><nav class="top_menu" ><div id="tm4">장소 대여</div></nav></a>
+			<a href="jangso.learnup.com"><nav class="top_menu" ><div id="tm4">장소 대여</div></nav></a>
 		</div>
 		<div style="height:25px; margin-top:20px; float:right; text-align:right; line-height:25px; font-size:12px; font-weight:bold;">
 			<div style="height:25px; color:#8041D9; font-size:13pt; float:left;"><%= nickname%></div><div style="width:80px; height:25px; float:left;">님 환영합니다.</div>

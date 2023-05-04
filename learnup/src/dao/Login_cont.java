@@ -20,7 +20,7 @@ public class Login_cont {
 		//connection, statement, DriverManager.getConnection �쓣 �깮�꽦�옄濡� 遺꾨━�븯�뿬 �샇異�
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup", "root", "1324");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup?useUnicode=true&characterEncoding=utf8","root","tjdngur123");
 			if(conn==null)
 				throw new Exception("�뜲�씠�꽣踰좎씠�뒪�뿉 �뿰寃고븷 �닔 �뾾�뒿�땲�떎.");
 			stmt=conn.createStatement();

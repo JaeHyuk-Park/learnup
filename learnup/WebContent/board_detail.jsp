@@ -1,16 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
+
 <%@ page import="dao.*" %>
 <%@ page import="vo.*" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
 <%@ page import= "java.io.File"%>
 <%@page import="java.util.*" %>
 <%@page import="java.net.URLEncoder"%>
-<%@page import="java.io.FileInputStream"%>
-<%@page import="java.awt.Image"%>
-<%@page import="javax.imageio.ImageIO"%>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +41,7 @@
 	%>
 	
 	
-	<%if(email != null){ %>
+	<%if(email != null){ %>>
 	    <%if(email.equals(vo.getEmail())){%>
 		<script>
 	        $(function()
@@ -132,6 +128,43 @@
                         </div>
                     </td>
 	            </tr>
+	            <%if(vo.getFileName() != null) { %>
+	               <tr class="article-body">
+                    <td colspan="5">
+                   	첨부파일:  <% 
+								try
+								{
+									String directory = application.getRealPath("/upload");
+									String files[] = new File(directory).list();
+									
+								
+									String directorys = this.getServletContext().getRealPath("/upload");
+								
+
+									for(int i = 0; i < files.length; i++)
+									{
+										if(vo.getFileName().equals(files[i]))
+										{
+										out.write("<a href=\"" + request.getContextPath() + "/downloadAction?file="+
+										URLEncoder.encode(files[i],"UTF-8") +"\" + style = 'text-decoration-line: underline ; color: blue'   >" + files[i] + "</a><br>");
+								%>					
+									 	<img src="${pageContext.request.contextPath }/upload/<%=files[i]%>" style=" width:200px; height:200px; ">
+								<% 		
+								
+						
+										}
+							
+										
+										
+									}
+								}catch(Exception e)
+								{
+									
+								}							
+								%>
+                    </td>
+	            </tr>
+	            <%} %>
             </tbody>
         </table>
 

@@ -23,8 +23,8 @@ public class MailUtil {
 	public static void sendMail(String title, String write, String mails) {
 		
 	
-		 String user = ""; 
-	     String password = "";  
+		 String user = "tjdngur123@naver.com"; 
+	     String password = "soildier5509!@";  
 		
 
 		// SMTP 발송 Properties 설정

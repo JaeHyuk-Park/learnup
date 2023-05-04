@@ -1,9 +1,95 @@
+/*공통*/
+
 *{font-family: 'Noto Sans KR', sans-serif;}
+
+.imgC{
+	cursor:pointer;
+}
 
 a{
 	color: black;
 	text-decoration: none;
 }
+
+/* 제품 상세 커버이미지 5장 슬라이드 */
+.slider1 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  border:none;
+  font-size: 10px;
+}
+
+.slider1 ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  list-style: none;
+}
+
+.product_image .slider1 ul li{
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 240px;
+  height: 160px;
+  background: #ccc;
+  z-index: 1;
+}
+
+.slider1{
+  z-index: 2;
+} 
+
+.slider1 ul li img{
+  width: 100%;
+  height: 100%;
+  border:none;
+}
+
+
+  /* 이미지 좌우 슬라이드 버튼 */
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  background: #A6A6A6;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+  cursor: pointer;
+  font-weight:bold;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+a.control_prev:focus {
+  border-radius: 0 2px 2px 0;
+  outline: none;
+}
+
+a.control_next:focus {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+  outline: none;
+}
+
 
 section{
 	width: 1280px;
@@ -27,10 +113,6 @@ section{
 	font-size: 32px; 
 	font-weight: 400px;
 }
-
-
-
-
 .side a{
 	width: 140px;
 	height: 40px;
@@ -47,6 +129,7 @@ section{
 }
 
 
+/*상단 배너 영역*/
 .banner_sec2{
 	width:565px;
 	height:380px;
@@ -137,8 +220,6 @@ section{
 	position: relative;
 }
 
-
-
 .product{
 	width: 240px;
 	height: 320px;
@@ -177,6 +258,7 @@ section{
   border: 0;
   color: #ffffff;
   font-size: 3rem;
+  cursor:pointer;
 }
 .modalBox {
   position: relative;
@@ -199,6 +281,7 @@ section{
 	width: 240px;
 	height: 155px;
 }
+
 .area{
 	font-size: 10pt;
 	font-weight: bold;
@@ -211,6 +294,8 @@ section{
 	font-size: 11pt;
 	font-weight: bold;
 	margin-top: 5px;
+	overflow: hidden;
+	display: -webkit-box;
 }
 .seller{
 	width: 230px;
@@ -274,12 +359,12 @@ section{
 
 
 
-.product img {
+/*.product img {
   transition: all 0.2s linear;
 }
 .product:hover img {
   transform: scale(1.05);
-}
+}*/
 
 
 .slider {

@@ -45,7 +45,7 @@
 					<article class="foot_common">
 						<ul style="list-style:none;">
 							<li style="color: black; font-weight: bold;">런업</li>
-							<li style="margin-top:20px; font-size:10pt ;"><a href="index.jsp">런업 메인</a></li>
+							<li style="margin-top:20px; font-size:10pt ;"><a href="#">런업 메인</a></li>
 							<li style="margin-top:5px; font-size:10pt ;">Prime</li>
 							<li style="margin-top:5px; font-size:10pt ;">엔터프라이즈</li>
 							<li style="margin-top:5px; font-size:10pt ;">프리랜서클럽</li>

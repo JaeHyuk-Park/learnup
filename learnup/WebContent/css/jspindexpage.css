@@ -206,7 +206,6 @@ div.title{
 	height: 60px;
 	font-weight: bold;
 	color: rgb(48, 52, 65);
-	cursor : pointer;
 }
 div.money{
 	font-size: 20px;
@@ -220,14 +219,15 @@ div.review{
 	color: rgb(154, 155, 167);
 	font-weight: bold;
 }
+section div img{
+	width: 240px;
+	height: 180px;
+	position: relative;
+	z-index: 0;
+}
 img.cl{
 	border: 1px solid white;
-    border-radius: 5px 5px 5px 5px;
-    width: 240px;
-    height: 180px;
-    position: relative;
-    z-index: 0;
-    cursor : pointer;
+	border-radius: 5px 5px 5px 5px;
 }
 div#lo3{
 	width: 1280px;
@@ -250,6 +250,10 @@ div#foottt div.ftd{
 	float: left;
 	position: relative;
 }
+div#foottt img{
+	width: 240px;
+	height: 180px;
+}
 h3{
 	font-size: 22px;
 	color: rgb(48, 52, 65);
@@ -267,26 +271,30 @@ span.star{
 	color : rgb(255, 212, 0);
 	font-size: 15px;
 }
+article:hover, div.com:hover{
+	scale: 1.05;
+}
 a{
   text-decoration:none; color:inherit; cursor: pointer;
 }
 .icon{
 	position: absolute;
-    z-index: 5;
-    top: 8px;
-    right: 8px;
+	top: 8px;
+ 	right: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(55vw * (45 / 1920));
-    height: calc(55vw * (45 / 1920));
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: solid 2px #eaeaea;
+    background-color: #fff;
+    z-index: 0;
 }
 
-.icon.heart img{
-    width: 40px;
-    height: 40px;
-    position: relative;
-    
+div#foottt .icon.heart img, .icon.heart img{
+    width: 15px;
+    height: 15px;
 }
 
 .icon.heart.fas{

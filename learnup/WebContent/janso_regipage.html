@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/janso_regipage.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!--	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
+	<script>
+
+$(document).ready(function(){
+	
+
+$('#daum').click(function(){
+	$('#bsd').click(function(){
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#tab-2").addClass('current');
+	}).click();
+})
+
+
+
+});
+
+
+
+
+						
+$(document).ready(function(){
+	// 탭바 스크립트
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+		console.log(tab_id);
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	})
+
+
+
+
+	
+	//셀렉박스 동작
+
+	$("select").on("click" , function() {
+  
+  $(this).parent(".select-box").toggleClass("open");
+
+	});
+
+	$(document).mouseup(function (e)
+	{
+		var container = $(".select-box");
+
+		if (container.has(e.target).length === 0)
+		{
+			container.removeClass("open");
+		}
+	});
+
+
+	$("select").on("change" , function() {
+
+	var selection = $(this).find("option:selected").text(),
+		labelFor = $(this).attr("id"),
+		label = $("[for='" + labelFor + "']");
+		
+	label.find(".label-desc").html(selection);
+		
+	});
+
+	//셀렉체크박스
+	$(".dropdown dt a").on('click', function() {
+  $(".dropdown dd ul").slideToggle('fast');
+});
+
+$(".dropdown dd ul li a").on('click', function() {
+  $(".dropdown dd ul").hide();
+});
+
+function getSelectedValue(id) {
+  return $("#" + id).find("dt a span.value").html();
+}
+
+$(document).bind('click', function(e) {
+  var $clicked = $(e.target);
+  if (!$clicked.parents().hasClass("dropdown")) $(".dropdown dd ul").hide();
+});
+
+$('.mutliSelect input[type="checkbox"]').on('click', function() {
+
+  var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
+    title = $(this).val() + ",";
+
+  if ($(this).is(':checked')) {
+    var html = '<span title="' + title + '">' + title + '</span>';
+    $('.multiSel').append(html);
+    $(".hida").hide();
+  } else {
+    $('span[title="' + title + '"]').remove();
+    var ret = $(".hida");
+    $('.dropdown dt a').append(ret);
+
+  }
+  if ($('.multiSel').is(':empty')){
+  $('.hida').show();
+}
+});
+
+//우편번호
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('sample6_postcode').value = data.zonecode;
+            document.getElementById("sample6_address").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("sample6_detailAddress").focus();
+        }
+    }).open();
+}
+
+
+
+//스크립트 끝부분
+})
+
+
+	</script>
+
+
+	<title></title>
+
+</head>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+
+
+</style>
+
+<body style="margin : 0; overflow-x: hidden;">
+	<form name="member" action="memberSuc.jsp" method="post">
+	<div class="header_sec">
+		<header>
+			<div style="width: 1280px; height:45px; float:left; margin-top: 20px;">
+				<nav style="width:150px; height:45px; float:left;">
+				<a href="#self"><img src="../image/logo.png" style="width:155px; height:50px;"></a>
+				</nav>
+				<a href="member.html"><nav style="width:110px; height:40px; float: right; margin-top:10px; text-align:center; background-color: #D1B2FF; border-radius:5px; line-height:40px;"><div id="tm5">회원가입</div></nav></a>
+				<a href="#self"><nav style="width:110px; height:40px; float: right; margin-top:10px; margin-right: 10px; text-align: center; line-height: 40px;"><div id="tm6">메세지</div></nav></a>
+				<a href="#self"><nav style="width:110px; height:40px; float: right; margin-top:10px; margin-right: 10px; text-align: center; line-height: 40px;"><div id="tm7">전문가등록</div></nav></a>
+				
+				<nav method="get" action="/search" id="search" style="margin-top:10px; float:right; margin-right:40px;" >
+					<input type="text" size="40" placeholder="배우고싶은 강의를 검색해주세요" />
+				</nav>
+				
+			</div>
+			<div style="width: 590px; height:40px; float:left; margin-top: 20px;">
+				<a href="../../jh/talentindexpage.html"><nav class="top_menu" style="margin-left:0px;"><div id="tm1">재능 판매</div></nav></a>
+				<a href="#self"><nav class="top_menu"><div id="tm3">오프라인 강의</div></nav></a>
+				<a href="../../wh/janso_main/janso_main.html"><nav class="top_menu" ><div id="tm4">장소 대여</div></nav></a>
+			</div>
+		</header>
+	</div>
+
+
+
+
+	<div class="section_sec">
+		<div class="secwrap">
+			<div class="leftsec">
+					<ul class="tabs">
+						<li class="tab-link current" data-tab="tab-1" id="asd">1.기본정보</li>
+						<li class="tab-link" data-tab="tab-2" id="bsd">2.가격설정</li>
+						<li class="tab-link" data-tab="tab-3" id="csd">3.서비스 설명</li>
+						<li class="tab-link" data-tab="tab-4" id="dsd">4.이미지</li>
+					</ul>
+				</section>
+			</div>
+
+			<div class="rightsec">
+				<div id="tab-1" class="tab-content current" style="border-style: solid;"> 
+					<table  style="width: 100%;" border="0">
+						<colgroup>
+							<col width="100%">
+						</colgroup>
+						<tbody>
+							<tr>
+								<td colspan="1"><input type=text name=title class="place" placeholder="방이름 30자까지 입력하세요." style="width: 100%; height: 32px; margin-top: 5px; border: 2px solid #8041D9;  " size=50  required></td>
+							</tr>
+							<tr >
+								<td colspan="1"><input type=text name=title class="place" placeholder="공간유형 카테고리 선택."style="width: 100%; height: 32px; margin-top: 5px; border: 2px solid #8041D9; " size=50  required></td>
+								</tr>
+								<tr >
+								<td colspan="1"><input type=text name=title class="place" placeholder="공간 면적 입력."style="width: 100%; height: 32px; margin-top: 5px; border: 2px solid #8041D9; " size=50  required></td>
+								</tr>
+								<tr >
+								<td colspan="1">
+									<div class="select-box">
+									<label for="select-box1" class="label select-box1"><span class="label-desc">기본 수용인원을 선택하세요</span> </label>
+									<select id="select-box1" class="select">
+										<option value="1" class="op">1명</option>
+										<option value="2" class="op">2명</option>
+										<option value="3" class="op">3명</option>
+										<option value="4" class="op">4명</option>
+										<option value="5" class="op">5명</option>
+										<option value="6" class="op">6명</option>
+										<option value="7" class="op">7명</option>
+										<option value="8" class="op">8명</option>
+										<option value="9" class="op">9명</option>
+										<option value="10" class="op">10명</option>
+										<option value="11" class="op">11명</option>
+										<option value="12" class="op">12명</option>
+										<option value="13" class="op">13명</option>
+										<option value="14" class="op">14명</option>
+										<option value="15" class="op">15명</option>
+										<option value="16" class="op">16명</option>
+										<option value="17" class="op">17명</option>
+										<option value="18" class="op">18명</option>
+										<option value="19" class="op">19명</option>
+										<option value="20" class="op">20명</option>
+									</select>
+									</div>
+									
+								</td>
+								</tr>
+
+								<tr >
+								<td colspan="1">
+									<div class="select-box">
+									<label for="select-box2" class="label select-box1"><span class="label-desc">최대 수용인원을 선택하세요</span> </label>
+									<select id="select-box2" class="select">
+										<option value="1" class="op">1명</option>
+										<option value="2" class="op">2명</option>
+										<option value="3" class="op">3명</option>
+										<option value="4" class="op">4명</option>
+										<option value="5" class="op">5명</option>
+										<option value="6" class="op">6명</option>
+										<option value="7" class="op">7명</option>
+										<option value="8" class="op">8명</option>
+										<option value="9" class="op">9명</option>
+										<option value="10" class="op">10명</option>
+										<option value="11" class="op">11명</option>
+										<option value="12" class="op">12명</option>
+										<option value="13" class="op">13명</option>
+										<option value="14" class="op">14명</option>
+										<option value="15" class="op">15명</option>
+										<option value="16" class="op">16명</option>
+										<option value="17" class="op">17명</option>
+										<option value="18" class="op">18명</option>
+										<option value="19" class="op">19명</option>
+										<option value="20" class="op">20명</option>
+									</select>
+									</div>
+									
+								</td>
+								</tr>
+								<tr >
+								<td colspan="1">
+									<dl class="dropdown">
+										<dt>
+											<a href="#" style="width: 100%; padding: 0;">
+											<span class="hida">사용가능한 시설물을 선택하세요  </span> 
+											
+											<p class="multiSel"></p>  
+											</a>
+											</dt>
+										<dd>
+											<div class="mutliSelect">
+											<ul>
+												<li>
+												<input type="checkbox" id="group-0" value="넷플릭스">
+												<label for="group-0" class="grouplist_id">넷플릭스</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-1" value="주류반입가능">
+												<label for="group-1" class="grouplist_id">주류반입가능</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-2" value="의자 테이블">
+												<label for="group-2" class="grouplist_id">의자 테이블</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-3" value="컴퓨터">
+												<label for="group-3" class="grouplist_id">컴퓨터</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-4" value="전기">
+												<label for="group-4" class="grouplist_id">전기</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-5" value="취사시설">
+												<label for="group-5" class="grouplist_id">취사시설</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-6" value="프린트">
+												<label for="group-6" class="grouplist_id">프린트</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-7" value="화이트보드">
+												<label for="group-7" class="grouplist_id">화이트보드</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-8" value="내부화장실">
+												<label for="group-8" class="grouplist_id">내부화장실</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-9" value="금연">
+												<label for="group-9" class="grouplist_id">금연</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-10" value="주차">
+												<label for="group-10" class="grouplist_id">주차</label>
+												</li>
+												<li>
+												<input type="checkbox" id="group-10" value="인터넷 와이파이">
+												<label for="group-10" class="grouplist_id">인터넷 와이파이</label>
+												</li>
+											</ul>
+											</div>
+										</dd>
+										</dl>
+								</td>
+								</tr>
+
+								<tr>
+								<td>
+									<input type="text" id="sample6_postcode" maxlength="0" placeholder="우편번호" name="area1" size="30" class="text"><span><input type="button" onclick="sample6_execDaumPostcode()" value="주소 찾기" style="width: 133px; height: 46px; background-color: white; margin-left: 2px;" class="text"></span>
+									<div><input type="text" maxlength="0" id="sample6_address" placeholder="주소" name="area2" size="49" class="text text2"></div>
+										<div><input type="text" id="sample6_detailAddress" placeholder="상세주소를 입력해주세요." name="address2" size="49" class="text text2"></div>
+								</td>
+								</tr>
+
+								<tr >
+								<td colspan="1">
+									<div class="select-box">
+									<label for="select-box3" class="label select-box1"><span class="label-desc">한사람당 기본 예약시간 설정</span> </label>
+									<select id="select-box3" class="select">
+										<option value="1" class="op">1시간</option>
+										<option value="2" class="op">2시간</option>
+										<option value="3" class="op">3시간</option>
+										<option value="4" class="op">4시간</option>
+										<option value="5" class="op">5시간</option>
+										<option value="6" class="op">6시간</option>
+										<option value="7" class="op">7시간</option>											
+									</select>
+									</div>
+
+									<div class="select-box">
+										<label for="select-box4" class="label select-box1"><span class="label-desc">한사람당 최대예약시간 설정</span> </label>
+										<select id="select-box4" class="select">
+											<option value="1" class="op">1시간</option>
+											<option value="2" class="op">2시간</option>
+											<option value="3" class="op">3시간</option>
+											<option value="4" class="op">4시간</option>
+											<option value="5" class="op">5시간</option>
+											<option value="6" class="op">6시간</option>
+											<option value="7" class="op">7시간</option>											
+										</select>
+										</div>
+									
+								</td>
+								</tr>
+
+								<tr >
+								<td colspan="1">
+									<div class="select-box">
+									<label for="select-box5" class="label select-box1"><span class="label-desc">오픈 시간 설정</span> </label>
+									<select id="select-box5" class="select">
+										<option value="1" class="op">1시</option>
+										<option value="2" class="op">2시</option>
+										<option value="3" class="op">3시</option>
+										<option value="4" class="op">4시</option>
+										<option value="5" class="op">5시</option>
+										<option value="6" class="op">6시</option>
+										<option value="7" class="op">7시</option>	
+										<option value="8" class="op">8시</option>
+										<option value="9" class="op">9시</option>
+										<option value="10" class="op">10시</option>
+										<option value="11" class="op">11시</option>
+										<option value="12" class="op">12시</option>
+										<option value="13" class="op">13시</option>
+										<option value="14" class="op">14시</option>
+										<option value="15" class="op">15시</option>
+										<option value="16" class="op">16시</option>	
+										<option value="17" class="op">17시</option>
+										<option value="18" class="op">18시</option>
+										<option value="19" class="op">19시</option>
+										<option value="20" class="op">20시</option>
+										<option value="21" class="op">21시</option>
+										<option value="22" class="op">22시</option>
+										<option value="23" class="op">23시</option>		
+										<option value="24" class="op">24시</option>												
+									</select>
+									</div>
+
+									<div class="select-box">
+										<label for="select-box6" class="label select-box1"><span class="label-desc">마감 시간 설정</span> </label>
+										<select id="select-box4" class="select">
+											<option value="1" class="op">1시</option>
+											<option value="2" class="op">2시</option>
+											<option value="3" class="op">3시</option>
+											<option value="4" class="op">4시</option>
+											<option value="5" class="op">5시</option>
+											<option value="6" class="op">6시</option>
+											<option value="7" class="op">7시</option>	
+											<option value="8" class="op">8시</option>
+											<option value="9" class="op">9시</option>
+											<option value="10" class="op">10시</option>
+											<option value="11" class="op">11시</option>
+											<option value="12" class="op">12시</option>
+											<option value="13" class="op">13시</option>
+											<option value="14" class="op">14시</option>
+											<option value="15" class="op">15시</option>
+											<option value="16" class="op">16시</option>	
+											<option value="17" class="op">17시</option>
+											<option value="18" class="op">18시</option>
+											<option value="19" class="op">19시</option>
+											<option value="20" class="op">20시</option>
+											<option value="21" class="op">21시</option>
+											<option value="22" class="op">22시</option>
+											<option value="23" class="op">23시</option>		
+											<option value="24" class="op">24시</option>													
+										</select>
+									</div>
+							    </td>
+							</tr>
+							<tr>
+								<td>
+									<input type="button" value="다음" id="daum">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+				<!--탭2-->
+				<div id="tab-2" class="tab-content"> 
+
+
+				
+				</div>
+			</div>
+		</div>	
+    </div>
+
+	</form>
+</body>
+</html>

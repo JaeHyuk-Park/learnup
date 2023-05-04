@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>구매자게시판</title>
+	<title>공지사항</title>
 	<link rel="stylesheet" type="text/css" href="css/board_select.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="js/notice.js"></script>
@@ -17,7 +17,7 @@
 </head>
 <body>
   <%@include file ="./header.jsp" %>
-<jsp:useBean id ="co" class ="dao.Co_Controller">		
+	<jsp:useBean id ="co" class ="dao.Co_Controller">		
   
 <section class="board">
 	
@@ -26,12 +26,59 @@
     	String search = null;
      	email = (String)session.getAttribute("Email");
      	search = request.getParameter("searchs");
-   	 	ArrayList<Janso_Boards> list;
-   	 
+     	ArrayList<Janso_Boards> list = new ArrayList<Janso_Boards>();
+     	
+     	//페이징부분
+     	String tempPage = request.getParameter("pages");
+     	int cPage = 1; //시작행-1 (시작 row 인덱스 번호)
+     	int pageSize=10;  // 페이지크기 (한번에 출력되는 수)
+        int listCount= co.selectListCount(); //구매자게시판 총필드 개수
+	    int currentBlock = 0;
+	    int startPage=0	;
+	    int endPage=0;
+	    int maxPage=0;
+	    
+   	    out.println(listCount + "리스트 총수");
+   	    out.println(cPage);
+   	    
+     	
+     	if (tempPage == null || tempPage.length() == 0) {
+     	    cPage = 1;
+     	}
+     	try {
+     	    cPage = Integer.parseInt(tempPage);
+     	    
+     	} catch (NumberFormatException e) {
+     	    cPage = 1;
+     	}
    	 	
+
+	
+  
      	if(search == null)
-     	{
-     		list  = co.boardselect(); //기본전체출력
+     	{   	
+   		try
+     		{  
+       			list  = co.boardselect(cPage,pageSize); //기본전체출력
+       			
+       			  currentBlock = cPage % pageSize == 0 ? cPage / pageSize : (cPage / pageSize) + 1;
+       			  maxPage=(int)((double)listCount/pageSize+0.95); 
+       			  startPage = (currentBlock - 1) * pageSize + 1;
+       			  endPage = startPage + pageSize - 1;
+       			
+       		
+           		//int startPage = (((int) ((double)cPage / 2 + 0.9)) - 1) * 2 + 1;
+           	    // int endPage = startPage+5-1;
+           	    out.println("현재페이지"+currentBlock);
+           	    out.println("최대페이지"+maxPage);
+           	    out.println("시작점페이지"+startPage);
+           	    out.println("끝점페이지"+endPage);
+     			
+           	 	     			
+     		}catch(Exception e){ out.println("실패");}
+       	 	
+       	    
+       	    
      		i=list.size();
      		
      		
@@ -41,6 +88,14 @@
        	 	 list = co.boardsearch(search); //검색 후 리스트
        	 	 i=list.size();
      	}
+     	
+     	
+    	 // 페이징 처리
+
+     	
+     	
+     	
+     	
      %>
 		<h2 style="text-align: center; font-size: 30px; margin-bottom: 20px; margin-top: 30px;">구매자 Q/A 게시판</h2>
 		
@@ -223,6 +278,11 @@
 </style>
    <div class="pageContainer">   
         <ul class="pageList">
+        <%if(cPage <=1){ %>
+		[이전]&nbsp;
+		<%}else{ %>
+		 <a href="board_select.jsp?pages=<%= cPage - 1 %>">[이전]</a>&nbsp;
+		<%}%>
           <li><a href="#"><</a></li>
           <li><a href="#">1</a></li>
           <li><a href="#">2</a></li>

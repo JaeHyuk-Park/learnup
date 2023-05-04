@@ -33,9 +33,9 @@ function check(){
 		<br>
 		<div>핸드폰 번호 입력</div><br>
 		<form action="" method="post">
-			<div class="bu"><input type="text" placeholder="핸드폰번호를 입력하세요.">&nbsp;<input type="button" value="인증번호 발송" onclick="phone();"></div><br>
+			<div class="bu"><input type="text" name="number" placeholder="핸드폰번호를 입력하세요." required>&nbsp;<input type="button" value="인증번호 발송" onclick="phone();"></div><br>
 			<div>인증번호 확인</div><br>
-			<div class="bu"><input type="text" placeholder="인증번호를 입력하세요.">&nbsp;<input type="button" value="인증 확인" onclick="check();"></div><br>
+			<div class="bu"><input type="text" placeholder="인증번호를 입력하세요." required>&nbsp;<input type="button" value="인증 확인" onclick="check();"></div><br>
 			<input type="button" value="뒤로가기" onclick="location.href='registerExpert.jsp'"><input type="submit" value="확인" style="margin-left: 30px;">
 		</form>
 	</section>
