@@ -60,7 +60,7 @@
 		</div>
 			
 			<%}else{ %>
-			<a href="#self"><nav style="width:110px; height:40px; float: right; margin-top:10px; text-align:center; background-color: #D1B2FF; border-radius:5px; line-height:40px;"><div id="tm5">마이런업</div></nav></a>
+			<a href="before_create.html"><nav style="width:110px; height:40px; float: right; margin-top:10px; text-align:center; background-color: #D1B2FF; border-radius:5px; line-height:40px;"><div id="tm5">마이런업</div></nav></a>
 			<a href="logout.jsp"><nav style="width:110px; height:40px; float: right; margin-top:10px; margin-right: 10px; text-align: center; line-height: 40px;"><div id="tm6">로그아웃</div></nav></a>
 			<a href="registerExpert.jsp"><nav style="width:110px; height:40px; float: right; margin-top:10px; margin-right: 10px; text-align: center; line-height: 40px;"><div id="tm7">전문가등록</div></nav></a>
 						

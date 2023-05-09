@@ -29,6 +29,7 @@ section button{
 	font-size: 30px;
 	background-color: white;
 	border-radius: 10px;
+	cursor:pointer;
 }
 button#le{
 	margin-left: 0px;
@@ -41,6 +42,6 @@ a{
 	color: black;
 }
 button img#whs{
-	width:240px;
-	height:80px;
+	width: 210px;
+    height: 70px;
 }
