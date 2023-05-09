@@ -1,0 +1,105 @@
+h1{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+body{
+	margin: 0px;
+	overflow-x: hidden;
+	background-color: #FFFDFF;
+}
+header{
+	width: 100%;
+	height: 150px;
+	border-bottom: 5px solid #8041D9;
+}
+header div{
+	width: 100%;
+	text-align: center;
+	height: 150px;
+}
+header img#img01{
+	padding-top: 37.5px;
+	width: 200px;
+}
+div#divse{
+	width: 100%;
+	margin-bottom: 100px;
+}
+section{
+	margin-top: 20px;
+	width: 500px;
+	height: 1300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+article.art1{
+	width: 400px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+section div h1{
+	text-align: center;
+}
+.error_next_box {
+    display: block;
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+}
+.text{
+	height: 40px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.text2{
+	width: 390px;
+}
+#sel{
+	color: black;
+	height: 46px;
+	width: 132px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+b{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 17px;
+}
+article div{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+div{
+	margin-top: 5px;
+}
+footer{
+	border-top: 5px solid #8041D9;
+	width: 100%;
+	height: 120px;
+	position: fixed;
+	bottom: 0px;
+	background-color: white;
+}
+footer div{
+	width: 100%;
+	text-align: center;
+	line-height: 120px;
+	background-color: #FFFDFF;
+}
+button{
+	width: 400px;
+	height: 65px;
+	font-size: 20px;
+	border: 1px solid black;
+	background-color: #8041D9;
+	color: white;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+input, select, button{
+	border-color: #8041D9;
+}
+select{
+	border-width: 2px;
+}

@@ -1,0 +1,495 @@
+*{font-family: 'Noto Sans KR', sans-serif;}
+
+body {
+    display: block;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+
+.lows
+{
+    display: block; 
+    margin:0 auto;
+    height: 430px;
+}
+
+.banner_sec1{
+	width:565px;
+	height:380px;
+	float:left;
+	margin-left:50px;
+}
+.banner_sec1 h1{
+	width: 565px;
+	height: 95px;
+	margin-top: 50px;
+	margin-left: 30px;
+	color: #ffffff;
+	font-size: 32px;
+	font-weight: 400px;
+}
+
+
+
+.side a{
+	width: 140px;
+	height: 40px;
+	margin-top: 10px;
+	font-size: 10pt;
+	border-radius: 5px;
+	line-height: 40px;
+	color: gray;
+	font-weight: bold;
+}
+.side a:hover{
+	color: black;
+	font-size: 11pt;
+}
+
+
+.banner_sec2{
+	width:565px;
+	height:380px;
+	float:left;
+	margin-left:50px;
+}
+.banner_sec1 input[type="text"]{
+	width: 440px;
+	height: 50px;
+	border: solid 3px white;
+	background: url(../image/search-white.png) no-repeat 410px 5px;
+	background-size: 40px 40px;
+	margin-left: 30px;
+}
+.banner_sec1 ul{
+	width: 450px;
+	height: 100px;
+	margin-left: 30px;
+	margin-top: 30px;
+	padding-left: 0;
+}
+.banner_sec1 li{
+	width: 80px;
+	height: 30px;
+	color: white;
+	list-style: none;
+	float: left;
+	border-radius: 20px;
+	background-color:#353535;
+	text-align: center;
+	margin-right: 10px;
+	margin-top: 5px;
+	font-size: 9pt;
+	line-height: 30px;
+}
+.banner_sec2 img{
+	width: 565px;
+	height: 405px;
+
+}
+
+
+/*------------------------------재능판매 영역------------------------------*/
+.jaeneung
+{
+    width: 1280px;
+    display: block; 
+    margin: 0 auto;
+   
+}
+
+.boxxxxd
+{
+	margin-top: 10px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.link-boxd
+{
+    margin-top: 10px;
+	width: 100%;
+	height: 380px;
+	margin: 0 auto;
+}
+
+
+.link-boxd .box-0d
+{
+    float: left;
+    width: 240px;
+    margin-top : 10px;
+    padding: 0 35px;
+}
+
+.box-controll
+{
+	margin-top: 40px;
+	margin-left: 15px
+}
+.box-0d .box-0-1d
+{
+    width: 240px;
+    height: 180px;
+    position: relative;
+}
+
+.box-0-1d .imgbox
+{
+    text-decoration: none; 
+    box-sizing: border-box;
+    height: 200px; 
+}
+
+.imgbox
+{
+    width: 240px;
+    height: 180px ;
+}
+
+.imgs{
+	width: 240px;
+    height: 180px;
+}
+
+.box-0d .box-0-2d
+{
+    width: 100%;
+}
+
+
+/*------------------------------오프라인 강의 영역------------------------------*/
+.off
+{
+  	width: 1280px;
+    display: block; 
+    margin: 0 auto;
+  
+}
+
+/*----------최상단 오프라인 타이틀----------*/
+.off_box
+{
+	margin-top: 10px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.off_imgs{
+	width: 240px;
+	height: 160px;
+	border-radius:10px;
+}
+.link-boxd3
+{
+	margin-top: 10px;
+	width: 100%;
+	height: 380px;
+	margin: 0 auto;
+}
+
+
+.link-boxd3 .box-0d3
+{
+    float: left;
+    width: 240px;
+    padding: 0 35px;   
+	align-items: center;
+	margin-top:10px;
+}
+
+.box-controll3
+{
+	margin-top: 40px;
+	margin-left: 15px
+}
+
+/*----------이미지 박스 영역----------*/
+.box-0d3 .box-0-1d3
+{
+  	width: 240px;
+	height: 160px;
+	border-radius: 10px;
+	position: relative;
+}
+
+.box-0-1d3 .imgbox3
+{
+    text-decoration: none; 
+    box-sizing: border-box;
+    height: 200px;
+}
+
+.imgbox3 .imgs3
+{
+    width: 100%; height: 100% ;
+}
+
+/*----------상품 상세정보 영역----------*/
+/*-----상세정보 박스------*/
+.box-0d3 .box-0-2d3
+{
+    width: 100%;
+    height: 40%;
+}
+/*-----지역------*/
+.off_area{
+	margin: 0;
+	margin-top:10px;
+	font-size:9pt;
+	color:#8041D9;
+	font-weight:bold;
+}
+/*-----강의명------*/
+.off_title{
+	margin: 0;
+	font-weight:bold;
+	padding-top:5px;
+}
+/*-----판매자------*/
+.off_nickname{
+	margin: 0;
+	padding-top:5px;
+	font-size:9pt;
+	color: gray;
+}
+/*-----가격------*/
+.off_price{
+	margin: 0; 
+	padding-top: 5px; 
+	color:red; 
+	font-weight:bold;
+}
+/*-----찜,리뷰------*/
+.off_jjimreview_wrap{
+	margin: 0; 
+	padding-top: 10px; 
+	font-size:9pt; 
+}
+/*-----찜 이미지:하트------*/
+.off_jjim{
+	width:20px; 
+	height: 20px; 
+	float:left;"
+}
+/*-----찜 수 영역------*/
+.off_jjimcount{
+	width:30px;
+	height: 15px;
+	font-weight:bold;
+	font-size:9pt;
+	float:left;
+	margin-left: 5px;
+}
+/*-----리뷰 영역------*/
+.off_review{
+	width:25px; 
+	height: 15px; 
+	float:left; 
+	font-size:9pt; 
+	font-weight:bold;
+}
+/*-----리뷰수 수 영역------*/
+.off_reviewcount{
+	width:30px;
+	height: 15px;
+	font-weight:bold;
+	font-size:9pt;
+	float:left;
+	padding-left:5px;
+}
+
+/*-----상품 이미지 위 찜 버튼 영역------*/
+.icon{
+	position: absolute;
+    z-index: 5;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(55vw * (45 / 1920));
+    height: calc(55vw * (45 / 1920));
+}
+.icon.heart img{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    
+}
+.icon.heart.fas{
+  	color:red;
+}
+.heart{
+    transform-origin: center;
+}
+.heart.active img{
+    animation: animateHeart .3s linear forwards;
+}
+
+/*-----이미지 확대 영역------*/
+.box-0-1d3 img {
+  transition: all 0.4s linear;
+}
+.box-0-1d3:hover img {
+  transform: scale(1.10);
+}
+
+
+/*------------------------------장소 대여영역------------------------------*/
+.janso
+{
+    width: 1280px;
+    display: block; 
+    margin:0 auto;
+}
+
+.janso_box
+{
+	margin-top: 10px;
+	width: 100%;
+	margin: 0 auto;
+	height: 30px;
+	align-items: center;
+}
+
+.link-boxd2
+{
+    margin-top: 10px;
+	width: 100%;
+	height: 380px;
+	margin: 0 auto;
+	/*background-color: #FFF5EE;*/
+}
+
+
+.link-boxd2 .box-0d2
+{	
+	width:270px;
+    float: left;
+    padding : 0 16px;   
+	align-items: center;
+	margin-top:10px;
+}
+
+
+.box-controll2{
+	margin-top: 30px;
+	margin-left: 15px;
+	padding-top: 15px;
+}
+
+.box-0-1d2{
+    width: 270px;
+    height: 150px;
+    border-width: 0.5px;
+	border-radius: 10px;
+	justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+/*------장소 이미지 크기 영역---------*/
+.janso_img{
+	width: 270px;
+	height: 153px ;
+	border-radius: 10px;
+}
+
+/*------장소 제품상세 섹션 영역---------*/
+.box-0d2 .box-0-2d2
+{
+   	margin-top:5px;
+    height: 100px;
+}
+
+.box-0-2_box
+{
+   padding-top: 10px;
+   padding-left: 5px;
+   padding-right: 10px;
+   height: 30px;
+}
+
+
+/*繹먯뮆臾�占쎌뵠占쎈뮉 占쎌뒞�⑨옙*/
+
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
+.btn-15 {
+  background: #b621fe;
+  border: none;
+  z-index: 1;
+}
+.btn-15:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #663dff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+    
+  /*box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);*/
+}
+.btn-15:hover {
+  color: #fff;
+}
+.btn-15:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn-15:active {
+  top: 2px;
+}
+
+
+div.nick {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(154, 155, 167);
+}
+div.title {
+    padding: 10px 0;
+    height: 60px;
+    font-weight: bold;
+    color: rgb(48, 52, 65);
+}
+div.money {
+    font-size: 20px;
+    text-align: right;
+    font-weight: bold;
+    color: rgb(48, 52, 65);
+}
+div.review {
+    text-align: right;
+    font-size: 12px;
+    color: rgb(154, 155, 167);
+    font-weight: bold;
+}
+span.star {
+    color: rgb(255, 212, 0);
+    font-size: 15px;
+}
+span.bordleft {
+    margin: 0px 4px;
+    border-left: 1px solid rgb(154, 155, 167);
+}
+
+
+
+
+
+
+
+

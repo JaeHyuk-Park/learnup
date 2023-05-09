@@ -1,0 +1,391 @@
+html {
+    line-height: normal;
+    margin-left: 0;
+    margin-right: 0;
+  
+}
+body {
+    margin : 0;
+	font-family: 'Noto Sans KR', sans-serif;
+	overflow-x : hidden;
+}
+main
+{
+    display: block;
+}
+
+/*광고1  중간몸통 이미지라인*/
+.image-section
+{
+  
+    height:400px;
+}
+
+.image-section .image-section-0 
+{
+    background-size: cover;
+    margin: 0 auto;
+    width: 1280px;
+    height: 100%;
+    border-style: solid;
+    background-color: #0c0c0c;
+    border-radius: 10px;
+    
+}
+ 
+.image-section-0 .image-section-0-text  /*글씨넣을곳*/
+{
+    position: relative;
+    background-color: green;
+    top: 40%;
+    left: 5%;
+    width: 40%;
+    height: 10%;
+    float: left;
+}
+
+
+.image-section-0   /*이미지들어갈곳*/
+{
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 0;
+
+}
+/*광고1  중간몸통 이미지라인*/
+
+/*그위 빈공간*/
+.ssssss
+{
+    height: 35px;
+}
+/*그위 빈공간*/
+
+/*광고2 설명*/
+.image-section1
+{
+    width: 1280px;
+    display: block; 
+    margin:0 auto;
+    padding:0 5px;
+    height: 200px;
+    align-items:center;  /*박스안 이미지 가운데정렬*/
+    display: flex; 
+    justify-content:center;
+    
+}
+
+.image-section1 .image-section1-box
+{
+    align-items:center;  /*박스안 이미지 가운데정렬*/
+    display: flex; 
+    justify-content:center;
+    float: left;
+    width: 150px;
+    margin: 0;
+    
+}
+
+.image-section1-box .im
+{ 
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto; 
+}
+/*광고2 설명*/
+
+
+
+/*어떤 장소를 찾고있나요*/
+.partroom_section
+{
+    width: 1280px;
+    display: block; 
+    margin:0 auto;
+     padding:0 5px;
+     height: 400px;
+
+}
+
+.partroom_section .bt-boxs
+{
+    padding: 0 200px;
+    justify-content: left;
+}
+
+.bt-boxs .bt-box
+{
+    float: left;
+    margin-top: 24px;
+    width: 25%;
+    height: 37%;
+    text-align: center;
+}
+.bt-box img{
+    width: 80px;
+    height: 80px;
+    padding: 3px;
+}
+.bt-box .btn-keyword 
+{
+    background: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.btn-keyword .icon
+{
+    display: block;
+    border-radius: 17px;
+    background-color: #c21515;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin: auto;
+}
+
+.btn-keyword .keyword
+{
+position: relative;
+letter-spacing: -.5px;
+text-align: center;
+}
+
+.bt-box img:hover
+{
+    background-color: #f5c4f2;
+    border-radius: 30px;
+}
+
+
+/*어떤 장소를 찾고있나요*/
+
+
+/*광고 설명2 다음 밑에 창 장소리스트 전체추천장소리스트*/
+.headercetioncss2 
+{
+    width: 1280px;
+    display: block; 
+    margin:0 auto;
+    padding:0 40px;
+    height: 570px;
+    position: relative;
+}
+
+.headercetioncss2 .link-box
+{
+    position: relative;
+  	padding-left: 15px;
+  	padding-top : 20px;
+    margin-top: 10px;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.link-box .box-0
+{
+    position: relative;
+    float: left;
+    width: 23.4%;
+    height: 260px;
+    padding: 10px;   
+}
+
+.box-0 .box-0-1
+{
+    width: 100%;
+    height: 150px;
+}
+
+.box-0 .box-0-2
+{
+    width: 100%;
+    height: 100px;
+}
+.box-0-2_box
+{
+   position: flex;
+   height: 25px;
+   margin: 2px;
+}
+
+.box-0-2_box span
+{
+    align-items: center;
+}
+
+/*광고 설명2 다음 밑에 창 장소리스트 전체추천장소리스트*/
+
+
+/*지역별 추천 장소리스트*/
+.headercetioncss2-1 
+{
+    position: relative;
+    width: 1280px;
+    display: block; 
+    margin:0 auto;
+    padding:0 40px;
+    height: 700px;
+     
+}
+
+.headercetioncss2-1  .link-box1
+{
+    position: relative;
+    padding-top : 20px;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.link-box1 .box-0
+{
+    position: relative;
+    float: left;
+    width: 23.4%;
+    height: 260px;
+    padding: 10px;   
+    z-index: 0;
+}
+
+.link-box1 .box-0 .box-0-1
+{
+    width: 100%;
+    height: 150px;
+}
+.box-0-1 img{
+    border-radius: 5px;
+    border-style: none;
+    border-width: 0.5px;
+}
+
+.link-box1 .box-0 .box-0-2
+{
+    width: 100%;
+    height: 100px;
+    font-size: 10px;
+    border-bottom: 0.1px #607D8B;
+    border-bottom-style:solid;
+}
+.link-box1.box-0-2_box
+{
+   padding-top: 3px;
+   padding-left: 15px;
+   padding-right: 15px;
+  
+}
+
+.link-box1 .headercetioncss2-1 .local
+{
+   margin: 0 auto;
+   text-align: center;
+   align-items: center;
+}
+
+/* tetst */
+
+.local .tabs{
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+    height: auto;
+}
+.local .tabs li{
+    
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 45px;
+    cursor: pointer;
+    font-weight:  900;
+    font-size: 20px;
+}
+
+.local .tabs li.current{
+    background: #ededed;
+    color: #222;
+}
+
+.tab-content{
+    display: none;
+    background: #ededed;
+    padding: 15px;
+}
+
+.tab-content.current{
+
+    display: inherit;
+    height: 570px;
+    
+}
+
+/* tetst */
+
+/*지역별 장소리스트*/
+
+
+/*등록된장소전체보기;번튼*/
+.headercetioncss3
+{
+    position: relative;
+    width:1280px; 
+    display: block; 
+    margin:0 auto;
+    padding:0 80px;
+    height: 50px;
+}
+
+.headercetioncss3 .hea3-0
+{
+
+   width: 100%;
+   line-height: 70px;
+   text-align: center;
+}
+
+.hea3-1
+{
+    outline: none;
+    border-width: 1px;
+    border-style: solid;
+    box-sizing: border-box;
+    border-radius: 4px;
+    line-height: 1;
+    font-weight: 500;
+    transition: background-color 0.3s ease 0s, border-color 0.3s ease 0s;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    white-space: nowrap;
+    max-width: 100%;
+    height: 42px;
+    font-size: 15px;
+    padding: 0px 22px;
+    min-width: 64px;
+    background-color: rgb(255, 212, 0);
+    border-color: rgb(255, 212, 0);
+    color: rgb(48, 52, 65);
+}
+
+.hea3-1:hover
+{
+    border-style: solid;
+    border-color: blueviolet;
+}
+/*등록된장소전체보기;번튼*/
+
+
+/*바닥 후터*/
+

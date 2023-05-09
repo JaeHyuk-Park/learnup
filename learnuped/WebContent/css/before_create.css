@@ -1,0 +1,46 @@
+div{
+	margin-top: 100px;
+	width: 500px;
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	line-height: 300px;
+}
+div button{
+	background-color: white;
+	border: 0;
+}
+section{
+	margin-top: 100px;
+	width: 1280px;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+section button{
+	border-width: medium;
+	border-style: solid;
+	margin-left: 210px;
+	width: 280px;
+	height: 200px;
+	text-align: center;
+	line-height: 200px;
+	font-size: 30px;
+	background-color: white;
+	border-radius: 10px;
+}
+button#le{
+	margin-left: 0px;
+}
+button:hover{background-color: white;}
+section button:active{box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+button img#whs{
+	width:240px;
+	height:80px;
+}

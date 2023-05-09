@@ -1,0 +1,143 @@
+*{font-family: 'Noto Sans KR', sans-serif;}
+
+/*모든 텍스트타입에 폰트사이즈*/
+input[type="text"]{
+	font-size: 8pt;
+}
+
+/*섹션 영역*/
+.section_sec{
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+section{
+	width: 1000px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.category{
+	width: 105px;
+	height: 40px;
+	font-size: 15pt;
+	margin-top : 80px;
+	font-weight : bold;
+	border-bottom:solid 4px #3F0099;
+}
+
+.boardtable{
+	width:100%;
+	height:100%;
+	margin-top:50px;
+}
+.firstline{
+	width:100%;
+	height:20px;
+	border-bottom:solid 1px #dbdbdb;
+}
+
+.boardnum{
+	width:20%;
+	height:20px;
+	float:left;
+	font-size:9pt;
+	
+}
+.empty{
+	width:50%;
+	height:20px;
+	float:left;
+}
+.email{
+	width:10%;
+	height:20px;
+	float:left;
+	font-size:9pt;
+	
+}
+.date{
+	width:20%;
+	height:20px;
+	float:left;
+	font-size:9pt;
+	text-align:right;
+	
+}
+.title{
+	width:5%;
+	height:50px;
+	float:left;
+	line-height:50px;
+	font-size:10pt;
+}
+.titlesec{
+	width:95%;
+	height:50px;
+	font-size:15pt;
+	float:left;
+	line-height:50px;
+}
+.titlesec input[type="text"]{
+	width:100%;
+	height:30px;
+	margin-top:10px;
+	font-size:13pt;
+	float:left;
+	border-radius:5px;
+	border:solid 1px #dbdbdb;
+	
+}
+.note{
+	width:5%;
+	height:100%;
+	float:left;
+	line-height:100%;
+	margin-top:10px;
+	font-size:10pt;
+}
+.notesec{
+	width:95%;
+	height:200px;
+	float:left;
+	line-height:100%;
+	font-size: 10pt;
+	margin-top:10px;
+}
+
+.notesec textarea{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #dbdbdb;
+    border-radius:5px;
+}
+
+.listbtn{
+	float:left;
+	width:85px;
+	height:35px;
+	border-radius:5px;
+	border:solid 1px #8041D9;
+	background-color:#8041D9;
+	color:white;
+	margin-top:30px;
+}
+.listbtn:hover{
+	background-color: #3F0099;
+}
+
+.updatebtn{
+	float:right;
+	width:85px;
+	height:35px;
+	border-radius:5px;
+	border:solid 1px #8041D9;
+	background-color:#8041D9;
+	color:white;
+	margin-top:30px;
+	margin-right:10px;
+}
+.updatebtn:hover{
+	background-color: #3F0099;
+}

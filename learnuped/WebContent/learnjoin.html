@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/join.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+	<title>회원가입</title>
+</head>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+<script src="js/joinverse.js"></script>
+<body>
+	<form method="post" action="joininsert.jsp">
+	<header>
+		<div style="margin: 0;">
+			<a href="file://501-31/project/%EB%B0%95%EC%9E%AC%ED%98%81/web_project/talentindexpage.html">
+				<img src="image/widthlearn.png" id="img01">
+			</a>
+		</div>
+	</header>
+	<div id="divse">
+	<section>
+		<article class="art1">
+			<div>
+				<h1>딱 이것만 체크하면 가입완료!</h1>
+			</div>
+
+			<div><b>이메일 ID<font color="#FF0000">*</font></b></div>
+			<div><input type="text" name="email" size="49" maxlength="30" placeholder="이메일을 입력해주세요." class="text text2"></div>
+			<div class="error_next_box" id="emailMsg"></div>
+			<br>
+
+			<div><b>닉네임<font color="#FF0000">*</font></b></div>
+			<div><input type="text" name="nickname" size="49" maxlength="16" placeholder="닉네임을 입력해주세요.(최대 16글자까지)" class="text text2"></div>
+			<div class="error_next_box" id="nicknameMsg"></div>
+			<br>
+
+			<div><b>비밀번호<font color="#FF0000">*</font></b></div>
+			<div><input type="password" name="password" size="49" minlength="8" maxlength="15" placeholder="비밀번호를 입력해주세요.(8자 이상 16자 미만)" class="text text2"></div>
+			<div class="error_next_box" id="passMsg"></div>
+			<br>
+
+			<div><b>비밀번호 확인<font color="#FF0000">*</font></b></div>
+			<div><input type="password" size="49" minlength="8" maxlength="15" placeholder="비밀번호를 한번 더 입력해주세요." class="text text2" name="password2"></div>
+			<div class="error_next_box" id="pass2Msg"></div>
+			<br>
+
+			<div><b>이름<font color="#FF0000">*</font></b></div>
+			<div><input type="text" name="name" id="name" size="49" maxlength="20" placeholder="이름을 입력해주세요." class="text text2"></center></div>
+			<div class="error_next_box" id="nameMsg"></div>
+			<br>
+
+			<div><b>생년월일<font color="#FF0000">*</font></b></div>
+			<div>
+			<span><input type="text" name="year" size="11" maxlength="4" class="text" placeholder="년(4자)" style="width: 122px" oninput="this.value=this.value.replace(/[^0-9]/g, '');"></span>
+			<span>
+				<select name="month" id="sel">
+					<option value="월">월</option>
+					<option value="01">1월</option>
+					<option value="02">2월</option>
+					<option value="03">3월</option>
+					<option value="04">4월</option>
+					<option value="05">5월</option>
+					<option value="06">6월</option>
+					<option value="07">7월</option>
+					<option value="08">8월</option>
+					<option value="09">9월</option>
+					<option value="10">10월</option>
+					<option value="11">11월</option>
+					<option value="12">12월</option>
+				</select>
+			</span>
+			<span>
+				<input type="text" name="day" size="11" maxlength="2" placeholder="일" style="width: 122px" class="text" oninput="this.value=this.value.replace(/[^0-9]/g, '');">
+			</span>
+			<div class="error_next_box" id="birthMsg"></div>
+			<div class="error_next_box" id="monthMsg"></div>
+			<div class="error_next_box" id="dayMsg"></div>
+		</div>
+			<br>
+			<br>
+
+			<div><b>지역<font color="#FF0000">*</font></b></div>
+			<div>
+			<input type="text" id="sample6_postcode" maxlength="0" placeholder="우편번호" name="area1" size="30" class="text"><span><input type="button" onclick="sample6_execDaumPostcode()" value="주소 찾기" style="width: 133px; height: 46px; background-color: white; margin-left: 2px;" class="text"></span>
+	        <div><input type="text" maxlength="0" id="sample6_address" placeholder="주소" name="area2" size="49" class="text text2"></div>
+	        <div><input type="text" id="sample6_detailAddress" placeholder="상세주소를 입력해주세요." name="address2" size="49" class="text text2"></div>
+	    	</div><!-- 
+			<div class="error_next_box" id="area1Msg"></div>
+			<div class="error_next_box" id="area2Msg"></div> -->
+			<div class="error_next_box" id="areaMsg"></div>
+			<br>
+
+			<div><b>직업<font color="gray" size="1.8px">(선택)</font></b></div>
+			<div>
+				<select name="job" class="text" style="width: 396px; height: 46px; color: black;">
+					<option value="직업을 선택해주세요.">직업을 선택해주세요.</option>
+					<option value="프리랜서">프리랜서</option>
+					<option value="직장인">직장인</option>
+					<option value="소상공인">소상공인</option>
+					<option value="스타트업 창업자">스타트업 창업자</option>
+					<option value="대학(원)생">대학(원)생</option>
+					<option value="취업준비생">취업준비생</option>
+				</select>
+			</div>
+			<br>
+
+			<div>
+				<b><input type="checkbox" name="access" id="accessAll" value="모두 동의합니다." > 모두 동의합니다.</b>
+			</div>
+			<div>
+				<input type="checkbox" name="access" value="만 14세	이상입니다."> 만 14세 이상입니다.<font color="	#FF0000">(필수)</font>
+			</div>
+			<div>
+				<input type="checkbox" name="access" value="서비스 이용약관에 동의합니다."> 서비스 이용약관에 동의합니다.<font color="#FF0000">(필수)</font> 
+			</div>
+			<div>
+				<input type="checkbox" name="access" value="개인정보 수집/이용에 동의합니다."> 개인정보 수집/이용에 동의합니다.<font color="#FF0000">(필수)</font> 
+			</div>
+			<div>
+				<input type="checkbox" name="access" value="개인정보 제3자 제공에 동의합니다."> 개인정보 제3자 제공에 동의합니다.<font color="#FF0000">(필수)</font> 
+			</div>
+			<div>
+				<input type="checkbox" name="access1" value="Y"> 이벤트 할인 혜택 알림 수신에 동의합니다. 
+			</div>
+			<div>
+				<input type="checkbox" name="access2" value="Y"> 장기 미접속 시 계정 활성 상태를 유지합니다.
+			</div>
+			<div class="error_next_box" id="accessMsg"></div>
+		</article>
+	</section>
+	</div>
+	<footer>
+		<div>
+			<button type="submit" name="save" id="button" onsubmit="return false;">버튼만 누르면 가입완료!</button>
+			<a href="talentindexpage.html" style="text-decoration: none;"><button type="button" style="cursor: pointer;">가입 취소(메인 홈페이지로)</button></a>
+
+		</div>
+	</footer>
+	</form>
+</body>
+</html>

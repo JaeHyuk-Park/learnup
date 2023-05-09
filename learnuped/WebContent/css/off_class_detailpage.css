@@ -1,0 +1,313 @@
+
+*{ 
+	margin:0; 
+	padding:0;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+}
+
+img{
+	width: 100%;
+	height: 100%;
+}
+
+
+
+/*섹션 영역*/
+.section_sec{
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+section{
+	display:inline-block;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.secwrap{
+	width: 1280px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
+/*탑 섹션 영역*/
+.topsec{
+	width:100%;
+		
+}
+
+/*탑 섹션 클래스방식 ·장소 ·모집인원수 영역*/
+.topsec ul{
+	display: flex;
+    align-items: center;
+    margin-top:80px;
+}
+.topsec ul li{
+	list-style:none;
+	display:flex;
+	font-size:10pt;
+	font-weight:bold;
+	color:red;
+}
+
+/*탑 섹션  클래스 제목 영역*/
+.classname{
+	font-size:20pt;
+	font-weight:bold;
+	margin-top:20px;
+}
+
+/*탑 섹션 강사명 영역*/
+.sellername{
+	color:#747474;
+	font-size:10pt;
+	font-weight:bold;
+	margin-top:10px;
+}
+
+/*탑 섹션 커버이미지 영역*/
+.imgwrap{
+	width:100%;
+	height:500px;
+	margin-top:20px;
+}
+.bigimg{
+	width:700px;
+	height:500px;
+	float:left;
+}
+.midimg{
+	width:570px;
+	height:245px;
+	float:left;
+	margin-left:10px;
+}
+.smallimg{
+	width:280px;
+	height:245px;
+	float:left;
+}
+
+
+
+/*좌 우측 메뉴 묶어주는 섹션 영역*/
+.midsec{
+	display:flex;
+	margin-bottom:300px;
+}
+
+
+
+/*좌측 메뉴 영역*/
+.leftsec{
+	width:880px;
+	height : 100%;
+}
+.notetop{
+	margin-top:30px;
+}
+.detailWrap{
+	margin-top:150px;
+	display:flex;
+}
+
+.detail_title{
+	width:200px;
+	font-size:20pt;
+	font-weight:bold;
+}
+.movetit{
+	position:sticky;
+	top:150px;	
+}
+
+.detail_note{
+	width:650px;
+	color:#747474;
+}
+.detail_video{
+	width:600px;
+	height:360px;
+	border:none;
+	border-radius:5px;
+	background-color:#D5D5D5;
+}
+
+
+.teach_sec{
+	display:flex;
+	
+}
+.teach_img{
+	width:50px;
+	height:50px;
+	border-radius:50%;
+	overflow:hidden;
+	margin-right:20px;
+}
+.name{
+	line-height: 20px;
+}
+.sns{
+	display: inline-block;
+    margin: 10px 10px 0 0;
+    padding-left: 21px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #666;
+    background-position: left center;
+    background-size: 18px;
+    background-repeat: no-repeat;
+}
+.sns_insta{
+	background-image: url(../image/insta.gif);
+}
+.sns_youtube{
+	background-image: url(../image/youtube1.png);
+}
+
+.whichClass_img{
+	width:600px;
+	height:360px;
+}
+
+
+
+
+
+
+
+
+/*우측 메뉴 영역*/
+.rightsec{
+	width:350px;
+	margin-left:50px;
+	display: inline-block;
+	position:sticky;
+	
+}
+.menuWrap{
+	margin-top:150px;
+	padding:20px;
+	border:solid 1px #D5D5D5;
+	position: sticky;
+	top:150px;
+}
+
+/*우측 메뉴 클래스 제목 영역*/
+.menuTitle{
+	font-weight:bold;
+	font-size:15pt;
+}
+
+/*우측 메뉴 스케쥴 영역*/
+.scheduleWrap_Wrap{
+	margin-top:50px;
+}
+.scheduleWrap{
+	margin-top:20px;
+	border-bottom:solid 1px #D5D5D5;
+	padding-bottom:20px;
+}
+
+.sche_date{
+	font-size:10pt;
+	font-weight:bold;
+	color:#747474;
+}
+.sche_time{
+	display:inline-block;
+	margin-left:150px;
+	font-size:10pt;
+	font-weight:bold;
+	color:#747474;
+}
+.menu_area{
+	font-size:11pt;
+	font-weight:bold;
+	color:#3F0099;
+}
+.menu_address{
+	color:#747474;
+	font-size:10pt;
+}
+
+/*우측 메뉴 가격 영역*/
+.menuPrice{
+	margin-top:70px;
+	text-align:right;
+	font-size:11pt;
+}
+.menuTotalprice{
+	text-align:right;
+	font-size:11pt;
+}
+
+.pri{
+	font-size:13pt;
+	font-weight:bold;
+}
+.total_pri{
+	font-size:16pt;
+	font-weight:bold;
+	color:red;
+}
+.classcount{
+	font-size:14pt;
+	font-weight:bold;
+	color:#3F0099;
+	display:inline-block;
+	padding-left:5px;
+}
+.classtime{
+	font-size:14pt;
+	font-weight:bold;
+	color:#3F0099;
+	display:inline-block;
+	padding-left:5px;
+}
+
+.proBtn{
+	width:310px;
+	height:45px;
+	border:none;
+	border-radius:10px;
+	background-color:#D1B2FF;
+	cursor:pointer;
+	margin-top:70px;
+	font-weight:bold;
+	font-size:12pt;
+}
+.proBtn:hover{
+	background-color:#A566FF;
+}
+
+
+
+
+/*최하단 메뉴 영역*/
+.bottomsec{
+	width:100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
