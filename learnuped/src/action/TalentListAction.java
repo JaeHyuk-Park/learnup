@@ -14,9 +14,11 @@ import vo.TalentPageInfo;
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 
 		ArrayList<TalentDataType> articleList=new ArrayList<TalentDataType>();
-		int category = 1;
-		if(request.getParameter("category") != null) {
-			category = Integer.parseInt(request.getParameter("category")); 
+		int category = Integer.parseInt(request.getParameter("category"));
+		if(category < 1) {
+			category = 1; 
+		}else if(category > 9) {
+			category = 9;
 		}
 	  	int page=1;
 		int limit=24;
@@ -28,7 +30,7 @@ import vo.TalentPageInfo;
 		System.out.println("액션 페이지 : "+page);
 		TalentListService talentListService = new TalentListService();
 		int listCount=talentListService.getListCount();
-		articleList = talentListService.getArticleList(category, page,limit);
+		articleList = talentListService.getArticleList(category, page, limit);
    		int maxPage=(int)((double)listCount/limit+0.95); 
    		int startPage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;
    	    int endPage = startPage+10-1;

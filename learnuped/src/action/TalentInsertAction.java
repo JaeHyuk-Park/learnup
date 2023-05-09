@@ -1,5 +1,6 @@
 package action;
 
+import java.io.File;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
@@ -30,6 +31,8 @@ public class TalentInsertAction implements TalentAction {
 		int fileSize=5*1024*1024;
 		ServletContext context = request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);
+		File dir = new File(realFolder);  //upload 폴더가 없는 경우 폴더를 만들어라
+	      if (!dir.exists()) dir.mkdirs();
 		MultipartRequest multi=new MultipartRequest(request,realFolder,fileSize,
 				"UTF-8",
 				new DefaultFileRenamePolicy());
@@ -146,7 +149,7 @@ public class TalentInsertAction implements TalentAction {
 		else{
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("TalentList.learn");
+			forward.setPath("TalentList.learn?category=1");
 		}
 
 		return forward;
