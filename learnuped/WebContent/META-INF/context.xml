@@ -7,6 +7,6 @@
 		password="1324"
 		driverClassName="com.mysql.jdbc.Driver"
 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-		url="jdbc:mysql://localhost:3306/comment?serverTimezone=UTC"
+		url="jdbc:mysql://localhost:3306/learnup?useUnicode=true&amp;characterEncoding=utf8"
 		maxActive="500"/>
 </Context>

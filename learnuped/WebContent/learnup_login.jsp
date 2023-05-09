@@ -256,6 +256,9 @@ body {
 	background-color:#3A559F;
 	color:white;
 }
+img{
+	cursor:pointer;
+}
 
 
 </style>
@@ -308,7 +311,7 @@ body {
 <% session.invalidate(); %>
 			
 	<div id="logo" align="center">
-		<img src="./image/logo_beta_purple.png" style="width:200px; height:auto; margin-top:100px;"/></div>		<!-- 로고 이미지 영역 -->
+		<img src="./image/logo_beta_purple.png" style="width:200px; height:auto; margin-top:100px;"/ onclick="location.href='/learnuped'"></div>		<!-- 로고 이미지 영역 -->
 	<div id="login_main">					<!-- 아이디, 비밀번호 입력창, 로그인 버튼 영역 -->
 		<form name="learnup_login" method="post" action="loginChk.jsp">	<!-- 로그인 버튼으로 userID 값, userPW 값을 Login_cont 로 전달 -->
 			<table align="center" border="0" id="login_action">

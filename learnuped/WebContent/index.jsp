@@ -103,7 +103,7 @@
 			</div>
 			<div style="text-align: right;">
 				<button class="custom-btn btn-15"
-					onclick="location.href='talentindexpage.jsp' "
+					onclick="location.href='TalentList.learn?category=1' "
 					style="background-color: #D1B2FF; border-radius: 5px; position: relative; top: 30px; right: 60px; font-size: 15px; font-weight: bold; padding: 5px 10px;">전체보기</button>
 			</div>
 		</div>
@@ -235,7 +235,7 @@
 			</div>
 			<div style="text-align: right;">
 				<button class="custom-btn btn-15"
-					onclick="location.href='off_mainpage.jsp' "
+					onclick="location.href='off_total_main.off' "
 					style="background-color: #D1B2FF; border-radius: 5px; position: relative; top: 30px; right: 60px; font-size: 15px; font-weight: bold; padding: 5px 10px;">전체보기</button>
 			</div>
 		</div>
@@ -379,7 +379,7 @@
 			</div>
 			<div style="text-align: right;">
 				<button class="custom-btn btn-15"
-					onclick="location.href='janso_main.jsp' "
+					onclick="location.href='jangso.learnup.com' "
 					style="background-color: #D1B2FF; border-radius: 5px; position: relative; top: 30px; right: 60px; font-size: 15px; font-weight: bold; padding: 5px 10px;">전체보기</button>
 			</div>
 		</div>

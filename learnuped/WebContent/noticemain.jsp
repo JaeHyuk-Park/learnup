@@ -77,9 +77,11 @@
 		%>
 	  </tbody>
 	</table>
+	<%if((String)session.getAttribute("Email") != null && ((String)session.getAttribute("Email")).equals("rlaehgks@naver.com")){%>
 	<form name="form2" action="noticecreate.jsp">
 		<input type="submit" value="게시글 작성">
 	</form>
+	<%}%>
 	<div class="page-box">
 	  <a class="btn" href="#">&lt;&lt;</a>
 	  <a class="btn" href="#">&lt;</a>
