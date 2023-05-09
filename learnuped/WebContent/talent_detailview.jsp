@@ -8,7 +8,6 @@
 	TalentDataType talent = (TalentDataType)request.getAttribute("article");
 	DecimalFormat df = new DecimalFormat();
 	String email = (String)session.getAttribute("Email");
-	System.out.print(email);
 %>
 <!DOCTYPE html>
 <html>
