@@ -14,7 +14,10 @@ import vo.TalentPageInfo;
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 
 		ArrayList<TalentDataType> articleList=new ArrayList<TalentDataType>();
-		int category = Integer.parseInt(request.getParameter("category"));
+		int category = 1;
+		if(request.getParameter("category") != null) {
+			category = Integer.parseInt(request.getParameter("category")); 
+		}
 	  	int page=1;
 		int limit=24;
 		
