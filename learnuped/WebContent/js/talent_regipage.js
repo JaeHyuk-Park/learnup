@@ -155,7 +155,7 @@ $(document).ready(function() {
   	  }
   	});
   	  	
-  	$('input[name=image]').on('change', function() {
+  	$('input[name=img]').on('change', function() {
   	  var file = $(this)[0].files[0];
   	  var reader = new FileReader();
   	  var $deleteBtn = $(this).closest('.ImageUploadbox').find('.deleteBtn');
@@ -175,59 +175,84 @@ $(document).ready(function() {
   	      });
 
   	      // input 요소 값 제거
-  	      $('input[name=image]').val('');
+  	      $('input[name=img]').val('');
 
   	      // 버튼 숨기기
   	      $(this).hide();
 
-  	      var mainCount = $('input[name=image]').val() ? 1 : 0;
+  	      var mainCount = $('input[name=img]').val() ? 1 : 0;
   	      $('#main').html(mainCount);
   	    });
   	  }
   	  
   	  reader.readAsDataURL(file);
 
-  	  var mainCount = $('input[name=image]').val() ? 1 : 0;
+  	  var mainCount = $('input[name=img]').val() ? 1 : 0;
   	  $('#main').html(mainCount);
   	});
-  	
-  	$('input[name=image1], input[name=image2], input[name=image3], input[name=image4], input[name=image5], input[name=image6], input[name=image7], input[name=image8], input[name=image9]').on('change', function() {
-  	  var $currentBox = $(this).closest('.ImageUploadboxdetail');
-  	  var file = $(this)[0].files[0];
-  	  var reader = new FileReader();
-  	  var $deleteBtn = $(this).closest('.ImageUploadboxdetail').find('.deleteBtn');
 
-  	  reader.onload = function(e) {
-  	    $currentBox.css({
-  	      'background': 'url(' + e.target.result + ')',
-  	      'background-size': '100% 100%'
-  	    });
-  	    $deleteBtn.show();
 
-  	    $deleteBtn.click(function(){
-  	      $currentBox.css({
-  	        'background': 'url(image/imageupload.png) no-repeat center',
-  	        'background-size': '100px 75px'
-  	      });
-
-  	      // input 요소 값 제거
-  	      $(this).closest('.ImageUploadboxdetail').find('input[type=file]').val('');
-
-  	      // 버튼 숨기기
-  	      $(this).hide();
-
-  	      var mainCount = $('input[name=image1], input[name=image2], input[name=image3], input[name=image4], input[name=image5], input[name=image6], input[name=image7], input[name=image8], input[name=image9]').filter(function() {
-  	        return this.value != "";
-  	      }).length;
-  	      $('#detail').html(mainCount);
-  	    });
-  	  }
-  	  reader.readAsDataURL(file);
-
-  	  var mainCount = $('input[name=image1], input[name=image2], input[name=image3], input[name=image4], input[name=image5], input[name=image6], input[name=image7], input[name=image8], input[name=image9]').filter(function() {
-  	    return this.value != "";
-  	  }).length;
-  	  $('#detail').html(mainCount);
-  	});
 
 });
+var maxImageCount = 9;
+var currentImageCount = 1;
+
+$(document).on('change', '.ImageUploadboxdetail input[type=file]', function() {
+  var $currentBox = $(this).closest('.ImageUploadboxdetail');
+  var file = $(this)[0].files[0];
+  var reader = new FileReader();
+  var $deleteBtn = $currentBox.find('.deleteBtn');
+
+  $(this).css({
+  	'pointer-events' : 'none'
+	});
+  
+  reader.onload = function(e) {
+    $currentBox.css({
+      'background': 'url(' + e.target.result + ')',
+      'background-size': '100% 100%'
+    });
+    $deleteBtn.show();
+
+    var mainCount = $('input[name^=image]').filter(function() {
+      return this.value != "";
+    }).length;
+    $('#detail').html(mainCount);
+
+    // 새로운 파일 입력 상자 생성
+  }
+  reader.readAsDataURL(file);
+
+  if (currentImageCount < maxImageCount) {
+    var $parent = $currentBox.parent();
+    var imageUploadBox = $('<div class="ImageUploadboxdetail"></div>');
+    var imageInput = $('<input type="file" name="image'+(currentImageCount + 1)+'">');
+    var deleteButton = $('<input type="button" class="deleteBtn" style="display:none; width:30px;">');
+
+    imageUploadBox.append(imageInput, deleteButton);
+    $parent.append(imageUploadBox);
+
+    currentImageCount++;
+  } else {
+    alert("상세 이미지는 총 9개까지 등록 가능합니다.");
+  }
+
+  $deleteBtn.click(function(){
+	$currentBox.remove();
+    currentImageCount--;
+
+    // 나머지 input 요소의 name 값 수정
+    $('.ImageUploadboxdetail input[type=file]').each(function(index){
+        var imageNum = index+1;
+        $(this).attr('name', 'image'+imageNum);
+    });
+
+    var mainCount = $('input[name^=image]').filter(function() {
+        return this.value != "";
+    }).length;
+    $('#detail').html(mainCount);
+
+    // 새로운 파일 입력 상자 추가
+  });
+});
+

@@ -32,7 +32,8 @@ public class TalentInsertAction implements TalentAction {
 		ServletContext context = request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);
 		File dir = new File(realFolder);  //upload 폴더가 없는 경우 폴더를 만들어라
-	      if (!dir.exists()) dir.mkdirs();
+	    if (!dir.exists()) 
+	    	dir.mkdirs();
 		MultipartRequest multi=new MultipartRequest(request,realFolder,fileSize,
 				"UTF-8",
 				new DefaultFileRenamePolicy());
@@ -78,8 +79,8 @@ public class TalentInsertAction implements TalentAction {
 			System.out.println("리크릿");
 		}
 		
-		if(multi.getFilesystemName("image") != null) {
-			talent.setImage((String)multi.getFilesystemName("image"));
+		if(multi.getFilesystemName("img") != null) {
+			talent.setImage((String)multi.getFilesystemName("img"));
 		}if(multi.getFilesystemName("image1") != null) {
 			talent.setImage_1((String)multi.getFilesystemName("image1"));
 		}if(multi.getFilesystemName("image2") != null) {

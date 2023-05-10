@@ -43,7 +43,7 @@
 				<div class="rightsec">
 					<div class="toptext"><span class="wid">제목</span><input type="text" name="servicetitle" placeholder="서비스를 잘 드러낼 수 있는 제목을 입력해주세요.(최대 30자)" maxlength="30"><div class="limit" style="margin-left:100px;" required><span id="title">0</span>/30</div></div>
 					<div class="oplist"><span class="wid">카테고리</span>
-						<select name="category">
+						<select name="category" required>
 							<option value="1">디자인</option>
 							<option value="2">IT·프로그래밍</option>
 							<option value="3">영상·사진·음향</option>
@@ -64,16 +64,16 @@
 						<div class="optionbox" style="background-color:white;">
 							<div><span class="wid4">제목</span><input type="text" name="vers_title" placeholder="제목을 입력해주세요." maxlength="20" style="background-color:white;" required ><div class="limit" style="margin-left:20px;" required><span id="standtitle">0</span>/20</div></div>
 							<div><span class="wid4">설명</span><input type="text" name="vers_descript" placeholder="상세 설명을 입력해주세요." maxlength="60" style="background-color:white;" required><div class="limit" style="margin-left:20px;" required><span id="standdescript">0</span>/60</div></div>
-							<div><span class="wid4">금액(VAT 포함)</span><input type="text" name="vers_price" placeholder="최소 5,000원 이상 금액을 입력해주세요." style="width:79%; background-color:white;" required>원</div>
+							<div><span class="wid4">금액(VAT 포함)</span><input type="text" name="vers_price" maxlength="9" placeholder="최소 5,000원 이상 금액을 입력해주세요." style="width:79%; background-color:white;" required>원</div>
 							<div><span class="wid4">작업 기간</span>
-							<select name="vers_date" style="width:81%;">
+							<select name="vers_date" style="width:81%;" required>
 							<%for(int standday=1; standday<=30; standday++){
 								%><option value="<%=standday%>"><%=standday %>일</option>
 							<%}%>
 							</select>
 							</div>
 							<div><span class="wid4">수정 횟수</span>
-							<select name="recruit_num" style="width:81%;">
+							<select name="recruit_num" style="width:81%;" required>
 							<%for(int standrevi=1; standrevi<=15; standrevi++){
 								%><option value="<%=standrevi%>"><%=standrevi %>회</option>
 							<%}%>
@@ -90,56 +90,60 @@
 					<br><br>
 					
 					<div>메인이미지등록(필수)&nbsp;&nbsp;<span class="textadd" id="main">0</span>/1</div>
-					<div class="ImageUploadbox">
-					<input type="file" name="image">
-					<input type="button" class="deleteBtn" style="display:none; width:30px;">
-					</div><br><br>
+
+						<div class="ImageUploadbox">
+							<input type="file" name="img">
+							<input type="button" class="deleteBtn" style="display:none; width:30px;">
+						</div>
+					<br><br>
 					
 					<div>상세이미지등록(선택)&nbsp;&nbsp;<span class="textadd" id="detail">0</span>/9</div>
-					<div class="ImageUploadboxdetail">
-					<input type="file" name="image1">
-					<input type="button" class="deleteBtn" style="display:none; width:30px;">
+					<div id="imageUploadBoxContainer">
+						<div class="ImageUploadboxdetail">
+							<input type="file" name="image1">
+							<input type="button" class="deleteBtn" style="display:none; width:30px;">
+						</div>
 					</div>
 					
-					<div class="ImageUploadboxdetail">
+					<!-- div class="ImageUploadboxdetail" style="display:none;">
 					<input type="file" name="image2">
 					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
-					<div class="ImageUploadboxdetail">
+					<div class="ImageUploadboxdetail" style="display:none;">
 					<input type="file" name="image3">
 					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
-					<div class="ImageUploadboxdetail">
+					<div class="ImageUploadboxdetail" style="display:none;">
 					<input type="file" name="image4">
 					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
-					<div class="ImageUploadboxdetail">
+					<div class="ImageUploadboxdetail" style="display:none;">
 					<input type="file" name="image5">
 					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
-					<div class="ImageUploadboxdetail">
+					<div class="ImageUploadboxdetail" style="display:none;">
 					<input type="file" name="image6">
 					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
-					<div class="ImageUploadboxdetail">
+					<div class="ImageUploadboxdetail" style="display:none;">
 					<input type="file" name="image7">
 					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
-					<div class="ImageUploadboxdetail">
+					<div class="ImageUploadboxdetail" style="display:none;">
 					<input type="file" name="image8">
 					<input type="button" class="deleteBtn" style="display:none; width:30px;">
 					</div>
 					
-					<div class="ImageUploadboxdetail">
+					<div class="ImageUploadboxdetail" style="display:none;">
 					<input type="file" name="image9">
 					<input type="button" class="deleteBtn" style="display:none; width:30px;">
-					</div>
+					</div-->
 					<!-- div class="ImageUploadbox">
 						<label>
 						    <input type="file" class="imageUpload" name="image" accept="image/*" style="display:none">

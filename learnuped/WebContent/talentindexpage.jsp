@@ -154,7 +154,7 @@
 					<%
 						} else {
 					%>
-					<a href="TalentList.learn?page=<%=nowPage-1%>"><</a>
+					<a href="TalentList.learn?page=<%=nowPage-1%>&category=<%=category%>"><</a>
 					<%} %>
 
 					<%
@@ -165,7 +165,7 @@
 					<%
 							} else {
 					%>
-						<a href="TalentList.learn?page=<%=a%>"><%=a%>
+						<a href="TalentList.learn?page=<%=a%>&category=<%=category%>"><%=a%>
 						</a>
 					<%
 							}
@@ -181,7 +181,7 @@
 					<%
 							} else {
 					%>
-						<a href="TalentList.learn?page=<%=nowPage + 1%>">></a>
+						<a href="TalentList.learn?page=<%=nowPage + 1%>&category=<%=category%>">></a>
 					<%
 							}
 					%>
