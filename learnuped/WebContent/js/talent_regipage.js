@@ -202,6 +202,7 @@ $(document).on('change', '.ImageUploadboxdetail input[type=file]', function() {
   var file = $(this)[0].files[0];
   var reader = new FileReader();
   var $deleteBtn = $currentBox.find('.deleteBtn');
+  var imageNum = $(this).attr('name').substr(6);
 
   $(this).css({
   	'pointer-events' : 'none'

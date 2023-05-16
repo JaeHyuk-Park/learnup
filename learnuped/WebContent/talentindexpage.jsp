@@ -19,6 +19,7 @@
 	int endPage = pageInfo.getEndPage();
 	DecimalFormat df;
 	df = new DecimalFormat("###,###");
+	String category = request.getParameter("category");
 %>
 <!DOCTYPE html>
 <html>
@@ -71,16 +72,16 @@
 					<div class="high">비즈니스</div>
 					<nav>
 						<ul>
-
-							<li style="font-weight: bold;"><a href="TalentList.learn?category=1">디자인</a></li>
-							<li><a href="TalentList.learn?category=2">IT·프로그래밍</a></li>
-							<li><a href="TalentList.learn?category=3">영상·사진·음향</a></li>
-							<li><a href="TalentList.learn?category=4">마케팅</a></li>
-							<li><a href="TalentList.learn?category=5">번역·통역</a></li>
-							<li><a href="TalentList.learn?category=6">문서·글쓰기</a></li>
-							<li><a href="TalentList.learn?category=7">경영자문·운영지원</a></li>
-							<li><a href="TalentList.learn?category=8">주문제작</a></li>
-							<li><a href="TalentList.learn?category=9">세무·법무·노무</a></li>
+							<%
+								String[] categories = { "디자인", "IT·프로그래밍", "영상·사진·음향", "마케팅", "번역·통역", "문서·글쓰기", "경영자문·운영지원", "주문제작", "세무·법무·노무" };
+								for (int i = 1; i <= categories.length; i++) {
+									String categoryLink = "TalentList.learn?category=" + i;
+									String fontWeight = i == Integer.parseInt(category) ? "font-weight: bold;" : "";
+							%>
+							<li style="<%=fontWeight%>"><a href="<%=categoryLink%>"><%=categories[i - 1]%></a></li>
+							<%
+								}
+							%>
 						</ul>
 					</nav>
 				</section>
@@ -88,7 +89,7 @@
 					<div id="space">
 						홈 > 비즈니스 >
 						<%
-						String category = request.getParameter("category");
+						
 
 						if (category.equals("1")) {
 							out.print("디자인");

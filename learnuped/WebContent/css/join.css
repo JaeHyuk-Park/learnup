@@ -29,10 +29,10 @@ div#divse{
 }
 section{
 	margin-top: 20px;
-	width: 500px;
-	height: 1300px;
-	margin-left: auto;
-	margin-right: auto;
+    width: 500px;
+    margin-bottom: 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 article.art1{
 	width: 400px;

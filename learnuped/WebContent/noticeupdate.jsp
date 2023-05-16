@@ -28,7 +28,7 @@
 	input, textarea{
 		border : 2px solid #8041D9;
 	}	
-	button{
+	input[type="submit"], input[type="button"]{
 		border: 1px solid #A566FF;
 		background: #8041D9;
 		color: #fff;
@@ -37,7 +37,7 @@
 		font-weight : bold;
 		padding : 8px 20px;
 	}
-	button:hover{ background-color:#A566FF;	}	
+	input[type="button"]:hover, input[type="submit"]:hover{ background-color:#A566FF;	}	
 </style>
 <body>
 	<%
@@ -74,11 +74,11 @@
                             <textarea name="text" class="border-2" style="height: 252px; width: 100%; padding:8px;"><%= texts%></textarea>
                         </div>
                         <div>
-                        <input type="file" name="fileName1" id = "fileName1" style="border:none;"><%=request.getParameter("file") %>
+                        <%=request.getParameter("file") %>
 						</div><br>
                         <div class="flex p-1 gap-3">
-                            <button type="submit" class="bg-blue-500 text-white" required>수정</button>
-                          <button type="button" class="bg-blue-500 text-white" required onclick="location.href='noticetitleselect.jsp?title=<%= title%>'">뒤로가기</button>
+                            <input type="submit" class="bg-blue-500 text-white" value="수정" required></button>
+                          <input type="button" class="bg-blue-500 text-white" value="뒤로가기" required onclick="location.href='noticetitleselect.jsp?title=<%= title%>'"></button>
                         </div>
                     </form>
                     <%

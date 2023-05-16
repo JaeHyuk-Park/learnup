@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -217,19 +218,22 @@ public class Noticedata {
 		}
 	}
 	public void update(NoticedataType no) {
-		try{
-			connect();
-			stmt = conn.createStatement();
-
-			String data = "update notice set title='"+no.getTitle()+"', text='"+no.getText()+"', file='"+no.getFile()+"' where noticenum="+no.getNoticenum()+""; 
-			stmt.executeUpdate(data);
-		}catch(Exception e) {
-			System.out.println(e+"오류입니다.");
-		}finally {
-			try {
-				diconnect();
-			}catch(Exception e){
-			}
+		try {
+		    connect();
+		    String query = "UPDATE notice SET title=?, text=? WHERE noticenum=?";
+		    PreparedStatement pstmt = conn.prepareStatement(query);
+		    pstmt.setString(1, no.getTitle());
+		    pstmt.setString(2, no.getText());
+		    pstmt.setInt(3, no.getNoticenum());
+		    pstmt.executeUpdate();
+		} catch (Exception e) {
+		    System.out.println(e + "오류입니다.");
+		} finally {
+		    try {
+		        diconnect();
+		    } catch (Exception e) {
+		        // 처리할 작업
+		    }
 		}
 	}
 }

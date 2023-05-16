@@ -208,20 +208,27 @@ $(document).ready(function(){
 
 	$('form').submit(function(event) {
 	  // .error_next_box가 보이면 submit 막기
-	  if($('.error_next_box').text().trim() !== ''){
+	  if ($('.error_next_box').text().trim() !== '') {
 	    alert('필수 정보를 확인해주세요.');
 	    event.preventDefault();
 	    return false;
 	  }
 
 	  // input이나 select가 비어있으면 submit 막기
-	  $('input, select').each(function(){
-	    if($(this).val() == ""){
+	  $('input, select').each(function() {
+	    if ($(this).val() == "") {
 	      alert('필수 정보를 확인해주세요.');
 	      event.preventDefault();
 	      return false;
 	    }
 	  });
+	});
+
+	$('input[type="text"], input[type="password"], input[type="checkbox"]').keydown(function(event) {
+	  if (event.keyCode == 13) {
+	    event.preventDefault();
+	    return false;
+	  }
 	});
 
 });

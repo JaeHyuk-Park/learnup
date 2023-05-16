@@ -31,22 +31,21 @@
 			String text = multi.getParameter("text");
 			text = text.replace("\r\n", "<br>");
 			
-			Enumeration files=multi.getFileNames();
-			String file1 =(String)files.nextElement();
-			filename1=multi.getFilesystemName(file1);
-			origfilename1= multi.getOriginalFileName(file1);
+			if(multi.getFilesystemName("file") != null){
+				type.setFile(multi.getFilesystemName("file"));	
+			}
 			
 			type.setNoticenum(Integer.parseInt(multi.getParameter("noticenum")));
 			type.setNickname(multi.getParameter("nickname"));
 			type.setTitle(multi.getParameter("title"));
 			type.setText(text);
-			type.setFile(filename1);
+			
+			data.update(type);
+			
 		}catch(Exception e){
 			e.printStackTrace();
 			System.out.println(e+"오류입니다.");
 		}
-		
-		data.update(type);
 		response.sendRedirect("noticemain.jsp");
 	%>
 </body>

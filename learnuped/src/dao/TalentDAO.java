@@ -212,7 +212,7 @@ public class TalentDAO {
 		String board_list_sql="select*from learnup.product pr, learnup.information info, learnup.vers_info ve where pr.email = info.email and pr.product_num = ve.product_num and pr.category = ? order by pr.product_num asc limit ?,24;";
 		ArrayList<TalentDataType> articleList = new ArrayList<TalentDataType>();
 		TalentDataType talent = null;
-		int startrow=(page-1)*24; 
+		int startrow=(page-1)*24;
 
 		try{
 			System.out.println(startrow);

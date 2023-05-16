@@ -5,6 +5,7 @@
 <%
 	String prevPage = request.getHeader("Referer");
 	System.out.print(" 리퀘스트 겟헤더 : " + prevPage);
+	String logcheck = request.getParameter("id");
 %>
 
 <html>
@@ -320,15 +321,17 @@ img{
 				<%}else{ %>
 					<tr><td><input type="text" id="id" class="txt_input" name="Email" placeholder="아이디"></td></tr>
 				<%} %>
-				<input type="hidden" name="urldirect" value="<%= request.getHeader("Referer")%>">
+				<%if(logcheck != null){%>
+					<input type="hidden" name="urldirect" value="http://localhost:8075/learnuped/">
+				<%}else{%>
+					<input type="hidden" name="urldirect" value="<%= request.getHeader("Referer")%>">
+				<%}%>
 				<tr><td><input type="password" id="passwd" class="txt_input" name="Password" placeholder="비밀번호" ></td></tr>
 				<tr><td><input type="checkbox" name=checkbox id="check1"  >email 저장</td></tr>
 				
 				<tr><td><input type="submit" id="login_button" name="" value="로그인"></td></tr>
 
 				<tr><td><% 
-                	String logcheck ="";
-                	logcheck = request.getParameter("id"); 
                 	
                 	if(logcheck == null) {
                 		logcheck = "amu";
@@ -337,7 +340,7 @@ img{
                 	%>
                 	
                 	<%if(logcheck.equals("false")){%>
-                		<font id = "login_check" size = "2"style="color: red;">아이디나 비밀번호를 입력하여주십시오</font>
+                		<font id = "login_check" size = "2"style="color: red;">없는 아이디입니다.</font>
                 	<%}else if(logcheck.equals("false2")){ %>
                 		<font id = "login_check" size = "2"style="color: red;">비밀번호를 다시입력해주십시오</font>
                 	<%}else { %>

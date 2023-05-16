@@ -183,7 +183,7 @@
 				</section>
 				
 
-				<%
+				<!--%
 						out.print("이메일 : " + talent.getEmail());
 						out.println("상품번호 : " + talent.getProduct_num());
 						out.println("제목 : " + talent.getTitle());
@@ -210,7 +210,7 @@
 						out.println("버전 가격 : " + talent.getPrice());
 						out.println("버전 추가날짜 : " + talent.getVers_date());
 						out.println("버전 수정횟수 : " + talent.getRecruit_num());
-					%>
+					%-->
 			</div>
 			<aside id="vers">
 				<section id="love">
