@@ -35,6 +35,13 @@
 				type.setFile(multi.getFilesystemName("file"));	
 			}
 			
+			System.out.println(multi.getParameter("noticenum"));
+			System.out.println(text);
+			System.out.println(multi.getParameter("title"));
+			System.out.println(multi.getParameter("nickname"));
+			
+			
+			
 			type.setNoticenum(Integer.parseInt(multi.getParameter("noticenum")));
 			type.setNickname(multi.getParameter("nickname"));
 			type.setTitle(multi.getParameter("title"));

@@ -51,7 +51,7 @@
 					int noticenum = type.get(i).getNoticenum();
 					out.println("<tr>");
 					out.println("<td>"+num+"</td>");
-					out.println("<td><a href='noticetitleselect.jsp?title="+title+"&num="+num+"&noticenum="+noticenum+"&file="+type.get(i).getFile()+"'>"+title+"</a></td>");
+					out.println("<td><a href='noticetitleselect.jsp?title="+title+"&num="+num+"&noticenum="+noticenum+"'>"+title+"</a></td>");
 					out.println("<td>"+type.get(i).getNickname()+"</td>");
 					out.println("<td>"+type.get(i).getCreatedate()+"</td>");
 					out.println("</tr>");
@@ -68,7 +68,7 @@
 					int noticenum = type.get(i).getNoticenum();
 					out.println("<tr>");
 					out.println("<td>"+num+"</td>");
-					out.println("<td><a href='noticetitleselect.jsp?title="+title+"&num="+num+"&noticenum="+noticenum+"&file="+type.get(i).getFile()+"'>"+title+"</a></td>");
+					out.println("<td><a href='noticetitleselect.jsp?title="+title+"&num="+num+"&noticenum="+noticenum+"'>"+title+"</a></td>");
 					out.println("<td>"+type.get(i).getNickname()+"</td>");
 					out.println("<td>"+type.get(i).getCreatedate()+"</td>");
 					out.println("</tr>");

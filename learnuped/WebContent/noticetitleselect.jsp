@@ -8,10 +8,14 @@
 	String title = request.getParameter("title");
 	String num = request.getParameter("num");
 	String noticenum = request.getParameter("noticenum");
-	String file = request.getParameter("file");
 	
 	Noticedata data = new Noticedata();
 	NoticedataType type = data.detailpageselect(title);
+	String file = null;
+	if(type.getFile() != null){
+		file = type.getFile();	
+	}
+	
 	
 %>
 <html>
@@ -59,9 +63,14 @@
 			</tr>
 		</tbody>
 	</table><br>
+	
+	<%if(type.getFile() != null && !type.getFile().equals("null")){%>
+		첨부파일 다운로드 : <a href="noticefile/<%= file%>"><%= file%></a><br><br>	
+	<%}%>
+
 	<form>
 		<input type="button" value="목록" onclick="location.href='noticemain.jsp'">
-		<input type="button" style="margin-left: 924px;" value="수정" onclick="location.href='noticeupdate.jsp?num=<%= num%>&title=<% out.print(title); %>&nickname=<% out.print(type.getNickname()); %>&text=<% out.print(type.getText()); %>&file=<%out.print(type.getFile());%>'">
+		<input type="button" style="margin-left: 924px;" value="수정" onclick="location.href='noticeupdate.jsp?noticenum=<% out.print(type.getNoticenum());%>&num=<%= num%>&title=<% out.print(title); %>&nickname=<% out.print(type.getNickname()); %>&text=<% out.print(type.getText()); %>&file=<%out.print(type.getFile());%>'">
 		<input type="button" value="삭제" onclick="location.href='noticedelete.jsp?no=<% out.print(type.getNoticenum()); %>&nickname=<% out.print(type.getNickname()); %>'">
 	</form>
 	<table style="margin-top:50px;">
