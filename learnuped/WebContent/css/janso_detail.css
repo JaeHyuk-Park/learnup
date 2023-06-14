@@ -143,6 +143,7 @@ h1{
 
 
  /*평점*/
+ /*
 .star_junsu{
    
     text-align: center;
@@ -160,7 +161,7 @@ label {
 }
 
 /****** Style Star Rating Widget *****/
-
+/*
 .rating {
   position :relative;
   border: none;
@@ -190,18 +191,21 @@ label {
   float: right;
   cursor:pointer;
 }
-
 /***** CSS Magic to Highlight Stars on Hover *****/
-
+/*
 .rating > input:checked ~ label, /* show gold star when clicked */
+/*
 .rating:not(:checked) > label:hover, /* hover current star */
+/*
 .rating:not(:checked) > label:hover ~ label {
   color: #ffd700;
 } /* hover previous stars in list */
-
+/*
 .rating > input:checked + label:hover, /* hover current star when changing rating */
+/*
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+/*
 .rating > input:checked ~ label:hover ~ label {
   color: #ffed85;
 }
@@ -284,20 +288,34 @@ label {
 
 
 
-/*怨듦컙�냼媛�*/
+/*글쓰는 박스*/ 
 .p_box{
-  height: 400px;
+ /* height: 400px;*/
   border-radius:5px;
   /*background-color:#EAEAEA;
   border: 1px solid #BDBDBD;*/
 }
 
 .p_box_refund{
-  height: 580px;
+  /*height: 580px;*/
   border-radius:5px;
   /*background-color:#EAEAEA;
   border: 1px solid #BDBDBD;*/
 }
+
+/*리뷰 공간*/
+.dot
+{
+	display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin: 0 2px;
+    border-radius: 50%;
+    background-color: #949494;
+    vertical-align: middle;
+}
+
+
 
 
 /*우측 세부옵션 영역*/
@@ -335,6 +353,180 @@ label {
 	font-size:12pt;
 	font-weight:bold;
 }
+
+
+
+
+/*우측인원수체크*/
+.personnumber
+{
+    position: relative;
+  
+}
+
+ .group {
+   padding: 2em;
+ }
+
+ .input-number {
+   border: 1px solid rgba(0,0,0,0.1);
+   border-radius: 4px;
+   overflow: hidden;
+   position: relative;
+   height: 50px;
+   width: 100%;
+ }
+
+ .input-number input {
+   border: none;
+   display: inline-block;
+   height: 100%;
+    padding: 0 10px;
+   outline: none;
+   position: relative;
+   /*
+  
+   width: calc(100% - 40px);
+   */
+ }
+
+ .input-number-increment,
+ .input-number-decrement {
+   background-color: white;
+   border: 0;
+   border-left: 1px solid #e6ebee;
+   cursor: pointer;
+   display: block;
+   outline: none;
+   position: absolute;
+   width: 55px;
+   height: 25px;
+   text-align: center;
+   right: 0;
+ }
+
+ .input-number-increment:hover:before {
+   border-bottom-color: #0073ba;
+ }
+
+ .input-number-decrement:hover:before {
+   border-top-color: #0073ba;
+ }
+
+ .input-number-increment {
+   border-bottom: 1px solid #e6ebee;
+   top: 0;
+ }
+
+ .input-number-decrement {
+   bottom: 0;
+ }
+
+ .input-number-increment:before,
+ .input-number-decrement:before {
+   content: '';
+   display: inline-block;
+   vertical-align: super;
+   width: 0; 
+   height: 0; 
+   border-left: 5px solid transparent;
+   border-right: 5px solid transparent;
+ }
+
+ .input-number-increment:before {
+   border-bottom: 5px solid #0ca6f2;
+ }
+
+ .input-number-decrement:before {
+   border-top: 5px solid #0ca6f2;
+ }
+ 
+ 
+ /*우측 예약시간*/
+ .timenumber
+{
+    position: relative;
+  
+}
+
+ .group {
+   padding: 2em;
+ }
+
+ .input-number2 {
+   border: 1px solid rgba(0,0,0,0.1);
+   border-radius: 4px;
+   overflow: hidden;
+   position: relative;
+   height: 50px;
+   width: 100%;
+ }
+
+ .input-number2 input {
+   border: none;
+   display: inline-block;
+   height: 100%;
+    padding: 0 10px;
+   outline: none;
+   position: relative;
+   /*
+  
+   width: calc(100% - 40px);
+   */
+ }
+
+ .input-number-increment2,
+ .input-number-decrement2 {
+   background-color: white;
+   border: 0;
+   border-left: 1px solid #e6ebee;
+   cursor: pointer;
+   display: block;
+   outline: none;
+   position: absolute;
+   width: 55px;
+   height: 25px;
+   text-align: center;
+   right: 0;
+ }
+
+ .input-number-increment2:hover:before {
+   border-bottom-color: #0073ba;
+ }
+
+ .input-number-decrement2:hover:before {
+   border-top-color: #0073ba;
+ }
+
+ .input-number-increment2 {
+   border-bottom: 1px solid #e6ebee;
+   top: 0;
+ }
+
+ .input-number-decrement2 {
+   bottom: 0;
+ }
+
+ .input-number-increment2:before,
+ .input-number-decrement2:before {
+   content: '';
+   display: inline-block;
+   vertical-align: super;
+   width: 0; 
+   height: 0; 
+   border-left: 5px solid transparent;
+   border-right: 5px solid transparent;
+ }
+
+ .input-number-increment2:before {
+   border-bottom: 5px solid #0ca6f2;
+ }
+
+ .input-number-decrement2:before {
+   border-top: 5px solid #0ca6f2;
+ }
+
+
 
 
 /*우측 세부영역 인원추가*/
@@ -452,7 +644,7 @@ label {
     box-shadow: 1px 1px 25px rgb(0, 0, 0 / 17%);
     border: 1px solid #D5D5D5;
     border-radius: 50px;
-    margin-bottom:50px;
+    margin-bottom:20px;
 }
 
 .hide {

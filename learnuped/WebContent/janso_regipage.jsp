@@ -133,27 +133,7 @@
 									<div class="select-box">
 									<label for="select-box2" class="label select-box1"><span class="label-desc">최대 수용인원을 선택하세요</span> </label>
 									<select id="select-box2" name= "select-box2" class="select">
-										<option value="" class="op" hidden></option>
-										<option value="1" class="op">1명</option>
-										<option value="2" class="op">2명</option>
-										<option value="3" class="op">3명</option>
-										<option value="4" class="op">4명</option>
-										<option value="5" class="op">5명</option>
-										<option value="6" class="op">6명</option>
-										<option value="7" class="op">7명</option>
-										<option value="8" class="op">8명</option>
-										<option value="9" class="op">9명</option>
-										<option value="10" class="op">10명</option>
-										<option value="11" class="op">11명</option>
-										<option value="12" class="op">12명</option>
-										<option value="13" class="op">13명</option>
-										<option value="14" class="op">14명</option>
-										<option value="15" class="op">15명</option>
-										<option value="16" class="op">16명</option>
-										<option value="17" class="op">17명</option>
-										<option value="18" class="op">18명</option>
-										<option value="19" class="op">19명</option>
-										<option value="20" class="op">20명</option>
+							
 									</select>
 									</div>
 								</td>
@@ -284,31 +264,7 @@
 									<div class="select-box">
 										<label for="select-box5" class="label select-box1"><span class="label-desc">마감 시간 설정</span> </label>
 										<select id="select-box5" name="select-box5" class="select">
-										<option value="" class="op" hidden></option>
-											<option value="1" class="op">1시</option>
-											<option value="2" class="op">2시</option>
-											<option value="3" class="op">3시</option>
-											<option value="4" class="op">4시</option>
-											<option value="5" class="op">5시</option>
-											<option value="6" class="op">6시</option>
-											<option value="7" class="op">7시</option>	
-											<option value="8" class="op">8시</option>
-											<option value="9" class="op">9시</option>
-											<option value="10" class="op">10시</option>
-											<option value="11" class="op">11시</option>
-											<option value="12" class="op">12시</option>
-											<option value="13" class="op">13시</option>
-											<option value="14" class="op">14시</option>
-											<option value="15" class="op">15시</option>
-											<option value="16" class="op">16시</option>	
-											<option value="17" class="op">17시</option>
-											<option value="18" class="op">18시</option>
-											<option value="19" class="op">19시</option>
-											<option value="20" class="op">20시</option>
-											<option value="21" class="op">21시</option>
-											<option value="22" class="op">22시</option>
-											<option value="23" class="op">23시</option>		
-											<option value="24" class="op">24시</option>													
+																					
 										</select>
 									</div>
 							  </td>
@@ -324,14 +280,7 @@
 									<div class="select-box">
 										<label for="select-box6" class="label select-box1"><span class="label-desc">한사람당 최대 예약시간 설정</span> </label>
 										<select id="select-box6" name="select-box6" class="select">
-											<option value="" class="op" hidden></option>
-											<option value="1" class="op">1시간</option>
-											<option value="2" class="op">2시간</option>
-											<option value="3" class="op">3시간</option>
-											<option value="4" class="op">4시간</option>
-											<option value="5" class="op">5시간</option>
-											<option value="6" class="op">6시간</option>
-											<option value="7" class="op">7시간</option>											
+																				
 										</select>
 									</div>
 								</td>

@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><%= talent.getTitle()%></title>
+<title>런업 : <%= talent.getTitle()%></title>
 <link rel="stylesheet" type="text/css" href="css/talent_detailview.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="js/talent_detailview.js"></script>
@@ -223,7 +223,7 @@
 					</button>
 				</section>
 				<section class="version_title">
-					<h1 class="version_titlearea"><%= talent.getVers_title()%></h1>				
+					<h1 class="version_titlearea"><%= talent.getTitle()%></h1>				
 				</section>
 				<section class="versionbox">
 					<div class="versionbox2">

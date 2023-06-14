@@ -322,7 +322,7 @@ img{
 					<tr><td><input type="text" id="id" class="txt_input" name="Email" placeholder="아이디"></td></tr>
 				<%} %>
 				<%if(logcheck != null){%>
-					<input type="hidden" name="urldirect" value="http://localhost:8075/learnuped/">
+					<input type="hidden" name="urldirect" value="http://43.200.5.207:8080/learnuped/">
 				<%}else{%>
 					<input type="hidden" name="urldirect" value="<%= request.getHeader("Referer")%>">
 				<%}%>

@@ -1,3 +1,4 @@
+<%@page import="com.google.gson.Gson"%>
 <%@ page import="dao.*" %>
 <%@ page import="vo.*" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
@@ -7,44 +8,86 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
 <% request.setCharacterEncoding("utf-8"); %>
 <%@page import="java.util.*" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+
  <%
   	ArrayList<String> categortList = (ArrayList<String>)request.getAttribute("Facility_categoriesArray");
  	String addres = (String)request.getAttribute("addres"); //js보낼 주소
+ 	
  %> 
     <c:set var="addr" value="<%=addres%>"/>
 	<c:set var="room" value="${article}"/>
-  
-    
+	<c:set var="roombuy" value="${articlelist}"/>
+	
+	<c:forEach var="roombuy2" items="${articleList}"/>
+	<c:set var="roombuy" value="${roombuy2.my_date}"/>
+	<c:set var="nickname" value="${Nickname}"/>
+	<c:set var="email" value="${Email}"/>
+
+	
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>상품 상세 페이지</title>
-	<link rel="stylesheet" type="text/css" href="css/janso_detail.css">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f1342a3ffd93979d7f9852ea40201756&libraries=services"></script>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script language=JavaScript src="${common_context_path_url}js/janso_detail.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="js/janso_detail.js"> </script>
-	<script language=JavaScript src="${common_context_path_url}/janso_detail.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/janso_detail.css">
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f1342a3ffd93979d7f9852ea40201756&libraries=services"></script>
+   
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
+	
+	
+	
+	<script src="js/datepicker.min.js"></script>
+    <script src="js/datepicker.ko.js"></script>
+    <link rel="stylesheet" href="css/datepicker.min.css">
+    
+
+
+	 
+	 
+	
+	
 
 </head>
-
+ <style>
+	@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+	 .pastDay{ background-color: lightgray; }
+	   .double div {
+	       float: left;
+	   }
+ </style>
 <script language=JavaScript>
 var chDate = '<c:out value="${addr}"/>';
 var rooms = '<c:out value="${room.room_title}"/>';
 var roomsnums = '<c:out value="${room.room_number}"/>';
+var personnel_price = '<c:out value="${room.personnel_price}"/>';
+var room_price = '<c:out value="${room.room_price}"/>';
+
+var time1 = '<c:out value="${room.open_time}"/>';
+var time2 = '<c:out value="${room.close_time}"/>';
+var time3 = '<c:out value="${room.reservationtime}"/>';
+
+var holiday = '<c:out value="${room.holiday}"/>';
+var nickname = '<c:out value="${nickname}"/>';
+var email = '<c:out value="${email}"/>';
+
+var articleList = <%= new Gson().toJson(request.getAttribute("articleList")) %>;
+
 </script>
 
 
-<style>
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
- .pastDay{ background-color: lightgray; }
-</style>
 
 <body>
-
- 
-     <%@include file ="./header.jsp" %>
+<%@include file ="./header.jsp" %>
      
      
      
@@ -57,8 +100,7 @@ var roomsnums = '<c:out value="${room.room_number}"/>';
                     <a class="control_next">></a>
                     <a class="control_prev"><</a> 
                     <ul>	
-                   
-	                    <li class="slideli"><img src="${pageContext.request.contextPath }/jansoproduct/${room.sub_img1}" class="jansoimg"></li>
+						<li class="slideli"><img src="${pageContext.request.contextPath }/jansoproduct/${room.sub_img1}" class="jansoimg"></li>
 	                    <li class="slideli"><img src="${pageContext.request.contextPath }/jansoproduct/${room.main_img}" class="jansoimg"></li>
 	                    <li class="slideli"><img src="${pageContext.request.contextPath }/jansoproduct/${room.sub_img2}" class="jansoimg"></li>
 	                    <li class="slideli"><img src="${pageContext.request.contextPath }/jansoproduct/${room.sub_img3}" class="jansoimg"></li>
@@ -66,7 +108,7 @@ var roomsnums = '<c:out value="${room.room_number}"/>';
                   	</ul> 
                   </div>
 			</div>
-
+<!--  
             <div class="star_junsu">
             	<div class="star_junsu_title">평점 4.5</div>
                 <fieldset class="rating">
@@ -83,7 +125,7 @@ var roomsnums = '<c:out value="${room.room_number}"/>';
 				</fieldset>	
 						
             </div>
-
+-->
             <div class="move_left">
                 <div class="move_wrap">
                     <ul>
@@ -181,7 +223,7 @@ var roomsnums = '<c:out value="${room.room_number}"/>';
                        		<p style="white-space: pre-line;">
                        		주소: &nbsp ${room.room_address}
                        		</p> 
-                       		<div id="map" style="width:100%;height:350px;"></div>
+                       		<div id="map" style="width:100%;height:350px; z-index: -1"></div>
                      </div>
                     
                 </div>
@@ -190,14 +232,9 @@ var roomsnums = '<c:out value="${room.room_number}"/>';
             <div class="intro_boxs"> 
                 <div id="intro6"><h1>이용후기</h1></div>
                 <div class="intro_boxs_0" >  
-                    <div id ="p_box" >                    
-                       		<p style="white-space: pre-line;" class="p_box">
-                       			
-                       		
-                       		
-                       		
-                       		
-                       		</p> 
+                    <div id ="p_box" >  
+                    	<div id="review_box2"> </div>
+              			<div id="review_box"> </div>
                      </div>
                 </div>
             </div>
@@ -211,8 +248,9 @@ var roomsnums = '<c:out value="${room.room_number}"/>';
         <div style="float: left; width: 80px;"></div>
     <!--중간여백-->
 
-
+		
         <div class="main_right">
+       
         <p style="height: 135px;"></p>
         
             <div class="sevu">세부 옵션</div>
@@ -223,103 +261,64 @@ var roomsnums = '<c:out value="${room.room_number}"/>';
 			        	<li><span class="tit">공간유형</span><span class="data">${room.room_categories}</span></li>
 			            <li><span class="tit">공간면적</span><span class="data">${room.room_area}㎡</span></li>
 			            <li><span class="tit">예약시간</span><span class="data">am ${room.open_time}:00~</span></li>
-			            <li><span class="tit">수용인원</span><span class="data">${room.max_personnel}명~${room.min_personnel}명</span></li>
+			            <li><span class="tit">수용인원</span><span class="data">${room.min_personnel}명~${room.max_personnel}명</span></li>
+			            <li><span class="tit">휴&nbsp   &nbsp &nbsp &nbsp일</span><span class="data">${room.holiday}</span></li>
+			           
 			        </ul>
                 </div>
             </div>
-            
+            <form action="janso_detailIn.learnup.com" method="post" id="myForm" >     
+              <input type="hidden" id= "" name ="roomnumber" value="${room.room_number}" >
+              <input type="hidden" id= "ppp" name ="ppp"  >
 			<div class="reserv">예약일을 지정해 주세요</div>
 		    <div class = "calendar_container"> 
-		        
-		        <button class = "left_button"> &lt </button>
-		        
-		        <table class = "calendar">
-		            <th class = "ctitle">2월</th>
-		            <tbody>
-		                <tr class = "week">
-		                    <td class = "day" style="color:#F15F5F;">일</td>
-		                    <td class = "day">월</td>
-		                    <td class = "day">화</td>
-		                    <td class = "day">수</td>
-		                    <td class = "day">목</td>
-		                    <td class = "day">금</td>
-		                    <td class = "day" style="color:#6799FF;">토</td>
-		                </tr>
-		                <tr> 
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                </tr>
-		                <tr> 
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                </tr>
-		                <tr>  
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                </tr>
-		                <tr>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                </tr>
-		                <tr>  
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                </tr>
-		                <tr> 
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                    <td class = "calendar_days" role = "button"> </td>
-		                </tr>
-		            </tbody>
-		        </table>
-					        
-		        <button class = "right_button"> > </button>
-		        
+	
+		       <div class="single">
+		     	   <input id="datepicker1" name="datepicker1"  type="text"  hidden="" data-multiple-dates="31"/>
+			   </div>
+		    </div>
+	
+		    
+		    <div class="reserv">예약시간을 지정해 주세요</div>
+		    <div class = "calendar_container"> 
+		      
+		      <div id="main">
+			        <div>
+			            <input id="timepicker" name="timepicker" class="timepicker"  multiple/>
+			        </div>
+			    </div>
+			      
 		    </div>
 		    
-		 <!-- 
-	        <div class="addperson">
-           	<div><span class="addperson_title">예약시간</span><span class="addperson_note">(최대20명, 10명 초과시 10,000원/1인)</span></div>
-           	<div class="addperson_text_wrap">
-            	<span class="plusbtn">-</span>
-            	<span><input type="text" class="addperson_text" placeholder="10" value=""></span>
-            	<span class="minusbtn">+</span>
-           	</div>
+		 <!--  
+		      <div class= timenumber">
+             <div><span class="addperson_title">추가 예약시간</span><span class="addperson_note">(${room.room_price}원/${room.reservationtime}시간) 최대가능 예약시간 ${room.close_time - room.open_time + 1}시간</span></div>
+            	 <div class="input-number2" min="0" max="${room.close_time - room.open_time + 1} ">
+            	   <button  id="input-number-decrement2" class="input-number-decrement2" type="button" data-decrement2></button>
+				    <input id="timez" name="timez" type="text" value="0">
+				   <button id="input-number-increment2" class="input-number-increment2" type="button" data-increment2></button>
+				  </div>
             </div>
-            -->   
-     
-        
-			           
+		    
+		-->         
+		    
+		    
+		    
+		    <!-- 장소구매 인설트 -->
+			   
+             <div class="personnumber">
+             <div><span class="addperson_title">추가 예약인원</span><span class="addperson_note">(최대${room.max_personnel}명, 인원 추가당 ${room.personnel_price}원/1인)</span></div>
+          
+            	 <div class="input-number" min="${room.min_personnel}" max="${room.max_personnel}">
+            	   <button  id="input-number-decrement" class="input-number-decrement" type="button" data-decrement></button>
+				    <input id="person" name="person" type="text" value="${room.min_personnel}">
+				   <button id="input-number-increment" class="input-number-increment" type="button" data-increment></button>
+				  
+				  </div>
+            </div>
             
+            
+            <!--  
             <div class="addperson">
             	<div><span class="addperson_title">총 예약인원</span><span class="addperson_note">(최대20명, 10명 초과시 10,000원/1인)</span></div>
             	<div class="addperson_text_wrap">
@@ -327,42 +326,46 @@ var roomsnums = '<c:out value="${room.room_number}"/>';
 	            	<span><input type="text" class="addperson_text" placeholder="10" value=""></span>
 	            	<span class="minusbtn">+</span>
             	</div>
-            	
-            
             </div>
-           
+           -->
         
             <div>
             	<div>
+            	 <fmt:formatNumber var="priceWithComma" value="${room.room_price + room.personnel_price * room.min_personnel}" pattern="#,##0" />
 	               <div class="totalprice">
-	          	     <span style="color:red; font-size:25pt; font-weight:bold;">100,000</span><span style="font-size:12pt; font-weight:bold;"> 원/ 시간(인)</span>
+	          	     <span id="priceto" style="color:red; font-size:25pt; font-weight:bold;"> ${priceWithComma}  </span><span style="font-size:12pt; font-weight:bold;"> 원/ 시간(인)</span>
+	                    
 	               </div>
-	            </div>
-            
-            
-				<input type="hidden" id= "yearsmonster" name =yearsmonster value="">	
-				<input type="hidden" id= "monthsmonster" name =yearsmonster value="">	 
-				<input type="hidden" id= "firstmonster" name =yearsmonster value="">	 
-				<input type="hidden" id= "lastsmonster" name =yearsmonster value="">	  
+	         <!--  
+	            <fmt:formatNumber type="number" maxFractionDigits="3" value= "111111" var="commaPrice" />
+	             ${commaPrice} 
+            -->
+            	<!--  
+            	<input type="hidden" id= "" name =roomnumber value="${room.room_number}" >
+				<input type="hidden" id= "yearsmonster" name =yearsmonster >	
+				<input type="hidden" id= "monthsmonster" name =monthsmonster >	 
+				<input type="hidden" id= "firstmonster" name =firstmonster >	 
+				<input type="hidden" id= "lastsmonster" name =lastsmonster >	  
 				
-				
+				-->
 				            
 	            <h3 class="righth3" id="righth3">결제 후 바로 예약확정</h3>
 	            <span class="righth3_de" >빠르고 확실한 예약을 위해 </span>
 	            <span class="righth3_de">런업에서 온라인 결제를 진행해주세요</span>
              	
-             	<button type="button" class="paybtn">결제하기</button>     
+             	<button type="submit" id="sub" class="paybtn"  >결제하기</button> 
+             	
+             	    
+    			 </form> 
             </div>
+         
             
         </div>
-
         <br>
     </section>
- 
 
-   
-
-       <%@include file ="./footer.jsp" %>
+ <%@include file ="./footer.jsp" %>
 
 </body>
+
 </html>

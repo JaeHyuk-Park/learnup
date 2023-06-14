@@ -21,7 +21,7 @@ list-style: none;
     height: 100%;
     border-style: solid;
     border-radius: 10px;
-    background: url(../image/aaaaaaaaaaaa.png);
+    background: url(../image/jan_le.png);
     background-size: cover;
     
 }
@@ -124,6 +124,36 @@ list-style: none;
 
 }
 
+
+.checkbox_2
+{
+    border: 1px solid #c8cad2;
+    border-radius: 4px;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+}
+
+.checkbox_2_label
+{
+    padding-left: 8px;
+    padding-top: 2px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    cursor: default;
+    flex: 1 1 auto;
+
+}
+
 .buttons
 {
     flex: 0 1 auto;
@@ -210,8 +240,8 @@ list-style: none;
   font-family: 'FontAwesome';
   content: ' ';
   text-align: center;
-  
   border-radius: 30px;
+  background-color : red;
   background: url(../image/search.png) no-repeat 0 1px;
   background-size: 30px 30px;
 }
@@ -384,7 +414,7 @@ list-style: none;
 {
     position: relative;
     padding-top : 0px;
-    height: 90%;
+    height: 100%;
     background-color: rgb(255, 255, 255);
 }
 
@@ -395,6 +425,7 @@ list-style: none;
     width: 289px;
     padding: 10px;   
     z-index: 0;
+    
 }
 
 .box-0-1 img{
@@ -406,17 +437,19 @@ list-style: none;
 .box-0-2
 {
     width: 289px;
-    height: 88px;
+    height: 106px;
+    /*
     border-bottom: 0.1px #607D8B;
     border-bottom-style:solid;
+    */
+      border-bottom: 0.1px #607D8B;
+    border-bottom-style:solid;
 }
-.link-box1 .box-0-2_box
+.box-0-2_box
 {
    padding-top: 3px;
   
-  
 }
-
 
  /* 찜하기 */
  .icon{

@@ -13,142 +13,34 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>장소대여</title>
-		<link rel='stylesheet' type='text/css'  href='./css/janso_main.css' >
+	<link rel='stylesheet' type='text/css'  href='./css/janso_main.css' >
     <link rel='stylesheet' type='text/css' href='./css/janso_main.slider.css' >
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<script src="./js/janso_main.js"> </script>
     <script src="./js/janso_main._slide.js"> </script>
      <script src="./js/janso_sub._slide.js"> </script>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
 </head>
-<script type="text/javascript">
-function getvalue(){
-
-	$.ajax({
-	    url: 'jangso.learnup.com',
-	    type: 'get',
-	    data: {addp : '서울'},
-	    success: function (data) {
-	            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-	            
-	        }
-	});
-	
-	
-}
-
-function getvalue1(){
-
-	$.ajax({
-	    url: 'jangso.learnup.com',
-	    type: 'get',
-	    data: {addp : '경기'},
-	    success: function (data) {
-	            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-	    
-	        }
-	});
-	
-	
-}
-
-function getvalue2(){
-
-	$.ajax({
-	    url: 'jangso.learnup.com',
-	    type: 'get',
-	    data: {addp : '강원도'},
-	    success: function (data) {
-	            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-	        }
-	});
-	
-	
-}
-
-function getvalue3(){
-
-	$.ajax({
-	    url: 'jangso.learnup.com',
-	    type: 'get',
-	    data: {addp : '충청도'},
-	    success: function (data) {
-	            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-	        }
-	});
-	
-	
-}
-
-function getvalue4(){
-
-	$.ajax({
-	    url: 'jangso.learnup.com',
-	    type: 'get',
-	    data: {addp : '전남북'},
-	    success: function (data) {
-	            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-	        }
-	});
-	
-	
-}
-
-function getvalue5(){
-
-	$.ajax({
-	    url: 'jangso.learnup.com',
-	    type: 'get',
-	    data: {addp : '경상도'},
-	    success: function (data) {
-	            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-	        }
-	});
-	
-	
-}
-
-function getvalue6(){
-
-	$.ajax({
-	    url: 'jangso.learnup.com',
-	    type: 'get',
-	    data: {addp : '제주도'},
-	    success: function (data) {
-	            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-	        }
-	});
-	
-	
-}
-
-
-
-</script>
-
-
-
 
 <body>
 <!-- 헤더 -->
  <%@include file ="./header.jsp" %>
-
+	<div id="output"></div>
  <%
-	ArrayList<Janso_product_registration> articleList=(ArrayList<Janso_product_registration>)request.getAttribute("articleList");  //지역별
-	ArrayList<Janso_product_registration> articleList2=(ArrayList<Janso_product_registration>)request.getAttribute("articleList2"); //전체
+	ArrayList<Janso_product_registration> articleList=(ArrayList<Janso_product_registration>)request.getAttribute("articleList");  //서울
+	ArrayList<Janso_product_registration> articleList2=(ArrayList<Janso_product_registration>)request.getAttribute("articleList2");  //경기
+	ArrayList<Janso_product_registration> articleList3=(ArrayList<Janso_product_registration>)request.getAttribute("articleList3");  //강원
+	ArrayList<Janso_product_registration> articleList4=(ArrayList<Janso_product_registration>)request.getAttribute("articleList4");  //충청
+	ArrayList<Janso_product_registration> articleList5=(ArrayList<Janso_product_registration>)request.getAttribute("articleList5");  //전라
+	ArrayList<Janso_product_registration> articleList6=(ArrayList<Janso_product_registration>)request.getAttribute("articleList6");  //경상
+	ArrayList<Janso_product_registration> articleList7=(ArrayList<Janso_product_registration>)request.getAttribute("articleList7");  //제주
+
+	ArrayList<Janso_product_registration> articleListall=(ArrayList<Janso_product_registration>)request.getAttribute("articleListall"); //전체
  	String directory = (String)request.getAttribute("directory");
- 	String files[] = new File(directory).list();
- 	
- 	
-	
+ 	String files[] = new File(directory).list();	
  %> 
- 
- <%= articleList.size()  %>	
- 
- 
-
-
  
 <!--광고1 -->
 <section class="image-section">
@@ -297,7 +189,7 @@ function getvalue6(){
     <div class="link-box">
     <%int i = 0; %>
     
-  			<%for(i = 0; i < articleList2.size(); i++) {%>
+  			<%for(i = 0; i < articleListall.size(); i++) {%>
         <div class="box-0" >
             <div class="box-0-1">
                <span  style="position : absolute; z-index: 9 " >
@@ -311,30 +203,30 @@ function getvalue6(){
                     <ul>	
                    
                     
-                   	  <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList2.get(i).getSub_img1()%>" style=" width:100%; height:100%; "></li> 
-                   	    <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList2.get(i).getMain_img()%>" style=" width:100%; height:100%; "></li> 
-                   	  <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList2.get(i).getSub_img2()%>" style=" width:100%; height:100%; "></li>  
-                   	  <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList2.get(i).getSub_img3()%>" style=" width:100%; height:100%; "></li>  
-                   	  <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList2.get(i).getSub_img4()%>" style=" width:100%; height:100%; "></li>  
+                   	  <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleListall.get(i).getSub_img1()%>" style=" width:100%; height:100%; "></li> 
+                   	    <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleListall.get(i).getMain_img()%>" style=" width:100%; height:100%; "></li> 
+                   	  <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleListall.get(i).getSub_img2()%>" style=" width:100%; height:100%; "></li>  
+                   	  <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleListall.get(i).getSub_img3()%>" style=" width:100%; height:100%; "></li>  
+                   	  <li><img src="${pageContext.request.contextPath }/jansoproduct/<%=articleListall.get(i).getSub_img4()%>" style=" width:100%; height:100%; "></li>  
                    	 
                     </ul> 
                   
                   </div>
             </div>
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
+            <a href="janso_detail.learnup.com?roomnumber=<%=articleListall.get(i).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">
             <div class="box-0-2">
                 <div class="box-0-2_box">
-                  <strong style="font-size: 18px;" ><%= articleList2.get(i).getRoom_title() %>룸</strong> 
-                   <span>(최소인원 <%=articleList2.get(i).getMin_personnel() %>명/ </span>    
-                   <span> 최대인원 <%=articleList2.get(i).getMax_personnel() %>명) </span>
+                  <strong style="font-size: 18px;" ><%= articleListall.get(i).getRoom_title() %>룸</strong> 
+                   <span>(최소인원 <%=articleListall.get(i).getMin_personnel() %>명/ </span>    
+                   <span> 최대인원 <%=articleListall.get(i).getMax_personnel() %>명) </span>
                 </div>
                 <div class="box-0-2_box">
                     <span style="float: left; font-size: 15px; color: blue">지역: </span>&nbsp
-                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleList2.get(i).getRoom_address() %></span>
+                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleListall.get(i).getRoom_address() %></span>
                 </div>
                 <div class="box-0-2_box">
                     <div style="float: left;">
-                        <strong style="float: left; font-size: 12px"><%=articleList2.get(i).getRoom_price() %></strong>
+                        <strong style="float: left; font-size: 12px"><%=articleListall.get(i).getRoom_price() %></strong>
                         <span style="font-size: 12px">원/1시간</span>
                     </div> 
                     <div style="float: right; ">
@@ -370,8 +262,8 @@ function getvalue6(){
     
     <div class="local">
         <ul class="tabs">
-            <li class="tab-link current" data-tab="tab-1"><a href="javascript:void(0);" onclick="getvalue();">서울</a></li>
-            <li class="tab-link" data-tab="tab-2"><a href="javascript:void(0);" onclick="getvalue1();">경기도</a></li>
+            <li class="tab-link current" data-tab="tab-1"><a href="javascript:void(0)"  id="addp" onclick="getvalue();"  >서울</a></li>
+            <li class="tab-link" data-tab="tab-2"><a href="javascript:void(0);" id="testsp"  onclick="getvalue1();">경기도</a></li>
             <li class="tab-link" data-tab="tab-3"><a href="javascript:void(0);" onclick="getvalue2();">강원도</a></li>
             <li class="tab-link" data-tab="tab-4"><a href="javascript:void(0);" onclick="getvalue3();">충청도</a></li>
             <li class="tab-link" data-tab="tab-5"><a href="javascript:void(0);" onclick="getvalue4();">전라도</a></li>
@@ -393,12 +285,12 @@ function getvalue6(){
 					<img src="image/heart1.png" alt="찜하기" style=" ">
 					</a>  
 			 		</span>	
-			 		 <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">		
+			 		 <a href="janso_detail.learnup.com?roomnumber=<%=articleList.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
 			 		<img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList.get(b).getMain_img()%>" style=" width:100%; height:100%; ">
 			 		 </a> 
                 </div>
    
-   <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">		
+   <a href="janso_detail.learnup.com?roomnumber=<%=articleList.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
                 <div class="box-0-2">
                     <div class="box-0-2_box">
                    <strong style="font-size: 18px;" ><%= articleList.get(b).getRoom_title() %>룸</strong> 
@@ -424,7 +316,7 @@ function getvalue6(){
      </a>       
             </div>
   
-    <%
+  		  <%
 			if(b == 7)
 			{
 				break;
@@ -440,7 +332,7 @@ function getvalue6(){
 <!-- 경기탭------------------------------------------------------------------------------------------ -->
 <div id="tab-2" class="tab-content"> 
    <div class="link-box1">
-  			<%for(b = 0; b < articleList.size(); b++) {%>
+  			<%for(b = 0; b < articleList2.size(); b++) {%>
             <div class="box-0">	
                 <div class="box-0-1">
                      <span  style="position : absolute; z-index: 9 " >
@@ -448,25 +340,25 @@ function getvalue6(){
 					<img src="image/heart1.png" alt="찜하기" style=" ">
 					</a>  
 			 		</span>	
-			 		 <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">		
-			 		<img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList.get(b).getMain_img()%>" style=" width:100%; height:100%; ">
+			 		 <a href="janso_detail.learnup.com?roomnumber=<%=articleList2.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+			 		<img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList2.get(b).getMain_img()%>" style=" width:100%; height:100%; ">
 			 		 </a> 
                 </div>
    
-   <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">		
+   <a href="janso_detail.learnup.com?roomnumber=<%=articleList2.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
                 <div class="box-0-2">
                     <div class="box-0-2_box">
-                   <strong style="font-size: 18px;" ><%= articleList.get(b).getRoom_title() %>룸</strong> 
-                   <span>(최소인원 <%=articleList.get(b).getMin_personnel() %>명/ </span>    
-                   <span> 최대인원 <%=articleList.get(b).getMax_personnel() %>명) </span>
+                   <strong style="font-size: 18px;" ><%= articleList2.get(b).getRoom_title() %>룸</strong> 
+                   <span>(최소인원 <%=articleList2.get(b).getMin_personnel() %>명/ </span>    
+                   <span> 최대인원 <%=articleList2.get(b).getMax_personnel() %>명) </span>
                 </div>
                 <div class="box-0-2_box">
                     <span style="float: left; font-size: 15px; color: blue">지역: </span>&nbsp
-                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleList.get(b).getRoom_address() %></span>
+                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleList2.get(b).getRoom_address() %></span>
                 </div>
                 <div class="box-0-2_box">
                     <div style="float: left;">
-                        <strong style="float: left; font-size: 12px"><%=articleList.get(b).getRoom_price() %></strong>
+                        <strong style="float: left; font-size: 12px"><%=articleList2.get(b).getRoom_price() %></strong>
                         <span style="font-size: 12px">원/1시간</span>
                     </div> 
                     <div style="float: right; ">
@@ -493,322 +385,290 @@ function getvalue6(){
 </div>       
 </div>   
 <!-- 강원도------------------------------------------------------------------------------------------- -->
-
+<div id="tab-3" class="tab-content"> 
+   <div class="link-box1">
+  			<%for(b = 0; b < articleList3.size(); b++) {%>
+            <div class="box-0">	
+                <div class="box-0-1">
+                     <span  style="position : absolute; z-index: 9 " >
+					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
+					<img src="image/heart1.png" alt="찜하기" style=" ">
+					</a>  
+			 		</span>	
+			 		 <a href="janso_detail.learnup.com?roomnumber=<%=articleList3.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+			 		<img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList3.get(b).getMain_img()%>" style=" width:100%; height:100%; ">
+			 		 </a> 
+                </div>
+   
+   <a href="janso_detail.learnup.com?roomnumber=<%=articleList3.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+                <div class="box-0-2">
+                    <div class="box-0-2_box">
+                   <strong style="font-size: 18px;" ><%= articleList3.get(b).getRoom_title() %>룸</strong> 
+                   <span>(최소인원 <%=articleList3.get(b).getMin_personnel() %>명/ </span>    
+                   <span> 최대인원 <%=articleList3.get(b).getMax_personnel() %>명) </span>
+                </div>
+                <div class="box-0-2_box">
+                    <span style="float: left; font-size: 15px; color: blue">지역: </span>&nbsp
+                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleList3.get(b).getRoom_address() %></span>
+                </div>
+                <div class="box-0-2_box">
+                    <div style="float: left;">
+                        <strong style="float: left; font-size: 12px"><%=articleList3.get(b).getRoom_price() %></strong>
+                        <span style="font-size: 12px">원/1시간</span>
+                    </div> 
+                    <div style="float: right; ">
+                        <strong style="font-size: 12px;">평점:</strong> 
+                        <span style="font-size: 12px;">★★★★☆ 4/5</span>
+                    </div>     
+                </div>
+                    <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
+                </div> 
+     </a>       
+            </div>
+  
+    <%
+			if(b == 7)
+			{
+				break;
+			}
+        %>
+        	<%}%>   
+      
+            
+            
+   </div> 
+</div>       
+</div>   
 
 
 <!-- 충청도------------------------------------------------------------------------------------------- -->
-
+<div id="tab-4" class="tab-content"> 
+   <div class="link-box1">
+  			<%for(b = 0; b < articleList4.size(); b++) {%>
+            <div class="box-0">	
+                <div class="box-0-1">
+                     <span  style="position : absolute; z-index: 9 " >
+					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
+					<img src="image/heart1.png" alt="찜하기" style=" ">
+					</a>  
+			 		</span>	
+			 		 <a href="janso_detail.learnup.com?roomnumber=<%=articleList4.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+			 		<img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList4.get(b).getMain_img()%>" style=" width:100%; height:100%; ">
+			 		 </a> 
+                </div>
+   
+   <a href="janso_detail.learnup.com?roomnumber=<%=articleList4.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+                <div class="box-0-2">
+                    <div class="box-0-2_box">
+                   <strong style="font-size: 18px;" ><%= articleList4.get(b).getRoom_title() %>룸</strong> 
+                   <span>(최소인원 <%=articleList4.get(b).getMin_personnel() %>명/ </span>    
+                   <span> 최대인원 <%=articleList4.get(b).getMax_personnel() %>명) </span>
+                </div>
+                <div class="box-0-2_box">
+                    <span style="float: left; font-size: 15px; color: blue">지역: </span>&nbsp
+                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleList4.get(b).getRoom_address() %></span>
+                </div>
+                <div class="box-0-2_box">
+                    <div style="float: left;">
+                        <strong style="float: left; font-size: 12px"><%=articleList4.get(b).getRoom_price() %></strong>
+                        <span style="font-size: 12px">원/1시간</span>
+                    </div> 
+                    <div style="float: right; ">
+                        <strong style="font-size: 12px;">평점:</strong> 
+                        <span style="font-size: 12px;">★★★★☆ 4/5</span>
+                    </div>     
+                </div>
+                    <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
+                </div> 
+     </a>       
+            </div>
+  
+    <%
+			if(b == 7)
+			{
+				break;
+			}
+        %>
+        	<%}%>   
+      
+            
+            
+   </div> 
+</div>       
+</div>   
 
 
 <!-- 전라도------------------------------------------------------------------------------------------- -->
-
+<div id="tab-5" class="tab-content"> 
+   <div class="link-box1">
+  			<%for(b = 0; b < articleList5.size(); b++) {%>
+            <div class="box-0">	
+                <div class="box-0-1">
+                     <span  style="position : absolute; z-index: 9 " >
+					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
+					<img src="image/heart1.png" alt="찜하기" style=" ">
+					</a>  
+			 		</span>	
+			 		 <a href="janso_detail.learnup.com?roomnumber=<%=articleList5.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+			 		<img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList5.get(b).getMain_img()%>" style=" width:100%; height:100%; ">
+			 		 </a> 
+                </div>
+   
+   <a href="janso_detail.learnup.com?roomnumber=<%=articleList5.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+                <div class="box-0-2">
+                    <div class="box-0-2_box">
+                   <strong style="font-size: 18px;" ><%= articleList5.get(b).getRoom_title() %>룸</strong> 
+                   <span>(최소인원 <%=articleList5.get(b).getMin_personnel() %>명/ </span>    
+                   <span> 최대인원 <%=articleList5.get(b).getMax_personnel() %>명) </span>
+                </div>
+                <div class="box-0-2_box">
+                    <span style="float: left; font-size: 15px; color: blue">지역: </span>&nbsp
+                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleList5.get(b).getRoom_address() %></span>
+                </div>
+                <div class="box-0-2_box">
+                    <div style="float: left;">
+                        <strong style="float: left; font-size: 12px"><%=articleList5.get(b).getRoom_price() %></strong>
+                        <span style="font-size: 12px">원/1시간</span>
+                    </div> 
+                    <div style="float: right; ">
+                        <strong style="font-size: 12px;">평점:</strong> 
+                        <span style="font-size: 12px;">★★★★☆ 4/5</span>
+                    </div>     
+                </div>
+                    <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
+                </div> 
+     </a>       
+            </div>
+  
+    <%
+			if(b == 7)
+			{
+				break;
+			}
+        %>
+        	<%}%>   
+      
+            
+            
+   </div> 
+</div>       
+</div>   
 
 
 
 
 <!-- 경상도------------------------------------------------------------------------------------------- --><!-- 강원도------------------------------------------------------------------------------------------- --><!-- 강원도------------------------------------------------------------------------------------------- -->
-
+<div id="tab-6" class="tab-content"> 
+   <div class="link-box1">
+  			<%for(b = 0; b < articleList6.size(); b++) {%>
+            <div class="box-0">	
+                <div class="box-0-1">
+                     <span  style="position : absolute; z-index: 9 " >
+					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
+					<img src="image/heart1.png" alt="찜하기" style=" ">
+					</a>  
+			 		</span>	
+			 		 <a href="janso_detail.learnup.com?roomnumber=<%=articleList6.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+			 		<img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList6.get(b).getMain_img()%>" style=" width:100%; height:100%; ">
+			 		 </a> 
+                </div>
+   
+   <a href="janso_detail.learnup.com?roomnumber=<%=articleList6.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+                <div class="box-0-2">
+                    <div class="box-0-2_box">
+                   <strong style="font-size: 18px;" ><%= articleList6.get(b).getRoom_title() %>룸</strong> 
+                   <span>(최소인원 <%=articleList6.get(b).getMin_personnel() %>명/ </span>    
+                   <span> 최대인원 <%=articleList6.get(b).getMax_personnel() %>명) </span>
+                </div>
+                <div class="box-0-2_box">
+                    <span style="float: left; font-size: 15px; color: blue">지역: </span>&nbsp
+                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleList6.get(b).getRoom_address() %></span>
+                </div>
+                <div class="box-0-2_box">
+                    <div style="float: left;">
+                        <strong style="float: left; font-size: 12px"><%=articleList6.get(b).getRoom_price() %></strong>
+                        <span style="font-size: 12px">원/1시간</span>
+                    </div> 
+                    <div style="float: right; ">
+                        <strong style="font-size: 12px;">평점:</strong> 
+                        <span style="font-size: 12px;">★★★★☆ 4/5</span>
+                    </div>     
+                </div>
+                    <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
+                </div> 
+     </a>       
+            </div>
+  
+    <%
+			if(b == 7)
+			{
+				break;
+			}
+        %>
+        	<%}%>   
+      
+            
+            
+   </div> 
+</div>       
+</div>   
 
 
 
 <!-- 제주도------------------------------------------------------------------------------------------- -->
 <div id="tab-7" class="tab-content"> 
-    <div class="link-box1">
-        <div class="box-0">
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
-            <div class="box-0-1">
-               <span  style="position : absolute; z-index: 9 " >
+   <div class="link-box1">
+  			<%for(b = 0; b < articleList7.size(); b++) {%>
+            <div class="box-0">	
+                <div class="box-0-1">
+                     <span  style="position : absolute; z-index: 9 " >
 					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
 					<img src="image/heart1.png" alt="찜하기" style=" ">
 					</a>  
 			 		</span>	
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAUX8fVQ-bhdoODvAaQBI7IW8MLec4xm_sxg&usqp=CAU" alt="" style=" width: 100%; height: 100%;">    
-            </div>
-            <div class="box-0-2">
-                
-                <div class="box-0-2_box">
-                <strong style="font-size: 18px;" >00스터디룸</strong>     
-                <span>(최소인원 1명/ </span>
-                <span>최대인원 8명) </span>
+			 		 <a href="janso_detail.learnup.com?roomnumber=<%=articleList7.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+			 		<img src="${pageContext.request.contextPath }/jansoproduct/<%=articleList7.get(b).getMain_img()%>" style=" width:100%; height:100%; ">
+			 		 </a> 
+                </div>
+   
+   <a href="janso_detail.learnup.com?roomnumber=<%=articleList7.get(b).getRoom_number()%>" style=" text-decoration: none; box-sizing: border-box;">		
+                <div class="box-0-2">
+                    <div class="box-0-2_box">
+                   <strong style="font-size: 18px;" ><%= articleList7.get(b).getRoom_title() %>룸</strong> 
+                   <span>(최소인원 <%=articleList7.get(b).getMin_personnel() %>명/ </span>    
+                   <span> 최대인원 <%=articleList7.get(b).getMax_personnel() %>명) </span>
                 </div>
                 <div class="box-0-2_box">
-                    <span style="float: left;">지역:</span>
-                    <div>00시 00동</div>
+                    <span style="float: left; font-size: 15px; color: blue">지역: </span>&nbsp
+                     <span style="font-size: 12px; position: absolute  ; line-height: 23.9px;"><%= articleList7.get(b).getRoom_address() %></span>
                 </div>
                 <div class="box-0-2_box">
                     <div style="float: left;">
-                        <strong>8,000</strong>
-                        <span>원/시간</span>
+                        <strong style="float: left; font-size: 12px"><%=articleList7.get(b).getRoom_price() %></strong>
+                        <span style="font-size: 12px">원/1시간</span>
                     </div> 
                     <div style="float: right; ">
-                        <strong >평점:</strong> 
-                        <span>★★★★☆ 4/5</span>
+                        <strong style="font-size: 12px;">평점:</strong> 
+                        <span style="font-size: 12px;">★★★★☆ 4/5</span>
                     </div>     
                 </div>
-                <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
+                    <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
+                </div> 
+     </a>       
             </div>
-        </a>
-        </div>
-
-        <div class="box-0">
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
-            <div class="box-0-1">
-               <span  style="position : absolute; z-index: 9 " >
-					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
-					<img src="image/heart1.png" alt="찜하기" style=" ">
-					</a>  
-			 		</span>	
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVgUBLFDB5eDJtbCa1d9Y_RCTrwJy3aMlriQ&usqp=CAU" alt="" style=" width: 100%; height: 100%;">    
-            </div>
-
-            <div class="box-0-2">
-              
-                <div class="box-0-2_box">
-                <strong style="font-size: 18px;" >00스터디룸</strong>     
-                <span>(최소인원 1명/ </span>
-                <span>최대인원 8명) </span>
-                </div>
-                <div class="box-0-2_box">
-                    <span style="float: left;">지역:</span>
-                    <div>00시 00동</div>
-                </div>
-                <div class="box-0-2_box">
-                    <div style="float: left;">
-                        <strong>8,000</strong>
-                        <span>원/시간</span>
-                    </div> 
-                    <div style="float: right; ">
-                        <strong >평점:</strong> 
-                        <span>★★★★☆ 4/5</span>
-                    </div>     
-                </div>
-                <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
-            </div>
-        </a>
-        </div>
-
-        <div class="box-0">
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
-            <div class="box-0-1">
-               <span  style="position : absolute; z-index: 9 " >
-					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
-					<img src="image/heart1.png" alt="찜하기" style=" ">
-					</a>  
-			 		</span>	
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh8GOP5muHYDSNl1Labrcriqk0QEBqAi_6LQ&usqp=CAU" alt="" style=" width: 100%; height: 100%;">    
-            </div>
-
-            <div class="box-0-2">
-         
-                <div class="box-0-2_box">
-                <strong style="font-size: 18px;" >00스터디룸</strong>     
-                <span>(최소인원 1명/ </span>
-                <span>최대인원 8명) </span>
-                </div>
-                <div class="box-0-2_box">
-                    <span style="float: left;">지역:</span>
-                    <div>00시 00동</div>
-                </div>
-                <div class="box-0-2_box">
-                    <div style="float: left;">
-                        <strong>8,000</strong>
-                        <span>원/시간</span>
-                    </div> 
-                    <div style="float: right; ">
-                        <strong >평점:</strong> 
-                        <span>★★★★☆ 4/5</span>
-                    </div>     
-                </div>
-                <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
-            </div>
-        </a>
-        </div>
-
-        <div class="box-0">
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
-            <div class="box-0-1">
-               <span  style="position : absolute; z-index: 9 " >
-					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
-					<img src="image/heart1.png" alt="찜하기" style=" ">
-					</a>  
-			 		</span>	
-                <img src="https://cphoto.asiae.co.kr/listimglink/1/2022020811592435709_1644289164.png" alt="" style=" width: 100%; height: 100%;">    
-            </div>
-
-            <div class="box-0-2">
-           
-                <div class="box-0-2_box">
-                <strong style="font-size: 18px;" >00스터디룸</strong>     
-                <span>(최소인원 1명/ </span>
-                <span>최대인원 8명) </span>
-                </div>
-                <div class="box-0-2_box">
-                    <span style="float: left;">지역:</span>
-                    <div>00시 00동</div>
-                </div>
-                <div class="box-0-2_box">
-                    <div style="float: left;">
-                        <strong>8,000</strong>
-                        <span>원/시간</span>
-                    </div> 
-                    <div style="float: right; ">
-                        <strong >평점:</strong> 
-                        <span>★★★★☆ 4/5</span>
-                    </div>     
-                </div>
-                <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
-            </div>
-        </a>
-        </div>
-
-        <div class="box-0">
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
-            <div class="box-0-1">
-               <span  style="position : absolute; z-index: 9 " >
-					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
-					<img src="image/heart1.png" alt="찜하기" style=" ">
-					</a>  
-			 		</span>	
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY_omQm4OG_rHwKbztXQ0wGXTw25Ev6vBlqfZehfwYYuuIwKsJvyrUWTq_W83SVG6I4gA&usqp=CAU" alt="" style=" width: 100%; height: 100%;">    
-            </div>
-
-            <div class="box-0-2">
+  
+    <%
+			if(b == 7)
+			{
+				break;
+			}
+        %>
+        	<%}%>   
+      
             
-                <div class="box-0-2_box">
-                <strong style="font-size: 18px;" >00스터디룸</strong>     
-                <span>(최소인원 1명/ </span>
-                <span>최대인원 8명) </span>
-                </div>
-                <div class="box-0-2_box">
-                    <span style="float: left;">지역:</span>
-                    <div>00시 00동</div>
-                </div>
-                <div class="box-0-2_box">
-                    <div style="float: left;">
-                        <strong>8,000</strong>
-                        <span>원/시간</span>
-                    </div> 
-                    <div style="float: right; ">
-                        <strong >평점:</strong> 
-                        <span>★★★★☆ 4/5</span>
-                    </div>     
-                </div>
-                <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
-            </div>
-        </a>
-        </div>
-
-        <div class="box-0">
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
-            <div class="box-0-1">
-               <span  style="position : absolute; z-index: 9 " >
-					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
-					<img src="image/heart1.png" alt="찜하기" style=" ">
-					</a>  
-			 		</span>	
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxhIH6RElGcIYZxNsubJhnMFDXHI11kbnJ-dlHX9SnFIVr_CqANdC8TifoRiqW3XxunfY&usqp=CAU" alt="" style=" width: 100%; height: 100%;">    
-            </div>
-
-            <div class="box-0-2">
-       
-                <div class="box-0-2_box">
-                <strong style="font-size: 18px;" >00스터디룸</strong>     
-                <span>(최소인원 1명/ </span>
-                <span>최대인원 8명) </span>
-                </div>
-                <div class="box-0-2_box">
-                    <span style="float: left;">지역:</span>
-                    <div>00시 00동</div>
-                </div>
-                <div class="box-0-2_box">
-                    <div style="float: left;">
-                        <strong>8,000</strong>
-                        <span>원/시간</span>
-                    </div> 
-                    <div style="float: right; ">
-                        <strong >평점:</strong> 
-                        <span>★★★★☆ 4/5</span>
-                    </div>     
-                </div>
-                <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
-            </div>
-        </a>
-        </div>
-
-        <div class="box-0">
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
-            <div class="box-0-1">
-               <span  style="position : absolute; z-index: 9 " >
-					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
-					<img src="image/heart1.png" alt="찜하기" style=" ">
-					</a>  
-			 		</span>	
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxhIH6RElGcIYZxNsubJhnMFDXHI11kbnJ-dlHX9SnFIVr_CqANdC8TifoRiqW3XxunfY&usqp=CAU" alt="" style=" width: 100%; height: 100%;">    
-            </div>
-
-            <div class="box-0-2">
-         
-                <div class="box-0-2_box">
-                <strong style="font-size: 18px;" >00스터디룸</strong>     
-                <span>(최소인원 1명/ </span>
-                <span>최대인원 8명) </span>
-                </div>
-                <div class="box-0-2_box">
-                    <span style="float: left;">지역:</span>
-                    <div>00시 00동</div>
-                </div>
-                <div class="box-0-2_box">
-                    <div style="float: left;">
-                        <strong>8,000</strong>
-                        <span>원/시간</span>
-                    </div> 
-                    <div style="float: right; ">
-                        <strong >평점:</strong> 
-                        <span>★★★★☆ 4/5</span>
-                    </div>     
-                </div>
-                <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
-            </div>
-        </a>
-        </div>
-
-        <div class="box-0">
-            <a href="../html/heder.html" style=" text-decoration: none; box-sizing: border-box;">
-            <div class="box-0-1">
-               <span  style="position : absolute; z-index: 9 " >
-					 <a href="javascript:;" class="icon heart" style="text-decoration:none; color:inherit; cursor:pointer;  ">
-					<img src="image/heart1.png" alt="찜하기" style=" ">
-					</a>  
-			  </span>	
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxhIH6RElGcIYZxNsubJhnMFDXHI11kbnJ-dlHX9SnFIVr_CqANdC8TifoRiqW3XxunfY&usqp=CAU" alt="" style=" width: 100%; height: 100%;">    
-            </div>
-
-            <div class="box-0-2">
-              
-                <div class="box-0-2_box">
-                <strong style="font-size: 18px;" >00스터디룸</strong>     
-                <span>(최소인원 1명/ </span>
-                <span>최대인원 8명) </span>
-                </div>
-                <div class="box-0-2_box">
-                    <span style="float: left;">지역:</span>
-                    <div>00시 00동</div>
-                </div>
-                <div class="box-0-2_box">
-                    <div style="float: left;">
-                        <strong>8,000</strong>
-                        <span>원/시간</span>
-                    </div> 
-                    <div style="float: right; ">
-                        <strong >평점:</strong> 
-                        <span>★★★★☆ 4/5</span>
-                    </div>     
-                </div>
-                <!-- <p style="margin: 0; padding-left: 5px; padding-top: 25px;">가격</p> -->
-            </div>
-        </a>
-        </div> 
-    </div>
+            
+   </div> 
+</div>       
 </div>   
 
 

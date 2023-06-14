@@ -3,14 +3,22 @@ package action;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONArray;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
+
+import com.google.gson.JsonObject;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -22,48 +30,43 @@ import vo.ActionForward;
 
 public class Janso_mainListAction implements jansoAction {
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
-
+		
+		ArrayList<Janso_product_registration> articleListall=new ArrayList<Janso_product_registration>();
 		ArrayList<Janso_product_registration> articleList=new ArrayList<Janso_product_registration>();
 		ArrayList<Janso_product_registration> articleList2=new ArrayList<Janso_product_registration>();
+		ArrayList<Janso_product_registration> articleList3=new ArrayList<Janso_product_registration>();
+		ArrayList<Janso_product_registration> articleList4=new ArrayList<Janso_product_registration>();
+		ArrayList<Janso_product_registration> articleList5=new ArrayList<Janso_product_registration>();
+		ArrayList<Janso_product_registration> articleList6=new ArrayList<Janso_product_registration>();
+		ArrayList<Janso_product_registration> articleList7=new ArrayList<Janso_product_registration>();
+		
 	
-		String addp ="ì„œìš¸";
-		
-		if( request.getParameter("addp")!=null){
-			addp = request.getParameter("addp");
-		}
-		
-		//System.out.println(addp);
-		
-		
-		
-		
+	
 		Janso_ListService janso_mainListService = new Janso_ListService();
 		
-		articleList = janso_mainListService.getArticleList(addp);
-		articleList2 = janso_mainListService.getArticleListall();
-		
-	//	System.out.println(articleList.size());
-		//System.out.println(articleList.get(0).getRoom_address());
+		articleList = janso_mainListService.getArticleList("¼­¿ï");
+		articleList2 = janso_mainListService.getArticleList2("°æ±â");
+		articleList3 = janso_mainListService.getArticleList3("°­¿ø");
+		articleList4 = janso_mainListService.getArticleList4("Ãæ³²","ÃæºÏ");
+		articleList5 = janso_mainListService.getArticleList5("Àü³²","ÀüºÏ");
+		articleList6 = janso_mainListService.getArticleList6("°æ³²","°æºÏ");
+		articleList7 = janso_mainListService.getArticleList7("Á¦ÁÖ");
+		articleListall = janso_mainListService.getArticleListall();
 		
 		ServletContext context = request.getServletContext();
 		String directory = context.getRealPath("/jansoproduct"); 
 		request.setAttribute("directory", directory);
-		
-	/*	
-		StringBuilder sb = new StringBuilder("[");  //[{"key" : value, "key" : "value"}, {"key" : value, "key" : "value"},.........]
-		
-		for(int i = 0 ; i < articleList.size();i++ ){
-			sb.append("{");
-			sb.append("\"a\" : "+int+",");
-			sb.append("\"b\" : \""++"\"");
 			
-		}
-		
-		*/
 		
 		
 		request.setAttribute("articleList", articleList);
 		request.setAttribute("articleList2", articleList2);
+		request.setAttribute("articleList3", articleList3);
+		request.setAttribute("articleList4", articleList4);
+		request.setAttribute("articleList5", articleList5);
+		request.setAttribute("articleList6", articleList6);
+		request.setAttribute("articleList7", articleList7);
+		request.setAttribute("articleListall", articleListall);
 		ActionForward forward= new ActionForward();
    		forward.setPath("janso_main.jsp");
    		return forward;

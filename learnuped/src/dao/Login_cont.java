@@ -19,8 +19,8 @@ public class Login_cont {
 		//�깉濡쒖슫 硫붿냼�뱶 �븞�뿉 insert, select, delete 援щЦ�뿉 �븘�슂�븳 肄붾뱶瑜� �엯�젰�븯�뿬 硫붿냼�뱶 �샇異쒖쓣 �넻�빐 怨듯넻�쟻�쑝濡� �궗�슜 媛��뒫�븿
 		//connection, statement, DriverManager.getConnection �쓣 �깮�꽦�옄濡� 遺꾨━�븯�뿬 �샇異�
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/learnup", "root", "1324");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn=DriverManager.getConnection("jdbc:mysql://43.200.5.207:3306/learnup", "service", "qkrwogur1021");
 			if(conn==null)
 				throw new Exception("�뜲�씠�꽣踰좎씠�뒪�뿉 �뿰寃고븷 �닔 �뾾�뒿�땲�떎.");
 			stmt=conn.createStatement();

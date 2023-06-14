@@ -52,7 +52,7 @@
 		if(session.getAttribute("Nickname") == null){
 			%><script>alert("게시글을 작성한 본인만 수정이 가능합니다."); history.back();</script>
 			<%	
-		}else if(session.getAttribute("Nickname").equals(request.getParameter("nickname"))){
+		}else if(session.getAttribute("Nickname").equals(nickname)){
 			
 	%>
 <jsp:include page="header.jsp"/>

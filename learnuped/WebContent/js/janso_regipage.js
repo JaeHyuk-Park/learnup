@@ -2,15 +2,6 @@
             
 $(document).ready(function(){
   // 탭바 스크립트
-  $('ul.tabs li').click(function(){
-    var tab_id = $(this).attr('data-tab');
-    console.log(tab_id);
-    $('ul.tabs li').removeClass('current');
-    $('.tab-content').removeClass('current');
-
-    $(this).addClass('current');
-    $("#"+tab_id).addClass('current');
-  })
 
  
 //우편번호
@@ -38,14 +29,24 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
-
-//스크립트 끝부분
 })
 
 
+
+//탭바 스크립트
 $(document).ready(function(){
+	 var tab_id;
+	 
+	 $('ul.tabs li').click(function(){
+ 	 tab_id = $(this).attr('data-tab');
+	  
+	    $('ul.tabs li').removeClass('current');
+	    $('.tab-content').removeClass('current');
 	
-	
+	    $(this).addClass('current');
+	    $("#"+tab_id).addClass('current');
+  	 })
+
 	
 	var height = $("#eachtt").offset(); //강의실제목
 	var height1 = $("#eachtitle1").offset();  //공간유형
@@ -58,6 +59,10 @@ $(document).ready(function(){
 	var height8 = $("#eachtitle8").offset(); //예약시간 선택
 	var height9 = $("#eachtitle9").offset(); //공간소개
 	var height10 = $("#eachtitle10").offset(); //유의사항
+	
+	
+	
+	
 
 	
 	$('#daum').click(function(){
@@ -78,9 +83,6 @@ $(document).ready(function(){
 		var title7 =  $('#writes2').val(); //유의사항
 		
 		
-	
-		
-	
 		if(title == "") //강의실 제목
 		{
 			$('input[name=roomtitle]').on("propertychange change paste input",function()
@@ -210,6 +212,7 @@ $(document).ready(function(){
 		}
 		
 		else{
+			
 			$('#bsd').click(function(){
 				$('ul.tabs li').removeClass('current');
 				$('.tab-content').removeClass('current');
@@ -260,6 +263,7 @@ $('#daum2').click(function(){
 			
 		}else
 		{
+			daum1check = "tab-2";
 			$('#csd').click(function(){
 			$('ul.tabs li').removeClass('current');
 			$('.tab-content').removeClass('current');
@@ -267,6 +271,7 @@ $('#daum2').click(function(){
 			$(this).addClass('current');
 			$("#tab-3").addClass('current');
 			}).click();
+			
 		}
 		
 })
@@ -334,6 +339,57 @@ $('#dropatag').click(function()
 	 }
 	
 });
+
+var mainse = document.querySelector('#select-box1'); //인원
+
+
+mainse.onchange = function () {
+    var subse = document.querySelector('#select-box2');
+
+    var mainOption = mainse.options[mainse.selectedIndex].innerText;
+    // var mainOption =  mainCity.options[mainCity.selectedIndex].value;로 해도 동일합니다. 
+ 		$( '#select-box2' ).empty();
+          $( '#select-box2' ).append( '<option value="" class="op" hidden></option>' );
+        for ( var i = mainse.value; i <= 20; i++ ) {
+          $( '#select-box2' ).append( '<option value="'+i+'" class="op">' +  i+"명"+ '</option>' );
+        }
+}
+
+
+var mainse2 = document.querySelector('#select-box4');  //오픈시간
+var subse2;
+mainse2.onchange = function () {
+  
+	subse2 = document.querySelector('#select-box5');
+
+    var mainOption2 = mainse2.options[mainse2.selectedIndex].innerText;
+    // var mainOption =  mainCity.options[mainCity.selectedIndex].value;로 해도 동일합니다. 
+		$( '#select-box5' ).empty();
+        for ( var i = mainse2.value; i <= 24; i++ ) {
+          $( '#select-box5' ).append( '<option  value="'+i+'" class="op">' +  i+"시"+  '</option>' );
+        }
+}
+
+
+
+var mainse3 = document.querySelector('#select-box5');  //마감시간
+
+mainse3.onchange = function () {
+
+	var times;
+	var time1 =   mainse2.value;
+	var time2 =   subse2.value;
+	
+	times =((time2) - (time1));
+
+    // var mainOption =  mainCity.options[mainCity.selectedIndex].value;로 해도 동일합니다. 
+      $( '#select-box6' ).empty();
+        for ( var i = 1; i <= times; i++ ) {
+          $( '#select-box6' ).append( '<option  value="'+i+'" class="op">' +  i+"시간"+  '</option>' );
+        }
+}
+
+
 
 
 
@@ -588,3 +644,85 @@ $(document).ready(function() {
     $('.class_category').text(category2 + ' · ');
   });
 });
+
+
+
+//대여료 설정 영역
+/*클래스 시간 입력란에 입력값이 24보다 크면 24로 자동으로 설정*/
+$(document).ready(function() {
+  // 1회당 클래스 시간 입력란에 입력값이 24보다 크면 24로 자동으로 설정
+  // 시간당 가격이나 최종 수강료가 입력될 때, 세자리마다 콤마를 찍는 함수 호출
+  $('#hourprice, #totalprice, #classtime').on('input', function() {
+    addComma($(this));
+  });
+});
+function addComma($input) {
+  var num = $input.val().replace(/[^0-9]/g, '');
+  var regex = /(\d)(?=(\d{3})+(?!\d))/g;
+  $input.val(num.toString().replace(regex, '$1,'));
+}
+
+/*최종 수강료 및 최종 정산금 계산*/
+function calculateTotalPrice() {
+  var hourPrice = parseInt($('#hourprice').val().replace(/,/g, '')); // 시간당 가격, 쉼표 제거
+  var classTime = parseFloat($('#classtime').val().replace(/,/g, ''));
+  var totalClassCount = parseInt($('#totalclasscount').val());
+ 
+  var totalPrice = hourPrice + (classTime * totalClassCount);
+  
+  var vat = Math.round(totalPrice * 0.1); // 부가세 10%
+  var commission = Math.round(totalPrice * 0.1); // 수수료 10%
+  var incomeTax = Math.round((totalPrice - vat - commission) * 0.033); // 소득세 3.3%
+  var finalSettlement = totalPrice - vat - incomeTax - commission; // 최종 정산금
+
+  $('#totalprice').val(numberWithCommas(totalPrice)); // 최종 수강료에 쉼표 추가
+  $('#totalprice2').val(numberWithCommas(totalPrice)); // 두번째 최종 수강료에도 계산값 자동으로 기입
+  $('#tax10').val(numberWithCommas(vat)); // 부가세
+  $('#fee33').val(numberWithCommas(incomeTax)); // 소득세
+  $('#fee10').val(numberWithCommas(commission)); // 수수료
+  $('#grandtotalprice').val(numberWithCommas(finalSettlement)); // 최종 정산금
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+$(document).ready(function() {
+
+  // 클래스 횟수가 변경될 때, 선택한 값을 총 클래스 횟수 텍스트 창에 자동으로 입력
+  $('input[name="count_type"], select[name="count_num"]').change(function() {
+    var totalClassCount = 1; // 초기값은 1
+    if ($('#multiday').is(':checked')) { // 다회차 클래스 선택 시
+      totalClassCount = $('#countselect').val();
+    }
+
+    // 선택한 클래스 횟수에 따라 총 클래스 횟수 설정
+    $('#totalclasscount').val(totalClassCount);
+    calculateTotalPrice(); // 수강료 계산
+  });
+
+  // 시간당 가격, 1회당 클래스 시간 입력시 수강료 계산
+  $('#hourprice, #classtime').keyup(function() {
+    calculateTotalPrice();
+    $(this).val(numberWithCommas($(this).val())); // 쉼표 추가
+  });
+  
+    $('#totalclasscount').keyup(function() {
+    calculateTotalPrice();
+  });
+
+  // 총 클래스 횟수 초기값 설정
+  $('#totalclasscount').val(1);
+});
+
+
+
+
+
+
+
+
+
+
+
+

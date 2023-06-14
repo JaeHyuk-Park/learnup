@@ -1,5 +1,145 @@
+$(document).ready(function(){
+	
+var datetsp = 0;
+console.log(datetsp);
+$('#myForm').submit(function(event) {
+    event.preventDefault(); // 기본 제출 동작 막기
+  
+   var selectedDate = $('#datepicker1').val(); // 선택된 날짜 필드의 id를 사용하여 값을 가져옵니다.
+    if (!selectedDate) {
+      alert("날짜를 선택해야 합니다.");
+      return; // 폼 제출 중지
+    }
+	
+	 // 선택된 시간 가져오기
+  var selectedTime = $('.timepicker').val();
+
+  // 시간이 선택되지 않았을 경우 경고 표시 및 폼 제출 중지
+  if (!selectedTime) {
+    alert("시간을 선택해야 합니다.");
+    return;
+  }
+  
+   alert("결제가 완료되었습니다.");
+  $(this).unbind('submit').submit(); // 이 줄의 주석을 해제하여 폼 제출 진행
+  
+});
+ 
+var time1s =  time1 + ":00";
+var time2s =  time2 + ":00";
+var time3s =  time3 *60;
 
 
+$('.timepicker').timepicker({
+    timeFormat: 'H:mm',  // 24시간 형식으로 시간 표시 (예: 10:30)
+    interval: time3s,
+    minTime: time1s,  // 최소 시간 설정
+    maxTime: time2s,  // 최대 시간 설정
+    startTime: time1s,
+    step: time3s, 
+     disableTimeRanges: [
+            ['3:00','6:00'],
+        ],
+});
+	
+	
+//달력부	
+const str = holiday;
+var array = new Array();
+var arraybuy = new Array();
+// 쉼표(콤마)로 구분된 문자열을, 배열로 분리
+array = str.split(',');
+
+arraybuy = articleList;
+var myDateCombined = ''; // 결과를 저장할 빈 문자열
+
+for (var i = 0; i < arraybuy.length; i++) {
+  myDateCombined += arraybuy[i].my_date; // 각 요소의 my_date 값을 빈 문자열에 추가
+}
+console.log(myDateCombined); // 10개 요소의 my_date 값이 합쳐진 문자열 출력
+
+
+var array2 = new Array();
+for (i = 0; i < array.length; i++)
+{
+	if(array[i] == '월')
+	{
+		array2.push(1);
+		
+	}
+	else if(array[i] == '화')
+	{
+		array2.push(2);
+		
+	}
+	else if(array[i] == '수')
+	{
+		array2.push(3);
+		
+	}
+	else if(array[i] == '목')
+	{
+		array2.push(4);
+		
+	}
+	else if(array[i] == '금')
+	{
+		array2.push(5);
+		
+	}
+	else if(array[i] == '토')
+	{
+		array2.push(6);
+
+	}
+	else if(array[i] == '일')
+	{
+		array2.push(0);
+		
+	}
+	else if(array[i] == '휴일없음')
+	{
+		
+	}
+	
+	
+}
+
+//두개짜리 제어 연결된거 만들어주는 함수
+
+var disabledDates = myDateCombined // 선택한 날짜를 저장할 변수
+var disabledDays = array2; // 비활성화할 특정 요일 (0: 일요일, 1: 월요일, ..., 6: 토요일)	
+	  $("#datepicker1").datepicker({
+	    language: 'ko',
+	    dateFormat: 'yyyy-mm-dd', // 날짜 형식 설정
+	    minDate: new Date(),
+	    autoClose: true,
+	    inline: true,
+	    onRenderCell: function(date, cellType) {
+	      var formattedDate = date.toLocaleDateString('en-CA', { timeZone: 'Asia/Seoul' }).replace(/\s/g, '').replace(/\./g, '-').slice(0, 10);
+	      if (cellType === 'day') {
+	        // 휴무일 비활성화
+	        if (disabledDates.includes(formattedDate)) {
+	          return {
+	            disabled: true,
+	          };
+	        }
+	        // 휴무일 설정
+	        if (disabledDays.indexOf(date.getDay()) !== -1) {
+	          return {
+	            disabled: true,
+	          };
+	        }
+	      }
+	    }	
+  });  
+});
+
+
+
+//달력
+
+//오토슬라이드
 $(document).ready(function(){
 
 	$(function(){        
@@ -91,245 +231,6 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
-
-
-const calendarDays = document.querySelectorAll(".calendar_days"),
-calendarTitle = document.querySelector(".ctitle"),
-leftButton = document.querySelector(".left_button"),
-rightButton = document.querySelector(".right_button"),
-calendar = document.querySelector(".calendar");
-// dateUpdate = document.querySelector(".date_update");
-
-let monthmonster;
-let yearmonster;
-let firstSelectedDay = 0;
-let lastSelectedDay = 0;
- 
-
-
-
-//const UNAVAILABLE_DATES = [new Date(2023, 4, 26), new Date(2023, 5, 27), new Date(2023, 4, 30)]; // 예약 불가 날짜
-let UNAVAILABLE_DATES = [];
-//let selectedDate = null;
-
-class Calendar {
-	constructor(year, month) {
-	    this.today = new Date(year, month);
-	    this.year = this.today.getFullYear(),
-	    this.month = this.today.getMonth(),
-	    this.date = this.today.getDate(),
-	    this.day = this.today.getDay()
-	}
-
-	
-	getFirstDay() {
-	    const firstDate = new Date(this.year, this.month);
-	    return firstDate.getDay();
-	}
-	alert
-	getLastDay() {
-	    let wholeDays = [];
-	    if ((this.year % 4 === 0 && this.year % 100 !== 0) || (this.year % 400 === 0)) {
-	        wholeDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	    } else {
-	        wholeDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	    }
-	    return wholeDays[this.month];
-	}
-	
-	fillCalendar() {
-	    this.initCalendar();
-	    calendarTitle.innerHTML = `${this.year}년 ${this.month + 1}월`;
-	    yearmonster = this.year;
-	    monthmonster = this.month+1;
-	    
-	    
-    	const today = new Date();
-	    const firstDay = this.getFirstDay();
-	    const lastDay = this.getLastDay();
-	    let day = 1;
-	    
-
-	    for (let i = firstDay; i < calendarDays.length; i++) {
-	
-			if (day <= lastDay) {
-	        const date = new Date(this.year, this.month, day);
-            const button = document.createElement('button');
-            button.classList.add('day_button');
-            
-        
-	         const isUnavailable = UNAVAILABLE_DATES.some((d) => {
-	         return date.getTime() === d.getTime();
-	         });
-	         
-	          
-	         if (date < today) {
-             button.disabled = true;  // 현재 날짜보다 이전인 경우 버튼 비활성화
-            }
-            
-          	if(isUnavailable) {
-            calendarDays[i].innerHTML = `<button class="day_button unavailable"  disabled=true>예약불가</button>`;
-          	} else {
-            button.innerText = day;
-            calendarDays[i].appendChild(button);
-         	}
-            day++;
-        	}
-	         	  
-   	 } 
-	}
-	
-	initCalendar() {
-	    calendarDays.forEach((e) => {
-	        e.innerHTML = "";
-	    });
-	}
-	
-	
-	drawCalendar() {
-	    let change = 0;
-	   
-	    const today = new Date();
-	    let calendarInstance = new Calendar(today.getFullYear(), today.getMonth() + change);
-
-	    calendarInstance.fillCalendar();
-	
-	    leftButton.addEventListener("click", (e) => {
-	        e.stopPropagation();
-	        change--;
-
-	        calendarInstance = new Calendar(today.getFullYear(), today.getMonth() + change);
-	        calendarInstance.fillCalendar();
-	        this.updateCalendarStyle();
-	       	       
-	    });
-	    rightButton.addEventListener("click", (e) => {
-	        e.stopPropagation();
-	        change++;
-	        calendarInstance = new Calendar(today.getFullYear(), today.getMonth() + change);
-	        calendarInstance.fillCalendar();
-	        this.updateCalendarStyle();
-	    });
-	}
-	
-	
-	updateCalendarStyle() {
-	    const dayButtons = document.querySelectorAll(".day_button");
-	  
-	    let clickCount = 0;
-	
-	    // 달력 스타일 초기화
-	    dayButtons.forEach((element) => {
-	        element.classList.remove("day_selected");
-	        calendarDays.forEach((e) => e.classList.remove("gray"));
-	    })
-	
-	
-	    // 달력 날짜들에 클릭 이벤트 추가
-	    dayButtons.forEach((element) => {
-	        element.addEventListener("click", (event) => {
-	            event.target.classList.toggle("day_selected");
-	
-	            clickCount++;
-	
-	            // 선택 일자 타입 변환
-	            if (firstSelectedDay === 0) {
-	                firstSelectedDay = Number(event.target.innerText);
-	            } else {
-	                lastSelectedDay = Number(event.target.innerText);
-	            }
-	
-	            // 클릭 횟수 2회 넘어가면 달력 스타일 초기화
-	            if (clickCount > 2) {
-	                dayButtons.forEach((e) => {
-	                    e.parentNode.classList.remove("gray");
-	                    e.classList.remove("day_selected");
-	                    clickCount = 0;
-	                    firstSelectedDay = 0;
-	                    lastSelectedDay = 0;
-	                });
-	            }
-	            
-	            // 선택 일자 사이에 회색 배경 적용
-	            if (firstSelectedDay !== 0 && lastSelectedDay !== 0) {
-	                dayButtons.forEach((e) => {
-	                    const day = Number(e.innerText);
-	                    if (day >= firstSelectedDay && day <= lastSelectedDay) {
-	                        e.parentNode.classList.toggle("gray");
-	                    }
-	                });
-	            }
-	
-	            // 선택 일자 중 왼쪽값이 오른쪽 값보다 크면 회색 배경 삭제 
-	            if (firstSelectedDay > lastSelectedDay) {
-	                dayButtons.forEach((e) => {
-	                    e.parentNode.classList.remove("gray");
-	                });
-	            }
-	           
-	            if(clickCount == 2)
-	            {
-				console.log(yearmonster);
-	   			console.log(monthmonster);
-	            console.log(firstSelectedDay);  //내가고른 예약 시작 일수
-	            console.log(lastSelectedDay);   //내가고른 예약 시작 끝날
-	          	console.log(roomsnums);
-	          	
-	          	
-	          	var yearobj = $("#yearsmonster");
-	          	yearobj.val(yearmonster);
-	          	
-          	 	var monthobj = $("#monthsmonster");
-          		monthobj.val(monthmonster);
-          			
-          	 	var firstobj = $("#firstmonster");
-          		firstobj.val(firstSelectedDay);
-          	
-          	 	var lastobj = $("#lastsmonster");
-	          	lastobj.val(lastSelectedDay);
-	          	
-	          	 //var URL = "페이지 주소.jsp?name= "+name +"&year=" + year
-	          	//learnup/janso_detail.learnup.com?roomnumber=47
-	         	//var URL = "janso_detail.learnup.com?roomnumber=47"
-				//var rtnVal = window.showModalDialog(URL, "", "dialogWidth:0; dialogHeight:0; help:no; status:no;");
-	          	}
-	        });
-	    });
-	
-	
-	    // 달력 날짜들에 호버링 이벤트 추가
-	    dayButtons.forEach((element) => {
-	        element.addEventListener("mouseenter", (event) => {
-	            event.target.classList.add("day_hover")
-	        });
-	    });
-	
-	    dayButtons.forEach((element) => {
-	        element.addEventListener("mouseleave", (event) => {
-	            event.target.classList.remove("day_hover")
-	        });
-	    });
-	}
-	
-	 
-	
-	handleEvents() {
-	    this.drawCalendar();
-	    this.updateCalendarStyle();
-	}
-
-}
-
-const cal = new Calendar();
-cal.handleEvents();
-
-});
-
-
-
-
-
 /*결제 후 바로 예약확정 빨간불 영역 */
 $(document).ready(function() {
 	setInterval(function() {
@@ -383,6 +284,207 @@ geocoder.addressSearch(chDate, function(result, status) {
 
 
 
+//인원수 체크
+  $(document).ready(function() {
+    function InputNumber(element) {
+      this.$el = $(element);
+      this.$input = this.$el.find("[type=text]");
+      this.$inc = this.$el.find("[data-increment]");
+      this.$dec = this.$el.find("[data-decrement]");
+      this.min = this.$el.attr("min") || false;
+      this.max = this.$el.attr("max") || false;
+      this.init();
+
+    }
+
+    InputNumber.prototype = {
+      init: function () {
+        this.$dec.on("click", $.proxy(this.decrement, this));
+        this.$inc.on("click", $.proxy(this.increment, this));
+      },
+
+      increment: function (e) {
+        var value = this.$input[0].value;
+        value++;
+        if (!this.max || value <= this.max) {
+          this.$input[0].value = value++;
+        }
+      },
+
+      decrement: function (e) {
+        var value = this.$input[0].value;
+        value--;
+        if (!this.min || value >= this.min) {
+          this.$input[0].value = value;
+        }
+      }
+    };
+
+    $.fn.inputNumber = function (option) {
+      return this.each(function () {
+        var $this = $(this),
+          data = $this.data("inputNumber");
+
+        if (!data) {
+          $this.data("inputNumber", (data = new InputNumber(this)));
+        }
+      });
+    };
+
+    $.fn.inputNumber.Constructor = InputNumber;
+
+    $(".input-number").inputNumber();
+  });
+  
+  
+$(document).ready(function() {
+  var persons;
+  
+$('#input-number-decrement, #input-number-increment').on('click', function() {
+    persons = $('#person').val(); 
+     
+    var pprice =  personnel_price.replace(",", "")*1;  
+    var rprice =  room_price.replace(",", "")*1;  
+    var totalPriced =  rprice + pprice * persons;
+
+	 var lastobj = $("#ppp");
+	 
+    $("#priceto").empty();
+    $('#priceto').append(totalPriced.toLocaleString());  //컴마생성까지
+    lastobj.val(totalPriced);
+  });
+ 
+
+});
+
+/* 예약시간 체크*/  
+/*  
+
+ $(document).ready(function() {
+    function InputNumber2(element) {
+      this.$el = $(element);
+      this.$input = this.$el.find("[type=text]");
+      this.$inc = this.$el.find("[data-increment2]");
+      this.$dec = this.$el.find("[data-decrement2]");
+      this.min = this.$el.attr("min") || false;
+      this.max = this.$el.attr("max") || false;
+      this.init();
+
+    }
+
+    InputNumber2.prototype = {
+      init: function () {
+        this.$dec.on("click", $.proxy(this.decrement2, this));
+        this.$inc.on("click", $.proxy(this.increment2, this));
+      },
+
+      increment2: function (e) {
+        var value = this.$input[0].value;
+        value++;
+        if (!this.max || value <= this.max) {
+          this.$input[0].value = value + (time3*1)-1;
+        }
+      },
+
+      decrement2: function (e) {
+        var value = this.$input[0].value;
+        value--;
+        if (!this.min || value >= this.min) {
+          this.$input[0].value = value - (time3*1)+1;
+        }
+      }
+    };
+
+    $.fn.inputNumber2 = function (option) {
+      return this.each(function () {
+        var $this = $(this),
+          data = $this.data("inputNumber2");
+
+        if (!data) {
+          $this.data("inputNumber2", (data = new InputNumber2(this)));
+        }
+      });
+    };
+
+    $.fn.inputNumber2.Constructor = InputNumber2;
+
+    $(".input-number2").inputNumber2();
+  });
+  
+  
+$(document).ready(function() {
+   var pprice =  personnel_price.replace(",", "")*1;  
+    var rprice =  room_price.replace(",", "")*1;  
+    var totalPriced =  rprice + pprice * persons;
+    
+$('#input-number-decrement2, #input-number-increment2').on('click', function() {
+    timez = $('#timez').val(); 
+     
+    
+
+    $("#priceto").empty();
+    $('#priceto').append(totalPriced);
+  });
+ 
+});
+*/
+});
+
+$(document).ready(function(){
+var nick =nickname;
+var roomnssd = roomsnums;
+
+console.log(roomnssd);
+console.log(nick);
+	
+//리뷰 뷰
+$.ajax({
+  url: "janso_detailreview.learnup.com",
+  type: "GET",
+  data: {
+    nick: nick,
+    roomnssd: roomnssd
+  }, // 전송할 데이터 설정
+  success: function(response) {
+    // 요청이 성공한 경우에 대한 처리
+    // response 변수에 응답으로 받은 내용이 들어 있습니다.
+    // 여기서는 해당 내용을 원하는 방식으로 처리할 수 있습니다.
+    $("#review_box").html(response);
+  
+  },
+  error: function(xhr, status, error) {
+    // 요청이 실패한 경우에 대한 처리
+  }
+});
+
+});
+
+//리뷰 인설트 
+$(document).ready(function(){
+var nick1 =nickname;
+var roomnssd1 = roomsnums;
+
+
+	
+	
+$.ajax({
+  url: "janso_detailreviewin.learnup.com",
+  type: "GET",
+  data: {
+    nick1: nick1,
+    roomnssd1: roomnssd1
+  }, // 전송할 데이터 설정
+  success: function(response) {
+    // 요청이 성공한 경우에 대한 처리
+    // response 변수에 응답으로 받은 내용이 들어 있습니다.
+    // 여기서는 해당 내용을 원하는 방식으로 처리할 수 있습니다.
+    $("#review_box2").html(response);
+  
+  },
+  error: function(xhr, status, error) {
+    // 요청이 실패한 경우에 대한 처리
+  }
+});
 
 });
 

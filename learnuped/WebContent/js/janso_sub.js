@@ -1,3 +1,6 @@
+$(document).ready(function(){
+
+
 //제이쿼리 스크립트 전체선택 해제
 $(function(){
     var tt = 0;
@@ -9,14 +12,40 @@ $(function(){
        var ischecked = $('#ch').prop("checked");
         
         if ( ischecked == true) {
-          $('input:checkbox[name=cho]').prop("checked",true);
+          $('input:checkbox[name=ch]').prop("checked",true);
+          $('input:checkbox[name=keworld]').prop("checked",true);
+          $('input:checkbox[name=keworld1]').prop("checked",true);
+          $('input:checkbox[name=keworld2]').prop("checked",true);
+          $('input:checkbox[name=keworld3]').prop("checked",true);
+          $('input:checkbox[name=keworld4]').prop("checked",true);
+          $('input:checkbox[name=keworld5]').prop("checked",true);
+          $('input:checkbox[name=keworld6]').prop("checked",true);
+          $('input:checkbox[name=keworld7]').prop("checked",true);
           $("#to1").show();
             tt = 1
             $('#chbu').html("▲")
         }
         else
         {
-          $('input:checkbox[name=cho]').prop("checked",false);
+          $('input:checkbox[name=ch]').prop("checked",false);
+          tt = 0;
+        }
+     });
+     
+       $('#ch2').click(function()
+     {   
+        //[prop]: 속성 상태
+       var ischecked = $('#ch2').prop("checked");
+        
+        if ( ischecked == true) {
+          $('input:checkbox[name=cho2]').prop("checked",true);
+          $("#to2").show();
+            tt = 1
+            $('#chbu2').html("▲")
+        }
+        else
+        {
+          $('input:checkbox[name=cho2]').prop("checked",false);
           tt = 0;
         }
      });
@@ -42,11 +71,6 @@ $(function(){
         }
        
     });
-    
-    
-    
-    
-    
     
     
     
@@ -89,6 +113,20 @@ $(function(){
     });
 });
 
+// 체크박스 재출
+const checkboxes = document.querySelectorAll('.checkbox_1'); 
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', (event) => {
+    
+       // document.getElementById('frm').submit();
+     
+     
+  });
+});
+
+ 
+
+//
 //인원수 체크
   $(document).ready(function() {
     function InputNumber(element) {
@@ -200,4 +238,4 @@ $(function(){
  	});
 });
 
-
+  });

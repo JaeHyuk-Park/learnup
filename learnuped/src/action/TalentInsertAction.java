@@ -63,19 +63,19 @@ public class TalentInsertAction implements TalentAction {
 		}
 		
 		version.setTitle(multi.getParameter("vers_title"));
-		version.setDescript(multi.getParameter("vers_descript"));
+		version.setDescript(multi.getParameter("vers_descript").replace("\r\n", "<br>"));
 		version.setPrice(Integer.parseInt(multi.getParameter("vers_price")));
 		version.setDate(Integer.parseInt(multi.getParameter("vers_date")));
 		version.setNum(Integer.parseInt(multi.getParameter("recruit_num")));
 		
 		if(multi.getParameter("service_descript") != null) {
-			talent.setService_descript(multi.getParameter("service_descript"));
+			talent.setService_descript(multi.getParameter("service_descript").replace("\r\n", "<br>"));
 			System.out.println("서비스설명 들어옴");
 		}if(multi.getParameter("service_text") != null) {
-			talent.setService_text(multi.getParameter("service_text"));
+			talent.setService_text(multi.getParameter("service_text").replace("\r\n", "<br>"));
 			System.out.println("서비스 텍스트 들어옴.");
 		}if(multi.getParameter("recruit") != null) {
-			talent.setRecruit(multi.getParameter("recruit"));
+			talent.setRecruit(multi.getParameter("recruit").replace("\r\n", "<br>"));
 			System.out.println("리크릿");
 		}
 		

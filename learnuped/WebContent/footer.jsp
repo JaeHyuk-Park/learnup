@@ -18,6 +18,10 @@
 		
 		<!-- JQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="js/datepicker.min.js"></script>
+    	<script src="js/datepicker.ko.js"></script>
+    	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
 		<!-- JS -->
 		<script type="text/javascript"></script>
